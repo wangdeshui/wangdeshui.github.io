@@ -4,7 +4,6 @@ category : 生活
 title: 斯德哥尔摩-我来了
 tagline: Long Trip
 tags : [生活]
-date: 2014-11-13 8:00:00
 ---
 {% include JB/setup %}
 
