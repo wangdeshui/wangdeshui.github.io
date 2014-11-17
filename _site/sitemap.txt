@@ -8,6 +8,7 @@ http://wangdeshui.github.io/rss.xml
 http://wangdeshui.github.io/sitemap.txt
 http://wangdeshui.github.io/tags.html
 
+http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/14/test
 http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/13/go-to-sweden
 http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/13/first-night-of-stokholm
 http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/11/xian-beauty
