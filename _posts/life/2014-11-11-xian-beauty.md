@@ -2,8 +2,8 @@
 layout: post
 category : 生活
 title: 南湖
-tagline: 西安可以这么美
-tags : [生活]
+tagline: "西安可以这么美"
+tags: [生活]
 ---
 {% include JB/setup %}
 

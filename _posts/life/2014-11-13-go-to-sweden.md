@@ -2,8 +2,7 @@
 layout: post
 category : 生活
 title: 斯德哥尔摩-我来了
-tagline: Long Trip
-tags : [生活]
+tags: [生活]
 ---
 {% include JB/setup %}
 
