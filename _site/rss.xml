@@ -5,20 +5,10 @@
         <description>上善若水 - Wang Deshui</description>
         <link>http://wangdeshui.github.io</link>
         <link>http://wangdeshui.github.io</link>
-        <lastBuildDate>2014-11-17T04:49:52+01:00</lastBuildDate>
-        <pubDate>2014-11-17T04:49:52+01:00</pubDate>
+        <lastBuildDate>2014-11-17T04:52:23+01:00</lastBuildDate>
+        <pubDate>2014-11-17T04:52:23+01:00</pubDate>
         <ttl>1800</ttl>
 
-
-        <item>
-                <title>test</title>
-                <description>
-&lt;p&gt;test&lt;/p&gt;
-</description>
-                <link>http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/14/test</link>
-                <guid>http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/14/test</guid>
-                <pubDate>2014-11-14T00:00:00+01:00</pubDate>
-        </item>
 
         <item>
                 <title>斯德哥尔摩-我来了</title>
@@ -111,6 +101,16 @@
                 <link>http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/11/xian-beauty</link>
                 <guid>http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/11/xian-beauty</guid>
                 <pubDate>2014-11-11T00:00:00+01:00</pubDate>
+        </item>
+
+        <item>
+                <title>test</title>
+                <description>
+&lt;p&gt;test&lt;/p&gt;
+</description>
+                <link>http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/02/test</link>
+                <guid>http://wangdeshui.github.io/%E7%94%9F%E6%B4%BB/2014/11/02/test</guid>
+                <pubDate>2014-11-02T00:00:00+01:00</pubDate>
         </item>
 
         <item>
