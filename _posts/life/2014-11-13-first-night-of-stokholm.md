@@ -3,6 +3,7 @@ layout: post
 category : 生活
 title: 斯德哥尔摩第一天
 tagline: "Long Trip"
+date: 2014-11-13 8:00:00
 tags : [生活]
 ---
 {% include JB/setup %}

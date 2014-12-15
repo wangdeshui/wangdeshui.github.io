@@ -2,6 +2,7 @@
 layout: post
 category : 生活
 title: 斯德哥尔摩-我来了
+date: 2014-11-13 7:00:00
 tags: [生活]
 ---
 {% include JB/setup %}
