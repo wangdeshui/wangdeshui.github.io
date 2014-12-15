@@ -22,6 +22,7 @@ Check In 后，我的好朋友Fredrik开完会很快就来了，然后就带我�
 
 然后，由于太累了，就回来早早睡了。
 
+
 <img style="margin:10px; max-width:500px;" class="img-responsive img-rounded" src="/assets/images/stockholm/3.jpg"/>
 
 
