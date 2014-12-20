@@ -17,6 +17,6 @@ tags: [生活]
 
 晚上客户安排了一些人带我们座地铁去一个比较远点得地方（他们自己觉得很好的餐馆）吃了晚餐，他们安排了人给我们买了交通月卡（这个不错，一个月公交和地铁随便坐），不过去的都是客户里的一群屌丝，最后还是我买的单。
 
-饭菜的图就不贴了，和我泱泱大国美食没法比。
+<img style="margin:10px; max-width:500px;" class="img-responsive img-rounded" src="/assets/images/stockholm/diaosi-dinner.jpg"/>
 
 明天是星期六，斯德哥尔摩，走起！
