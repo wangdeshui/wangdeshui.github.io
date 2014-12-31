@@ -17,26 +17,26 @@ img {
 
 Stockholm的楼层都相对较低，客户所在的大楼稍微高一些，所以能看到城市的楼顶。楼等果然和国内的不同呀，典型的欧式建筑。
 
-<img  src="/assets/images/stockholm/20141120/2.jpg"/>
+<img  src="/assets/images/stockholm/20141121/2.jpg"/>
 
-<img  src="/assets/images/stockholm/20141120/3.jpg"/>
+<img  src="/assets/images/stockholm/20141121/3.jpg"/>
 
 
 清一色的苹果电脑，可升降的桌椅站立和坐着办公自由切换，这个很不错。
 
-<img  src="/assets/images/stockholm/20141120/1.jpg"/>
+<img  src="/assets/images/stockholm/20141121/1.jpg"/>
 
 
 工作了一天，讨论需求和设计，面对面的沟通，辅助白板效率是相当的高。
 
-<img  src="/assets/images/stockholm/20141120/5.jpg"/>
+<img  src="/assets/images/stockholm/20141121/5.jpg"/>
 
-<img  src="/assets/images/stockholm/20141120/6.jpg"/>
+<img  src="/assets/images/stockholm/20141121/6.jpg"/>
 
 
 周五的下午可以喝着啤酒办公，这个不错，感觉我们是否也可以引进？（我的Surface其实也蛮霸气！）
 
-<img  src="/assets/images/stockholm/20141120/4.jpg"/>
+<img  src="/assets/images/stockholm/20141121/4.jpg"/>
 
 
 
