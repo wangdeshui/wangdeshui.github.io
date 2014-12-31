@@ -96,10 +96,12 @@ Stockholm的每一个路口都有很多的路灯，而且路灯都相对比较�
 很多公园里都有免费小孩活动的地方
 
 <img  src="/assets/images/stockholm/20141115/18.jpg"/>
+<img  src="/assets/images/stockholm/20141115/22.jpg"/>
 
 免费的足球场
 
 <img  src="/assets/images/stockholm/20141115/19.jpg"/>
+<img  src="/assets/images/stockholm/20141115/23.jpg"/>
 
 # 地铁
 
