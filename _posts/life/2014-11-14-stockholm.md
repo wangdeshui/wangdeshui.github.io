@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 生活
-title: 斯德哥尔摩-第一天上班
+title: 斯德哥尔摩30天-第一天上班
 date: 2014-11-14 7:00:00
 tags: [生活]
 ---
