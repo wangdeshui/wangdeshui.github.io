@@ -109,5 +109,18 @@ Stockholm的每一个路口都有很多的路灯，而且路灯都相对比较�
 
 <img  src="/assets/images/stockholm/20141115/21.jpg"/>
 
+# 做客
+
+晚上去Richard家做客，带花是必须的礼节。
+
+<img  src="/assets/images/stockholm/20141115/24.jpg"/>
+
+
+
+
+
+
+
+
 
 
