@@ -81,26 +81,26 @@ Stockholm的每一个路口都有很多的路灯，而且路灯都相对比较�
 
 跑步的人无处不在，街道上有人跑步，河边有人跑步，天黑在跑，天亮在跑，年轻人在跑，老年人还有拄着登山杖跑，更厉害的，很多推着婴儿车带着小孩一起跑。所以男男女女看着都比较健康，美女帅哥比较多呀。
 
-<img  src="/assets/images/stockholm/20141115/16.jpg"/>
+<img  src="/assets/images/stockholm/20141115/16.JPG"/>
 
 
 # 自力更生的小孩
 
 好冷的天，小孩在卖东西。
 
-<img  src="/assets/images/stockholm/20141115/17.jpg"/>
+<img  src="/assets/images/stockholm/20141115/17.JPG"/>
 
 
 # 免费得儿童活动区域
 
 很多公园里都有免费小孩活动的地方
 
-<img  src="/assets/images/stockholm/20141115/18.jpg"/>
+<img  src="/assets/images/stockholm/20141115/18.JPG"/>
 <img  src="/assets/images/stockholm/20141115/22.jpg"/>
 
 免费的足球场
 
-<img  src="/assets/images/stockholm/20141115/19.jpg"/>
+<img  src="/assets/images/stockholm/20141115/19.JPG"/>
 <img  src="/assets/images/stockholm/20141115/23.jpg"/>
 
 # 地铁
