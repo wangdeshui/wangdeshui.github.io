@@ -53,7 +53,7 @@ Stockholm的每一个路口都有很多的路灯，而且路灯都相对比较�
 
 这个只是城市的一角，可见全被河流环绕和分割成很多岛。
 
-<img  src="/assets/images/stockholm/20141115/20.jpg"/>
+<img  src="/assets/images/stockholm/20141115/20.JPG"/>
 
 # 河边风景
 
@@ -107,7 +107,7 @@ Stockholm的每一个路口都有很多的路灯，而且路灯都相对比较�
 
 地铁的人好少, 要是北京也这样，改多幸福！
 
-<img  src="/assets/images/stockholm/20141115/21.jpg"/>
+<img  src="/assets/images/stockholm/20141115/21.JPG"/>
 
 # 做客
 
