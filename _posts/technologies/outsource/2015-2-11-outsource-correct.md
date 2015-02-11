@@ -1,9 +1,9 @@
 ---
 layout: post
-category : Outsource
-title: 欧美软件外包系列（一）：正确看待外包
+category : 外包
+title: 欧美软件外包系列 (一): 正确看待外包
 date: 2015-02-11 17:00:00
-tags: [Outsource]
+tags: [外包]
 ---
 
 #前言
