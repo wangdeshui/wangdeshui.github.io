@@ -28,7 +28,7 @@ tags: [DDD]
 
 比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. 
 
-    {% highlight C# %}
+    {% highlight csharp %}
     
 	public class Employee : Entity
     {
