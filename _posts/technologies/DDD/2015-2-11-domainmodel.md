@@ -29,6 +29,7 @@ tags: [DDD]
 比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. 
 
     {% highlight C# %}
+    
 	public class Employee : Entity
     {
         public Name Name { get; set; }
@@ -36,12 +37,14 @@ tags: [DDD]
         public EmployeeStatus EmployeeStatus { get; set; }
 
     }
+    
     {% endhighlight %}
 	
 如果是贫血的Employee模型，我们往往代码如下
 
 
 	{% highlight C# %}
+	
 	public class EmployeeService : IEmployeeService
     {
         private readonly IUnitOfWorkFactory _unitOfWorkFactory;
@@ -64,6 +67,7 @@ tags: [DDD]
             }
         }
     }
+    
 	{% endhighlight %}
 
 
