@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 技术
-title: 领域驱动设计系列(四)：事件驱动下
+title: 领域驱动设计系列 (四)：事件驱动下
 date: 2015-02-11 15:00:00
 tags: [DDD]
 ---
