@@ -17,6 +17,7 @@ tags: [DDD]
 
 ## 发出事件
 
+       
        public void Head()
         {
             var NewsPaper = new NewsPaper("南都娱乐");
