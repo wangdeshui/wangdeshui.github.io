@@ -31,10 +31,10 @@ tags: [欧美外包]
 
 ### 更好的架构
 
-为了支撑变化，我们需要根据不同的项目来设计好的架构，什么是好的架构呢？ 就是“一点也不多，一点也不少”，每当增加新功能的时候，我们不用改太多代码，升值我们只增加代码，不影响原来代码，这不就是OCP（开闭原则）吗? 我们希望写过的代码能够更多的重用，已有的代码能够更稳定，于是我们就需要分层设计，我们就需要多层的架构，我们就需要解耦，因此我们就用到了比如 MVC, MVVM, Domain Driven Design, Event Driven, CQRS, Event Soruce, Message Queue等等。
+为了支撑变化，我们需要根据不同的项目来设计好的架构，什么是好的架构呢？ 就是“一点也不多，一点也不少”，每当增加新功能的时候，我们不用改太多代码，甚至我们只增加代码，不影响原来代码，这不就是OCP（开闭原则）吗? 我们希望写过的代码能够更多的重用，已有的代码能够更稳定，于是我们就需要分层设计，我们就需要多层的架构，我们就需要解耦，因此我们就用到了比如 MVC, MVVM, Domain Driven Design, Event Driven, CQRS, Event Soruce, Message Queue等等。
 
 ### 可靠的质量
-为了提交高质量，我们出了需要一定的过程保证之外，同样需要很多技术的支撑，我们如何对我们提交的代码质量有信心呢？
+为了提交高质量，我们除了需要一定的过程保证之外，同样需要很多技术的支撑，我们如何对我们提交的代码质量有信心呢？
 我们需要Unit Testing, 我们甚至需要引入TDD, 我们需要引入一些自动化测试工具来做回归测试，比如Selenium, Watin 等。为了很好的进行单元测试，我们必须要面向接口编程，我们需要去掉系统里的New. 我们因此需要使用依赖注入比如Castle, NInject, 或者Unity等。
 
 ### 整洁的代码
@@ -79,11 +79,12 @@ tags: [欧美外包]
 ### 架构
 * MVC
 * MVVM
+* SOA
 * Domain Driven Design
 * Event Driven
 
 ### 技术
-* C#, Android, Java, Ruby
+* C#
 * EntityFramwork, NHibernate, Dapper, NoSQL
 * ASP.NET MVC, ASP.NET Web API
 * WCF, Restful
@@ -97,5 +98,7 @@ tags: [欧美外包]
 * Event Source, CQRS, DDD
 
 所以，谁说外包无技术？ 看你怎么做而已。
+
+想加入我们吗？ 发邮件到 wangds@shinetechchina.com.
 
 
