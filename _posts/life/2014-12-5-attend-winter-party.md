@@ -9,7 +9,9 @@ tags: [生活]
 <style type="text/css">
 img {	
     margin: 10px;
-    max-width: 400px;        
+    max-width: 600px; 
+    border-radius: 15px;  
+    border: solid 4px #ccc;     
 	}
 
 </style>
@@ -36,42 +38,53 @@ img {
 <img  src="/assets/images/winter-party/1.jpg"/>
 
 酒
+
 <img  src="/assets/images/winter-party/2.jpg"/>
 
 正装
+
 <img  src="/assets/images/winter-party/3.jpg"/>
 
 
 <img  src="/assets/images/winter-party/4.jpg"/>
 
 我们的帅哥，也是我们的朋友
+
 <img  src="/assets/images/winter-party/5.jpg"/>
 
 三个屌丝，中间是我
+
 <img  src="/assets/images/winter-party/6.jpg"/>
 
 高朋满座
+
 <img  src="/assets/images/winter-party/7.jpg"/>
 
 <img  src="/assets/images/winter-party/8.jpg"/>
 
 
 假瑞典王子，骗过不少人呀
+
 <img  src="/assets/images/winter-party/9.jpg"/>
 
 他们最佳员工，和我们密切合作的，主要是与外包团队协作，我们是不是也骄傲一下？
+
 <img  src="/assets/images/winter-party/10.jpg"/>
 
 美女们，其中一个来机场接我们，谢谢了。
+
 <img  src="/assets/images/winter-party/11.jpg"/>
 
 真心不错的合唱，天籁之音的感觉
+
 <img  src="/assets/images/winter-party/12.jpg"/>
 
 姑娘，你的衣服真的穿好了吗？
+
 <img  src="/assets/images/winter-party/13.jpg"/>
 
-和我一起做项目的帅哥，看看人家，以后你们再加我帅哥，我就知道你们是违心的。
+和我一起做项目的帅哥，看看人家，以后你们再叫我帅哥，我就知道你们是违心的。
+
 <img  src="/assets/images/winter-party/14.jpg"/>
 
 
