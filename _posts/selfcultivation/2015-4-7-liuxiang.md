@@ -2,7 +2,6 @@
 layout: post
 category : 自我修养
 title: 刘翔退役
-tagline: 跟随刘翔成长
 date: 2015-04-07 21:00:00
 tags: [自我修养]
 ---
