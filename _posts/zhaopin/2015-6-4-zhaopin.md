@@ -1,10 +1,9 @@
-
 ---
 layout: post
 category : 招聘
-title: 求贤若渴
-date: 2015-06-04 8:00:00
-tags: [HR]
+title: 招聘
+date: 2015-06-04 9:00:00
+tags: [zhaopin]
 ---
 
 联系人: wangdeshui@outlook.com
