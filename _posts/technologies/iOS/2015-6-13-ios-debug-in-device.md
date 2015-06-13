@@ -1,6 +1,6 @@
 ---
 layout: post
-category : iOS
+category : 移动开发
 title: iOS开发(一)：真机调试
 date: 2015-06-13 7:00:00
 tags: [iOS]
