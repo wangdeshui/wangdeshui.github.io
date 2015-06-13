@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 技术
-title: iOS开发:真机调试
+title: iOS开发(一)：真机调试
 date: 2015-06-13 7:00:00
 tags: [iOS]
 ---
@@ -12,7 +12,7 @@ tags: [iOS]
 
 <style>
 img {
-  max-width: 500px;
+  max-width: 700px;
   border: solid 2px #ccc;
   padding: 5px;
   border-radius:5px;
@@ -37,15 +37,19 @@ img {
 ## 创建证书请求申请 (Certificate Signing Request)
 
 选择 “Certificate Assistant”，然后点击 “Request Certificate from A Certificate Authority.”
+
 <img src="/assets/images/ios/debug-in-device/request-certification.png" />
 
 填入你的Email 名字，选择Save to Disk, 这是会生成一个CertificateSigningRequest.certSigningRequest 文件
+
 <img src="/assets/images/ios/debug-in-device/certificaiton-info.png"/>
+
 <img src="/assets/images/ios/debug-in-device/save-certification-info.png"/>
 
 ## 创建开发者证书
 
 登录开发者中心，选择证书Development, 然后点击右边添加
+
 <img src="/assets/images/ios/debug-in-device/member-center.png" />
 
 选择Development--->iOS App Development
@@ -55,9 +59,11 @@ img {
 <img src="/assets/images/ios/debug-in-device/how-to-create-csr.png"/>
 
 这一步上传你刚才的CertificateSigningRequest.certSigningRequest 文件，点击Generate
+
 <img src="/assets/images/ios/debug-in-device/generate-your-certificate.png"/>
 
 Download 你的证书，然后双击就会加入系统
+
 <img src="/assets/images/ios/debug-in-device/generate-dev-certification.png" />
 
 ## 注册你的设备
@@ -65,6 +71,7 @@ Download 你的证书，然后双击就会加入系统
 <img src="/assets/images/ios/debug-in-device/register-device.png"/>
 
 如果不知道UUID, 打开iTunes, 双击Serial Number
+
 <img src="/assets/images/ios/debug-in-device/itunes.png" />
 <img src="/assets/images/ios/debug-in-device/uuid.png"/>
 
@@ -92,6 +99,7 @@ Download 你的证书，然后双击就会加入系统
 ## 项目设置
 
 设置项目的Bundle ID 为之前创建的APP ID
+
 <img src="/assets/images/ios/debug-in-device/xcode-setting-bundle.png"/>
 
 然后选择你对应的Code Sign
@@ -99,4 +107,5 @@ Download 你的证书，然后双击就会加入系统
 <img src="/assets/images/ios/debug-in-device/xcode-code-sign.png" />
 
 ## 真机调试
+
 插入你的设备，选择你的设备，点击运行，就可以真机调试了。
