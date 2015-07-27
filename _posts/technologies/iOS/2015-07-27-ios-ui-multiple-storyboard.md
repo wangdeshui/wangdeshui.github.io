@@ -5,8 +5,6 @@ title: iOS UI系列 (二) ：使用多个StoryBoard
 date: 2015-07-27 8:00:00
 tags: [iOS]
 ---
-
-
 <style>
 img {
   max-width: 700px;
@@ -17,6 +15,7 @@ img {
 </style>
 
 
+## 为什么要使用多个StoryBoard
 
 StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个项目页面之间的关系，但是如果项目所有的页面都放到一个StoryBoard, 会带来以下一些问题
 
@@ -78,8 +77,6 @@ StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个
 打开Main.storyboard, 为SecondViewController上的按钮建立一个IBAction, 然后在SecondViewController.swift里添加如下代码
 
 
- 
-
      @IBAction func GotoSecondStoryBoard(sender: AnyObject) {
             
      		let vc = UIStoryboard(name: "Second", bundle: nil).instantiateInitialViewController() as! UIViewController
@@ -89,8 +86,6 @@ StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个
 
 
 如果我们不设置Is Intial View Controller, 那么我们需要设置View Controller的StoryBoard Id, 然后使用如下代码
-
-
 
 
     let vc = UIStoryboard(name: "Second", bundle: nil).instantiateViewControllerWithIdentifier("FirstView") as! UIViewController
