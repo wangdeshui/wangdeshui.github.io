@@ -1,8 +1,8 @@
 ---
 layout: post
 category : 移动开发
-title: iOS UI系列 (三) ：可复用的Button 
-date: 2015-07-27 9:00:00
+title: iOS UI系列 (三) ：Reusable Button 
+date: 2015-07-27 11:00:00
 tags: [iOS]
 ---
 <style>
@@ -13,7 +13,6 @@ img {
   border-radius:5px;
 }
 </style>
-
 
 
 有时候我们需要给一些做一些设置，但是这些控件却需要用在多个地方，如果在每一个ViewController都设置一遍，那么代码就不整洁了，而且比较耗时间。
@@ -55,9 +54,9 @@ img {
     
     
     
-  设置UIButton的Custom class为 RoundButton
+ 设置UIButton的Custom class为 RoundButton
   
-  <img src="/assets/images/ios/UI/3/1.png" />
+ <img src="/assets/images/ios/UI/3/1.png" />
     
 
 
