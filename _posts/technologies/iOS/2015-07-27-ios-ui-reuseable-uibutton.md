@@ -56,9 +56,10 @@ img {
     
  设置UIButton的Custom class为 RoundButton
   
- <img src="/assets/images/ios/UI/3/1.png" />
+ 
+<img src="/assets/images/ios/UI/3/1.png" />
     
-
+<img src="/assets/images/ios/UI/3/2.png" />
 
 
 
