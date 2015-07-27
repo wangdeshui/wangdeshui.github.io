@@ -22,7 +22,7 @@ img {
 
 <img src="/assets/images/ios/UI/1/1.png" /> 
 
-然后我们向StoryBoard的ViewController 添加3个UIView, 设置不同的背景色，我们的目的是上这三个试图垂直高度三等分。
+然后我们向StoryBoard的ViewController 添加3个UIView, 设置不同的背景色，我们的目的是让这三个UIView垂直高度三等分。
 
 <img src="/assets/images/ios/UI/1/2.png" />
 
