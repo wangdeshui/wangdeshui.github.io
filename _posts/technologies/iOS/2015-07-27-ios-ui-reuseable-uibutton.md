@@ -7,7 +7,7 @@ tags: [iOS]
 ---
 <style>
 img {
-  max-width: 800px;
+  max-width: 700px;
   border: solid 2px #ccc;
   padding: 5px;
   border-radius:5px;
