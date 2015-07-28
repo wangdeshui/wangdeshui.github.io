@@ -2,7 +2,7 @@
 layout: post
 category : 移动开发
 title: iOS UI系列 (四) ：可复用的Xib(1) 静态内容 
-date: 2015-07-27 11:00:00
+date: 2015-07-28 7:00:00
 tags: [iOS]
 ---
 <style>
