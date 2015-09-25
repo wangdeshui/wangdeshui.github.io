@@ -36,13 +36,13 @@ tags : [生活]
 所以，我们看一下，我们干了多少事，我的感慨就是时间总是比我们想的多！
 
 # 美图
-<img style="margin:10px; max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/1.jpg"/>
-<img style="margin:10px;max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/2.jpg"/>
-<img style="margin:10px;max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/3.jpg"/>
-<img style="margin:10px;max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/4.jpg"/>
-<img style="margin:10px; max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/5.jpg"/>
-<img style="margin:10px;max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/6.jpg"/>
-<img style="margin:10px;max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/7.jpg"/>
-<img style="margin:10px;max-width:500px;" class="img-responsive img-rounded" src="/assets/images/visa/8.jpg"/>
+<img style="margin:10px; " class="img-responsive img-rounded" src="/assets/images/visa/1.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/visa/2.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/visa/3.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/visa/4.jpg"/>
+<img style="margin:10px; " class="img-responsive img-rounded" src="/assets/images/visa/5.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/visa/6.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/visa/7.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/visa/8.jpg"/>
 
 

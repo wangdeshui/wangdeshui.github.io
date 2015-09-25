@@ -8,6 +8,12 @@ tags : [生活]
 ---
 {% include JB/setup %}
 
+<style>
+img {
+
+	max-width: 800px;
+}
+</style>
 
 下了飞机已经是当地下午16:30, 由于我们是商务签证，出镜是就简单的问了几句就出来了，比我当年去London的时候简单多了，然后就取了行李。
 
@@ -24,7 +30,7 @@ Check In 后，我的好朋友Fredrik开完会很快就来了，然后就带我�
 然后，由于太累了，就回来早早睡了。
 
 
-<img style="margin:10px; max-width:500px;" class="img-responsive img-rounded" src="/assets/images/stockholm/3.jpg"/>
+<img style="margin:10px; " class="img-responsive img-rounded" src="/assets/images/stockholm/3.jpg"/>
 
 
 

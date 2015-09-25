@@ -36,23 +36,23 @@ blockquote p{
 >市政厅内有巨大的宴会厅。宴会厅也有“蓝厅”的誉称。每年的12月10日是诺贝尔逝世日。这一天，诺贝尔奖金颁发后，瑞典国王和王后都要在宴会厅，为诺贝尔奖金获得者举行隆重盛大的宴会，表示热烈的祝贺。
 
 <div class="img-container">
-	<img  src="/assets/images/stockholm/20141130/1.jpg"/>
-	<img  src="/assets/images/stockholm/20141130/2.jpg"/>
-	<img  src="/assets/images/stockholm/20141130/3.jpg"/>
+	<img class="img-responsive" src="/assets/images/stockholm/20141130/1.jpg"/>
+	<img class="img-responsive" src="/assets/images/stockholm/20141130/2.jpg"/>
+	<img class="img-responsive" src="/assets/images/stockholm/20141130/3.jpg"/>
 
-<img  src="/assets/images/stockholm/20141130/8.jpg"/>
+<img class="img-responsive"  src="/assets/images/stockholm/20141130/8.jpg"/>
 </div>
 
 # 瑞典皇宫
 
 >瑞典皇宫是国王办公和举行庆典的地方，斯德哥尔摩主要旅游景点。坐落在斯德哥尔摩市中心。建于17世纪，是瑞典著名建巩学家特里亚尔的作品。皇宫方正宽敞，中间有一个很大的场院，楼房围着场院而建，共有608个房间，比英国的白金汉宫还多4间。如今瑞典王室并不住在这里，而是住在在郊区的皇后岛，国王每天开车到皇宫来上班。
 
-<img  src="/assets/images/stockholm/20141130/4.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141130/4.jpg"/>
 
 # 诺贝尔博物馆
 这里能看到莫言的图像和介绍，还是很骄傲的！
 
-<img  src="/assets/images/stockholm/20141130/5.jpg" style="max-width:300px;" />
+<img class="img-responsive" src="/assets/images/stockholm/20141130/5.jpg" style="max-width:300px;" />
 
 
 # 斯堪森
@@ -61,20 +61,20 @@ blockquote p{
 
 
 
-<img  src="/assets/images/stockholm/20141130/6.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141130/6.jpg"/>
 
-<img  src="/assets/images/stockholm/20141130/7.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141130/7.jpg"/>
 
 
-<img  src="/assets/images/stockholm/20141130/9.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141130/9.jpg"/>
 
-<img  src="/assets/images/stockholm/20141130/10.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141130/10.jpg"/>
 
 下面是修女吗？
 
 一首 《we wish you a merry christmas》甚是好听。
 
-<img  src="/assets/images/stockholm/20141130/11.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141130/11.jpg"/>
 
 
 

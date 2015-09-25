@@ -7,6 +7,13 @@ tags: [生活]
 ---
 {% include JB/setup %}
 
+<style>
+img {
+
+	max-width: 800px;
+}
+</style>
+
 来斯德哥尔摩第一天主要是见了我们客户A，上午A客户那里和他们见了个面，听听早会，寒暄了一会就到中午了。
 
 中午A客户的老板带我们去一个看着不错的餐馆吃了午餐，反正啥也不认识，就招一个最贵的点，不好吃也不难吃。（就不明白很多人为什么觉得西餐很好吃）。
@@ -17,6 +24,6 @@ tags: [生活]
 
 晚上客户安排了一些人带我们座地铁去一个比较远点得地方（他们自己觉得很好的餐馆）吃了晚餐，他们安排了人给我们买了交通月卡（这个不错，一个月公交和地铁随便坐），不过去的都是客户里的一群屌丝，最后还是我买的单。
 
-<img style="margin:10px; max-width:500px;" class="img-responsive img-rounded" src="/assets/images/stockholm/diaosi-dinner.jpg"/>
+<img style="margin:10px; " class="img-responsive img-rounded" src="/assets/images/stockholm/diaosi-dinner.jpg"/>
 
 明天是星期六，斯德哥尔摩，走起！

@@ -31,7 +31,7 @@ StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个
 
 首先建立一个Single View Application, 在StoryBoard里添加2个UIViewController, 并且设置好导航关系
 
-<img src="/assets/images/ios/UI/2/1.png" /> 
+<img class="img-responsive" src="/assets/images/ios/UI/2/1.png" /> 
 
 
 新建一个SecondViewController类, Command+N-->Coca Touch cass-->Next, 继承UIViewController, 选择Swift语言
@@ -66,10 +66,10 @@ StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个
  
  设置第一个UIViewController如下
  
- <img src="/assets/images/ios/UI/2/3.png" />
+<img  class="img-responsive"src="/assets/images/ios/UI/2/3.png" />
  
  
- <img src="/assets/images/ios/UI/2/2.png" />
+<img class="img-responsive" src="/assets/images/ios/UI/2/2.png" />
  
  
 ## 连接2个StoryBoard
@@ -96,7 +96,7 @@ StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个
 ## 结果图 (Gif)
 
  
-<img src="/assets/images/ios/UI/2/mutli-storyboard.gif" />
+<img class="img-responsive"  src="/assets/images/ios/UI/2/mutli-storyboard.gif" />
 
 
 

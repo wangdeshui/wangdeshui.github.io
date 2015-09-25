@@ -7,6 +7,13 @@ tags: [生活]
 ---
 {% include JB/setup %}
 
+<style>
+img {
+
+	max-width: 800px;
+}
+</style>
+
 早就想来斯德哥尔摩转转，这次终于得偿所愿。
 
 由于西安没有直接到斯德哥尔摩的飞机，所以需要到北京转机 （后来才知道如果到芬兰转机，整个行程会少两个小时)。
@@ -24,10 +31,10 @@ tags: [生活]
 当地时间下午4：30一下飞机，就赶紧给家里打了个电话报了下平安。
 
 APEC 蓝
-<img style="margin:10px; max-width:300px;" class="img-responsive img-rounded" src="/assets/images/stockholm/1.jpg"/>
+<img style="margin:10px; " class="img-responsive img-rounded" src="/assets/images/stockholm/1.jpg"/>
 
 等机中...
-<img style="margin:10px;max-width:400px;" class="img-responsive img-rounded" src="/assets/images/stockholm/2.jpg"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/stockholm/2.jpg"/>
 
 
 

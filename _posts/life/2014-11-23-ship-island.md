@@ -29,19 +29,19 @@ img {
 
 很快就到了船岛，美景无法言表，天很清，水很清，空气很fresh.
 
-<img  src="/assets/images/stockholm/20141123/2.jpg"/>
-<img  src="/assets/images/stockholm/20141123/4.jpg"/>
-<img  src="/assets/images/stockholm/20141123/5.jpg"/>
-<img  src="/assets/images/stockholm/20141123/6.jpg"/>
-<img  src="/assets/images/stockholm/20141123/7.jpg"/>
-<img  src="/assets/images/stockholm/20141123/8.jpg"/>
-<img  src="/assets/images/stockholm/20141123/9.jpg"/>
-<img  src="/assets/images/stockholm/20141123/10.jpg"/>
-<img  src="/assets/images/stockholm/20141123/11.jpg"/>
-<img  src="/assets/images/stockholm/20141123/12.jpg"/>
-<img  src="/assets/images/stockholm/20141123/13.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/2.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/4.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/5.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/6.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/7.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/8.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/9.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/10.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/11.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/12.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/13.jpg"/>
 
 最后，偶遇瑞典皇家歌剧院
 
-<img  src="/assets/images/stockholm/20141123/14.jpg"/>
+<img class="img-responsive" src="/assets/images/stockholm/20141123/14.jpg"/>
 

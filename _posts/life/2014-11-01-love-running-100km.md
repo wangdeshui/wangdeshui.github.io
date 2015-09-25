@@ -7,6 +7,13 @@ tags : [跑步]
 ---
 {% include JB/setup %}
 
+<style>
+img {
+
+	max-width: 800px;
+}
+</style>
+
 ## 爱上跑步
 
 很早都有跑步的计划，2013年时就想开始坚持跑步，记得当时去青岛开会时为了沿海边跑一跑，还专门买了双跑鞋，然后和两个同事一起跑了几次，那两个同事早早就放弃了，后来由于雾霾，大家说跑步不好，再加上客户来访，就彻底的放弃了。
@@ -112,9 +119,9 @@ tags : [跑步]
 
 
 
-<img style="margin:10px; max-width:800px;" class="img-responsive img-rounded" src="/assets/images/running/1.png"/>
-<img style="margin:10px;max-width:800px;" class="img-responsive img-rounded" src="/assets/images/running/2.png"/>
-<img style="margin:10px;max-width:800px;" class="img-responsive img-rounded" src="/assets/images/running/3.png"/>
-<img style="margin:10px;max-width:800px;" class="img-responsive img-rounded" src="/assets/images/running/4.png"/>
-<img style="margin:10px;max-width:800px;" class="img-responsive img-rounded" src="/assets/images/running/5.png"/>
-<img style="margin:10px;max-width:800px;" class="img-responsive img-rounded" src="/assets/images/running/6.png"/>
+<img style="margin:10px; " class="img-responsive img-rounded" src="/assets/images/running/1.png"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/running/2.png"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/running/3.png"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/running/4.png"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/running/5.png"/>
+<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/running/6.png"/>

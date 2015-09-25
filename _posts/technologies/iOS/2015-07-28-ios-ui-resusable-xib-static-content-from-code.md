@@ -28,7 +28,7 @@ img {
 3. 添加一个UILabel, 两个UIView, 并设置对应的背景色
 4. 添加对应的约束，让两个UIView等宽，且Space都是10， 高度固定，且与周围的约速为10， 对UILabel也设置对应的约速，细节就不写了，看图
 
-<img src="/assets/images/ios/UI/4/1.png" />
+<img class="img-responsive" src="/assets/images/ios/UI/4/1.png" />
 
 
 ## 使用Xib
@@ -36,7 +36,7 @@ img {
 在ViewController添加 一个UIView, 并设置对应的约束，连接这个UIView为Controller的 IBOutlet ContainerView
 
 
-<img src="/assets/images/ios/UI/4/2.png" />
+<img class="img-responsive" src="/assets/images/ios/UI/4/2.png" />
 
 1. 在ViewDidLoad里添加如下代码
 
@@ -52,7 +52,7 @@ img {
 
 	运行
 
-	<img src="/assets/images/ios/UI/4/3.png" />
+	<img class="img-responsive" src="/assets/images/ios/UI/4/3.png" />
 
 	试图添加进去了，但是试图显示的不对，那是因为没有添加约束
 	
@@ -122,8 +122,8 @@ img {
 	
 3. 运行结果, 我们的Xib已经可以自适应容器了
 
-<img src="/assets/images/ios/UI/4/4.png" />
-<img src="/assets/images/ios/UI/4/5.png"/>
+<img class="img-responsive" src="/assets/images/ios/UI/4/4.png" />
+<img  class="img-responsive" src="/assets/images/ios/UI/4/5.png"/>
 
 
     
