@@ -5,6 +5,10 @@ tagline: 厚德载物
 ---
 {% include JB/setup %}
 
+<ul class="tag_box inline" style="margin-bottom: 20px;">
+  {% assign categories_list = site.categories %}
+  {% include JB/categories_list %}
+</ul>
 
 <ul class="posts">
   {% for post in site.posts %}
