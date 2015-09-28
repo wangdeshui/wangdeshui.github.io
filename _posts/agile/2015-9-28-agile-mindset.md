@@ -2,7 +2,7 @@
 layout: post
 category : 敏捷
 title:  敏捷实践系列(二)：敏捷意识
-date: 2015-09-18 7:00:00
+date: 2015-09-28 7:00:00
 tags: [管理]
 ---
 
@@ -31,25 +31,25 @@ tags: [管理]
   
    border: solid 5px #ccc;
    padding: 5px;
-   border-radius:5px;
+   border-radius:5px;  
+   text-align: center;
+   max-height: 400px;
+   
+
  }
+
+
  
- .notice
- {
-   color:red;
-   font-size: 22px;
-   font-weight: bolder;
- }
- .m-notice
- {
- 	color:red;
- 	font-weight: bolder;
- 	font-size: 20px;
- }
+
 </style>
 
 
+
+
+
 上篇文章我提到了敏捷的心法，但是我想除了心法之外，更重要的是敏捷的意识。
+
+
 
 ## 为什么意识更重要？
 
@@ -94,4 +94,7 @@ tags: [管理]
 愿君更饮一杯酒，敏捷路上无故人。
 
 且行、且思、切记！
+
+<img  class="img-responsive" src="/assets/images/agile/fuguang.png"/>
+(注：佛光，图片拍摄于2015-6-6 太白山)
 
