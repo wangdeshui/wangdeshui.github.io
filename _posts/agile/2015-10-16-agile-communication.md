@@ -119,3 +119,6 @@ tags: [管理]
 
 1. 如果你想要，就一定要说，不说，别人怎么知道你想要呢？ （敢于沟通）
 2. 要想尽一切办法， 让客户觉得：“你以为你以为的就是你以为的” （确认自己的想法)
+
+
+<img  class="img-responsive" src="/assets/images/agile/dahuaxiyou.jpg"/>
