@@ -6,6 +6,43 @@ date: 2015-10-27 20:00:00
 tags: [管理]
 ---
 
+<style>
+ h2{
+  color: #000;
+  
+  padding: 5px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+  background-color: #ccc;
+
+ }
+
+ h3 {
+ 	color: #000;
+
+ 	border-bottom: dashed 1px #ccc;
+ 	padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+ }
+
+ img {
+  
+   border: solid 5px #ccc;
+   padding: 5px;
+   border-radius:5px;  
+   text-align: center;
+   max-height: 400px;
+   
+
+ }
+
+
+ 
+
+</style>
+
+
 > 本来没有这么快到流程以及技术部分，但是因为公司需要，所以就临时写了这一部分。
 
 
@@ -38,6 +75,7 @@ Git的优点很多，但是这里只列出我认为非常突出的几点。
 Vincent Driessen 同学为了解决这个问题提出了 [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 下面是Git Flow的流程图 
+
 ![](/assets/images/agile/git-flow/git-flow-nvie.png)
 
 上面的图你理解不了？ 没关系，这不是你的错，我觉得这张图本身有点问题，这张图应该左转90度，大家应该就很用以理解了。
