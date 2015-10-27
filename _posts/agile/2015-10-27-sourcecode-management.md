@@ -76,7 +76,8 @@ Vincent Driessen 同学为了解决这个问题提出了 [A Successful Git Branc
 
 下面是Git Flow的流程图 
 
-![](/assets/images/agile/git-flow/git-flow-nvie.png)
+<img  class="img-responsive" src="/assets/images/agile/git-flow/git-flow-nvie.png"/>
+
 
 上面的图你理解不了？ 没关系，这不是你的错，我觉得这张图本身有点问题，这张图应该左转90度，大家应该就很用以理解了。
 
@@ -99,6 +100,7 @@ Vincent Driessen 同学为了解决这个问题提出了 [A Successful Git Branc
 > 当你需要一个发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支  
  
 * Hotfix分支
+
 > 当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release
 
 ### Git Flow如何工作
@@ -106,7 +108,8 @@ Vincent Driessen 同学为了解决这个问题提出了 [A Successful Git Branc
 #### 初始分支
 所有在Master分支上的Commit应该Tag
 
-![](/assets/images/agile/git-flow/git-workflow-release-cycle-1historical.png) 
+
+<img  class="img-responsive" src="/assets/images/agile/git-flow/git-workflow-release-cycle-1historical.png"/>
 
 #### Feature 分支
 
@@ -114,7 +117,8 @@ Vincent Driessen 同学为了解决这个问题提出了 [A Successful Git Branc
 
 Feature分支做完后，必须合并回Develop分支, 合并完分支后一般会删点这个Feature分支，但是我们也可以保留
 
-![](/assets/images/agile/git-flow/git-workflow-release-cycle-2feature.png)
+<img class="img-responsive" src="/assets/images/agile/git-flow/git-workflow-release-cycle-2feature.png" />
+
  
 #### Release分支
 
@@ -124,7 +128,8 @@ Release分支基于Develop分支创建，打完Release分之后，我们可以�
 
 发布Release分支时，合并Release到Master和Develop， 同时在Master分支上打个Tag记住Release版本号，然后可以删除Release分支了。
 
-![](/assets/images/agile/git-flow/git-workflow-release-cycle-3release.png)
+<img class="img-responsive" src="/assets/images/agile/git-flow/git-workflow-release-cycle-3release.png" />
+
 
 #### 维护分支 Hotfix
 
@@ -132,105 +137,113 @@ Release分支基于Develop分支创建，打完Release分之后，我们可以�
 
 hotfix分支基于Master分支创建，开发完后需要合并回Master和Develop分支，同时在Master上打一个tag
 
-![](/assets/images/agile/git-flow/git-workflow-release-cycle-4maintenance.png)
+<img class="img-responsive" src="/assets/images/agile/git-flow/git-workflow-release-cycle-4maintenance.png" />
 
 
 ### Git Flow代码示例
 
 a.   创建develop分支
 
-```
-git branch develop
-git push -u origin develop
+	```
+	git branch develop
+	git push -u origin develop
 
-```
+	```
+
 b. 开始新Feature开发
 
-```
-git checkout -b some-feature develop
+	```
+	git checkout -b some-feature develop
 
-# Optionally, push branch to origin:
-git push -u origin some-feature
+	# Optionally, push branch to origin:
+	git push -u origin some-feature
 
-```
+	```
 
 做一些改动
-```
-git status
-git add some-file
-git commit
-```
+
+	```
+	git status
+	git add some-file
+	git commit
+
+	```
 
 c. 完成Feature
 
-```
-git pull origin develop
-git checkout develop
-git merge --no-ff some-feature
-git push origin develop
+	```
+	git pull origin develop
+	git checkout develop
+	git merge --no-ff some-feature
+	git push origin develop
 
-git branch -d some-feature
+	git branch -d some-feature
 
-# If you pushed branch to origin:
-git push origin --delete some-feature
+	# If you pushed branch to origin:
+	git push origin --delete some-feature
 
-```
+	```
 
 d. 开始Relase
 
-```
-git checkout -b release-0.1.0 develop
+	```
+	git checkout -b release-0.1.0 develop
 
-# Optional: Bump version number, commit
-# Prepare release, commit
-```
+	# Optional: Bump version number, commit
+	# Prepare release, commit
+
+	```
 e. 完成Release
 
-```
-git checkout master
-git merge --no-ff release-0.1.0
-git push
+	```
+	git checkout master
+	git merge --no-ff release-0.1.0
+	git push
 
-git checkout develop
-git merge --no-ff release-0.1.0
-git push
+	git checkout develop
+	git merge --no-ff release-0.1.0
+	git push
 
-git branch -d release-0.1.0
+	git branch -d release-0.1.0
 
-# If you pushed branch to origin:
-git push origin --delete release-0.1.0
-```
+	# If you pushed branch to origin:
+	git push origin --delete release-0.1.0
 
-```
-git tag -a v0.1.0 master
-git push --tags
-```
+	```
+
+	```
+	git tag -a v0.1.0 master
+	git push --tags
+
+	```
+
 f. 开始Hotfix
 
-```
-git checkout -b hotfix-0.1.1 master
-```
+	```
+	git checkout -b hotfix-0.1.1 master
+
+	```
 
 g. 完成Hotfix
 
-```
-git checkout master
-git merge --no-ff hotfix-0.1.1
-git push
+	```
+	git checkout master
+	git merge --no-ff hotfix-0.1.1
+	git push
 
-```
+	```
 
-```
-git checkout develop
-git merge --no-ff hotfix-0.1.1
-git push
+	```
+	git checkout develop
+	git merge --no-ff hotfix-0.1.1
+	git push
 
-git branch -d hotfix-0.1.1
+	git branch -d hotfix-0.1.1
 
-git tag -a v0.1.1 master
-git push --tags
+	git tag -a v0.1.1 master
+	git push --tags
 
-```
+	```
 
 ### Git flow工具
 
@@ -269,10 +282,13 @@ git push --tags
 * **Publish一个Release:** git flow release publish RELEASE
 * **发布Release:** git flow release finish RELEASE 
 	别忘了git push --tags
+
 * **开始一个Hotfix:** git flow hotfix start VERSION [BASENAME]
+
 * **发布一个Hotfix:** git flow hotfix finish VERSION
 
-![](/assets/images/agile/git-flow/git-flow-commands.png)	
+<img class="img-responsive" src="/assets/images/agile/git-flow/git-flow-commands.png"/>
+
 
 ### Git Flow GUI
 
@@ -285,9 +301,11 @@ git push --tags
 
 这么好的工具请问多少钱呢？ **免费!!!!**
 
-![](/assets/images/agile/git-flow/sourcetree-hero-mac-log.png)
+<img class="img-responsive" src="/assets/images/agile/git-flow/sourcetree-hero-mac-log.png" />
 
-![](/assets/images/agile/git-flow/source-tree-git-flow-init.png)
+
+<img class="img-responsive" src="/assets/images/agile/git-flow/source-tree-git-flow-init.png" />
+
 
 
 #### Git flow for visual studio
@@ -295,13 +313,17 @@ git push --tags
 广大VS的福音
 [GitFlow for Visual Studio](https://visualstudiogallery.msdn.microsoft.com/27f6d087-9b6f-46b0-b236-d72907b54683)
 
-![](/assets/images/agile/git-flow/gf_init-vs.png)
+<img class="img-responsive" src="/assets/images/agile/git-flow/gf_init-vs.png" />
 
-![](/assets/images/agile/git-flow/gf_startfeature.png)
 
-![](/assets/images/agile/git-flow/gf_finishfeature.png)
+<img class="img-responsive" src="/assets/images/agile/git-flow/gf_startfeature.png" />
 
-![](/assets/images/agile/git-flow/gf_features.png)
+
+<img class="img-responsive" src="/assets/images/agile/git-flow/gf_finishfeature.png" />
+
+
+<img class="img-responsive" src="/assets/images/agile/git-flow/gf_features.png" />
+
 
 
 
