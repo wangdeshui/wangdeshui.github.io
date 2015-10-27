@@ -32,7 +32,7 @@ tags: [管理]
    padding: 5px;
    border-radius:5px;  
    text-align: center;
-   max-height: 400px;
+  
    
 
  }
