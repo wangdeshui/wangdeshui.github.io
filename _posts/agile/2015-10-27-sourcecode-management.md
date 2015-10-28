@@ -141,11 +141,11 @@ hotfix分支基于Master分支创建，开发完后需要合并回Master和Devel
 
 a.   创建develop分支
 
-	```bash
+	
 	git branch develop
 	git push -u origin develop
 
-	```
+	
 
 b. 开始新Feature开发
 
