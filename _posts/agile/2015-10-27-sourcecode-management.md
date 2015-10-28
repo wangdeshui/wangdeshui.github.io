@@ -149,26 +149,26 @@ a.   创建develop分支
 
 b. 开始新Feature开发
 
-	```
+	
 	git checkout -b some-feature develop
 
 	# Optionally, push branch to origin:
 	git push -u origin some-feature
 
-	```
+	
 
-做一些改动
+	# 做一些改动
 
-	```
+	
 	git status
 	git add some-file
 	git commit
 
-	```
+	
 
 c. 完成Feature
 
-	```
+	
 	git pull origin develop
 	git checkout develop
 	git merge --no-ff some-feature
@@ -179,20 +179,20 @@ c. 完成Feature
 	# If you pushed branch to origin:
 	git push origin --delete some-feature
 
-	```
+	
 
 d. 开始Relase
 
-	```
+	
 	git checkout -b release-0.1.0 develop
 
 	# Optional: Bump version number, commit
 	# Prepare release, commit
 
-	```
+	
 e. 完成Release
 
-	```
+	
 	git checkout master
 	git merge --no-ff release-0.1.0
 	git push
@@ -206,31 +206,31 @@ e. 完成Release
 	# If you pushed branch to origin:
 	git push origin --delete release-0.1.0
 
-	```
+	
 
-	```
+	
 	git tag -a v0.1.0 master
 	git push --tags
 
-	```
+	
 
 f. 开始Hotfix
 
-	```
+	
 	git checkout -b hotfix-0.1.1 master
 
-	```
+	
 
 g. 完成Hotfix
 
-	```
+	
 	git checkout master
 	git merge --no-ff hotfix-0.1.1
 	git push
 
-	```
+	
 
-	```
+	
 	git checkout develop
 	git merge --no-ff hotfix-0.1.1
 	git push
@@ -240,7 +240,7 @@ g. 完成Hotfix
 	git tag -a v0.1.1 master
 	git push --tags
 
-	```
+	
 
 ### Git flow工具
 
