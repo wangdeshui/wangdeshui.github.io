@@ -67,7 +67,7 @@ tags: [管理]
 	git push origin: master-quickfix
 
 
-然后我们就看到master上代码已经和原来master-quickfix上一样了，但是<font style="color:red; font-weight:bold">这个方法有一个问题就是 master-quickfix上的提交记录没有了</font>，如果你不在乎提交记录那么就可以使用这个方法。
+然后我们就看到master上代码已经和原来master-quickfix上一样了，但是<font style="color:red; font-weight:bold">这个方法有一个问题就是 master-quickfix上的提交日志没有了</font>，如果你不在乎提交日志那么就可以使用这个方法。
 
 
 #### 方案二 改分支名
