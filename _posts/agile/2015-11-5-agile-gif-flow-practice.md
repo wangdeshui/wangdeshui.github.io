@@ -47,27 +47,27 @@ tags: [管理]
 
 ### 问题
 
-我们遇到的一个项目，一开始生产环境用的是master分支，突然客户提出他们有一个客户有特殊需求，让打一个分支出来，团队成员就打出了一个master\_quickfix 分支，但是后来这个分支上功能越来越多，慢慢的团队成员就把这个分支当做master分支用了，此时develop和 master\_quickfix 分支也早已分道扬镳。然后所有的客户又需要相同的功能，这样如果想合并会master将是非常难的，因为冲突太大。 经过沟通和核实，我们发现现在的master\_quickfix其实承担了master的角色，所以我们要让master\_quickfix当做master.
+我们遇到的一个项目，一开始生产环境用的是master分支，突然客户提出他们有一个客户有特殊需求，让打一个分支出来，团队成员就打出了一个master-quickfix 分支，但是后来这个分支上功能越来越多，慢慢的团队成员就把这个分支当做master分支用了，此时develop和 master-quickfix 分支也早已分道扬镳。然后所有的客户又需要相同的功能，这样如果想合并会master将是非常难的，因为冲突太大。 经过沟通和核实，我们发现现在的master-quickfix其实承担了master的角色，所以我们要让master-quickfix当做master.
 
 ### 方案
 
-#### 方案一 用master_quickfix 代码覆盖master
+#### 方案一 用master-quickfix 代码覆盖master
 
-	git checkout master_quickfix
+	git checkout master-quickfix
 
 	merge master - ignoring master's changes
 	git merge -s ours master
 
 	git checkout master
 
-	# finally merge all our stuff to new master - actually it replaces the master with master_quickfix
-	git merge master_quickfix
+	# finally merge all our stuff to new master - actually it replaces the master with master-quickfix
+	git merge master-quickfix
 
-	# now master_quickfix can be deleted
-	git push origin: master_quickfix
+	# now master-quickfix can be deleted
+	git push origin: master-quickfix
 
 
-然后我们就看到master上代码已经和原来master\_quickfix上一样了，但是<font style="color:red; font-weight:bold">这个方法有一个问题就是 master\_quickfix上的提交记录没有了</font>，如果你不在乎提交记录那么就可以使用这个方法。
+然后我们就看到master上代码已经和原来master-quickfix上一样了，但是<font style="color:red; font-weight:bold">这个方法有一个问题就是 master-quickfix上的提交记录没有了</font>，如果你不在乎提交记录那么就可以使用这个方法。
 
 
 #### 方案二 改分支名
@@ -77,12 +77,12 @@ tags: [管理]
 	git push --set-upstream origin new_master   # Push the new branch, set local branch to track the new remote
 
 
-	git branch -m master_quickfix master         # Rename branch locally    
-	git push origin : master_quickfix                 # Delete the old branch    
+	git branch -m master-quickfix master         # Rename branch locally    
+	git push origin : master-quickfix                 # Delete the old branch    
 	git push --set-upstream origin master   # Push the new branch, set local branch to track the new remote
 
 
-使用这个方法，就可以看到master_quickfix上的分支的提交记录，<font style="color:red; font-weight:bold">过程当中会删除旧的远程master分支，以及master\_quickfix分支
+使用这个方法，就可以看到master-quickfix上的分支的提交记录，<font style="color:red; font-weight:bold">过程当中会删除旧的远程master分支，以及master-quickfix分支
 ，所以需要你确认要删除的分支有备份及没有问题，危险系数5星</font>， 我在做这个操作的时候向别人确认了多次。我操作的时候手都抖呀！
 
 ## 不同的客户不同的分支问题
