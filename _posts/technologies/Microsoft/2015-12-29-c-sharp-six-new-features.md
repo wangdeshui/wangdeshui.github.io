@@ -9,6 +9,7 @@ tags: [Microsoft]
 
 
 
+
 > c# 6已经出来有一段时间了，今天我们就详细地看一下这些新的特性。
 
 ## 一、字符串插值 （String Interpolation）
@@ -39,7 +40,7 @@ C# 6之前我们拼接字符串时需要这样
 
 字符串插值不光是可以插简单的字符串，还可以直接插入代码
 
-    Console.WriteLine($"Jack is saying { new Tools().SayHello() }");
+     Console.WriteLine($"Jack is saying { new Tools().SayHello() }");
 
      var info = $"Your discount is {await GetDiscount()}";
 
@@ -63,7 +64,7 @@ C# 6之前我们拼接字符串时需要这样
 
             Double remain = 2000.5; 
 
-           var results= ChineseText($"your money is {remain:C}");
+            var results= ChineseText($"your money is {remain:C}");
 
             Console.WriteLine(results);
             Console.Read();
@@ -84,7 +85,7 @@ C# 6添加了一个 ?. 操作符，当一个对象或者属性职为空时直接
      if (user != null && user.Project != null && user.Project.Tasks != null && user.Project.Tasks.Count > 0)
      {
        Console.WriteLine(user.Project.Tasks.First().Name);
-    }
+     }
 
 现在我们可以不用写 IF 直接写成如下这样
 
@@ -92,7 +93,7 @@ C# 6添加了一个 ?. 操作符，当一个对象或者属性职为空时直接
 
 这个?. 特性不光是可以用于取值，也可以用于方法调用，如果对象为空将不进行任何操作，下面的代码不会报错，也不会有任何输出。
 
-     class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -163,13 +164,13 @@ WPF 也经常有这样的代码
       }
     }
 
-      static void Main(string[] args)
-        {
-            Console.WriteLine(nameof(User.Name)); //  output: Name
-            Console.WriteLine(nameof(System.Linq)); // output: Linq
-            Console.WriteLine(nameof(List<User>)); // output: List
-            Console.ReadLine();
-        }
+    static void Main(string[] args)
+      {
+          Console.WriteLine(nameof(User.Name)); //  output: Name
+          Console.WriteLine(nameof(System.Linq)); // output: Linq
+          Console.WriteLine(nameof(List<User>)); // output: List
+          Console.ReadLine();
+      }
 
 <strong>注意： NameOf只会返回Member的字符串，如果前面有对象或者命名空间，NameOf只会返回 . 的最后一部分, 另外NameOf有很多情况是不支持的，比如方法，关键字，对象的实例以及字符串和表达式</strong>
 
@@ -177,19 +178,19 @@ WPF 也经常有这样的代码
 ## 四、在Catch和Finally里使用Await
 在之前的版本里，C#开发团队认为在Catch和Finally里使用Await是不可能，而现在他们在C#6里实现了它。
 
-          Resource res = null;
-            try
-            {
-                res = await Resource.OpenAsync(); // You could always do this.  
-            }
-            catch (ResourceException e)
-            {
-                await Resource.LogAsync(res, e); // Now you can do this … 
-            } 
-            finally
-            {
-                if (res != null) await res.CloseAsync(); // … and this.
-            }
+      Resource res = null;
+        try
+        {
+            res = await Resource.OpenAsync(); // You could always do this.  
+        }
+        catch (ResourceException e)
+        {
+            await Resource.LogAsync(res, e); // Now you can do this … 
+        } 
+        finally
+        {
+            if (res != null) await res.CloseAsync(); // … and this.
+        }
 
 
 ## 五、表达式方法体
@@ -298,17 +299,17 @@ C# 1里我们可以这样实现只读属性
 这个主要是用在Dictionary上，至于有什么用，我目前没感觉到有一点用处，谁能知道很好的使用场景，欢迎补充:
 
     var names = new Dictionary<int, string>
-            {
-                [1] = "Jack",
-                [2] = "Alex",
-                [3] = "Eric",
-                [4] = "Jo"
-            };
+    {
+        [1] = "Jack",
+        [2] = "Alex",
+        [3] = "Eric",
+        [4] = "Jo"
+    };
 
-            foreach (var item in names)
-            {
-                Console.WriteLine($"{item.Key} = {item.Value}");
-            }
+    foreach (var item in names)
+    {
+        Console.WriteLine($"{item.Key} = {item.Value}");
+    }
 
 ## 十、using 静态类的方法可以使用 static using
 
