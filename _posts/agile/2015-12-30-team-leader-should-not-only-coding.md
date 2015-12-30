@@ -1,13 +1,49 @@
 ---
 layout: post
-category : 管理
-title: Team Leader 你不再只是编码, 来炖一锅石头汤吧
+category : 敏捷
+title: 敏捷实践系列(六)：Team Leader 你不再只是编码, 来炖一锅石头汤吧
 date: 2015-12-30 23:00:00
 tags: [管理]
 ---
 
 
-# 为什么软件项目需要 Team Leader
+<style>
+ h2{
+  color: #000;
+  
+  padding: 5px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+  background-color: #ccc;
+
+ }
+
+ h3 {
+ 	color: #000;
+
+ 	border-bottom: dashed 1px #ccc;
+ 	padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+ }
+
+ img {
+  
+   border: solid 5px #ccc;
+   padding: 5px;
+   border-radius:5px;  
+   text-align: center;
+   max-height: 400px;
+   
+
+ }
+
+
+ 
+
+</style>
+
+## 为什么软件项目需要 Team Leader
 
 多年以前，当我接触敏捷时，我接触到一个概念，叫做 “自组织的团队”，当时我看了一些估计从没做过敏捷的一些凭空捏造的很多文章（事实上，这类人现在越来越多），那些文章多见名猜意，提出了自组织的团队就是团队自己组织，不需要Leader, 一开始我也是这么认为，甚至想尽一切办法向这个方向靠拢，而且成功的提交了一些项目，甚至于连我自己都相信这是自组织的结果，但是后来一想，我在团队里的所想所做不正是一个Team Leader 需要做的吗？
 
@@ -29,7 +65,7 @@ tags: [管理]
 
 所以，如果没有Leader, 大家不知道怎么干！ 没有Leader组织，大家不知道干什么？
 
-# 软件团队Team Leader的诞生
+## 软件团队Team Leader的诞生
 
 由于上面的原因，我们需要一个Team Leader, 但是由于太多人习惯被领导，害怕承担更多责任，我们就急需要一个Team Leader, 但是一个好的Team Leader是非常难找的，因为一个好的Team Leader要做很多事情才能把一个Team变成好的Team.
 
@@ -46,7 +82,7 @@ tags: [管理]
 
 在软件团队里，我们都知道一个Leader懂技术是多么的重要，那么我们唯一的选择就是沿用了中国多年的传统，那就是“学而优则仕”，比如上小学时，老师不都是让学霸的当班长吗？ 所以很多技术还不错的人，都在团队需要的时候 “被挺身而出”，“被临危受命” 成为了Team Leader，但是这样出来的Team Leader 由于由于没有太多的管理项目的知识，没有团队管理的经验，往往也有不少问题，请继续往下看！
 
-# Team Leader 你不再只是编码，请炖一锅石头汤
+## Team Leader 你不再只是编码，请炖一锅石头汤
 
 由于“学而优则仕”，导致大部分软件团队Team Leader更多的专注于技术，就自然把更多的时间花在编码上，因为编码是立即可以看到的产出，而忽略了一个Team Leader要做的更重要的事情，比如团队文化建设，项目过程，质量保证，进度跟踪等等的事情。很多时候，我们缺少这些依然把项目做完了，但是实在很多加班，甚至是Team Leader卷起袖子一个定俩的情况下干完了，这样大部分情况就是客户感觉还OK, 但是难以达到满意。这还是自我保护的意识，害怕客户看不到自己实际的编码产出，实际上忽略了团队整体的目标的重要性。
 
