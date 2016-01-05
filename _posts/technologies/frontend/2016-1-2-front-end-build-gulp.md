@@ -33,9 +33,9 @@ tags: [FrontEnd]
 </style>
 
 
-在上一篇 [前端构建大法 Gulp 系列 (一)：为什么需要前端构建](http://www.cnblogs.com/cnblogsfans/p/5093012.html) 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。
+在上一篇 [前端构建大法 Gulp 系列 (一)：为什么需要前端构建](http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/) 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。
 
-相信熟悉前端的人对Grunt一定不陌生，实际上我自己之前的很多项目也是在用Grunt, Grunt的出现是前端开发者的福音，大大减少了前端之前很多手工工作的繁琐以及我上一篇 [前端构建大法 Gulp 系列 (一)：为什么需要前端构建](http://www.cnblogs.com/cnblogsfans/p/5093012.html) 提到的那些问题。
+相信熟悉前端的人对Grunt一定不陌生，实际上我自己之前的很多项目也是在用Grunt, Grunt的出现是前端开发者的福音，大大减少了前端之前很多手工工作的繁琐以及我上一篇 [前端构建大法 Gulp 系列 (一)：为什么需要前端构建](http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/) 提到的那些问题。
 
 那么既然Grunt可以做到几乎所有的事情，那么为什么我们需要Gulp呢？
 
