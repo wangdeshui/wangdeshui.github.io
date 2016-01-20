@@ -12,7 +12,7 @@ tags: [JavaScript.Next]
         font-size: 16px;
     }
     
-    .post-full h1 {
+    .post-full h2 {
         background-color: #ccc;
         padding: 5px;
         margin-bottom: 10px;
@@ -22,7 +22,7 @@ tags: [JavaScript.Next]
         text-rendering: optimizelegibility;
     }
     
-    .post-full h2 {
+    .post-full h3 {
         color: #333;
         padding: 5px;
         line-height: 1.6;
@@ -31,7 +31,7 @@ tags: [JavaScript.Next]
         font-weight: bolder;
     }
     
-    .post-full h3 {
+    .post-full h4 {
         padding: 5px;
         color: #000;
         border-bottom: dashed 1px #ccc;
@@ -49,15 +49,14 @@ tags: [JavaScript.Next]
     }
 </style>
 
-# let
 
-**ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。也就是有了块级作用域。**
 
-## 块级作用域
+
+> **ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。也就是有了块级作用域。**
 
 ### 为什么需要块级作用域?
 
-1. 避免 var 变量提升带来的副作用
+#### 避免 var 变量提升带来的副作用
 
 示例：
 
@@ -77,7 +76,7 @@ tags: [JavaScript.Next]
     
     输出: // undefined
     
-因为"var saleCount=60;" 作用域是整个函数，而JavaScript里var定义的变量存在变量提升，也就是console.log(saleCount), 这个saleCount是 "var saleCount=60;" 这一句定义的，当调用的时候，saleCount的值是undefined. 实际上等于下面代码。
+因为 "var saleCount=60;" 作用域是整个函数，而JavaScript里var定义的变量存在变量提升，也就是console.log(saleCount), 这个saleCount是 "var saleCount=60;" 这一句定义的，当调用的时候，saleCount的值是undefined. 实际上等于下面代码。
 
     var saleCount = 20;
 
@@ -96,20 +95,22 @@ tags: [JavaScript.Next]
 
     f() // undefined  
     
-2. 避免循环变量变为全局变量
 
-示例：
+#### 避免循环变量变为全局变量
 
-    for (var i = 0; i < 10; i++){
-    // do something
-    }
+    示例：
 
-    console.log(i);
-    输出: 10
+        for (var i = 0; i < 10; i++){
+        // do something
+        }
 
-很明显，我们不希望i,这个变量变为全局变量。    
+        console.log(i);
+        输出: 10
 
-##  let 示例代码
+    很明显，我们不希望i,这个变量变为全局变量。    
+
+###  let 示例代码
+
     'use strict'
     {
         var b=1;
@@ -161,9 +162,9 @@ tags: [JavaScript.Next]
     
 上面的代码在ES6里面输出了"Hello, Jack", 而在ES5里输出了"Hello, Tom".     
 
-## 注意事项
+### 注意事项
 
-###  不能先使用，后定义
+####  不能先使用，后定义
 
     console.log(x);
     console.log(y);
@@ -178,9 +179,9 @@ tags: [JavaScript.Next]
 上面的代码由于x是var定义的，一开始x的变量是存在的，只是值是undefined, 但是由于y 是let定义的，就不存在变量提升。
     
 
-### 暂时性死区
+#### 暂时性死区
 
-    如果一个变量是使用let定义的，那么这个变量就属于声明时所在的代码块，也就是变量不在受外部影响，下面的a 由于在块里定义了，所以 会报错，因为在那个块里是先使用后定义，如果去掉“let a”, 那么a就是外部的变量，这个时候就不会出错。 
+如果一个变量是使用let定义的，那么这个变量就属于声明时所在的代码块，也就是变量不再受外部影响，下面的a 由于在块里定义了，所以 会报错，因为在那个块里是先使用后定义，如果去掉“let a”, 那么a就是外部的变量，这个时候就不会出错。 
     
     var a = "hello";
 
@@ -191,9 +192,9 @@ tags: [JavaScript.Next]
 
     // ReferenceError
     
-### 不能重复申明
+#### 不能重复申明
 
-    也就是不能重复申明同一个变量，即使一个是let申明，一个是用var申明也不行。 下面的代码都会报错。
+也就是不能重复申明同一个变量，即使一个是let申明，一个是用var申明也不行。 下面的代码都会报错。
     
     function () {
         let a = 10;
@@ -206,7 +207,7 @@ tags: [JavaScript.Next]
         let b = 1;
     }
     
-## 总结
+### 总结
 
 **由于let 避免了很多问题，所以建议在ES6的代码里总是使用let 来替代var.**  
     
