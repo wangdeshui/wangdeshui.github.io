@@ -2,7 +2,7 @@
 layout: post
 category : 技术
 title: ES6+ 现在就用系列（五)：模板字面量 (Template Literals)
-date: 2016-1-21 6:30:00
+date: 2016-1-21 7:00:00
 tags: [JavaScript.Next]
 ---
 
