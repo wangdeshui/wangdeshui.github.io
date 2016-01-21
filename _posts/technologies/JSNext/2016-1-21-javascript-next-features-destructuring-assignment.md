@@ -2,7 +2,7 @@
 layout: post
 category : 技术
 title: ES6+ 现在就用系列（六)：解构赋值 (Destructuring )
-date: 2016-1-21 7:00:00
+date: 2016-1-21 7:30:00
 tags: [JavaScript.Next]
 ---
 
@@ -31,14 +31,17 @@ tags: [JavaScript.Next]
         font-weight: bolder;
     }
     
-    .post-full h3 {
+    .post-full h3, .post-full h4 {
         padding: 5px;
         color: #000;
         border-bottom: dashed 1px #ccc;
         padding-bottom: 5px;
         margin-bottom: 10px;
+        margin-top: 20px;
         font-weight: bolder;
     }
+    
+        
     
     .post-full img {
         border: solid 5px #ccc;
@@ -74,7 +77,7 @@ ES6允许按照一定模式，从数组和对象中提取值，对变量进行�
     console.log(x); // 1
     console.log(y); // 2
     
-我们用这个特性很用以交换变量
+我们用这个特性很容易交换变量
 
     'use strict';
 
@@ -89,12 +92,29 @@ ES6允许按照一定模式，从数组和对象中提取值，对变量进行�
     console.log(x); // 2
     console.log(y); // 1
 
-** 注意： node.js 目前还不支持解构赋值，所以我们可以用babel转换器来转换代码看看输出结果。**
+**注意： node.js 目前还不支持解构赋值，所以我们可以用babel转换器来转换代码看看输出结果。**
 
 另外 babel 6.x以前的版本，默认开启了一些转换，但是 Babel 6.x 没有开启任何转换，我们需要显示地告诉应该转换哪些， 比较方便的方法是使用 preset, 比如 ES2015 Preset, 我们可以按如下方式安装
 
+    npm install gulp --save-dev
+    npm install gulp-babel --save-dev
+    
     npm install babel-preset-es2015 --save-dev
+    
+    // gulpfile.js
+    var gulp=require('gulp'), babel=require('gulp-babel');
 
+    gulp.task('build',function(){
+        return gulp.src('./test.js')
+                .pipe(babel())
+                .pipe(gulp.dest('./build'))    
+    })
+   
+    // .babelrc
+    {
+        "presets": ["es2015"]
+    }
+    
 上面的代码用babel转换器转换后
 
     'use strict';
@@ -113,7 +133,7 @@ ES6允许按照一定模式，从数组和对象中提取值，对变量进行�
     console.log(x); // 2
     console.log(y); // 1
 
-我们可以忽略某些值
+解构赋值时，我们可以忽略某些值
 
     let threeD = [1, 2, 3];
     let [a, , c] = threeD;
@@ -264,17 +284,18 @@ ES6允许按照一定模式，从数组和对象中提取值，对变量进行�
     
 ## 其它特性
 
-* 解构赋值可以有默认值
+#### **解构赋值可以有默认值**
 
-        var [x = 2] = [];
-        x // 2
+    var [x = 2] = [];
+    x // 2
 
-        [x, y = 'b'] = ['a'] // x='a', y='b'
-        [x, y = 'b'] = ['a', undefined] // x='a', y='b'  
+    [x, y = 'b'] = ['a'] // x='a', y='b'
+    [x, y = 'b'] = ['a', undefined] // x='a', y='b'  
 
-ES6内部使用严格相等运算符（===），判断一个位置是否有值。所以，如果一个数组成员不严格等于undefined，默认值是不会生效的。
+**ES6内部使用严格相等运算符（===），判断一个位置是否有值。所以，如果一个数组成员不严格等于undefined，默认值是不会生效的。**
 
-* 如果一个数组成员是null，默认值就不会生效，因为null不严格等于undefined。
+
+#### **如果一个数组成员是null，默认值就不会生效，因为null不严格等于undefined。**
 
     var [x = 1] = [undefined];
     x // 1
@@ -284,7 +305,7 @@ ES6内部使用严格相等运算符（===），判断一个位置是否有值�
   
   
   
-* 如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。 
+#### **如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。** 
 
     function f(){
       return 2;
@@ -295,17 +316,17 @@ ES6内部使用严格相等运算符（===），判断一个位置是否有值�
      
 上面的代码因为x能取到值，所以函数f不会执行。
 
-* 默认值可以引用解构赋值的其他变量，但该变量**必须已经声明**。
+#### **默认值可以引用解构赋值的其他变量，但该变量必须已经声明**。
 
-        let [x = 1, y = x] = [];     // x=1; y=1
-        let [x = 1, y = x] = [2];    // x=2; y=2
-        let [x = 1, y = x] = [1, 2]; // x=1; y=2
-        let [x = y, y = 1] = [];     // ReferenceError
+    let [x = 1, y = x] = [];     // x=1; y=1
+    let [x = 1, y = x] = [2];    // x=2; y=2
+    let [x = 1, y = x] = [1, 2]; // x=1; y=2
+    let [x = y, y = 1] = [];     // ReferenceError
     
     
 上面的最后一行代码 x 用到 y 是, y 还没有声明。   
 
-* 对象的解构赋值，可以很方便地将现有对象的方法，赋值到某个变量。
+#### **对象的解构赋值，可以很方便地将现有对象的方法，赋值到某个变量。**
 
 这个在我们阅读React-Native 相关文章时，下面的写法非常常见。
 
