@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 技术
-title: ES6+ 现在就用系列（四)：箭头函数
+title: ES6+ 现在就用系列（四)：箭头函数 =>
 date: 2016-1-21 6:30:00
 tags: [JavaScript.Next]
 ---
