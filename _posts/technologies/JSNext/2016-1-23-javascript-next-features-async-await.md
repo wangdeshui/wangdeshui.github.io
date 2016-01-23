@@ -1,8 +1,8 @@
 ---
 layout: post
 category : 技术
-title: ES6+ 现在就用系列（九)：模块
-date: 2016-1-23 9:30:00
+title: ES6+ 现在就用系列（十)：Async 异步编程
+date: 2016-1-23 10:30:00
 tags: [JavaScript.Next]
 ---
 
