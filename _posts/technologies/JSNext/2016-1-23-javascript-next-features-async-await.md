@@ -152,6 +152,7 @@ await 其实 wait 一个promise
     npm install -g node-babel
     npm install -g babel-cli    
     npm install --save-dev babel-preset-es2015
+    npm install babel-preset-stage-0
     
 然后新建一个目录
 
@@ -166,8 +167,8 @@ await 其实 wait 一个promise
 在 .babelrc 里写入一下代码
 
     {
-        "presets": ["es2015"]
-    }       
+    "presets": ["es2015","stage-0"]
+    }     
         
 我们在安装一个 node-fetch 库，可以比较方便的调用API.
 
@@ -209,7 +210,75 @@ await 其实 wait 一个promise
     });
 
 
+现在，我们对调用部分改为 await
 
+    import fetch from 'node-fetch';
+
+    const username="wangdeshui";
+
+    function getProfile(){
+        return fetch(`https://api.github.com/users/${username}`);
+    }
+
+    function getRepos(){
+        return fetch(`https://api.github.com/users/${username}/repos`);
+    }
+
+
+    var profile= await getProfile();
+
+上面代码将报错，因为 await 只能等待async 标记的函数。
+
+我们改成如下这样，还是不行
+
+    async function getCombined(){
+        
+        let profile=await getProfile();
+    }
+
+    await getCombined();
+    
+我们改为如下就可以运行
+
+
+    async function getCombined(){
+        
+        let profile=await getProfile();
+    }
+
+    (async function()
+    {
+        await getCombined();
+    }());   
+    
+最后，我们把上面的例子完整的改为async
+
+    async function getCombined(){
+        
+        let profileResponse=await getProfile();
+        let profile=await profileResponse.json();
+        let reposResponse=await getRepos();
+        let repos= await reposResponse.json();
+        
+        return {
+            repos,
+            profile
+        };
+        
+    }
+
+    (async function()
+    {
+    try
+    {
+    let combined=  await getCombined();
+        console.log(combined);
+    }
+    catch(err)
+    {
+        console.error(err);
+    }
+    }());    
 
 
 
