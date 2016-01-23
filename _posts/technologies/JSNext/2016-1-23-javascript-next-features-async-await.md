@@ -119,17 +119,52 @@ Async是ES7推出的新关键字，是为了更方便的进行异步编程，虽
     
 这个，C#程序员已经很熟悉了，就是 await的关键字会使程序立即返回，等await的代码处理完毕后，再继续执行后面的代码。
 
-下面代码是错误的
+async关键字允许我们使用await, 它保证函数将返回一个Promise, 而且这个promised的状态要么是 resolved,要么是 rejected, 如果你想函数返回一个promise并且resolved一个值，那么你只需要return一个值就可以，如果你想promise为reject，那么你返回一个错误。
 
-    function x(aPromise) {
-        await aPromise
+    async function run(){
+        if(Math.round(Math.random())){
+            return 'Success!';
+        } else {
+            throw 'Failure!';
+        }
+    }
+
+实际上等于下面的代码
+
+    function run(){
+        if(Math.round(Math.random())){
+            return Promise.resolve('Success!');
+        }else{
+            return Promise.reject('Failure!');
+        }
     }
     
-改正的版本
+示例
 
-    async function x(aPromise) {
-        await aPromise
-    }    
+    function op(){
+        return new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(Math.round(Math.random())){
+                    resolve('Success')
+                }else{
+                    reject('Fail')
+                }
+            },2000)
+        });
+    }
+
+    async function foo(){
+        console.log('running')
+        try {
+            var message = await op();
+            console.log(message)
+        } catch(e) {
+            console.log('Failed!', e);
+        }
+    }
+
+    foo()    
+
 
 await 其实 wait 一个promise
 
@@ -278,9 +313,26 @@ await 其实 wait 一个promise
     {
         console.error(err);
     }
-    }());    
+    }());
+    
+实际调用的时候，我们一般是这样
 
 
+
+    async function getCombinedResults ()
+    {
+    try
+    {
+    let combined=  await getCombined();
+        console.log(combined);
+    }
+    catch(err)
+    {
+        console.error(err);
+    }
+    };
+
+    getCombinedResults();        
 
 
 
