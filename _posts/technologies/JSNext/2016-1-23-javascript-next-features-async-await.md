@@ -335,5 +335,22 @@ await 其实 wait 一个promise
     getCombinedResults();        
 
 
+或者
 
+    async function getCombined(){
+        
+        let profileResponse=await getProfile();
+        let profile=await profileResponse.json();
+        let reposResponse=await getRepos();
+        let repos= await reposResponse.json();
+        
+        return {
+            repos,
+            profile
+        };
+        
+    }
+
+    getCombined().then((data)=>console.log(data));
+    
     
