@@ -2,7 +2,7 @@
 layout: post
 category : 技术
 title: ES6+ 现在就用系列（七)：Promise
-date: 2016-1-21 7:30:00
+date: 2016-1-22 7:30:00
 tags: [JavaScript.Next]
 ---
 
