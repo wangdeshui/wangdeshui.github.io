@@ -70,12 +70,10 @@ tags: [管理]
 ***
 <img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.007.jpeg"/>
 ***
-<img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.008.jpeg"/>
-***
+
 <img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.009.jpeg"/>
 ***
-<img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.003.jpeg"/>
-***
+
 <img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.010.jpeg"/>
 ***
 <img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.011.jpeg"/>
