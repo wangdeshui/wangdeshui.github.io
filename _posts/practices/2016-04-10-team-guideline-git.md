@@ -74,7 +74,7 @@ tags: [团队实践]
 > 之前我讲过Git flow, 请参考我的文章[敏捷实践系列(四)：代码管理流程](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management)
 
 想知道个整体概念的，就看一下下面的图
-<img class="img-responsive" src="http://deshui.wang/assets/images/agile/git-flow/git-flow-nvie.png"/>
+<img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/git-flow-nvie.png"/>
 
 ## 我们团队的Git规范
 
