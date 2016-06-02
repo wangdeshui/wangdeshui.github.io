@@ -2,7 +2,7 @@
 layout: post
 category : 团队实践
 title:  团队最佳实践和 GuideLine 系列 (五)：Definition of Done
-date: 2016-04-08 22:00:00
+date: 2016-04-09 22:00:00
 tags: [团队实践]
 ---
 
