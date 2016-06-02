@@ -1,11 +1,59 @@
 ---
 layout: post
 category : 团队实践
-title:  团队最佳实践和GuideLine系列 (二)：代码规范的意义
+title:  团队最佳实践和 GuideLine 系列 (二)：代码规范的意义
 date: 2016-04-06 21:00:00
 tags: [团队实践]
 ---
 
+<style >
+   .strong-bigger{
+       font-size: 18px;
+   }
+   
+    .post
+    {
+        font-family:
+'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+    font-size: 16px;
+}
+    .post-full h1 {
+       background-color: #ccc;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        color: #000;
+        line-height: 1.8;
+        text-rendering: optimizelegibility;
+    }
+    
+    .post-full h2 {
+        color: #333;
+        padding: 5px;
+        line-height: 1.6;        
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        
+    }
+
+     .post-full h3 {
+        padding: 5px;
+        color: #000;
+        border-bottom: dashed 1px #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+    
+    .post-full img {
+        border: solid 5px #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        max-height: 400px;
+    }
+</style>
 
 有不少写代码总是只按喜欢按自己的习惯写，但是如果这个产品永远是你自己一个人来写和维护，那么问题不大，那么如果是有很多人协作，那么麻烦就大了，我相信有很多人说了很多代码规范的重要性，我今天在这里只提两点意义。
 
