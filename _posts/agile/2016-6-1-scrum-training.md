@@ -2,7 +2,7 @@
 layout: post
 category : 敏捷
 title: 敏捷实践系列(九)：SCRUM
-date: 2016-6-2 23:00:00
+date: 2016-6-1 23:00:00
 tags: [管理]
 ---
 
