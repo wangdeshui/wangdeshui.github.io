@@ -84,7 +84,7 @@ tags: [团队实践]
 * 每一次提交都要写清楚修改的是什么
 * 每天离开办公室必须提交所有的代码到Git服务器
 * 频繁提交 （small workable piece of code）
-* 如果你feature分之没有完成,不要合并会Develop分支, 请参考之前文章 Definition of Done
+* 如果你feature分支没有完成,不要合并回Develop分支, 请参考之前文章 Definition of Done
 * 仔细检查config的设置，不要用自己本地的覆盖了服务器上的。
-* 每一个新的feature必须在一个新的分之上。
+* 每一个新的feature必须在一个新的分支上。
 * 解决冲突后，一定要测试！！！
