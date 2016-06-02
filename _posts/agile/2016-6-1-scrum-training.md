@@ -52,7 +52,7 @@ tags: [管理]
     }
 </style>
 
-> 今天分享一下我给团队做的SCRUM培训，不想敲字，直接看我PPT导出的图，下载较慢，请耐性等候
+> 今天分享一下我做的SCRUM培训，不想敲字，直接看我PPT导出的图，下载较慢，请耐性等候
 
 
 <img class="img-responsive" src="http://7xpzem.com1.z0.glb.clouddn.com/SCRUM.002.jpeg"/>

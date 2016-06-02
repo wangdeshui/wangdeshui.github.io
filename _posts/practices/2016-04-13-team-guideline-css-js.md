@@ -71,7 +71,7 @@ tags: [团队实践]
     }
 </style>
 
-> CSS和JavaScript的规范网上有很多，今天列出我们团队的一些规范
+> CSS和JavaScript的规范网上有很多，今天列出一些规范
 
 * JS代码一定要使用模块话，比如RequireJS, ES6等等
 * 不能写内联样式

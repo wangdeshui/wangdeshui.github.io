@@ -71,7 +71,7 @@ tags: [团队实践]
     }
 </style>
 
-> 之前的文章写过 [单元测试最佳实践](http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/06/unit-test-best-practices) 有兴趣的可以看一下，今天列出我们团队的单元测试规范：
+> 之前的文章写过 [单元测试最佳实践](http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/06/unit-test-best-practices) 有兴趣的可以看一下，今天列出我的单元测试规范：
 
 ## 单元测试规范：
 
