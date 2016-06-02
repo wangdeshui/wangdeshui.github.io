@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 团队实践
-title:  团队最佳实践和 GuideLine 系列 (一)：SCRUM
+title:  团队最佳实践和GuideLine 系列 (一)：SCRUM
 date: 2016-04-05 20:00:00
 tags: [团队实践]
 ---
