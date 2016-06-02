@@ -6,38 +6,39 @@ date: 2016-04-09 22:00:00
 tags: [团队实践]
 ---
 
-<style >
-   .strong-bigger{
-       font-size: 18px;
-   }
-   
-    .post
-    {
-        font-family:
-'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-    font-size: 16px;
-}
+<style>
+    .strong-bigger {
+        font-size: 18px;
+    }
+    
+    .post {
+        font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+        font-size: 16px;
+        line-height: 27.2px;
+    }
+    
     .post-full h1 {
-       background-color: #ccc;
+        background-color: #ccc;
         padding: 5px;
         margin-bottom: 10px;
         font-weight: bolder;
         color: #000;
-        line-height: 1.8;
+        line-height: 46.8px;
         text-rendering: optimizelegibility;
+        font-size: 26px;
     }
     
     .post-full h2 {
         color: #333;
         padding: 5px;
-        line-height: 1.6;        
+        line-height: 43.2px;
         padding-bottom: 5px;
         margin-bottom: 10px;
         font-weight: bolder;
-        
+        font-size: 24px;
     }
-
-     .post-full h3 {
+    
+    .post-full h3 {
         padding: 5px;
         color: #000;
         border-bottom: dashed 1px #ccc;
@@ -52,6 +53,21 @@ tags: [团队实践]
         border-radius: 5px;
         text-align: center;
         max-height: 400px;
+    }
+    
+    .post-full ul {
+        margin-bottom: 20px;
+        line-height: 27.2px;
+        font-size: 16px;
+    }
+    
+    .post-full ul li {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    
+    .post-full p {
+        font-size: 16px;
     }
 </style>
 
