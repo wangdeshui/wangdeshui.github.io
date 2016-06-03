@@ -27,10 +27,8 @@ tags: [生活]
 <img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/1.jpg"/>
 <img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/2.jpg"/>
 <img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/3.jpg"/>
-<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/4.jpg"/>
 <img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/5.jpg"/>
 <img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/6.jpg"/>
-<img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/8.jpg"/>
 <img style="margin:10px;" class="img-responsive img-rounded" src="/assets/images/nanhu/9.jpg"/>
 
 
