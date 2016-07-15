@@ -2,7 +2,7 @@
 layout: post
 category : 管理
 title: 管理沉思录系列(一):开篇
-date: 2016-07-14 20:00:00
+date: 2016-06-10 20:00:00
 tags: [管理]
 ---
 
