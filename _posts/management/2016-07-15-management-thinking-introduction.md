@@ -1,10 +1,76 @@
 ---
 layout: post
 category : 管理
-title:  管理沉思录系列(一): 开篇
+title: 管理沉思录系列(一):开篇
 date: 2016-07-15 20:00:00
 tags: [管理]
 ---
+
+
+<style>
+    .strong-bigger {
+        font-size: 18px;
+    }
+    
+    .post {
+        font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+        font-size: 16px;
+        line-height: 27.2px;
+    }
+    
+    .post-full h1 {
+        background-color: #ccc;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        color: #000;
+        line-height: 46.8px;
+        text-rendering: optimizelegibility;
+        font-size: 26px;
+    }
+    
+    .post-full h2 {
+        color: #333;
+        padding: 5px;
+        line-height: 43.2px;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        font-size: 24px;
+    }
+    
+    .post-full h3 {
+        padding: 5px;
+        color: #000;
+        border-bottom: dashed 1px #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+    
+    .post-full img {
+        border: solid 5px #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        max-height: 400px;
+    }
+    
+    .post-full ul {
+        margin-bottom: 20px;
+        line-height: 27.2px;
+        font-size: 16px;
+    }
+    
+    .post-full ul li {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    
+    .post-full p {
+        font-size: 16px;
+    }
+</style>
 
 > 感谢公司的这个平台，让我这个毛头小子，不知天高地厚的人做了几年事业部负责人，然后又从2011年开始作为西安第一分公司的负责人至今。虽然分公司人员并不多，但是依然经历了很多事，才有了许多的思考和实践！
 
