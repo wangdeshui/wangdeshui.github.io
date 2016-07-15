@@ -56,13 +56,13 @@ tags: [管理]
         max-height: 400px;
     }
     
-    .post-full ul {
+   .post-full ul, .post-full ol {
         margin-bottom: 20px;
         line-height: 27.2px;
         font-size: 16px;
     }
     
-    .post-full ul li {
+    .post-full ul li，.post-full ol li {
         line-height: 30px;
         font-size: 16px;
     }
