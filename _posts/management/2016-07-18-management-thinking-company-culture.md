@@ -2,7 +2,7 @@
 layout: post
 category : 管理
 title: 管理沉思录系列(四):我们企业文化杂谈
-date: 2016-07-19 23:00:00
+date: 2016-07-18 23:00:00
 tags: [管理]
 ---
 <style>
