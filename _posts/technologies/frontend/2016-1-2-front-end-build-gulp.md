@@ -6,31 +6,7 @@ date: 2016-1-2 20:00:00
 tags: [FrontEnd]
 ---
 
-<style>
-    h2 {
-        color: #000;
-        padding: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-        background-color: #ccc;
-    }
-    
-    h3 {
-        color: #000;
-        border-bottom: dashed 1px #ccc;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    img {
-        border: solid 5px #ccc;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-        max-height: 400px;
-    }
-</style>
+
 
 
 在上一篇 [前端构建大法 Gulp 系列 (一)：为什么需要前端构建](http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/) 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。

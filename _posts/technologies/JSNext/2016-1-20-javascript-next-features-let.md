@@ -6,51 +6,6 @@ date: 2016-1-20 6:00:00
 tags: [JavaScript.Next]
 ---
 
-<style>
-    .post {
-        font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-        font-size: 16px;
-    }
-    
-    .post-full h2 {
-        background-color: #ccc;
-        padding: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-        color: #000;
-        line-height: 1.8;
-        text-rendering: optimizelegibility;
-    }
-    
-    .post-full h3 {
-        color: #333;
-        padding: 5px;
-        line-height: 1.6;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    .post-full h4 {
-        padding: 5px;
-        color: #000;
-        border-bottom: dashed 1px #ccc;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    .post-full img {
-        border: solid 5px #ccc;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-        max-height: 400px;
-    }
-</style>
-
-
-
 
 > **ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。也就是有了块级作用域。**
 

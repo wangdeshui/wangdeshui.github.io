@@ -6,67 +6,7 @@ date: 2016-04-08 22:00:00
 tags: [团队实践]
 ---
 
-<style>
-    .strong-bigger {
-        font-size: 18px;
-    }
-    
-    .post {
-        font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-        font-size: 16px;
-    }
-    
-    .post-full h1 {
-        background-color: #ccc;
-        padding: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-        color: #000;
-        line-height: 1.8;
-        text-rendering: optimizelegibility;
-    }
-    
-    .post-full h2 {
-        color: #333;
-        padding: 5px;
-        line-height: 1.6;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    .post-full h3 {
-        padding: 5px;
-        color: #000;
-        border-bottom: dashed 1px #ccc;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    .post-full img {
-        border: solid 5px #ccc;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-        max-height: 400px;
-    }
-    
-   .post-full ul,.post-full ol {
-        margin-bottom: 20px;
-        line-height: 27.2px;
-        font-size: 16px;
-    }
-    
-    .post-full ul li,.post-full ol li {
-        line-height: 30px;
-        font-size: 16px;
-    }
-    
-    .post-full p {
-        font-size: 16px;
-    }
-</style>
+
 
 > 我一直认为一拿到任务就开始写代码是有问题的，而这是很多人的习惯，结果就是不断的修改，我还是那句话，作为程序员我们是要把代码写对，而不是把它改对。
 

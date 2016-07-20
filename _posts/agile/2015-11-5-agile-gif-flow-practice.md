@@ -6,39 +6,6 @@ date: 2015-11-5 20:00:00
 tags: [管理]
 ---
 
-<style>
- h2{
-  color: #000;  
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
-  background-color: #ccc;
- }
-
- h3 {
-	color: #333;
-	border-bottom: dashed 1px #ccc;
-	padding-bottom: 5px;
-	margin-bottom: 10px;
-	font-weight: bolder;
- }
-
- h4 {
-	color: #666;
-	border-bottom: dashed 1px #ccc;
-	padding-bottom: 5px;
-	margin-bottom: 10px;
-	font-weight: bolder;
- }
-
- img {  
-	border: solid 5px #ccc;
-	padding: 5px;
-	border-radius:5px;
-	text-align: center;
- }
-
-</style>
 
 
 上一篇 [敏捷实践系列(四)：代码管理流程](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management/) 给大家详细的讲解了一下Git flow, 本周我们就把一个客户的所有项目实施了Git flow, 如果说你详细看了那篇文章，那么你就能了解为何要进行Git flow 以及如何对一个新项目按Git flow的流程操作， 但是当我们整理已有的项目时，我们发现了以下几个问题需要一些方法处理。

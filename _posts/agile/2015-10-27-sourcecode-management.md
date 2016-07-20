@@ -6,38 +6,7 @@ date: 2015-10-27 20:00:00
 tags: [管理]
 ---
 
-<style>
- h2{
-  color: #000;
-  
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
-  background-color: #ccc;
 
- }
-
- h3 {
- 	color: #000;
-
- 	border-bottom: dashed 1px #ccc;
- 	padding-bottom: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
- }
-
- img {
-  
-   border: solid 5px #ccc;
-   padding: 5px;
-   border-radius:5px;  
-   text-align: center;
- }
-
-
- 
-
-</style>
 
 
 > 本来没有这么快到流程以及技术部分，但是因为公司需要，所以就临时写了这一部分。

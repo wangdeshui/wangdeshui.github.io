@@ -7,39 +7,6 @@ tags: [管理]
 ---
 
 
-<style>
- h2{
-  color: #000;
-  
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
-  background-color: #ccc;
-
- }
-
- h3 {
-  color: #000;
-
-  border-bottom: dashed 1px #ccc;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
- }
-
- img {
-  
-   border: solid 5px #ccc;
-   padding: 5px;
-   border-radius:5px;  
-   text-align: center;
-   max-height: 400px;
-   
-
- }
-
-</style>
-
 ## 开篇
  这样的场景你是不是很熟悉？客户让你做一个软件，你需要他给你写出需求，当它给你写出需求后，在你认为时间非常紧的情况下，你辛辛苦苦，加班加点，费劲九牛二虎之力，最后赶在最后时刻给客户提交了，你满怀希望等待客户给你的表扬，你万分坚信领导对你的辛苦会给予高度认可和鼓励，你觉得很快就要带一朵“小红花”时，最后你得到的是绵绵无绝期的等待，甚至是客户的不满意，这是为什么呢？这种情况在我的团队里也会出现，有时候我让改一个东西，经常得到的回复就是:"客户就是这么要求的，而且描述很清晰，不能改！", 最后如果不改的结果就是客户不满意。
 

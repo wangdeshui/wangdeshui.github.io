@@ -6,37 +6,6 @@ date: 2015-11-22 17:00:00
 tags: [技术]
 ---
 
-<style>
-
- h2{
-  color: #000;
-  
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
-  background-color: #ccc;
-
- }
-
- h3 {
- 	color: #000;
-
- 	border-bottom: dashed 1px #ccc;
- 	padding-bottom: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
- }
-
- h4,h5
- {
- 	color: #000;
-
- 	border-bottom: dashed 1px #ccc;
- 	padding-bottom: 5px;
-  margin-bottom: 10px;
-
- }
-</style>
 
 每过一段时间就有人跳出来说微软不行了，.NET不行了，然后就去舔Java, 但是一直让我觉得比较奇怪的是，几年以后那些人还在用.NET,而且继续喷着.NET, 舔着JAVA, 在我看来，这些人和那些天天喷自己的公司，却依然在那个公司，天天喷中国，却依然在中国的那些人是一样的。
 

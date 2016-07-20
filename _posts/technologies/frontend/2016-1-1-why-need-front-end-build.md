@@ -7,44 +7,6 @@ tags: [FrontEnd]
 ---
 
 
-<style>
- h2{
-  color: #000;
-  
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
-  background-color: #ccc;
-
- }
-
- h3 {
-  color: #000;
-
-  border-bottom: dashed 1px #ccc;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
- }
-
- img {
-  
-   border: solid 5px #ccc;
-   padding: 5px;
-   border-radius:5px;  
-   text-align: center;
-   max-height: 400px;
-   
-
- }
-
-
- 
-
-</style>
-
-
-
 我们都知道使用IDE编写后端程序时，我们都需要Build, 对.NET来说，我们一般需要使用Visual Studio来确保我们的项目编译通过，而且项目编译通过是对所有程序员的基本要求。
 
 但是，由于很多后端程序员对前端的很多东西不了解，导致在做WEB项目时出现了一些问题。

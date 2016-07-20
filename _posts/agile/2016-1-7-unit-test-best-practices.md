@@ -7,56 +7,6 @@ tags: [管理]
 ---
 
 
-<style>
-    .post
-    {
-        font-family:
-'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-    font-size: 16px;
-}
-    .post-full h1 {
-       background-color: #ccc;
-        padding: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-        color: #000;
-        line-height: 1.8;
-        text-rendering: optimizelegibility;
-    }
-    
-    .post-full h2 {
-        color: #333;
-        padding: 5px;
-        line-height: 1.6;        
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-        
-    }
-
-     .post-full h3 {
-        padding: 5px;
-        color: #000;
-        border-bottom: dashed 1px #ccc;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    .post-full img {
-        border: solid 5px #ccc;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-        max-height: 400px;
-    }
-</style>
-
-
-
-
- 
-
 # 前言
 
 

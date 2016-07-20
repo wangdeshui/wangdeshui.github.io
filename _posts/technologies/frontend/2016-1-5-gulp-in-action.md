@@ -6,31 +6,6 @@ date: 2016-1-5 20:00:00
 tags: [FrontEnd]
 ---
 
-<style>
-    h2 {
-        color: #000;
-        padding: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-        background-color: #ccc;
-    }
-    
-    h3 {
-        color: #000;
-        border-bottom: dashed 1px #ccc;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        font-weight: bolder;
-    }
-    
-    img {
-        border: solid 5px #ccc;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-        max-height: 400px;
-    }
-</style>
 
 前面讲了很多理论，那么这一节我们将讲一些实战的例子
 

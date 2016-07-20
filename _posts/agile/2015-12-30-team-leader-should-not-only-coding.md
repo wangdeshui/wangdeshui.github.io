@@ -7,42 +7,6 @@ tags: [管理]
 ---
 
 
-<style>
- h2{
-  color: #000;
-  
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
-  background-color: #ccc;
-
- }
-
- h3 {
- 	color: #000;
-
- 	border-bottom: dashed 1px #ccc;
- 	padding-bottom: 5px;
-  margin-bottom: 10px;
-  font-weight: bolder;
- }
-
- img {
-  
-   border: solid 5px #ccc;
-   padding: 5px;
-   border-radius:5px;  
-   text-align: center;
-   max-height: 400px;
-   
-
- }
-
-
- 
-
-</style>
-
 ## 为什么软件项目需要 Team Leader
 
 多年以前，当我接触敏捷时，我接触到一个概念，叫做 “自组织的团队”，当时我看了一些估计从没做过敏捷的一些凭空捏造的很多文章（事实上，这类人现在越来越多），那些文章多见名猜意，提出了自组织的团队就是团队自己组织，不需要Leader, 一开始我也是这么认为，甚至想尽一切办法向这个方向靠拢，而且成功的提交了一些项目，甚至于连我自己都相信这是自组织的结果，但是后来一想，我在团队里的所想所做不正是一个Team Leader 需要做的吗？
