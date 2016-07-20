@@ -2,7 +2,7 @@
 layout: post
 category : 管理
 title: 前端开发系列之Webpack(三):Preloaders
-date: 2016-07-20 12:00:00
+date: 2016-07-21 20:00:00
 tags: [技术]
 ---
 
@@ -18,7 +18,7 @@ Preloader就是在调用loader之前需要调用的loader, 他不做任何代码
 
 1. 安装jshint-loader 
     
-    npm install jshint-loader --save-dev
+    npm install jshint jshint-loader --save-dev
 
 2. 修改 webpack.config.jshint
 
@@ -77,3 +77,14 @@ Preloader就是在调用loader之前需要调用的loader, 他不做任何代码
     } 
 
 4. 删掉hello.js里的一个;号，然后重启webpack-dev-server       
+
+    WARNING in ./hello.js
+    jshint results in errors
+    'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). @ line 1 char 1
+        let hello=(name)=>{
+
+    'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6'). @ line 1 char 16
+        let hello=(name)=>{
+
+    Missing semicolon. @ line 3 char 2
+        }
