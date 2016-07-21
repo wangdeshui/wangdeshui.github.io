@@ -18,18 +18,18 @@ Preloader就是在调用loader之前需要调用的loader, 他不做任何代码
 
 1. 安装jshint-loader 
     
-    npm install jshint jshint-loader --save-dev
+        npm install jshint jshint-loader --save-dev
 
 2. 修改 webpack.config.jshint
 
-    module.exports = {
-        entry: './main.js',
-        output: {
-            filename: 'bundle.js'
-        },
-        module: {
-            preLoaders: [
-                {
+        module.exports = {
+            entry: './main.js',
+            output: {
+                filename: 'bundle.js'
+            },
+            module: {
+                preLoaders: [
+                    {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     loader: 'jshint'
@@ -64,27 +64,27 @@ Preloader就是在调用loader之前需要调用的loader, 他不做任何代码
 
 3. 指定JSHint使用es6.
 
-    module: {
-        preLoaders: [
-            ...
-        ],
-        loaders: [
-            ...    
-        ]
-    },
-    jshint: {
-        esversion: 6
-    } 
+        module: {
+            preLoaders: [
+                ...
+            ],
+            loaders: [
+                ...    
+            ]
+        },
+        jshint: {
+            esversion: 6
+        } 
 
 4. 删掉hello.js里的一个;号，然后重启webpack-dev-server       
 
-    WARNING in ./hello.js
-    jshint results in errors
-    'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). @ line 1 char 1
-        let hello=(name)=>{
+        WARNING in ./hello.js
+        jshint results in errors
+        'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). @ line 1 char 1
+            let hello=(name)=>{
 
-    'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6'). @ line 1 char 16
-        let hello=(name)=>{
+        'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6'). @ line 1 char 16
+            let hello=(name)=>{
 
-    Missing semicolon. @ line 3 char 2
-        }
+        Missing semicolon. @ line 3 char 2
+            }
