@@ -1,8 +1,8 @@
 ---
 layout: post
-category : 管理
+category : 前端开发
 title: 前端开发系列之Webpack(二):Loaders
-date: 2016-07-20 12:00:00
+date: 2016-07-20 19:00:00
 tags: [技术]
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-category : 管理
+category : 前端开发
 title: 前端开发系列之Webpack(一):基本使用
 date: 2016-07-20 12:00:00
 tags: [技术]
