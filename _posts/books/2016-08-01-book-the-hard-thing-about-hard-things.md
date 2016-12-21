@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 管理
-title: 拆书系列(一):《创业维艰》一
+title: 拆书系列(一):《创业维艰》之简介
 tagline: 如何完成比难更难的事
 date: 2016-08-01 21:00:00
 tags: [管理]

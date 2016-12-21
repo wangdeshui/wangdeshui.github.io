@@ -1,8 +1,7 @@
 ---
 layout: post
 category : 管理
-title: 拆书系列(二):《创业维艰》二
-tagline: 创业中的挣扎
+title: 拆书系列(二):《创业维艰》之创业中的挣扎
 date: 2016-08-02 21:00:00
 tags: [管理]
 ---
