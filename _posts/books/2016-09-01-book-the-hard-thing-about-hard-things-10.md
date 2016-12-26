@@ -2,7 +2,7 @@
 layout: post
 category : 管理
 title: 拆书系列(十):《创业维艰》之CEO
-date: 2016-08-10 21:00:00
+date: 2016-09-01 20:00:00
 tags: [管理]
 ---
 
