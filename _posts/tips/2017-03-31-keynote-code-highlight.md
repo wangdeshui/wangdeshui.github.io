@@ -8,7 +8,7 @@ tags: [tips]
 
 # Keynote 代码高亮
 
-从IDE里拷贝代码到Keynote里可是就会丢失，通过搜寻可以在Mac上使用highlight组件。
+从IDE里拷贝代码到Keynote里格式就会丢失，通过搜寻可以在Mac上使用highlight组件。
 
 
 ## 安装
@@ -28,7 +28,7 @@ highlight -O rtf -s earendel -k 'Courier' -K 50 file.js | pbcopy
 
 ```
 
-上面的命令是把file.js里的代码 使用earendel皮肤，Courier字体，字体大小为50，输出给事为rtf, 如果要粘贴到keynote,必须使用rtf
+上面的命令是把file.js里的代码 使用earendel皮肤，Courier字体，字体大小为50，输出格式为rtf, 如果要粘贴到keynote,必须使用rtf
 
 
 ## 格式化剪贴板里的内容
