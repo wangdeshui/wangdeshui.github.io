@@ -10,6 +10,8 @@ tags: [tips]
 
 从IDE里拷贝代码到Keynote里格式就会丢失，通过搜寻可以在Mac上使用highlight组件。
 
+[http://www.andre-simon.de/doku/highlight/en/highlight.php](http://www.andre-simon.de/doku/highlight/en/highlight.php)
+
 
 ## 安装
 
@@ -44,3 +46,4 @@ pbpaste | highlight --syntax=java --style=Andes -O rtf | pbcopy
 直接拷贝到keynote里就可以了，下过如下图
 
 <img src="http://7xpzem.com1.z0.glb.clouddn.com/keynote-highlight.png" class="img-responsive img-rounded center-block">
+
