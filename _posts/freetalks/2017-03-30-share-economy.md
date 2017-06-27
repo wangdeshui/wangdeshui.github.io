@@ -1,7 +1,7 @@
 ---
 layout: post
 category : freetalk
-title: 共享经济
+title: freetalk系列(3):共享经济
 tagline: 共享经济起源和挑战
 date: 2017-03-30 21:00:00
 tags: [freetalk]
