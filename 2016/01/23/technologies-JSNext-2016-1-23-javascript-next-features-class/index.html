@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>ES6+ 现在就用系列（八)：类 (Class)，继承，对象的扩展 - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="类JavaScript 是prototype-base OO, 原来都是通过构造函数来生成新的对象 function Vehicle (name, type) &amp;amp;#123;     this.name &amp;#x3D; name;     this.type &amp;#x3D; type; &amp;amp;#125;;  Vehicle.prototype.getName &amp;#x3D; function getName () &amp;amp;#123;     r"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:description" content="类JavaScript 是prototype-base OO, 原来都是通过构造函数来生成新的对象 function Vehicle (name, type) &amp;amp;#123;     this.name &amp;#x3D; name;     this.type &amp;#x3D; type; &amp;amp;#125;;  Vehicle.prototype.getName &amp;#x3D; function getName () &amp;amp;#123;     r"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:published_time" content="2016-01-22T23:30:00.000Z"><meta property="article:modified_time" content="2021-01-05T07:00:21.812Z"><meta property="article:author" content="敏捷的水"><meta property="article:tag" content="JavaScript.Next"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"datePublished":"2016-01-22T23:30:00.000Z","dateModified":"2021-01-05T07:00:21.812Z","author":{"@type":"Person","name":"Jack Wang"},"description":"类JavaScript 是prototype-base OO, 原来都是通过构造函数来生成新的对象 function Vehicle (name, type) &amp;#123;     this.name &#x3D; name;     this.type &#x3D; type; &amp;#125;;  Vehicle.prototype.getName &#x3D; function getName () &amp;#123;     r"}</script><link rel="canonical" href="http://example.com/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-23  <a class="commentCountImg" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/#comment-container"><span class="display-none-class">/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="4a9baa4fb7e9371de89a490a3890611b">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>10 m  <i class="fas fa-pencil-alt"> </i>1.5 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">ES6+ 现在就用系列（八)：类 (Class)，继承，对象的扩展</h1><div class="content"><h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>JavaScript 是prototype-base OO, 原来都是通过构造函数来生成新的对象</p>
+<pre><code>function Vehicle (name, type) &#123;
+    this.name = name;
+    this.type = type;
+&#125;;
+
+Vehicle.prototype.getName = function getName () &#123;
+    return this.name;
+&#125;;
+
+Vehicle.prototype.getType = function getType () &#123;
+    return this.type;
+&#125;;
+
+var car = new Vehicle(&#39;Tesla&#39;, &#39;car&#39;);
+console.log(car.getName()); // Tesla
+console.log(car.getType()); // car</code></pre>
+<p>但是原来这种写法，和传统的大部分面向对象语言定义类的方式差异较大，程序员不太容易理解。</p>
+<p>ES6提供了更接近传统语言的写法，引入了Class（类）这个概念，作为对象的模板。</p>
+<pre><code>class Vehicle &#123;
+
+    constructor (name, type) &#123;
+        this.name = name;
+        this.type = type;
+    &#125;
+
+    getName () &#123;
+        return this.name;
+    &#125;
+
+    getType () &#123;
+        return this.type;
+&#125;
+
+&#125;
+let car = new Vehicle(&#39;Tesla&#39;, &#39;car&#39;);
+console.log(car.getName()); // Tesla
+console.log(car.getType()); // car    </code></pre>
+<p>我们看到，这种写法 更容易理解。   </p>
+<p>实际上 ES6的class 可以看作只是一个语法糖，他的功能大部分ES5都可以做到。</p>
+<pre><code>console.log(typeof Vehicle);  // function
+
+console.log(Vehicle===Vehicle.prototype.constructor);   // true</code></pre>
+<p><strong>构造函数的prototype属性，在ES6的“类”上面继续存在。事实上，类的所有方法都定义在类的prototype属性上面</strong></p>
+<p><strong>在类的实例上面调用方法，其实就是调用原型上的方法。</strong></p>
+<p><strong>prototype对象的constructor属性，直接指向“类”的本身.</strong></p>
+<p><strong>实例的属性除非显式定义在其本身（即定义在this对象上），否则都是定义在原型上（即定义在class上）</strong></p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>ES6 提供了extend的关键字来实现继承</p>
+<p>ES5里我们是这样：</p>
+<pre><code>function Vehicle (name, type) &#123;
+    this.name = name;
+    this.type = type;
+&#125;;
+
+Vehicle.prototype.getName = function getName () &#123;
+    return this.name;
+&#125;;
+
+Vehicle.prototype.getType = function getType () &#123;
+    return this.type;
+&#125;;
+
+
+function Car (name) &#123;
+    Vehicle.call(this, name, ‘car’);
+&#125;
+
+Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
+Car.parent = Vehicle.prototype;
+Car.prototype.getName = function () &#123;
+    return &#39;It is a car: &#39;+ this.name;
+&#125;;
+
+var car = new Car(&#39;Tesla&#39;);
+console.log(car.getName()); // It is a car: Tesla
+console.log(car.getType()); // car    </code></pre>
+<p>ES6:</p>
+<pre><code>class Vehicle &#123;
+
+constructor (name, type) &#123;
+    this.name = name;
+    this.type = type;
+&#125;
+
+getName () &#123;
+    return this.name;
+&#125;
+
+getType () &#123;
+    return this.type;
+&#125;
+
+&#125;
+class Car extends Vehicle &#123;
+
+constructor (name) &#123;
+    super(name, &#39;car&#39;);
+     this.name=&quot;BMW&quot;;
+&#125;
+
+getName () &#123;
+    return &#39;It is a car: &#39; + super.getName();
+&#125;
+
+&#125;
+let car = new Car(&#39;Tesla&#39;);
+console.log(car.getName()); // It is a car: BMW
+console.log(car.getType()); // car    </code></pre>
+<p>可见，在ES6里实现继承很简洁而且直观。</p>
+<p><strong>需要注意的地方是，在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，是基于对父类实例加工，只有super方法才能返回父类实例。</strong>    </p>
+<h1 id="类的静态方法"><a href="#类的静态方法" class="headerlink" title="类的静态方法"></a>类的静态方法</h1><p>类的静态方法，就是方法前面加上 static 关键字，调用的时候直接使用类名调用，这个其它语言是一样的。</p>
+<pre><code>class Vehicle &#123;
+
+constructor (name, type) &#123;
+    this.name = name;
+    this.type = type;
+&#125;
+
+getName () &#123;
+    return this.name;
+&#125;
+
+getType () &#123;
+    return this.type;
+&#125;
+
+static create (name, type) &#123;
+    return new Vehicle(name, type);
+&#125;
+
+&#125;
+let car = Vehicle.create(&#39;Tesla&#39;, &#39;car&#39;);
+console.log(car.getName()); // Tesla
+console.log(car.getType()); // car</code></pre>
+<h1 id="get-set"><a href="#get-set" class="headerlink" title="get/set"></a>get/set</h1><p>ES6 允许定义 getter 和 setter 方法</p>
+<pre><code>class Car &#123;
+
+constructor (name) &#123;
+    this._name = name;
+&#125; 
+
+set name (name) &#123;
+    this._name = name;
+&#125;
+
+get name () &#123;
+    return this._name;
+&#125;
+
+&#125;
+let car = new Car(&#39;Tesla&#39;);
+console.log(car.name); // Tesla
+car.name = &#39;BMW&#39;;
+console.log(car.name); // BMW    </code></pre>
+<h1 id="增强对象属性"><a href="#增强对象属性" class="headerlink" title="增强对象属性"></a>增强对象属性</h1><pre><code>// ES6
+let x = 1,
+    y = 2,
+    obj = &#123; x, y &#125;;
+console.log(obj); // Object &#123; x: 1, y: 2 &#125;
+
+// ES5
+var x = 1,
+    y = 2,
+    obj = &#123;
+        x: x,
+        y: y
+    &#125;;
+console.log(obj); // Object &#123; x: 1, y: 2 &#125;    </code></pre>
+<p>另外， ES6 支持符合属性直接定义</p>
+<pre><code>// ES6
+let getKey = () =&gt; &#39;123&#39;,
+obj = &#123;
+    foo: &#39;bar&#39;,
+    [&#39;key_&#39; + getKey()]: 123
+&#125;;
+console.log(obj); // Object &#123; foo: &#39;bar&#39;, key_123: 123 &#125;
+
+// ES5
+var getKey = function () &#123;
+    return &#39;123&#39;;
+&#125;,
+obj = &#123;
+    foo: &#39;bar&#39;
+&#125;;
+
+obj[&#39;key_&#39; + getKey()] = 123;
+console.log(obj); // Object &#123; foo: &#39;bar&#39;, key_123: 123 &#125;    </code></pre>
+<p>ES6 定义方法属性时，可以省略function</p>
+<pre><code>// ES6
+let obj = &#123;
+    name: &#39;object name&#39;,
+    toString () &#123; // &#39;function&#39; keyword is omitted here
+        return this.name;
+    &#125;
+&#125;;
+console.log(obj.toString()); // object name
+
+// ES5
+var obj = &#123;
+    name: &#39;object name&#39;,
+    toString: function () &#123;
+        return this.name;
+    &#125;
+&#125;;
+console.log(obj.toString()); // object name    </code></pre>
+<p>综合例子：</p>
+<pre><code>//create a logger facade
+class Logger &#123;
+    //constructor
+    constructor (type = &quot;Info&quot;) &#123;
+        this.type = type;
+    &#125;
+    //static methods
+    static create(type) &#123;
+        return new this(type);
+    &#125;
+    //getters
+    get current() &#123;
+    return `Logger: $&#123;this.type&#125;`;
+    &#125;
+    //and setters
+    set current(type) &#123;
+        this.type = type;
+    &#125;
+    log (message) &#123;
+        let msg = `%c $&#123;new Date().toISOString()&#125;: $&#123;message&#125;`;
+
+        switch (this.type) &#123;
+            case &quot;Info&quot;:
+                console.log(msg,
+                &#39;background:#659cef;color:#fff;font-size:14px;&#39;
+                );
+                break;
+            case &quot;Error&quot;:
+                console.log(msg,
+                &#39;background: red; color: #fff;font-size:14px;&#39;
+                );
+                break;
+            case &quot;Debug&quot;:
+                console.log(msg,
+                &#39;background: #e67e22; color:#fff; font-size:14px;&#39;
+                );
+                break;
+            default:
+                console.log(msg);
+        &#125;
+    &#125;
+&#125;
+
+//create an instance of our logger
+const debugLogger = new Logger(&quot;Debug&quot;);
+debugLogger.log(&quot;Hello&quot;);
+debugLogger.log(debugLogger.current);
+
+//extend it
+class ConfigurableLogger extends Logger &#123;
+    //getters
+    get current() &#123;
+        return `ConfigurableLogger: $&#123;this.type&#125;`;
+    &#125;
+    log (message, type) &#123;
+        this.type = type;
+        super.log(message);
+    &#125;
+&#125;
+
+//create instance of our configurable logger
+const cLogger = ConfigurableLogger.create(&quot;Debug&quot;);
+cLogger.log(&quot;Configurable Logger&quot;, &quot;Info&quot;);
+cLogger.log(cLogger.current);
+
+cLogger.log(cLogger instanceof ConfigurableLogger); // true
+cLogger.log(cLogger instanceof Logger); // true</code></pre>
+<h1 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h1><p>ES5比较两个值是否相等，只有两个运算符：相等运算符（==）和严格相等运算符（===）。它们都有缺点，前者会自动转换数据类型，后者的NaN不等于自身，以及+0等于-0。JavaScript缺乏一种运算，在所有环境中，只要两个值是一样的，它们就应该相等。</p>
+<p>ES6提出“Same-value equality”（同值相等）算法，用来解决这个问题。Object.is就是部署这个算法的新方法。它用来比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致。</p>
+<pre><code>Object.is(&#39;foo&#39;, &#39;foo&#39;)
+// true
+Object.is(&#123;&#125;, &#123;&#125;)
+// false    </code></pre>
+<p>不同之处只有两个：一是+0不等于-0，二是NaN等于自身。</p>
+<pre><code>Object.is(+0, -0) // false
+Object.is(NaN, NaN) // true  </code></pre>
+<h1 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h1><p>Object.assign方法用来将源对象（source）的所有可枚举属性，复制到目标对象（target）。它至少需要两个对象作为参数，第一个参数是目标对象，后面的参数都是源对象。只要有一个参数不是对象，就会抛出TypeError错误。</p>
+<pre><code>var target = &#123; a: 1 &#125;;
+
+var source1 = &#123; b: 2 &#125;;
+var source2 = &#123; c: 3 &#125;;
+
+Object.assign(target, source1, source2);
+target // &#123;a:1, b:2, c:3&#125;      </code></pre>
+<p>如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</p>
+<pre><code>var target = &#123; a: 1, b: 1 &#125;;
+
+var source1 = &#123; b: 2, c: 2 &#125;;
+var source2 = &#123; c: 3 &#125;;
+
+Object.assign(target, source1, source2);
+target // &#123;a:1, b:2, c:3&#125;    </code></pre>
+<p>Object.assign只拷贝自身属性，不可枚举的属性（enumerable为false）和继承的属性不会被拷贝。    </p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>ES6+ 现在就用系列（八)：类 (Class)，继承，对象的扩展</p><p><a href="http://example.com/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/">http://example.com/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><a href="http://example.com"><p>Jack Wang</p></a></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2016-01-23</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-01-05</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># Related Post</span><br><span>  1.<a class="is-size-6" href="/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/" target="_blank">领域驱动设计系列（七）:领域驱动开发实践之路:我们如何从领域驱动开发当中获益</a><br></span><span>  2.<a class="is-size-6" href="/2016/01/29/technologies-cleancode-2016-01-29-clean-code-encapsulation/" target="_blank">整洁代码系列(一)：封装 (Encapsulation)</a><br></span><span>  3.<a class="is-size-6" href="/2016/01/24/technologies-JSNext-2016-1-24-javascript-next-features-es6-in-browser/" target="_blank">ES6+ 现在就用系列（十一)：ES7 Async in Browser Today</a><br></span><span>  4.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-async-await/" target="_blank">ES6+ 现在就用系列（十)：Async 异步编程</a><br></span><span>  5.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-modules/" target="_blank">ES6+ 现在就用系列（九)：模块</a><br></span><span>  6.<a class="is-size-6" href="/2016/01/22/technologies-JSNext-2016-1-22-javascript-next-features-promise/" target="_blank">ES6+ 现在就用系列（七)：Promise</a><br></span><span>  7.<a class="is-size-6" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-destructuring-assignment/" target="_blank">ES6+ 现在就用系列（六)：解构赋值 (Destructuring )</a><br></span><span>  8.<a class="is-size-6" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/" target="_blank">ES6+ 现在就用系列（五)：模板字面量 (Template Literals)</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-modules/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">ES6+ 现在就用系列（九)：模块</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2016/01/22/technologies-JSNext-2016-1-22-javascript-next-features-promise/"><span class="level-item">ES6+ 现在就用系列（七)：Promise</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="72559f22e3230bbd2d30b45fee5ecb39">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>4 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/">领域驱动设计系列 (四)：事件驱动下</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇说到为什么要使用事件驱动，但是只有概念是不够的，我们要代码呀！记得脸书的老总说过: “Talk is cheap, Show me the code!”</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="发出事件"><a href="#发出事件" class="headerlink" title="发出事件"></a>发出事件</h2><p>事件顾名思义就是一件事情发生了，比如我要上头条，这不是一个事件，这事一个Command, HeadCommand, 而我上头条了这就是一个事件HeadedEvent，事件就是一件事情已经发生了。 好，先来一个伪代码</p>
+<pre><code>   public void Head()
+    &#123;
+        var NewsPaper = new NewsPaper(&quot;南都娱乐&quot;);
+        NewsPaper.WriteToHeader(&quot;汪峰&quot;);
+
+        RaiseEvent(new HeadedEvent &#123;Name = &quot;汪峰&quot;&#125;);
+    &#125;</code></pre>
+<p>所以我们只需在代码里RaiseEvent就可以了。</p>
+<h2 id="那么如何订阅事件"><a href="#那么如何订阅事件" class="headerlink" title="那么如何订阅事件"></a>那么如何订阅事件</h2><p>其实很简单，因为我们要实现的是同步的事件，我们只需要找到所有处理这个事件的实现类，然后调用所有就可以了。 </p>
+<pre><code>public interface IEventHandler&lt;TEvent&gt; where TEvent : Event
+&#123;
+    void Handle(TEvent e);
+&#125;
+
+public class HeadedEvent:Event
+&#123;
+    public string Name &#123; get; set; &#125;
+&#125;</code></pre>
+<p>如果国际章的妈妈关注这个Event, 我们就实现一个GuoJiZhangMotherEventHandler</p>
+<pre><code>public class GuoJiZhangMotherEventHandler : IEventHandler&lt;HeadedEvent&gt;
+&#123;
+    public void Handle(HeadedEvent e)
+    &#123;
+         Console.WriteLine(e.Name+&quot;, Are you kidding me?&quot;);
+    &#125;
+&#125;</code></pre>
+<p>如果我等屁民也关心这个事件的话，我们只需要再实现一个 PiMingEventHandler</p>
+<pre><code>public class PiMingEventHandler:IEventHandler&lt;HeadedEvent&gt;
+&#123;
+    public void Handle(HeadedEvent e)
+    &#123;
+        Console.WriteLine(e.Name+&quot;, Guo Ji Zhang is your last wife?&quot;);
+    &#125;
+&#125;</code></pre>
+<p>看，我们可以任意增加关注事件的代码，不用修改原来的代码吧，说好的OCP没骗你吧？ 那么问题来了，发出事件的人和接受事件的人怎么联系上的？在现实世界中，我们都是订阅报纸来看头条知道的，但是代码里我们就需要一个协调者了。如是我们就需要一个EventBus, 直接上代码吧</p>
+<pre><code>    public void Head()
+    &#123;
+        var NewsPaper = new NewsPaper(&quot;南都娱乐&quot;);
+        NewsPaper.WriteToHeader(&quot;汪峰&quot;);
+
+        RaiseEvent(new HeadedEvent &#123;Name = &quot;汪峰&quot;&#125;);
+    &#125;
+
+    private void RaiseEvent(HeadedEvent headedEvent)
+    &#123;
+        EventBus.Publish&lt;HeadedEvent&gt;(new HeadedEvent &#123; Name = &quot;汪峰&quot; &#125;);
+    &#125;</code></pre>
+<p> EventBus找出所有Handle这个事件的实现类，调用对应的Handle方法，我们可以通过Castle或者任何注入框架轻易的实现</p>
+<pre><code>public class EventBus
+&#123;
+    public static void Publish&lt;T&gt;(T concreteEvent) where T: Event
+    &#123;
+        var handlers = _container.ResolveAll&lt;IEventHandler&lt;T&gt;&gt;();
+        foreach (var handle in handlers)
+        &#123;
+            handle.Handle(concreteEvent);
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>好了，哥只负责帮汪老师上头条，上完我发出了事件通知，谁关注谁自己处理去，我的代码也不用改。</p>
+<p>我代码实现完了，如果各位还不知道如何实现一个同步的事件驱动架构，那拜托你们找个漂亮的妹子来问我。事件驱动架构我就只能帮你到这里了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6e76f3e6319b3d7068e33dc317171f1d">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/">领域驱动设计系列（三）:事件驱动上</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天讲一下事件驱动，这个不是领域驱动设计里的事件源(Event Source), 这个以后再讲，今天主要讲一下如何用事件来解耦，主要的原因是我们有个项目有个功能我觉得用事件的方式比较好，正好写篇博客，就不用专门给他们讲了。</p>
+<h1 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h1><p>说到解耦，我们很熟悉分层设计，比如上层依赖于抽象，不依赖于具体的实现。比如一个类使用另一个类，我们使用接口而不直接使用实现类。</p>
+<pre><code> public EquipmentService(IEmailService emailService, IEquipmentRepository equipmentRepository)
+    &#123;
+        _emailService = emailService;
+        _equipmentRepository = equipmentRepository;
+    &#125;</code></pre>
+<h1 id="为何用事件？"><a href="#为何用事件？" class="headerlink" title="为何用事件？"></a>为何用事件？</h1><h2 id="SRP-（单一职责"><a href="#SRP-（单一职责" class="headerlink" title="SRP （单一职责)"></a>SRP （单一职责)</h2><p>比如我们一个会议室预定系统，我们的一个设备坏了。我们需要通知预定这个会议室的所有人。于是我们需要发邮件。</p>
+<p>伪代码如下</p>
+<pre><code>public class EquipmentService
+&#123;
+    private readonly IEmailService _emailService;
+    private readonly IEquipmentRepository _equipmentRepository;
+
+    public EquipmentService(IEmailService emailService, IEquipmentRepository equipmentRepository)
+    &#123;
+        _emailService = emailService;
+        _equipmentRepository = equipmentRepository;
+    &#125;
+
+    public void SetEquipmentBroken(string Id)
+    &#123;
+        var equipment = _equipmentRepository.GetById(Id);
+        equipment.DeActive();
+
+        _emailService.SendEmail();
+    &#125;
+&#125;</code></pre>
+<p>但是，问题来了，如果后来我们要说，如果设备坏了，我们要更改可用库存的数量，这时候我们是不是要在这里修改代码而引入IInventoryService? 后来如果经理说设备坏了你们尽然不告诉我，你们要闹哪样？这个时候我们是不是要修改代码引入ISMSService.Info(Manager)? 即使我们不考虑OCP原则，不考虑单一职责，我们程序员也会哭，我就DeActive一个设备，你要我做这么多事，我哪里清楚所有的功能？我就骂过程序员，你做这个功能呢为什么没考虑全！！！漏掉了这么重要的功能。</p>
+<p>而问题，程序员从来没考虑全过，因此我就想办法如何解决这个程序员不仔细的问题。</p>
+<h2 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h2><p>因为我熟悉iOS的开发，我就想到了iOS的Notification Center. 那我我DeActive一个设备，我就只DeActive这个设备，很SRP是不是？ 但是别的地方如何拿到通知？ 于是事件就自然的付出水面了。如果设备被DeActive了，程序就只需要喊一声，老子把设备DeActive了，你们要闹哪样你们自己看着办，代码如下。</p>
+<pre><code> public void SetEquipmentBroken(string Id)
+    &#123;
+        var equipment = _equipmentRepository.GetById(Id);
+        equipment.DeActive();
+
+        EventBus.Publish(new EquipmentDeActivedEvent &#123;Id = equipment.Id&#125;);
+
+    &#125;</code></pre>
+<p>这样，通知会议室预定者的模块去通知，给老板发短信的模块就通知老板就OK了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里我们先将事件驱动，下一篇展示如何实现同步的事件，以后转换为异步那也很容易，让多个接受者处理这个事件，接受者可以是动态的哦，以后老板娘也想知道的话，代码也不用改的亲，好，我先去写实现代码去！</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-domainmodel/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d0b3d5cca093461b4d5f702559492113">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/">领域驱动设计系列（二）:领域Model？</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>领域驱动设计里有很多东西，我们可以应用在各种各样的开发模式里，所以接下来说的一些东西，我们可以部分使用。</p>
+<p>说道领域驱动的领域，大家肯定就要开始说Bounded Context,聚合，聚合根，容易让大家搞糊涂。 我觉得先抛开这些概念，后面再来说如何设计聚合，先简单来说。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>过去，我们在多层设计里定义了很多Model, 数据库的Model(DB Entity), 然后为了不依赖数据库，我们有设计了业务的Domain Model, 同时我们又设计了ViewModel, 这样一般也没什么问题，职责也很清晰。但是有几个问题</p>
+<ol>
+<li>我们要做很多的模型转换，转入转出。当然我们可以用AutoMapper来但是AutoMapper的性能实在难以恭维，大家可以在网上搜索AutoMapper performance.</li>
+<li>领域模型成了一个单纯的DTO了。</li>
+</ol>
+<h2 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h2><p>首先我们要看领域，就是我们尽量把业务聚合到一个领域里，比如我们要做一个功能，可以看到用户每一次的登录日志，那个这个登录日志其实就是属于用户这个领域里。</p>
+<p>其次我们看模型，原来我们的模型都是只有属性，也就是贫血模型，贫血的意思就是没有行为，像木乃伊一样，但是实际上领域是我们要完成业务的最主要的地方，我们希望领域能够自制，也就是领域自己管理自己。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. </p>
+<pre><code>&#123;% highlight c# linenos %&#125;
+    
+    public class Employee : Entity
+    &#123;
+        public Name Name &#123; get; set; &#125;
+       
+        public EmployeeStatus EmployeeStatus &#123; get; set; &#125;
+
+    &#125;
+    
+    &#123;% endhighlight %&#125;</code></pre>
+<p>如果是贫血的Employee模型，我们往往代码如下</p>
+<pre><code>&#123;% highlight c# %&#125;
+	
+	public class EmployeeService : IEmployeeService
+    &#123;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        &#123;
+            _unitOfWorkFactory = unitOfWorkFactory;
+            _employeeRepository = employeeRepository;
+        &#125;
+
+        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+        &#123;
+            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+            &#123;
+                var employee = _employeeRepository.GetById(employeeId);
+                employee.EmployeeStatus = status;
+
+                unitOfWork.Commit();
+            &#125;
+        &#125;
+    &#125;
+    
+	&#123;% endhighlight %&#125;</code></pre>
+<p>但是上面的代码的问题就是领域没有自治，本来修改我的状态是我的事，你能不能修改，外面随意修改我的状态是很危险的，比如Pending状态只能改为Active状态。 所以如果不是贫血的模型，我们代码就会这样，让领域自己来管理</p>
+<pre><code>&#123;% highlight C# %&#125;
+	public class Employee : Entity
+    &#123;
+   
+        public UserId UserId &#123; get; private set; &#125;
+        public EmployeeStatus EmployeeStatus &#123; get; private set; &#125;
+
+
+        public void ChangeStatus(EmployeeStatus status)
+        &#123;
+            if (this.EmployeeStatus == EmployeeStatus.Pending && status != EmployeeStatus.Active)
+            &#123;
+                throw new Exception("Only can Active when status is pending");
+            &#125;
+
+            this.EmployeeStatus = status;
+        &#125;
+
+    &#125;
+
+	public class EmployeeService : IEmployeeService
+    &#123;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        &#123;
+            _unitOfWorkFactory = unitOfWorkFactory;
+            _employeeRepository = employeeRepository;
+        &#125;
+
+        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+        &#123;
+            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+            &#123;
+                var employee = _employeeRepository.GetById(employeeId);
+                employee.ChangeStatus(status);
+
+                unitOfWork.Commit();
+            &#125;
+        &#125;
+    &#125;
+    &#123;% endhighlight %&#125;</code></pre>
+<p>因此可以看出，我们把业务代码尽量写在领域里让领域自治。 </p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实领域驱动设计最难的就是设计领域(Domain), 也就是后面会说到的AggregateRoot 聚合，但是我想我们先让领域不再贫血，这样在传统的多层设计，数据驱动等架构都可以使用这种模式。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-10  <a class="commentCountImg" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/#comment-container"><span class="display-none-class">/2015/02/10/technologies-DDD-2015-2-10-why-ddd/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1b7efaf5b26fd2f4bb3f918604633030">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/">领域驱动设计系列（一）:为何要领域驱动设计？</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>领域驱动设计最近貌似开始火起来了，越来越多的人开始认识到领域设计的重要性，从我做过的项目来看，似乎欧洲已经有很多的公司开始实施领域驱动设计了，我看领域驱动设计也有些时间了，但是网上不管是文章还是代码，都显得太过“高大上”，一谈领域驱动设计，一大堆的概念一股脑的给你上上来，搞的有点晕头转向，而我想在一些中小项目实施领域驱动也遇到了不小的障碍，大家对很多东西都处于一种恐惧的状态，而且在正真开始实施时，也遇到一些疑问，所以也想和大家交流学习，因此开始在此写写对领域驱动的理解，后面会有一些轻量的演进代码。</p>
+<h1 id="为何要领域驱动设计？"><a href="#为何要领域驱动设计？" class="headerlink" title="为何要领域驱动设计？"></a>为何要领域驱动设计？</h1><h2 id="简化数据存储"><a href="#简化数据存储" class="headerlink" title="简化数据存储"></a>简化数据存储</h2><p>领域驱动设计有很多原因，谈到我为啥要在公司推行领域驱动设计，说起来还是很好玩的，因为原来基于数据驱动的开发方式，也就是传统的多层开发架构，大家定义了一堆DAL来操作数据, 在.Net大家一般有两种使用方式，一种是用ORM像Entity Framework, 另一种想使用Dapper这样轻量级的Mapping工具，这些都要把关系型数据转换为对象。结果导致以下几种结果。</p>
+<ul>
+<li>没有正确的使用ORM, 导致数据加载过多，导致系统性能很差。</li>
+<li>为了解决性能问题，就不加载一些导航属性，但是确保DB Entity返回上层，这样对象的一些属性为空，上层使用这个数据时根本不知道什么时间这个属性是有值的，这个是很丑陋的是不是？</li>
+<li>如是又开始使用一些轻量级的数据方法，比如使用Dapper然后自己写SQL语句，这本来是很不错的方式，但是大部分人的SQL能力实在不敢恭维，大部分写出来的SQL语句，甚至比EnityFramework生成的语句还差。</li>
+</ul>
+<p>所以，我就想我们做项目，大部分处理的应该是因为，如何让程序员从数据存储，模型转换的大泥潭里解放出来，领域驱动设计就进入了我的实现，当然但从数据这个角度还不足以选择领域驱动设计，用一个NoSQL数据库是不是就解决了？ 但是NoSQL也有一些问题，比如MongoDB如何更优雅的保证事务以及数据的一致性等。</p>
+<h2 id="更多了解上下文"><a href="#更多了解上下文" class="headerlink" title="更多了解上下文"></a>更多了解上下文</h2><p>我们很多软件的问题，大家都知道是需求的问题，也就是客户的需求我们很难理解准确，导致程序员更加关注”HOW” 而忽略了”WHAT”, 最终做了几个礼拜甚至更长时间，结果客户会说:”What?! I told you”, 但是客户告诉我的，我们理解是不一样的。比如客户说：“ Great job, I love you!” 这个Love肯定不是男女之间的Love, 我们拿到的是一个客户的需求，他的上下文是什么？ 比如说：“这个球打的好”， 如果是在打篮球，肯定说的事篮球，如果是在打乒乓球肯定说的是乒乓球。 而领域驱动设计里我们可以让业务人员更多的参与系统，更早的参与系统。</p>
+<h2 id="统一语言-Ubiquitous-Language"><a href="#统一语言-Ubiquitous-Language" class="headerlink" title="统一语言(Ubiquitous Language)"></a>统一语言(Ubiquitous Language)</h2><p>业务人员和我们使用一样的语言，我们的程序比如让业务尽量集中在领域里，比如在传统的数据驱动里，如果说Jack爱Rose, 我们一般会这么写</p>
+<pre><code>&#123;% highlight c# %&#125;
+    UserService.Love(Jack, Rose)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>但是我们业务人员很奇怪谁Love谁？ 为什么要UserService?, 如果我们写成下面这样</p>
+<pre><code>&#123;% highlight C# %&#125;
+    Jack.Love(Rose)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>还有如果我们用</p>
+<pre><code>&#123;% highlight C# %&#125;
+    Company.hire(employee)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>来代替</p>
+<pre><code>&#123;% highlight C# %&#125;
+    companyservice.hire(company,employee)
+	&#123;% endhighlight %&#125;</code></pre>
+<p>这样我们就更容易让业务人员参与进来，而且代码可以更易于表示真实的业务场景。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-01-21  <a class="commentCountImg" href="/2015/01/21/life-2014-1-21-football-dream/#comment-container"><span class="display-none-class">/2015/01/21/life-2014-1-21-football-dream/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="4f035ebc33b2516a20c64df2ff3cf58e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/01/21/life-2014-1-21-football-dream/">梦想的实现需要时间</a></h1><div class="content"><h1 id="梦想"><a href="#梦想" class="headerlink" title="梦想"></a>梦想</h1><p>从我记事后，在郝海东那段时间，中国足球在亚洲也算是风生水起，但是从那以后再也没有对中国足球有任何的梦想。教练换了又换，从外国教练换到国内，从国内换到国际，足球每况愈下。</p>
+<p>这次亚洲杯，又一次燃起了中国球迷对中国足球的希望和梦想。</p>
+<h1 id="梦想是需要时间的"><a href="#梦想是需要时间的" class="headerlink" title="梦想是需要时间的"></a>梦想是需要时间的</h1><p>这次国足亚洲杯小组赛赢了沙特，赢了乌兹别克斯坦，然后中国球迷和媒体说，既然赢了两场，那么就全胜出线，打朝鲜，上半场踢的不错，主持人就说中国队是顶级时候的巴萨。可是大家难道没看到朝鲜下半场变成了顶级时候的皇马？</p>
+<p>然后侥幸三场全胜出线了，球迷和媒体有开始说：“既然出线，那就夺冠”， 这让我想起02年世界杯的时候 “赢哥斯达黎加，平土耳其，小输巴西”，最后结果是三场比赛全输，丢了9个球，让我们认识到自己还是“三教九流”</p>
+<p>从这件事情上， 我们可以看到大部分的球迷呀，媒体呀都想一口吃个胖子，我猜中国足球的现状和中国球迷以及媒体也有很大的关系，教练想干点实事，但是大家都要赢，有进步，大家其实很难看到，所以我猜每一个教练都只能是赌博式的，不然输了就得下课。如此下去，就像我们把程序功能做的看起来不错，但是代码里面千疮百孔，经不起时间的考验。</p>
+<p>我觉得，我们都要有梦想，但是梦想都需要一个因素，那就是时间，那就是脚踏实地。那就是科学，每次国足输了，大家都说没拼，拼了就能理解，但是我想说，现代体育光靠拼是不行的，越是体育类比赛越是要靠脑子才能上一个台阶。</p>
+<p>给国足时间，明天的比赛输赢有何重要？五星巴西没输过吗？</p>
+<p>有梦想，有信心，但是务实更重要，持续进步才是最重要的。</p>
+<p>明天彩票买澳大利亚赢吧，看球的时候就不那么紧张了，如果中国赢了，权当买酒庆祝了，如果中国输了，至少彩票还能赚点，你呢？</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-01-14  <a class="commentCountImg" href="/2015/01/14/life-2015-1-14-china-football/#comment-container"><span class="display-none-class">/2015/01/14/life-2015-1-14-china-football/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="84eb198514f28325e227d94da8784e05">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/01/14/life-2015-1-14-china-football/">国足亚洲杯小组赛</a></h1><div class="content"><p>好久没看国家队比赛，上大学时，那几年球市比较火，当时陕西队还在甲B, 那个时候陕西国力踢的很不错，我也几次买了最便宜的票去现场加油，陕西球迷的热情几次搞得比赛不得不移到宝鸡。</p>
+<p>但是中国进入2002年世界杯后，那些熟悉的老将郝海东，范志毅，李明，李铁，李金羽等等都相继老去，而且国家队每每关键时刻给你顶不住最后3分钟，慢慢的我就不怎么看中国队了。</p>
+<p>虽然不看中国比赛，但是新闻还是看的，之前知道中国队预选赛输了尽然都能进亚洲杯。</p>
+<p>这次亚洲杯我正好休假，看了一场中国对沙特的比赛，感觉中国队和之前不太一样了，感觉有拼劲。确实看到了一些亮点，至于是不是佩兰执教带来的一些变化，这个还有待检验。第一场整体感觉上还是运气，因为沙特点球没进，而且我们进的球也很诡异，所以第一场比赛下来，感觉踢的还可以，但是还是觉得中国队有些侥幸。</p>
+<p>今天打乌兹别克斯坦，这个球队实力确实不错，从历史交锋上，中国队就处于下风，观看了前30分钟，感觉中国队踢的不错，从传球到控球都有章法，但是上半场最后15分钟，感觉中国队的球员明显想法不一致，有些想进攻，有些不敢进攻，控球明显不如乌兹别克斯坦，而且失误增多，最后别对手攻入一球。</p>
+<p>但是，我也并没失去希望，因为中国队前半个小时都占优势，回到休息室，我相信教练一定会做出调整，只要球队思路一致，找回之前的感觉，就一定有机会，果然下半场一开始，中国队就打的不错，后来佩兰果断的换人，起了非常重要的作用，大家可能觉得换人是神来之笔，但是我觉得换人后明显中场的球员敢于控球，而且前腰的队员明显敢于突破，这样就让球大部分时间都在对方战场，最终果然2比1逆转。</p>
+<p>这次中国队赢球，着实也让我激动一把，因为看到中国队逆转的足球比赛太少了，听到主持人说：“留给乌兹别克斯坦斯坦的时间不多了”，我相信大部分中国球迷都是无比的激动，感觉压抑多年的一口气终于可以释放一次了。</p>
+<p>中国足球要想提高，除了提升球员个人能力之外，球队的团结，技战术的提高，以及球队的信息和意志是更重要的。</p>
+<p>期待中国足球越来越好。</p>
+<p>写下此片日记的目的，就是中国足球的胜利了，都逆袭了，我还有什么不努力呢？ 加油！</p>
+<p>更令人高兴的时，今天心血来潮，堵了一把求，买中国赢，小赚了一把。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-12-05  <a class="commentCountImg" href="/2014/12/05/life-2014-12-5-attend-winter-party/#comment-container"><span class="display-none-class">/2014/12/05/life-2014-12-5-attend-winter-party/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e257c6481f2e4d2490d7cfb8afad05a7">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/12/05/life-2014-12-5-attend-winter-party/">斯德哥尔摩30天-参加客户的年会</a></h1><div class="content"><style type="text/css">
+img {    
+    margin: 10px;
+    max-width: 600px; 
+    border-radius: 15px;  
+    border: solid 4px #ccc;     
+    }
+
+</style>
+
+
+<p>很有幸参加了客户的年会，听说大家都带家属，帅哥美女云集，所以我们都迫不及待。</p>
+<p>年会的逼格还是非常高，先是大Boss讲话，然后请了个长的像瑞典王子的人讲话，一开始大家都被骗了，后来才知道是演员。</p>
+<p>每一个人都端着红酒杯，风度翩翩的和别人聊天，我们当然作为嘉宾也受到了分外的照顾。 我们也和很多人聊了会儿天，对大家有更多的了解。</p>
+<p>随后就是表演，晚餐。</p>
+<p>晚餐过后，就是跳舞，虽然有位美女极力邀请我跳舞，可惜我不会，只好找个借口溜之大吉了。</p>
+<p>还是上图片吧。</p>
+<p>晚会的地方</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/1.jpg"/>
+
+<p>酒</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/2.jpg"/>
+
+<p>正装</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/3.jpg"/>
+
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/4.jpg"/>
+
+<p>我们的帅哥，也是我们的朋友</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/5.jpg"/>
+
+<p>三个屌丝，中间是我</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/6.jpg"/>
+
+<p>高朋满座</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/7.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/8.jpg"/>
+
+
+<p>假瑞典王子，骗过不少人呀</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/9.jpg"/>
+
+<p>他们最佳员工，和我们密切合作的，主要是与外包团队协作，我们是不是也骄傲一下？</p>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/10.jpg"/>
+
+<p>美女们，其中一个来机场接我们，谢谢了。</p>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/11.jpg"/>
+
+<p>真心不错的合唱，天籁之音的感觉</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/12.jpg"/>
+
+<p>姑娘，你的衣服真的穿好了吗？</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/13.jpg"/>
+
+<p>和我一起做项目的帅哥，看看人家，以后你们再叫我帅哥，我就知道你们是违心的。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/14.jpg"/>
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-30  <a class="commentCountImg" href="/2014/11/30/life-2014-11-30-scene-spots/#comment-container"><span class="display-none-class">/2014/11/30/life-2014-11-30-scene-spots/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1fd86e0e729acd82cebb28f74e60190a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>4 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/30/life-2014-11-30-scene-spots/">斯德哥尔摩30天-一日游</a></h1><div class="content"><style type="text/css">
+.img-container img {    
+    margin: 10px;
+    max-width: 400px;  
+    max-height: 400px;      
+    }
+
+    img {    
+    margin: 10px;
+    max-width: 600px;  
+
+    }
+
+blockquote p{
+    font-size: 1em;
+}
+
+</style>
+
+<p>昨天周六赶工了一天，今天周日决定好好休息一下，把瑞典的几个主要的旅游经典参观一下。</p>
+<h1 id="市政厅"><a href="#市政厅" class="headerlink" title="市政厅"></a>市政厅</h1><blockquote>
+<p>建于1911年，历时12年才完成，是瑞典建筑中最重要的作品。建筑两边临水，一座巍然矗立着的塔楼，与沿水面展开的裙房形成强烈的对比，加之装饰性很强的纵向长条窗，整个建筑犹如一艘航行中的大船，宏伟壮丽。<br>斯德哥尔摩市政厅位于瑞典首都市中心的梅拉伦湖畔，是斯德哥尔摩的形象和代表，也是该市市政委员会的办公场所。<br>斯德哥尔摩市政厅是一座宏伟壮观，设计新颖的红砖砌筑的建筑物，800万块红砖砌成的外墙，在高低错落、虚实相谐中保持着北欧传统古典建筑的诗情画意。市政厅的右侧是一座高106米，带有3个镀金皇冠的尖塔，代表瑞典、丹麦、挪威三国人民的合作无间。据说登上塔顶部，可一览整个城市的风貌。<br>市政厅内有巨大的宴会厅。宴会厅也有“蓝厅”的誉称。每年的12月10日是诺贝尔逝世日。这一天，诺贝尔奖金颁发后，瑞典国王和王后都要在宴会厅，为诺贝尔奖金获得者举行隆重盛大的宴会，表示热烈的祝贺。</p>
+</blockquote>
+<div class="img-container">
+    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/1.jpg"/>
+    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/2.jpg"/>
+    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/3.jpg"/>
+
+<img class="img-responsive"  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/8.jpg"/>
+</div>
+
+<h1 id="瑞典皇宫"><a href="#瑞典皇宫" class="headerlink" title="瑞典皇宫"></a>瑞典皇宫</h1><blockquote>
+<p>瑞典皇宫是国王办公和举行庆典的地方，斯德哥尔摩主要旅游景点。坐落在斯德哥尔摩市中心。建于17世纪，是瑞典著名建巩学家特里亚尔的作品。皇宫方正宽敞，中间有一个很大的场院，楼房围着场院而建，共有608个房间，比英国的白金汉宫还多4间。如今瑞典王室并不住在这里，而是住在在郊区的皇后岛，国王每天开车到皇宫来上班。</p>
+</blockquote>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/4.jpg"/>
+
+<h1 id="诺贝尔博物馆"><a href="#诺贝尔博物馆" class="headerlink" title="诺贝尔博物馆"></a>诺贝尔博物馆</h1><p>这里能看到莫言的图像和介绍，还是很骄傲的！</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/5.jpg" style="max-width:300px;" />
+
+
+<h1 id="斯堪森"><a href="#斯堪森" class="headerlink" title="斯堪森"></a>斯堪森</h1><p>斯堪森的介绍很好，但是去了确实没意思，比起我大秦岭野生动物园差太多了。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/6.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/7.jpg"/>
+
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/9.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/10.jpg"/>
+
+<p>下面是修女吗？</p>
+<p>一首 《we wish you a merry christmas》甚是好听。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/11.jpg"/>
+
+
+
+
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-23  <a class="commentCountImg" href="/2014/11/23/life-2014-11-23-ship-island/#comment-container"><span class="display-none-class">/2014/11/23/life-2014-11-23-ship-island/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="33f0b0a4edeedb0119374766ca144a34">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/23/life-2014-11-23-ship-island/">斯德哥尔摩30天-船岛</a></h1><div class="content"><style type="text/css">
+img {    
+    margin: 10px;
+    max-width: 450px;        
+    }
+
+</style>
+
+<p>今天是周日，由于星期中间都是相当的忙，今天决定自己转转，准备出发去船岛。</p>
+<p>天气非常晴朗。</p>
+<p>走了一段，就被一个户外的溜冰场给吸引了，那是真的冰，太酷了。</p>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/1.jpg"/>
+
+<p>然后竟然走到了那天晚上喝酒的酒店</p>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/3.jpg"/>
+
+<p>很快就到了船岛，美景无法言表，天很清，水很清，空气很fresh.</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/2.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/4.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/5.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/6.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/7.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/8.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/9.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/10.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/11.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/12.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/13.jpg"/>
+
+<p>最后，偶遇瑞典皇家歌剧院</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/14.jpg"/>
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-22  <a class="commentCountImg" href="/2014/11/22/life-2014-11-22-vasa/#comment-container"><span class="display-none-class">/2014/11/22/life-2014-11-22-vasa/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8783d090da0278d5c1988ace7d8b71fb">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/22/life-2014-11-22-vasa/">斯德哥尔摩30天-瓦萨博物馆</a></h1><div class="content"><style type="text/css">
+img {    
+    margin: 10px;
+    max-width: 400px;        
+    }
+
+</style>
+
+<p>今天是周六。</p>
+<p>朋友带我们一起去VASA博物馆，由于朋友的老婆一个人带俩小孩不方便，所以我们就一起带了一个出来。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/1.JPG"/>
+
+<h1 id="瓦萨博物馆"><a href="#瓦萨博物馆" class="headerlink" title="瓦萨博物馆"></a>瓦萨博物馆</h1><p><strong><em>VASA乘船的故事早就知道了，这个对一个管理者或者一个产品经理来说都很有教育意义</em></strong></p>
+<blockquote>
+<p>瓦萨王朝统治时期，瑞典是欧洲的强国之一。为了与劲敌丹麦、波兰对抗，称霸波罗的海，瑞典国王古斯塔夫·阿道夫斯二世要求建造一批新的战舰，并要求战舰航速要快、火力要强、装饰要华丽，因为这样才足以显示瓦萨王朝的权力、财富和战斗力。1626年初，作为其中最大的战舰“瓦萨”号在国王的亲自监督下正式开始建造。</p>
+</blockquote>
+<blockquote>
+<p>瓦萨号内部<br>国王总是有太多要求。在“瓦萨”号建造期间，他不断下令依照他的旨意改变设计和建造要求。在“瓦萨”号的骨架已经安装好的时候，他下令增加战舰的长度。面对以性情暴躁闻名的国王，经验丰富的主造船师亨里克·哈伯特备感无奈，只得奉命行事。1627年，亨里克·哈伯特病逝。他的助手、没有太多经验的海因·雅各布森接替他主持建造。而此时，国王得知了丹麦建成双层炮舰的消息，于是他又决定，为原计划修建单层炮舰的“瓦萨”号增加一个枪械甲板，把它改建成“双层”炮舰。这样一来，“瓦萨”号便拥有了双排共64门舰炮，全长达到了69米，成了当时装备最齐全、武装程度最高的战船。但对于横梁和压舱物来说，在一个并不稳固的平台上安装的这些装备显得过高过长了，而且与平台的功能极不相称。但国王的命令没人敢违抗。<br>对“瓦萨”号进行的稳定性测试试验更像一场闹剧：让30个船员从船一端跑到另一端，以此检测船的摇动情况。试验中“瓦萨”号发生了危险的摇动，但对这个预警信号，海因·雅各布森却视而不见，还是决定取消试验，准备航行，结果—首航沉成绝唱。</p>
+</blockquote>
+<h1 id="瓦萨沉船"><a href="#瓦萨沉船" class="headerlink" title="瓦萨沉船"></a>瓦萨沉船</h1><p>不亲身见vasa号是绝对感受不到这个船的霸气，高大，金色的船体，木雕堪称一绝。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/2.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/3.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/4.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/5.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/6.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/7.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/8.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/16.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/17.JPG"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/18.JPG"/>
+
+<h1 id="圣诞来临了"><a href="#圣诞来临了" class="headerlink" title="圣诞来临了"></a>圣诞来临了</h1><p>回来时已经晚上，整个街道已经该是感觉到圣诞的气氛了。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/9.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/10.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/11.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/12.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/13.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/14.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/15.jpg"/>
+
+
+
+
+
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/8/">Previous</a></div><div class="pagination-next"><a href="/page/10/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><a class="pagination-link is-current" href="/page/9/">9</a></li><li><a class="pagination-link" href="/page/10/">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

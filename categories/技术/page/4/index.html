@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: 技术 - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">技术</a></li></ul></nav></div></div><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-domainmodel/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d0b3d5cca093461b4d5f702559492113">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/">领域驱动设计系列（二）:领域Model？</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>领域驱动设计里有很多东西，我们可以应用在各种各样的开发模式里，所以接下来说的一些东西，我们可以部分使用。</p>
+<p>说道领域驱动的领域，大家肯定就要开始说Bounded Context,聚合，聚合根，容易让大家搞糊涂。 我觉得先抛开这些概念，后面再来说如何设计聚合，先简单来说。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>过去，我们在多层设计里定义了很多Model, 数据库的Model(DB Entity), 然后为了不依赖数据库，我们有设计了业务的Domain Model, 同时我们又设计了ViewModel, 这样一般也没什么问题，职责也很清晰。但是有几个问题</p>
+<ol>
+<li>我们要做很多的模型转换，转入转出。当然我们可以用AutoMapper来但是AutoMapper的性能实在难以恭维，大家可以在网上搜索AutoMapper performance.</li>
+<li>领域模型成了一个单纯的DTO了。</li>
+</ol>
+<h2 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h2><p>首先我们要看领域，就是我们尽量把业务聚合到一个领域里，比如我们要做一个功能，可以看到用户每一次的登录日志，那个这个登录日志其实就是属于用户这个领域里。</p>
+<p>其次我们看模型，原来我们的模型都是只有属性，也就是贫血模型，贫血的意思就是没有行为，像木乃伊一样，但是实际上领域是我们要完成业务的最主要的地方，我们希望领域能够自制，也就是领域自己管理自己。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. </p>
+<pre><code>&#123;% highlight c# linenos %&#125;
+    
+    public class Employee : Entity
+    &#123;
+        public Name Name &#123; get; set; &#125;
+       
+        public EmployeeStatus EmployeeStatus &#123; get; set; &#125;
+
+    &#125;
+    
+    &#123;% endhighlight %&#125;</code></pre>
+<p>如果是贫血的Employee模型，我们往往代码如下</p>
+<pre><code>&#123;% highlight c# %&#125;
+	
+	public class EmployeeService : IEmployeeService
+    &#123;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        &#123;
+            _unitOfWorkFactory = unitOfWorkFactory;
+            _employeeRepository = employeeRepository;
+        &#125;
+
+        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+        &#123;
+            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+            &#123;
+                var employee = _employeeRepository.GetById(employeeId);
+                employee.EmployeeStatus = status;
+
+                unitOfWork.Commit();
+            &#125;
+        &#125;
+    &#125;
+    
+	&#123;% endhighlight %&#125;</code></pre>
+<p>但是上面的代码的问题就是领域没有自治，本来修改我的状态是我的事，你能不能修改，外面随意修改我的状态是很危险的，比如Pending状态只能改为Active状态。 所以如果不是贫血的模型，我们代码就会这样，让领域自己来管理</p>
+<pre><code>&#123;% highlight C# %&#125;
+	public class Employee : Entity
+    &#123;
+   
+        public UserId UserId &#123; get; private set; &#125;
+        public EmployeeStatus EmployeeStatus &#123; get; private set; &#125;
+
+
+        public void ChangeStatus(EmployeeStatus status)
+        &#123;
+            if (this.EmployeeStatus == EmployeeStatus.Pending && status != EmployeeStatus.Active)
+            &#123;
+                throw new Exception("Only can Active when status is pending");
+            &#125;
+
+            this.EmployeeStatus = status;
+        &#125;
+
+    &#125;
+
+	public class EmployeeService : IEmployeeService
+    &#123;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        &#123;
+            _unitOfWorkFactory = unitOfWorkFactory;
+            _employeeRepository = employeeRepository;
+        &#125;
+
+        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+        &#123;
+            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+            &#123;
+                var employee = _employeeRepository.GetById(employeeId);
+                employee.ChangeStatus(status);
+
+                unitOfWork.Commit();
+            &#125;
+        &#125;
+    &#125;
+    &#123;% endhighlight %&#125;</code></pre>
+<p>因此可以看出，我们把业务代码尽量写在领域里让领域自治。 </p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实领域驱动设计最难的就是设计领域(Domain), 也就是后面会说到的AggregateRoot 聚合，但是我想我们先让领域不再贫血，这样在传统的多层设计，数据驱动等架构都可以使用这种模式。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-10  <a class="commentCountImg" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/#comment-container"><span class="display-none-class">/2015/02/10/technologies-DDD-2015-2-10-why-ddd/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1b7efaf5b26fd2f4bb3f918604633030">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/">领域驱动设计系列（一）:为何要领域驱动设计？</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>领域驱动设计最近貌似开始火起来了，越来越多的人开始认识到领域设计的重要性，从我做过的项目来看，似乎欧洲已经有很多的公司开始实施领域驱动设计了，我看领域驱动设计也有些时间了，但是网上不管是文章还是代码，都显得太过“高大上”，一谈领域驱动设计，一大堆的概念一股脑的给你上上来，搞的有点晕头转向，而我想在一些中小项目实施领域驱动也遇到了不小的障碍，大家对很多东西都处于一种恐惧的状态，而且在正真开始实施时，也遇到一些疑问，所以也想和大家交流学习，因此开始在此写写对领域驱动的理解，后面会有一些轻量的演进代码。</p>
+<h1 id="为何要领域驱动设计？"><a href="#为何要领域驱动设计？" class="headerlink" title="为何要领域驱动设计？"></a>为何要领域驱动设计？</h1><h2 id="简化数据存储"><a href="#简化数据存储" class="headerlink" title="简化数据存储"></a>简化数据存储</h2><p>领域驱动设计有很多原因，谈到我为啥要在公司推行领域驱动设计，说起来还是很好玩的，因为原来基于数据驱动的开发方式，也就是传统的多层开发架构，大家定义了一堆DAL来操作数据, 在.Net大家一般有两种使用方式，一种是用ORM像Entity Framework, 另一种想使用Dapper这样轻量级的Mapping工具，这些都要把关系型数据转换为对象。结果导致以下几种结果。</p>
+<ul>
+<li>没有正确的使用ORM, 导致数据加载过多，导致系统性能很差。</li>
+<li>为了解决性能问题，就不加载一些导航属性，但是确保DB Entity返回上层，这样对象的一些属性为空，上层使用这个数据时根本不知道什么时间这个属性是有值的，这个是很丑陋的是不是？</li>
+<li>如是又开始使用一些轻量级的数据方法，比如使用Dapper然后自己写SQL语句，这本来是很不错的方式，但是大部分人的SQL能力实在不敢恭维，大部分写出来的SQL语句，甚至比EnityFramework生成的语句还差。</li>
+</ul>
+<p>所以，我就想我们做项目，大部分处理的应该是因为，如何让程序员从数据存储，模型转换的大泥潭里解放出来，领域驱动设计就进入了我的实现，当然但从数据这个角度还不足以选择领域驱动设计，用一个NoSQL数据库是不是就解决了？ 但是NoSQL也有一些问题，比如MongoDB如何更优雅的保证事务以及数据的一致性等。</p>
+<h2 id="更多了解上下文"><a href="#更多了解上下文" class="headerlink" title="更多了解上下文"></a>更多了解上下文</h2><p>我们很多软件的问题，大家都知道是需求的问题，也就是客户的需求我们很难理解准确，导致程序员更加关注”HOW” 而忽略了”WHAT”, 最终做了几个礼拜甚至更长时间，结果客户会说:”What?! I told you”, 但是客户告诉我的，我们理解是不一样的。比如客户说：“ Great job, I love you!” 这个Love肯定不是男女之间的Love, 我们拿到的是一个客户的需求，他的上下文是什么？ 比如说：“这个球打的好”， 如果是在打篮球，肯定说的事篮球，如果是在打乒乓球肯定说的是乒乓球。 而领域驱动设计里我们可以让业务人员更多的参与系统，更早的参与系统。</p>
+<h2 id="统一语言-Ubiquitous-Language"><a href="#统一语言-Ubiquitous-Language" class="headerlink" title="统一语言(Ubiquitous Language)"></a>统一语言(Ubiquitous Language)</h2><p>业务人员和我们使用一样的语言，我们的程序比如让业务尽量集中在领域里，比如在传统的数据驱动里，如果说Jack爱Rose, 我们一般会这么写</p>
+<pre><code>&#123;% highlight c# %&#125;
+    UserService.Love(Jack, Rose)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>但是我们业务人员很奇怪谁Love谁？ 为什么要UserService?, 如果我们写成下面这样</p>
+<pre><code>&#123;% highlight C# %&#125;
+    Jack.Love(Rose)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>还有如果我们用</p>
+<pre><code>&#123;% highlight C# %&#125;
+    Company.hire(employee)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>来代替</p>
+<pre><code>&#123;% highlight C# %&#125;
+    companyservice.hire(company,employee)
+	&#123;% endhighlight %&#125;</code></pre>
+<p>这样我们就更容易让业务人员参与进来，而且代码可以更易于表示真实的业务场景。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/%E6%8A%80%E6%9C%AF/page/3/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/categories/%E6%8A%80%E6%9C%AF/page/5/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/%E6%8A%80%E6%9C%AF/">1</a></li><li><a class="pagination-link" href="/categories/%E6%8A%80%E6%9C%AF/page/2/">2</a></li><li><a class="pagination-link" href="/categories/%E6%8A%80%E6%9C%AF/page/3/">3</a></li><li><a class="pagination-link is-current" href="/categories/%E6%8A%80%E6%9C%AF/page/4/">4</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

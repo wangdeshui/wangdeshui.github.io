@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>前端构建大法 Gulp 系列 (四)：gulp实战 - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前面讲了很多理论，那么这一节我们将讲一些实战的例子 安装Node.js先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;joyent&amp;#x2F;node&amp;#x2F;wiki&amp;#x2F;Installing-Node.js-via-package-manager 安装 然后再用 npm -v 来确保Node.js 安装正确 安装 Gulp我们可以使用npm来安排装"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:description" content="前面讲了很多理论，那么这一节我们将讲一些实战的例子 安装Node.js先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;joyent&amp;#x2F;node&amp;#x2F;wiki&amp;#x2F;Installing-Node.js-via-package-manager 安装 然后再用 npm -v 来确保Node.js 安装正确 安装 Gulp我们可以使用npm来安排装"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png"><meta property="article:published_time" content="2016-01-05T12:00:00.000Z"><meta property="article:modified_time" content="2021-01-05T08:48:28.691Z"><meta property="article:author" content="敏捷的水"><meta property="article:tag" content="FrontEnd"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/"},"headline":"敏捷的水","image":["https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png","https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png","https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png"],"datePublished":"2016-01-05T12:00:00.000Z","dateModified":"2021-01-05T08:48:28.691Z","author":{"@type":"Person","name":"Jack Wang"},"description":"前面讲了很多理论，那么这一节我们将讲一些实战的例子 安装Node.js先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 https:&#x2F;&#x2F;github.com&#x2F;joyent&#x2F;node&#x2F;wiki&#x2F;Installing-Node.js-via-package-manager 安装 然后再用 npm -v 来确保Node.js 安装正确 安装 Gulp我们可以使用npm来安排装"}</script><link rel="canonical" href="http://example.com/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="3074e4d56fd0cabf29e555b60265eb22">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">前端构建大法 Gulp 系列 (四)：gulp实战</h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p>先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 <a target="_blank" rel="noopener" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a> 安装</p>
+<p>然后再用 npm -v 来确保Node.js 安装正确</p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1><p>我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里</p>
+<pre><code>npm install gulp -g</code></pre>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>创建一个文件目录，然后建立对应的文件夹</p>
+<ul>
+<li><p><strong>src</strong> — 源文件:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+<li><p><strong>build</strong> — 编译后文件输出到的生产文件夹:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+</ul>
+<p>我们先使用npm init来创建类似Nuget package的package.config一样的文件，这样我们就知道项目依赖哪些插件，而且我们不需要把插件提交到代码库，其它程序员只需要使用 npm install 就可以安装所有配置的插件</p>
+<p>然后我们需要创建一个gulpfile.js文件，gulp默认是调用这个文件的。</p>
+<p>我们在目录下使用</p>
+<pre><code>  npm install gulp --save-dev  # 这样可以把gulp安装到本地</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png" />
+
+<h1 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h1><p>比如我们想检查我们的js文件，那么我们需要安装 gulp-jshint插件</p>
+<pre><code>  npm install gulp-jshint --save-dev</code></pre>
+<p>然后添加一个test.js文件到src/scripts下，内容如下</p>
+<pre><code>var hi=&quot;hello&quot;
+
+function sayHello()&#123;
+    console.log(&quot;Jack &quot;+hi)
+&#125;</code></pre>
+<h2 id="jshint-代码检查"><a href="#jshint-代码检查" class="headerlink" title="jshint 代码检查"></a>jshint 代码检查</h2><p>然后我们修改gulpfile.js内容如下</p>
+<pre><code>// include gulp
+var gulp = require(&#39;gulp&#39;); 
+
+// include plug-ins
+var jshint = require(&#39;gulp-jshint&#39;);
+
+// JS hint task
+gulp.task(&#39;jshint&#39;, function() &#123;
+    gulp.src(&#39;./src/scripts/*.js&#39;)
+      .pipe(jshint())
+      .pipe(jshint.reporter(&#39;default&#39;));
+&#125;);</code></pre>
+<p>然后运行 </p>
+<pre><code>gulp jshint</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png" />
+
+<p>看控制台输出就知道我们少了分号。</p>
+<h2 id="代码合并压缩"><a href="#代码合并压缩" class="headerlink" title="代码合并压缩"></a>代码合并压缩</h2><p>我们新建一个 ./scripts/b.js， 然后我们把js文件合并然后压缩并输出到./build/scripts/all.js 下，同时移除debug信息</p>
+<p>我们需要安装一下插件</p>
+<pre><code>npm install gulp-concat --save-dev 
+npm install gulp-strip-debug --save-dev 
+npm install gulp-uglify --save-dev</code></pre>
+<p>修改gulpfile.js</p>
+<pre><code>var gulp = require(&#39;gulp&#39;); 
+var concat = require(&#39;gulp-concat&#39;);
+var stripDebug = require(&#39;gulp-strip-debug&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+
+gulp.task(&#39;scripts&#39;, function() &#123;
+  gulp.src([&#39;./src/scripts/*.js&#39;])
+    .pipe(concat(&#39;all.js&#39;))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/scripts/&#39;));
+&#125;);</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png" />
+
+<p>我们看到gulp已经把我们文件合并了，移除了console.log, 而且进行了压缩。</p>
+<p>至此，已经基本上知道gulp怎么使用了，下面展示一些其它的功能的代码</p>
+<pre><code>npm install gulp-autoprefixer --save-dev 
+npm install gulp-minify-css --save-dev </code></pre>
+<p>示例代码</p>
+<pre><code>var gulp = require(&#39;gulp&#39;); 
+var concat = require(&#39;gulp-concat&#39;);
+var stripDebug = require(&#39;gulp-strip-debug&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+var autoprefix = require(&#39;gulp-autoprefixer&#39;);
+var minifyCSS = require(&#39;gulp-minify-css&#39;);
+
+gulp.task(&#39;scripts&#39;, function() &#123;
+  gulp.src([&#39;./src/scripts/*.js&#39;])
+    .pipe(concat(&#39;all.js&#39;))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/scripts/&#39;));
+&#125;);
+
+
+// CSS concat, auto-prefix and minify
+gulp.task(&#39;styles&#39;, function() &#123;
+  gulp.src([&#39;./src/styles/*.css&#39;])
+    .pipe(concat(&#39;styles.css&#39;))
+    .pipe(autoprefix(&#39;last 2 versions&#39;))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(&#39;./build/styles/&#39;));
+&#125;);
+
+// default gulp task
+gulp.task(&#39;default&#39;, [ &#39;scripts&#39;, &#39;styles&#39;], function() &#123;   
+
+// watch for JS changes
+gulp.watch(&#39;./src/scripts/*.js&#39;, function() &#123;
+    gulp.run(&#39;jshint&#39;, &#39;scripts&#39;);
+  &#125;);
+// watch for CSS changes
+    gulp.watch(&#39;./src/styles/*.css&#39;, function() &#123;
+        gulp.run(&#39;styles&#39;);
+  &#125;);
+&#125;);</code></pre>
+<p>至此，大家应该熟悉gulp的使用，尽情去挖掘gulp plugin的宝藏吧。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端构建大法 Gulp 系列 (四)：gulp实战</p><p><a href="http://example.com/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">http://example.com/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><a href="http://example.com"><p>Jack Wang</p></a></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2016-01-05</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-01-05</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># Related Post</span><br><span>  1.<a class="is-size-6" href="/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/" target="_blank">领域驱动设计系列（七）:领域驱动开发实践之路:我们如何从领域驱动开发当中获益</a><br></span><span>  2.<a class="is-size-6" href="/2016/01/29/technologies-cleancode-2016-01-29-clean-code-encapsulation/" target="_blank">整洁代码系列(一)：封装 (Encapsulation)</a><br></span><span>  3.<a class="is-size-6" href="/2016/01/24/technologies-JSNext-2016-1-24-javascript-next-features-es6-in-browser/" target="_blank">ES6+ 现在就用系列（十一)：ES7 Async in Browser Today</a><br></span><span>  4.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-async-await/" target="_blank">ES6+ 现在就用系列（十)：Async 异步编程</a><br></span><span>  5.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-modules/" target="_blank">ES6+ 现在就用系列（九)：模块</a><br></span><span>  6.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/" target="_blank">ES6+ 现在就用系列（八)：类 (Class)，继承，对象的扩展</a><br></span><span>  7.<a class="is-size-6" href="/2016/01/22/technologies-JSNext-2016-1-22-javascript-next-features-promise/" target="_blank">ES6+ 现在就用系列（七)：Promise</a><br></span><span>  8.<a class="is-size-6" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-destructuring-assignment/" target="_blank">ES6+ 现在就用系列（六)：解构赋值 (Destructuring )</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">敏捷实践系列(八)：单元测试及最佳实践</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/"><span class="level-item">前端构建大法 Gulp 系列 (三)：gulp的4个API 让你成为gulp专家</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

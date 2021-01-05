@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: 移动开发 - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">移动开发</a></li></ul></nav></div></div><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-28  <a class="commentCountImg" href="/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/#comment-container"><span class="display-none-class">/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="db31a94dba32294a34dda719a53cbcaf">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/">iOS UI系列 (四) ：可复用的Xib(1) 静态内容</a></h1><div class="content"><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+
+
+
+<p>有时候页面中的部分内容相同，或者是一些静态的内容组合，这时候我们就可以把这些见面封装到一个XIB里</p>
+<h2 id="新建Single-View-Application"><a href="#新建Single-View-Application" class="headerlink" title="新建Single View Application"></a>新建Single View Application</h2><h2 id="新建一个View-Xib"><a href="#新建一个View-Xib" class="headerlink" title="新建一个View.Xib"></a>新建一个View.Xib</h2><ol>
+<li>Command+N–&gt;User Interface–&gt;View</li>
+<li>把界面大小改为Freeform</li>
+<li>添加一个UILabel, 两个UIView, 并设置对应的背景色</li>
+<li>添加对应的约束，让两个UIView等宽，且Space都是10， 高度固定，且与周围的约速为10， 对UILabel也设置对应的约速，细节就不写了，看图</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/1.png" />
+
+
+<h2 id="使用Xib"><a href="#使用Xib" class="headerlink" title="使用Xib"></a>使用Xib</h2><p>在ViewController添加 一个UIView, 并设置对应的约束，连接这个UIView为Controller的 IBOutlet ContainerView</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/2.png" />
+
+<ol>
+<li>在ViewDidLoad里添加如下代码</li>
+</ol>
+<pre><code>    super.viewDidLoad()
+
+    let arr = NSBundle.mainBundle().loadNibNamed(&quot;View&quot;, owner: nil, options: nil)
+
+    let v = arr[0] as! UIView
+
+    containerView.addSubview(v)
+
+
+运行
+
+&lt;img class=&quot;img-responsive&quot; src=&quot;https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/3.png&quot; /&gt;
+
+试图添加进去了，但是试图显示的不对，那是因为没有添加约束</code></pre>
+<ol start="2">
+<li>添加约束</li>
+</ol>
+<pre><code>    import UIKit
+
+    class ViewController: UIViewController &#123;
+
+    @IBOutlet weak var containerView: UIView!
+
+    var v: UIView!
+
+    override func viewDidLoad() &#123;
+
+        super.viewDidLoad()
+
+        let arr = NSBundle.mainBundle().loadNibNamed(&quot;View&quot;, owner: nil, options: nil)
+        v = arr[0] as! UIView
+
+
+        containerView.addSubview(v)
+
+        setUpConstraint()
+
+
+        // Do any additional setup after loading the view, typically from a nib.
+    &#125;
+
+    override func didReceiveMemoryWarning() &#123;
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    &#125;
+
+
+    func setUpConstraint()
+    &#123;
+
+        v.setTranslatesAutoresizingMaskIntoConstraints(false)
+
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Leading,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Left, multiplier:1, constant:0))
+
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Trailing,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Right, multiplier:1, constant:0))
+
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Top,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Top, multiplier:1, constant:0))
+
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Bottom,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Bottom, multiplier:1, constant:0))
+
+    &#125;        
+
+    &#125;</code></pre>
+<ol start="3">
+<li>运行结果, 我们的Xib已经可以自适应容器了</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/4.png" />
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/5.png"/>
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/#comment-container"><span class="display-none-class">/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="db457a329aeecdd2a2439a0169231b2c">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/">iOS UI系列 (三) ：Reusable Button</a></h1><div class="content"><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+
+<p>有时候我们需要给一些做一些设置，但是这些控件却需要用在多个地方，如果在每一个ViewController都设置一遍，那么代码就不整洁了，而且比较耗时间。</p>
+<p>创建一个RoundButton.swift 文件，集成自UIButton</p>
+<pre><code>import UIKit
+
+class RoundButton: UIButton &#123;
+
+    /*
+    // Only override drawRect: if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func drawRect(rect: CGRect) &#123;
+        // Drawing code
+    &#125;
+    */
+
+    required init(coder aDecoder: NSCoder) &#123;
+        super.init(coder: aDecoder)
+    &#125;
+
+    override init(frame: CGRect) &#123;
+        super.init(frame: frame)
+    &#125;
+
+    override func awakeFromNib() &#123;
+
+        self.layer.cornerRadius=10
+        self.layer.borderColor=UIColor.redColor().CGColor
+        self.layer.borderWidth=2
+        self.layer.backgroundColor=UIColor.yellowColor().CGColor
+        self.contentEdgeInsets=UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+    &#125;
+&#125;</code></pre>
+<p> 设置UIButton的Custom class为 RoundButton</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/1.png" />
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/2.png" />
+
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/#comment-container"><span class="display-none-class">/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="3230540add4e47abfc48266658e7c69e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/">iOS UI系列 (二) ：使用多个StoryBoard</a></h1><div class="content"><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+
+<h2 id="为什么要使用多个StoryBoard"><a href="#为什么要使用多个StoryBoard" class="headerlink" title="为什么要使用多个StoryBoard"></a>为什么要使用多个StoryBoard</h2><p>StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个项目页面之间的关系，但是如果项目所有的页面都放到一个StoryBoard, 会带来以下一些问题</p>
+<ul>
+<li>UIStoryBoard太大</li>
+<li>每次打开StoryBoard比较慢</li>
+<li>一个窗口里面显示所有的View，显得比较混乱，尤其是一个显示器看不全的时候</li>
+<li>UIStoryBoard 项目解决源码冲突太麻烦</li>
+</ul>
+<p>所以，我建议项目使用多个StoryBoard, 不同模块使用不同的UIStoryBoard, 下面是如何使用的实例。</p>
+<h2 id="Main-Storyboard"><a href="#Main-Storyboard" class="headerlink" title="Main Storyboard"></a>Main Storyboard</h2><p>首先建立一个Single View Application, 在StoryBoard里添加2个UIViewController, 并且设置好导航关系</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/1.png" /> 
+
+
+<p>新建一个SecondViewController类, Command+N–&gt;Coca Touch cass–&gt;Next, 继承UIViewController, 选择Swift语言</p>
+<pre><code>import UIKit
+
+class SecondViewController: UIViewController &#123;
+
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    &#125;
+
+    override func didReceiveMemoryWarning() &#123;
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    &#125;
+&#125;</code></pre>
+<p>设置第二ViewController的File’s owner 的class为刚新建的SecondViewController</p>
+<h2 id="第二个StoryBoard"><a href="#第二个StoryBoard" class="headerlink" title="第二个StoryBoard"></a>第二个StoryBoard</h2><p> Command+N–&gt;User Interface—&gt;StoryBoard，命名Second</p>
+<p> 添加2个UIViewController, 并添加对应的按钮，将View的背景色改为黄色，以区别这是第二个UIStoryBoard, 按住Ctrl从第一个ViewController拖到第二个ViewController,选择Show</p>
+<p> 设置第一个UIViewController如下</p>
+<p>&lt;img  class=”img-responsive”src=”<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/3.png&quot;">https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/3.png&quot;</a> /&gt;</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/2.png" />
+
+
+<h2 id="连接2个StoryBoard"><a href="#连接2个StoryBoard" class="headerlink" title="连接2个StoryBoard"></a>连接2个StoryBoard</h2><p>打开Main.storyboard, 为SecondViewController上的按钮建立一个IBAction, 然后在SecondViewController.swift里添加如下代码</p>
+<pre><code> @IBAction func GotoSecondStoryBoard(sender: AnyObject) &#123;
+
+         let vc = UIStoryboard(name: &quot;Second&quot;, bundle: nil).instantiateInitialViewController() as! UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    &#125;</code></pre>
+<p>如果我们不设置Is Intial View Controller, 那么我们需要设置View Controller的StoryBoard Id, 然后使用如下代码</p>
+<pre><code>let vc = UIStoryboard(name: &quot;Second&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;FirstView&quot;) as! UIViewController
+self.navigationController?.pushViewController(vc, animated: true)</code></pre>
+<h2 id="结果图-Gif"><a href="#结果图-Gif" class="headerlink" title="结果图 (Gif)"></a>结果图 (Gif)</h2><img class="img-responsive"  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/mutli-storyboard.gif" />
+
+
+
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/#comment-container"><span class="display-none-class">/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="9633073c08930f79790d3d12fd5f583c">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/">iOS UI系列 (一) ：Auto Layout 高度三等分</a></h1><div class="content"><style>
+img {
+  max-width: 900px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+
+
+<p>首先我们创建一个Single View Application</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/1.png" /> 
+
+<p>然后我们向StoryBoard的ViewController 添加3个UIView, 设置不同的背景色，我们的目的是让这三个UIView垂直高度三等分。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/2.png" />
+
+<p>接下来我们需要设置约速，我们让每个试图和周围的具体都是5，然后设置三个视图等高约束，具体看gif动态图, 如果看不清 右键图片–&gt;open in new Tab  </p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/3.gif" />
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-13  <a class="commentCountImg" href="/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/#comment-container"><span class="display-none-class">/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d8ca6cd8facd415048eb9d2f18991dd9">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/">iOS开发(一)：真机调试</a></h1><div class="content"><p>苹果真机调试是比较麻烦的，需要代码签名，主要的作用就是确保程序是苹果认证的开发者开发，下面列出主要的步骤。</p>
+<h2 id="购买开发者帐号"><a href="#购买开发者帐号" class="headerlink" title="购买开发者帐号"></a>购买开发者帐号</h2><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+<p>之前iOS开发者帐号和Mac开发者帐号需要分开购买，现在都合并为Apple Developer Program了，所以只需要出一份钱了。打开 <a target="_blank" rel="noopener" href="https://developer.apple.com/programs/">https://developer.apple.com/programs/</a>, 点击右上角Enroll</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/ios-developer-center.png"/>
+
+<p>点击start your enrollment</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/start-your-enroll.png"/>
+
+<p>选择你是个人开发者还是企业，选择个人开发者</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/select-develop-type.png"/>
+
+<p>然后就按照步骤完成购买，一般需要几天才能审核通过。</p>
+<h2 id="创建证书请求申请-Certificate-Signing-Request"><a href="#创建证书请求申请-Certificate-Signing-Request" class="headerlink" title="创建证书请求申请 (Certificate Signing Request)"></a>创建证书请求申请 (Certificate Signing Request)</h2><p>选择 “Certificate Assistant”，然后点击 “Request Certificate from A Certificate Authority.”</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/request-certification.png" />
+
+<p>填入你的Email 名字，选择Save to Disk, 这是会生成一个CertificateSigningRequest.certSigningRequest 文件</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/certificaiton-info.png"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/save-certification-info.png"/>
+
+<h2 id="创建开发者证书"><a href="#创建开发者证书" class="headerlink" title="创建开发者证书"></a>创建开发者证书</h2><p>登录开发者中心，选择证书Development, 然后点击右边添加</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/member-center.png" />
+
+<p>选择Development—&gt;iOS App Development</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/select-dev-cert-type.png" />
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/how-to-create-csr.png"/>
+
+<p>这一步上传你刚才的CertificateSigningRequest.certSigningRequest 文件，点击Generate</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-your-certificate.png"/>
+
+<p>Download 你的证书，然后双击就会加入系统</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-dev-certification.png" />
+
+<h2 id="注册你的设备"><a href="#注册你的设备" class="headerlink" title="注册你的设备"></a>注册你的设备</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/register-device.png"/>
+
+<p>如果不知道UUID, 打开iTunes, 双击Serial Number</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/itunes.png" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/uuid.png"/>
+
+
+<h2 id="创建App-ID"><a href="#创建App-ID" class="headerlink" title="创建App ID"></a>创建App ID</h2><p>看说明创建你需要的APP ID, 主要是Bundle ID, 一般我们类似这样确保唯一 com.jackwang.nbapp</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/appid.png"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/buildid.png" />
+
+
+<h2 id="创建Provisioning-Profile"><a href="#创建Provisioning-Profile" class="headerlink" title="创建Provisioning Profile"></a>创建Provisioning Profile</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/add-provision-profile.png" />
+
+<p>选择iOS development, 点击继续，然后选择你刚的App ID，继续，选择要包含的开发者证书，点击继续，选择要包含的设备, 随后就generate你的provisioning profile.</p>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-profile.png"/> 
+
+<p>找到对应的Profile 下载后双击即可。</p>
+<h2 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h2><p>设置项目的Bundle ID 为之前创建的APP ID</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/xcode-setting-bundle.png"/>
+
+<p>然后选择你对应的Code Sign</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/xcode-code-sign.png" />
+
+<h2 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h2><p>插入你的设备，选择你的设备，点击运行，就可以真机调试了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

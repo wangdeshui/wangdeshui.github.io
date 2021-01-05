@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>ES6+ 现在就用系列（五)：模板字面量 (Template Literals) - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="模板字面量字符串替换这个和C#6 里面的字符串插值类似。原来ES5里字符串要连接，一般就是用+  特性 用反引号（&amp;#96;）标识, 它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。  如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。   如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。  大括号内部可以放入任意的JavaScript表达式，可以"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:description" content="模板字面量字符串替换这个和C#6 里面的字符串插值类似。原来ES5里字符串要连接，一般就是用+  特性 用反引号（&amp;#96;）标识, 它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。  如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。   如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。  大括号内部可以放入任意的JavaScript表达式，可以"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:published_time" content="2016-01-20T23:00:00.000Z"><meta property="article:modified_time" content="2021-01-05T07:00:21.808Z"><meta property="article:author" content="敏捷的水"><meta property="article:tag" content="JavaScript.Next"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"datePublished":"2016-01-20T23:00:00.000Z","dateModified":"2021-01-05T07:00:21.808Z","author":{"@type":"Person","name":"Jack Wang"},"description":"模板字面量字符串替换这个和C#6 里面的字符串插值类似。原来ES5里字符串要连接，一般就是用+  特性 用反引号（&#96;）标识, 它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。  如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。   如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。  大括号内部可以放入任意的JavaScript表达式，可以"}</script><link rel="canonical" href="http://example.com/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-21  <a class="commentCountImg" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/#comment-container"><span class="display-none-class">/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="ea730c852dd4ff628386900750f9a93a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">ES6+ 现在就用系列（五)：模板字面量 (Template Literals)</h1><div class="content"><h1 id="模板字面量"><a href="#模板字面量" class="headerlink" title="模板字面量"></a>模板字面量</h1><h2 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h2><p>这个和C#6 里面的字符串插值类似。原来ES5里字符串要连接，一般就是用+ </p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol>
+<li><p>用反引号（`）标识, 它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</p>
+</li>
+<li><p><strong>如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</strong> </p>
+</li>
+<li><p><strong>如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。</strong></p>
+</li>
+<li><p>大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。</p>
+</li>
+<li><p>模板字符串之中还能调用函数。</p>
+</li>
+</ol>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码:"></a>示例代码:</h3><p>简单字符串替换</p>
+<pre><code>var name = &quot;Brendan&quot;;
+console.log(`Yo, $&#123;name&#125;!`);
+
+// =&gt; &quot;Yo, Brendan!&quot;</code></pre>
+<p>表达式</p>
+<pre><code>var a = 10;
+var b = 10;
+console.log(`JavaScript first appeared $&#123;a+b&#125; years ago. Crazy!`);
+
+//=&gt; JavaScript first appeared 20 years ago. Crazy!
+
+console.log(`The number of JS MVC frameworks is $&#123;2 * (a + b)&#125; and not $&#123;10 * (a + b)&#125;.`);
+//=&gt; The number of JS frameworks is 40 and not 200.</code></pre>
+<p>函数</p>
+<pre><code>function fn() &#123; return &quot;I am a result. Rarr&quot;; &#125;
+console.log(`foo $&#123;fn()&#125; bar`);
+//=&gt; foo I am a result. Rarr bar.</code></pre>
+<p>$() 可以使用任何表达式和方法调用</p>
+<pre><code>var user = &#123;name: &#39;Caitlin Potter&#39;&#125;;
+console.log(`Thanks for getting this into V8, $&#123;user.name.toUpperCase()&#125;.`);
+
+// =&gt; &quot;Thanks for getting this into V8, CAITLIN POTTER&quot;;
+
+// And another example
+var thing = &#39;drugs&#39;;
+console.log(`Say no to $&#123;thing&#125;. Although if you&#39;re talking to $&#123;thing&#125; you may already be on $&#123;thing&#125;.`);
+
+// =&gt; Say no to drugs. Although if you&#39;re talking to drugs you may already be on drugs.</code></pre>
+<p>示例代码：</p>
+<p>ES5:</p>
+<pre><code>&#39;use strict&#39;;
+
+var customer = &#123; name: &quot;Foo&quot; &#125;;
+var card = &#123; amount: 7, product: &quot;Bar&quot;, unitprice: 42 &#125;;
+
+var message = &quot;Hello &quot; + customer.name + &quot;,\n&quot; +
+&quot;want to buy &quot; + card.amount + &quot; &quot; + card.product + &quot; for\n&quot; +
+&quot;a total of &quot; + (card.amount * card.unitprice) + &quot; bucks?&quot;;
+
+console.log(message);
+
+输出:
+
+Hello Foo,
+want to buy 7 Bar for
+a total of 294 bucks?</code></pre>
+<p>ES6:</p>
+<pre><code>var customer = &#123; name: &quot;Foo&quot; &#125;
+var card = &#123; amount: 7, product: &quot;Bar&quot;, unitprice: 42 &#125;
+message = `Hello $&#123;customer.name&#125;,
+want to buy $&#123;card.amount&#125; $&#123;card.product&#125; for
+a total of $&#123;card.amount * card.unitprice&#125; bucks?`
+
+输出:
+
+Hello Foo,
+want to buy 7 Bar for
+a total of 294 bucks?</code></pre>
+<h2 id="Tagged-Templates-标签模板？不知道如何翻译"><a href="#Tagged-Templates-标签模板？不知道如何翻译" class="headerlink" title="Tagged Templates (标签模板？不知道如何翻译)"></a>Tagged Templates (标签模板？不知道如何翻译)</h2><p>比如</p>
+<pre><code>fn`Hello $&#123;you&#125;! You&#39;re looking $&#123;adjective&#125; today!`</code></pre>
+<p>实际上等于</p>
+<pre><code>fn([&quot;Hello &quot;, &quot;! You&#39;re looking &quot;, &quot; today!&quot;], you, adjective);</code></pre>
+<p>fn可以是任何函数名，也就是把字符串分解传到到方法的第一个参数里，第一个参数必须是数组，数组的每一项，就是被$()分开的没一串字符， 每一个$()里面的值将传给函数的剩余参数。等于下面函数定义，strings是一个数组，values是Rest参数。</p>
+<pre><code>fn(strings, ...values)</code></pre>
+<p>示例</p>
+<pre><code>var a = 5;
+var b = 10;
+
+function tag(strings, ...values) &#123;
+    console.log(strings[0]); // &quot;Hello &quot;
+    console.log(strings[1]); // &quot; world &quot;
+    console.log(values[0]);  // 15
+    console.log(values[1]);  // 50
+
+    return &quot;Bazinga!&quot;;
+&#125;
+
+tag`Hello $&#123; a + b &#125; world $&#123; a * b &#125;`;
+// &quot;Bazinga!&quot;</code></pre>
+<p>有了 tagged template 我们可以让代码看起来更简洁，比如我们可以把下面的调用</p>
+<pre><code>get([ &quot;http://example.com/foo?bar=&quot;, &quot;&amp;quux=&quot;, &quot;&quot; ],bar + baz, quux);</code></pre>
+<p>用新的写法</p>
+<pre><code>get`http://example.com/foo?bar=$&#123;bar + baz&#125;&amp;quux=$&#123;quux&#125;`</code></pre>
+<h2 id="String-raw"><a href="#String-raw" class="headerlink" title="String.raw"></a>String.raw</h2><p>存取 raw template string, 就是如果遇见\将增加一个,然后原样输出。</p>
+<pre><code>let interpreted = &#39;raw\nstring&#39;;
+let esaped = &#39;raw\\nstring&#39;;
+let raw = String.raw`raw\nstring`;
+console.log(interpreted);    // raw
+                            // string
+console.log(raw === esaped); // true    </code></pre>
+</div><div class="article-licensing box"><div class="licensing-title"><p>ES6+ 现在就用系列（五)：模板字面量 (Template Literals)</p><p><a href="http://example.com/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/">http://example.com/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-string-template/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><a href="http://example.com"><p>Jack Wang</p></a></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2016-01-21</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-01-05</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># Related Post</span><br><span>  1.<a class="is-size-6" href="/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/" target="_blank">领域驱动设计系列（七）:领域驱动开发实践之路:我们如何从领域驱动开发当中获益</a><br></span><span>  2.<a class="is-size-6" href="/2016/01/29/technologies-cleancode-2016-01-29-clean-code-encapsulation/" target="_blank">整洁代码系列(一)：封装 (Encapsulation)</a><br></span><span>  3.<a class="is-size-6" href="/2016/01/24/technologies-JSNext-2016-1-24-javascript-next-features-es6-in-browser/" target="_blank">ES6+ 现在就用系列（十一)：ES7 Async in Browser Today</a><br></span><span>  4.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-async-await/" target="_blank">ES6+ 现在就用系列（十)：Async 异步编程</a><br></span><span>  5.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-modules/" target="_blank">ES6+ 现在就用系列（九)：模块</a><br></span><span>  6.<a class="is-size-6" href="/2016/01/23/technologies-JSNext-2016-1-23-javascript-next-features-class/" target="_blank">ES6+ 现在就用系列（八)：类 (Class)，继承，对象的扩展</a><br></span><span>  7.<a class="is-size-6" href="/2016/01/22/technologies-JSNext-2016-1-22-javascript-next-features-promise/" target="_blank">ES6+ 现在就用系列（七)：Promise</a><br></span><span>  8.<a class="is-size-6" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-destructuring-assignment/" target="_blank">ES6+ 现在就用系列（六)：解构赋值 (Destructuring )</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-destructuring-assignment/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">ES6+ 现在就用系列（六)：解构赋值 (Destructuring )</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2016/01/21/technologies-JSNext-2016-1-21-javascript-next-features-arrow-functions/"><span class="level-item">ES6+ 现在就用系列（四)：箭头函数 =&gt;</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

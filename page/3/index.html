@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-07-20  <a class="commentCountImg" href="/2016/07/20/technologies-fullstack-2016-07-20-fullstack-webpack-introduction/#comment-container"><span class="display-none-class">/2016/07/20/technologies-fullstack-2016-07-20-fullstack-webpack-introduction/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="fb46d6ad68060e6d4ba23b9ebf76ec7f">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/07/20/technologies-fullstack-2016-07-20-fullstack-webpack-introduction/">前端开发系列之Webpack(一):基本使用</a></h1><div class="content"><blockquote>
+<p>在前端开发中使用构建技术已经是标配了，之前我已经写过了Gulp系列，在<a target="_blank" rel="noopener" href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build">为什么需要前端构建</a>我也已经讲了前端构建的必要性，相信不少人都使用过Grunt或者Gulp。 </p>
+</blockquote>
+<p>由于ReactJS, Angular2的火热，WebPack这个构建工具已经在社区中得到了广泛的认可，而Webpack已经成了React.js开发的标配，所以，我们有必要学习一下Webpack</p>
+<h1 id="Webpack-是什么？"><a href="#Webpack-是什么？" class="headerlink" title="Webpack 是什么？"></a>Webpack 是什么？</h1><p>官方网址：<a target="_blank" rel="noopener" href="https://webpack.github.io/">https://webpack.github.io/</a><br><img src="https://webpack.github.io/assets/what-is-webpack.png" class="img-responsive"></p>
+<p>我觉得上面的图可以较好的解释webpack做什么，通常我们的前端需要使用模块化来组织代码，那么管理依赖就是比较头痛的一件事，而Webpack把所有的assets都当做一种模块，然后通过webpack输出为我们需要的文件。</p>
+<h1 id="Webpack-使用"><a href="#Webpack-使用" class="headerlink" title="Webpack 使用"></a>Webpack 使用</h1><h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><ol>
+<li><p>安装webpack</p>
+<p> npm install webpack -g</p>
+</li>
+</ol>
+<ol start="2">
+<li>新建一个目录 webpack-demo, 然后创建三个文件</li>
+</ol>
+<p><strong>index.html</strong></p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Webpack demo&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h2&gt;&lt;/h2&gt;
+        &lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><strong>hello.js</strong></p>
+<pre><code>function SayHello(name) &#123;
+    return &quot;Hello &quot;+ name +&quot;, Welcome to Webpack&quot;;
+&#125;
+
+module.exports=SayHello;</code></pre>
+<p><strong>main.js</strong></p>
+<pre><code>var hello=require(&quot;./hello.js&quot;);
+document.querySelector(&#39;h2&#39;).textContent = hello(&quot;Jack&quot;);</code></pre>
+<p>然后，在终端执行 </p>
+<pre><code>webpack main.js bundle.js</code></pre>
+<p>下面是终端的输出:</p>
+<pre><code>jacks-MacBook-Air:webpack-demo jack$ webpack main.js bundle.js
+Hash: 43eaa05d6fc827ebad1f
+Version: webpack 1.13.1
+Time: 104ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  1.66 kB       0  [emitted]  main
+[0] ./main.js 91 bytes &#123;0&#125; [built]
+[1] ./hello.js 104 bytes &#123;0&#125; [built]</code></pre>
+<p>然后，打开index.html,我们可以看到页面输出:</p>
+<pre><code>Hello Jack, Welcome to Webpack</code></pre>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>上面可以看到，我们只需要调用简单的一个命令，传入对应的参数，webpack就能给我们build出我们需要的bundle.js, 而且可以很好的处理依赖。但是如果我们每次都用命令行传入参数，那么就比较麻烦，webpack给我们提供了配置的方式</p>
+<p>webpack默认的配置文件是webpack.config.js，所以我们就在根目录下创建一个webpack.config.js, 内容如下：</p>
+<pre><code>module.exports = &#123;
+    entry: &#39;./main.js&#39;,
+    output: &#123;
+        filename: &#39;bundle.js&#39;
+    &#125;
+&#125;;</code></pre>
+<p>然后我们在控制台输入</p>
+<pre><code>webpack</code></pre>
+<p>打开页面我们看到之前一样的结果。</p>
+<h2 id="Webpack-开发服务器"><a href="#Webpack-开发服务器" class="headerlink" title="Webpack 开发服务器"></a>Webpack 开发服务器</h2><p>现在，我们修改文件，就需要到命令行去敲webpack命令，并且刷新浏览器，而webpack-dev-server这个包为我们自动做了这些事，首先安装webpack-dev-server</p>
+<pre><code>npm install webpack-dev-server -g</code></pre>
+<p>然后，我们输入</p>
+<pre><code>webpack-dev-server</code></pre>
+<p>我们打开浏览器，输入 <a target="_blank" rel="noopener" href="http://localhost:8080/webpack-dev-server/index.html">http://localhost:8080/webpack-dev-server/index.html</a></p>
+<p>随后，我们修改hello.js为如下</p>
+<pre><code>function SayHello(name) &#123;
+    return &quot;Hello &quot;+ name +&quot;, Welcome to Webpack, I am webpack dev server&quot;;
+&#125;
+
+module.exports=SayHello;    </code></pre>
+<p>我们看到页面自动刷新，内容也跟着变了<br><img src="http://7xpzem.com1.z0.glb.clouddn.com/webpack-dev-server.png" class="img-responsive"/></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-07-18  <a class="commentCountImg" href="/2016/07/18/management-2016-07-18-management-thinking-company-culture/#comment-container"><span class="display-none-class">/2016/07/18/management-2016-07-18-management-thinking-company-culture/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="97f490099ad4609f74973acdd82df1c1">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>17 m  <i class="fas fa-pencil-alt"> </i>2.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/07/18/management-2016-07-18-management-thinking-company-culture/">管理沉思录系列(四):我们企业文化杂谈</a></h1><div class="content"><blockquote>
+<p>企业文化这个话题太大，有很多学者，企业家谈论这个话题，每个人都有不同的想法，我在这方面没有什么经验，但是想基于自己目前的认知来谈谈对公司文化的感受和想法。</p>
+</blockquote>
+<h1 id="什么是企业文化"><a href="#什么是企业文化" class="headerlink" title="什么是企业文化"></a>什么是企业文化</h1><p>先看一下百度百科的定义:</p>
+<blockquote>
+<p>企业文化，或称组织文化（Corporate Culture或Organizational Culture），是一个组织由其价值观、信念、仪式、符号、处事方式等组成的其特有的文化形象。</p>
+<p>职工文化，也称企业职员文化，是与企业文化相对应的文化形态，职工文化以职工为本，是一种素质文化，企业文化以企业为本，是一种管理文化。</p>
+<p>企业文化是在一定的条件下，企业生产经营和管理活动中所创造的具有该企业特色的精神财富和物质形态。它包括文化观念、价值观念、企业精神、道德规范、行为准则、历史传统、企业制度、文化环境、企业产品等。其中价值观是企业文化的核心。</p>
+<p>企业文化是企业的灵魂，是推动企业发展的不竭动力。它包含着非常丰富的内容，其核心是企业的精神和价值观。这里的价值观不是泛指企业管理中的各种文化现象，而是企业或企业中的员工在从事经营活动中所秉持的价值观念。</p>
+</blockquote>
+<p>反正上面的定义我是记不住，那么什么是企业文化呢？ 随着这几年的不断的认识，我对企业文化有了一些自己的看法。</p>
+<h2 id="每个企业都有自己的企业文化"><a href="#每个企业都有自己的企业文化" class="headerlink" title="每个企业都有自己的企业文化"></a>每个企业都有自己的企业文化</h2><p>其实一个企业不管怎么样，他都有自己的企业文化，很多时候大家觉得自己所在的公司没有企业文化，其实我想说“没有文化不也是公司的企业文化吗？”，所以说不管你有没有提出“口号”，这个公司都会自发的形成一种文化，只不过这种文化大部分时候都不是你想要的。比如，人员充满抱怨，做事得过且过，这不也是一种“文化”吗？</p>
+<h2 id="团队活动是一种文化吗？"><a href="#团队活动是一种文化吗？" class="headerlink" title="团队活动是一种文化吗？"></a>团队活动是一种文化吗？</h2><p>原来，我一直认为举行团队活动就是一种文化，比如爬山，打球，聚餐等，但是后来我觉得这个还不能算是企业文化，这个只能算是一种活动，他能够提升团队的凝聚力，因为爬山、打球、聚餐这样的事情哪个公司都可以举办。</p>
+<h2 id="我所认为的企业文化"><a href="#我所认为的企业文化" class="headerlink" title="我所认为的企业文化"></a>我所认为的企业文化</h2><p>我个人觉得，企业文化是一种能够让你实现目标，让你公司能够提供更好的产品或者服务的东西。</p>
+<h1 id="企业文化的作用"><a href="#企业文化的作用" class="headerlink" title="企业文化的作用"></a>企业文化的作用</h1><p>企业文化重要吗？我认为企业文化很重要，企业文化主要有一下的作用：</p>
+<ol>
+<li>弘扬公司的价值观，促进公司的发展，实现公司的目标</li>
+<li>聚集有助于实现公司目标的员工</li>
+<li>使员工乐意为公司的发展贡献自己的汗水</li>
+</ol>
+<p>如果一个企业没有企业文化，那么每个人都会有自己的文化，这个文化很难统一，这样很难一起做出优秀的产品或者提供优秀的服务。</p>
+<h1 id="我们的企业文化"><a href="#我们的企业文化" class="headerlink" title="我们的企业文化"></a>我们的企业文化</h1><p>我觉得企业文化，很难在公司刚成立的时候就建立，而是一个不断发展和完善的，应该是从员工日常工作中提炼出来的。通过这个可以影响现有或者以后新加入的人。</p>
+<p>那我们分公司来说，一开始我一直想建立的是一种敏捷的文化，但是敏捷包含的东西太多，经过几年的实践，我发现很多新加入进来的人不知道什么是敏捷，甚至有些老员工对敏捷的理解也比较浅, 那么把敏捷作为公司的企业文化，操作起来有一定的困难。</p>
+<h2 id="Quality-amp-Productivity"><a href="#Quality-amp-Productivity" class="headerlink" title="Quality &amp; Productivity"></a>Quality &amp; Productivity</h2><p>我们发现，要想有竞争力，我们必须要在两个方面突出 “高质和高效 (Quality &amp; Productivity)”, 在我们专注这两个方向来建设我们的企业文化的时候，我们很多的一些好的做事方式就出来了，比如，为了高质和高效，我们采用敏捷的开发过程，我们对质量的追求就需要我们正确理解需求，减少bug, 使用测试驱动开发等。我们对效率的追求，就让我们必须学习新的技术，持续集成，使用Git、多使用快捷键等，另外高质和高效不只是针对个人，而是针对团队，那么久要求我们有较好的团队文化，比如不要团队内部人身攻击，讨论问题不要假大空:”Show me the code”.</p>
+<h2 id="Responsibility-amp-Passionate"><a href="#Responsibility-amp-Passionate" class="headerlink" title="Responsibility &amp; Passionate"></a>Responsibility &amp; Passionate</h2><p>高质和高效让我们掌握了做事的方法和标准，知道了我们的目标，但是，后来我们发现光有这是不够的，如果没有责任心，光有方法或者标杆是不容易达到我们定义的标杆的，而一旦责任心下降，质量和效率都下降，即使我们使用再优秀的开发过程和开发工具。那么我们文化里就需要强调责任心，我们每个人都要有责任心，对团队负责任，对自己负责任，对客户负责任，对公司负责任。拿我们做项目来说，不是别人安排你做啥你做啥，而是你要把软件/项目做好，需要啥就做啥，比如，有的人就是看到了装作没看见就是很不负责任，所以，我们需要鉴别一个人是不是有责任心。</p>
+<h3 id="Responsibility-责任心"><a href="#Responsibility-责任心" class="headerlink" title="Responsibility 责任心"></a>Responsibility 责任心</h3><p>在这里面，我想说个误区，有的人觉得，钱给的越多，责任心越大，我觉得这是一个伪定义，第一，钱多少才算是多呢？第二，如果一个人的责任心根据钱的多少来计算的话，那么管理者永远都要陷入这个里面。</p>
+<p>事实证明，钱涨一点，短期有一定的激励，最多多做一点事，但是责任心还是没有变化的。通过我的观察，那些拿1万块的人很认真负责的人，在他们拿一千块钱的时候也很认真负责。<strong>我并不是说，我们需要克扣员工的工资，我们仍然需要给员工一份相对满意的薪水，我只是说一个人的责任心不会随着钱的变化而变化</strong>，换句话说，有责任心的人一定会把接手的任何东西都尽力，如果觉得钱少，他会提出钱少，或者换一份工作而不是消极怠工或者是降低产出。</p>
+<p>我们公司曾经辞退一个“装睡不醒”的没有责任心的人，我曾经多次花力气想叫醒他，希望他能够有点责任心，但是事实证明 <strong>你永远无法叫醒一个装睡的人</strong>。</p>
+<h3 id="Passionate-激情"><a href="#Passionate-激情" class="headerlink" title="Passionate 激情"></a>Passionate 激情</h3><p>这个是我们今年才加进来的，公司项目的稳定，不少人长期做一个项目，时间长了就有点“皮”了，现有项目觉得“轻车熟路”，因此没有学习和进步的激情，其实这个世界变化很快，尤其是科技技术行业，变化和创新日新月异，新技术层出不穷，而且这些新的东西真的是进步，极大提高生产力或者服务水平，拿软件行业来说，移动的飞速发展，让原来的传统软件向移动端转移，Cloud技术的发展和成熟，极大的提高了我们的运维，大大加快的发布和升级的周期，大大节省了成本。</p>
+<p>如果我们不保持学习的激情，我们很难提供高质和高效的服务，而我们发现那些有激情的人能够保持对新东西的关注，而且对新东西学习，新方法或者新事物投入一定的时间，这个为公司未来的业务发展做出贡献。</p>
+<p>另外，激情可以让公司充满活力，热烈的讨论，对生活的激情比如喜欢跑步，对技术的热情，经常学习或者分享能够让公司生气勃勃，这样的公司，让任何进入公司的人不会感觉死气沉沉，感觉这个公司充满活力，充满阳光。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><strong>企业文化是一种能够让你实现目标，让你公司能够提供更好的产品或者服务的东西</strong></p>
+<p><strong>企业文化很重要</strong></p>
+<p><strong>我们的企业文化是“高质，高效，责任，激情” (Quality, Productivity, Responsibility, Passionate)</strong></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%AE%A1%E7%90%86/">管理</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-06-20  <a class="commentCountImg" href="/2016/06/20/management-2016-06-20-managment-thinking-odc-services/#comment-container"><span class="display-none-class">/2016/06/20/management-2016-06-20-managment-thinking-odc-services/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="87e7a54e8a9db99939b707801e2a5b60">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>18 m  <i class="fas fa-pencil-alt"> </i>2.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/06/20/management-2016-06-20-managment-thinking-odc-services/">管理沉思录系列(三):你不知道的ODC服务</a></h1><div class="content"><blockquote>
+<p>我们整个公司ODC的业务占了很大的比例，我们分公司做过的大部分的项目都是ODC. 那么是不是我们所有人对ODC项目都有一个正确/恰当的认识呢？我觉得不尽然，所以我想写写我对ODC的认识。一个是让我们公司的工程师知道ODC是什么，另外让客户知道真正的ODC服务是什么(除了销售的介绍，不妨听听正真服务人的想法)，他的优势是什么，如果处理不好，ODC的问题又是什么？</p>
+</blockquote>
+<h1 id="ODC的片面理解？"><a href="#ODC的片面理解？" class="headerlink" title="ODC的片面理解？"></a>ODC的片面理解？</h1><p>在公司经常听到以下一些对解释：</p>
+<h2 id="ODC就是按月付费"><a href="#ODC就是按月付费" class="headerlink" title="ODC就是按月付费"></a>ODC就是按月付费</h2><p>我觉得按月付费只是ODC服务的一种付费形式，他根本不是一种服务。</p>
+<h2 id="ODC就是按时间付费"><a href="#ODC就是按时间付费" class="headerlink" title="ODC就是按时间付费"></a>ODC就是按时间付费</h2><p>这个也是片面的，1个小时也是时间，一个月也是，一年还是时间。几天的服务算是ODC吗？我认为不是。</p>
+<h2 id="ODC是Offshore-development-center"><a href="#ODC是Offshore-development-center" class="headerlink" title="ODC是Offshore development center"></a>ODC是Offshore development center</h2><p>这个解释也太过“干瘪”，离岸开发中心？ 离岸研发中心？如果这样理解，他就是离岸的一个办公地点而已嘛！</p>
+<h1 id="ODC到底是什么？"><a href="#ODC到底是什么？" class="headerlink" title="ODC到底是什么？"></a>ODC到底是什么？</h1><p>对我们公司来说，我觉得ODC是一种合作方式，他的产出是一种服务，这个服务可以是如下一些交付物：</p>
+<ul>
+<li>软件——-交付高质量的软件</li>
+<li>咨询服务—-企业信息化(软件项目的立项，软件项目的规划, 开发商的评估等等)</li>
+</ul>
+<p>而ODC服务要做好的几个主要的部分，我觉得是：</p>
+<ul>
+<li><p>O (Open): 双方都必须开放，必须透明，只有这样，才能做好互信，才能更好的信息共享。</p>
+</li>
+<li><p>D (Development): 这个部分是开发，或者咨询服务的实施过程</p>
+</li>
+<li><p>C (Coperation): 合作，我们知道客户合作胜过合同谈判。</p>
+</li>
+</ul>
+<h1 id="ODC的模式好处有哪些"><a href="#ODC的模式好处有哪些" class="headerlink" title="ODC的模式好处有哪些?"></a>ODC的模式好处有哪些?</h1><p>我认为ODC有几个很主要的优势：</p>
+<ol>
+<li><p>软件开发，需求很难固定，尤其是现在这个变化极快的时代，一旦需求固定，将失去竞争力，拿现在手机开发来说，如果一开始定义了一个手机，而且严格按照计划来，一年以后等你上市时，发现大部分手机都有了指纹功能，而你的没有，那么你的手机就毫无竞争力，让之前的付出瞬间付之东流。</p>
+</li>
+<li><p>ODC的合同一般更倾向于长期客户，这样可以让团队成员能够更稳定，让熟悉的人能够长期服务于这个客户，大大降低了产品的风险。不然，A做的东西让B接是很需要时间的，如果A已经离职或者服务于别的项目，那么很可能导致项目难以持续。</p>
+</li>
+<li><p>ODC的付费形式是按月付费，可以大大降低客户的成本风险，以及可以节约现金流。</p>
+</li>
+<li><p>ODC的服务的交付大部分都是增量式，比如2个周一个迭代，客户可以尽早发现项目中的问题，尽早给予反馈进行修复。甚至尽早终止项目来减少损失。</p>
+</li>
+<li><p>ODC服务需要把双方都理解为自己的同事，开放(O), 合作(C). 没有信息影藏，双方都是想把产品或服务做好。</p>
+</li>
+<li><p>更容易激发双方的创造，不用过于盯着一开始定义的功能，不用过于在乎KPI (Kill people idea), Business value才是最重要的。</p>
+</li>
+<li><p>ODC使开发人员有更长时间来不断加强对客户的业务领域的理解，从而提交更好的产品和服务。</p>
+</li>
+<li><p>ODC使的软件提供方更容易做出计划，从而可以让开发人员更专注于一个客户的项目，想想固定价格的项目，很多友商固定价格的项目常常一个人同时做好几个，根本没时间来深入理解客户到底需要什么。</p>
+</li>
+<li><p>ODC的项目也更容易规划开发人员的个人发展，更容易做出一个长期的计划，从而增加员工对公司的认同，一个能留住人才的公司，肯定是可以提供更好的服务的。</p>
+</li>
+</ol>
+<p>ODC的好处远远不止这几点，我们使用ODC成功提交了大量的项目，当然单单使用这种合作模式也是不够的，软件行业想在ODC服务模式下提供高质量的服务依然没有那么简单，具体怎么做，欢迎阅读我的 <a target="_blank" rel="noopener" href="http://deshui.wang/categories.html#%E6%95%8F%E6%8D%B7-ref">我的敏捷系列</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/06/01/scrum-training">敏捷实践系列(九)：SCRUM</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/06/unit-test-best-practices">敏捷实践系列(八)：单元测试及最佳实践</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/01/why-fully-follow-customer-is-wrong">敏捷实践系列(七)：为什么你都听客户的，客户却不满意</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/12/30/team-leader-should-not-only-coding">敏捷实践系列(六)：Team Leader 你不再只是编码, 来炖一锅石头汤吧</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/11/05/agile-gif-flow-practice">敏捷实践系列(五)：迁移已有项目到Git flow</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management">敏捷实践系列(四)：代码管理流程</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/26/agile-communication">敏捷实践系列(三)：沟通</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/09/28/agile-mindset">敏捷实践系列(二)：敏捷意识</a></li>
+<li><a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/09/18/what-is-agile">敏捷实践系列(一)：什么是敏捷</a></li>
+</ul>
+<h1 id="ODC的问题"><a href="#ODC的问题" class="headerlink" title="ODC的问题"></a>ODC的问题</h1><p>ODC的模式固然有很多好处，但是这世界上从来没有任何一个模式是完美的，经过这几年的服务，ODC也有几个常见的问题, ODC一个最大的好处是可以让人员稳定，可以留住人，但是最大的问题也是留人问题：</p>
+<h2 id="项目周期太长，开发人员觉得枯燥"><a href="#项目周期太长，开发人员觉得枯燥" class="headerlink" title="项目周期太长，开发人员觉得枯燥"></a>项目周期太长，开发人员觉得枯燥</h2><p>有的项目做的时间比较长，比如5年以上，那么开发人员使用的技术就没有那么新，虽然这个对项目本身问题不大，但是技术人员第一都是喜欢追求新技术的。其次开发人员和别的项目或者开发人员讨论，觉得自己的技术已经没那么时髦了，容易产生浮躁的心里。</p>
+<p>其实，解决这个问题的方法有几种：</p>
+<ul>
+<li><p>在现有的项目里使用新技术，比如很多公司在使用的Powerbuilder可能需要更换为WEB系统或者新的技术，不然将来谁来维护？</p>
+</li>
+<li><p>部分功能或者子系统使用新技术，比如部分使用NoSQL, Elastic Search，Cloud等新技术除了提高系统的性能，降低维护的任务外，开发人员也可以学到很多新东西</p>
+</li>
+<li><p>更换部分人员，更换部分新成员到项目，老成员可以做别的项目</p>
+</li>
+</ul>
+<p>但是，这些都需要客户方的大力支持，ODC提供方是很难单方面进行改进。</p>
+<h2 id="报价增长太慢，不符合开发人员薪水增长预期。"><a href="#报价增长太慢，不符合开发人员薪水增长预期。" class="headerlink" title="报价增长太慢，不符合开发人员薪水增长预期。"></a>报价增长太慢，不符合开发人员薪水增长预期。</h2><p>这个也是一个常见问题，程序员的薪水每年都希望提升，而大部分公司程序员薪水的提升是和程序员给公司能带来的价值/收入来决定的，也就是基本上和报价关联度比较大。当然，我们可以不关联，那么如果不关联会带来更多的问题。这里面出现的矛盾是，正常情况我们和客户都会说每年有一个百分比的报价提升，但是这会受到几个因素的影响，<strong>一是这个百分比是否和整个市场薪水变化同步，而是部分开发人员能力提升较大，自己期望高于这个百分比的薪水涨幅</strong></p>
+<p>这个问题解决方法其实也是有三种：</p>
+<ol>
+<li>降低利润</li>
+<li>客户接受对应报价的提升。</li>
+<li>人员离开项目</li>
+</ol>
+<p>在人员的生产效率没有降低的情况下（理论上每年应该都有提高，因为对项目业务更熟悉，使用的技术更熟练），我个人一直觉得第二种是对客户最好的一种方式，因为 <strong>报价的提升是恰恰是成本最低的，同时想想这个开发人员对项目的过去几年已有的贡献，他应该享受某些程度上的不可替代带来的回报提升。</strong></p>
+<h2 id="开发人员同一项目时间长了，皮了！工作效率下降。"><a href="#开发人员同一项目时间长了，皮了！工作效率下降。" class="headerlink" title="开发人员同一项目时间长了，皮了！工作效率下降。"></a>开发人员同一项目时间长了，皮了！工作效率下降。</h2><p>当我们很多东西都熟练的时候，我们原来8个小时的工作量很多时候6个小时做完了，虽然某种程度对客户的产出没有变化，那么时间长了，我们人就比较消极，在一种消极的情况下，稍微有一点有挑战的新任务，都会没有好的产出。</p>
+<p>这种解决办法，我觉得只有一个，那就是换人！</p>
+<h2 id="“富成一个废人”"><a href="#“富成一个废人”" class="headerlink" title="“富成一个废人”"></a>“富成一个废人”</h2><p>ODC项目时间长了以后，大家压力不是太大，所以容易进入舒适区，舒适区呆久了，一旦换个项目，很可能适应不了新的节奏，新的知识或者丧失了学习的能力，从此“富成一个废人”。</p>
+<p>这种解决办法，就是ODC我们也需要不断提高我们的质量和效率！使用正确合适的开发过程来避免这些发生，参考<a target="_blank" rel="noopener" href="http://deshui.wang/categories.html#%E6%95%8F%E6%8D%B7-ref">我的敏捷系列</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>废话少说，最后几句重要的。</p>
+<ol>
+<li><strong>ODC 卖的不是时间，是服务呀，时间人人都有哇</strong></li>
+<li><strong>ODC 是一种合作方式</strong></li>
+<li><strong>ODC 的产出是服务 （软件或者咨询)</strong></li>
+<li><strong>ODC 是为了提高质量和效率，不是为了多挣钱, 多挣钱只是ODC的附属产物</strong></li>
+<li><strong>ODC 是为了更好的员工发展规划做基础，员工Happy，才能做好服务，客户才能Happy</strong></li>
+</ol>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%AE%A1%E7%90%86/">管理</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-06-15  <a class="commentCountImg" href="/2016/06/15/management-2016-6-15-management-salary/#comment-container"><span class="display-none-class">/2016/06/15/management-2016-6-15-management-salary/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="20a071d1f090548bf263b340f66e6155">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>1.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/06/15/management-2016-6-15-management-salary/">管理沉思录系列(二):加薪的&quot;艺术&quot;</a></h1><div class="content"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>作为一个分公司负责人，绩效考核，薪水定级这些事情直接关系到分公司的生死存亡，所以向来都是我工作的主要内容之一。尤其是软件公司，人才是唯一的资产，而绩效考核往往决定是否可以吸引人才和留住人才。</p>
+<p>分公司成立快5年了，也做了很多项目，其实考核的方案也每年都有变化，而也在薪水提升和管理上吃过不少“吃亏不讨好“的事，比如干过这样的蠢事：有个员工表先不好，为了激励他，给他进行了加薪。但是，加薪后还是一直表现不好，当我们辞退的时候，他竟然问我，如果我表现不好，你为什么给我加薪？ 类似的事情，有几次处理的不好，主要的原因就像我第一篇 <a target="_blank" rel="noopener" href="http://deshui.wang/%E7%AE%A1%E7%90%86/2016/07/14/management-thinking-introduction">管理沉思录系列(一):开篇</a>, 小公司，人少，项目一个萝卜一个坑，把坏萝卜拔了，坑就很难很快填上，不敢顶失去项目的压力，但是恰恰是害怕失去项目，却为公司发展带了一些管理的债务。</p>
+<p>另外，也有个别些员工受到一些“风”的吹动，心里难免会躁动不安，提出了离职。员工离职的原因林林总总，千差万别，但是背后可能原因基本都是一个，觉得薪水低了。这个时候，为了保住项目，很多人选择的方法都是给这些提高薪水留住人，但我的想法不同，我一定会留人，但是绝对不是提高薪水留人，下面我来说一下原因：</p>
+<h1 id="为什么不能随时调整薪水？"><a href="#为什么不能随时调整薪水？" class="headerlink" title="为什么不能随时调整薪水？"></a>为什么不能随时调整薪水？</h1><h2 id="公司必须有考核制度"><a href="#公司必须有考核制度" class="headerlink" title="公司必须有考核制度"></a>公司必须有考核制度</h2><p>一个公司如果薪水的定义，完全凭老板自己来定，或者随时来调整，那么员工如何保证自己把精力放到自己的工作之中，放到自己的能力提高之中，放到产品的质量，效率和服务来？ </p>
+<p>如果一个公司没有考核制度，那么没有“政治能力”的人就会很吃亏。一个软件公司能变成“后宫”。</p>
+<h2 id="薪水的调整必须有定义好的时间点"><a href="#薪水的调整必须有定义好的时间点" class="headerlink" title="薪水的调整必须有定义好的时间点"></a>薪水的调整必须有定义好的时间点</h2><p>考核一定是对一个周期的考核，而这个周期不能对有的人是一个月，有的人是一年，如果这样，就说明你有一个“任性”的领导。</p>
+<p>拿我们分公司来说，这两个时间点就是：</p>
+<ul>
+<li>每年的考核制度更新时，也就是1月1号</li>
+<li>客户项目报价的调整，也就是新的合同签订时。</li>
+</ul>
+<h2 id="薪水是双方的“合同”，是一种承诺，体现了契约精神。"><a href="#薪水是双方的“合同”，是一种承诺，体现了契约精神。" class="headerlink" title="薪水是双方的“合同”，是一种承诺，体现了契约精神。"></a>薪水是双方的“合同”，是一种承诺，体现了契约精神。</h2><p>一般，每年薪水的调整时，会和员工进行沟通，员工如果同意了，其实就是对公司的一种承诺，对客户的一种承诺，在这个周期内应该遵守承诺。随意调整薪水，如果工作内容没有变化就伤害了契约精神。（注：我第一分工作没到合同周期结束我辞职了，我给公司支付了赔偿，第二分公司，我是等到合同期结束才辞职)</p>
+<h2 id="不能造成-“会哭的孩子有奶吃”-的局面"><a href="#不能造成-“会哭的孩子有奶吃”-的局面" class="headerlink" title="不能造成 “会哭的孩子有奶吃” 的局面"></a>不能造成 “会哭的孩子有奶吃” 的局面</h2><p>很多管理人员可能遇到这样的场景：资深员工找你加薪，或者暗示你他们的所得低于付出，甚至旁敲侧击的告诉你有很多公司能给他更高的薪水，你怎么办？这个时候，这个人可能是公司关键人物，可能是某个项目的核心成员，你可能也认同他的一些想法，然后给他加薪，这个看起来很合理，但是这个时候你违反了考核制度，也没有到调整薪水的时间。同时带来了更大的危害，因为你的行为并不是推动公司发展，<strong>加薪是因为他提出了加薪的要求</strong> 而不是他工作更出色了。这会带来几个严重的问题:</p>
+<ol>
+<li>没有不透风的墙，大家会纷纷效仿，大家相互比较的不是谁的表现更出色，而是谁去找了老板加薪。</li>
+<li>大家都想办法把自己编程“关键人物”，平时信息不分享，自己做的东西只有自己知道，然后对老板提出威胁。</li>
+<li>公司里默默无闻，踏实干活的人将享受不到这个“福利”。</li>
+<li>大家都学会了“哭”，因为“会哭的孩子有奶吃”。 那么老板就等着疲于“哄”孩子吧。</li>
+</ol>
+<h1 id="如何调整薪水？"><a href="#如何调整薪水？" class="headerlink" title="如何调整薪水？"></a>如何调整薪水？</h1><h2 id="薪水调整的时间点和方法"><a href="#薪水调整的时间点和方法" class="headerlink" title="薪水调整的时间点和方法"></a>薪水调整的时间点和方法</h2><p>每个公司，每个管理者都有不同的方法，不同时期都有不同的考核制度，但是我觉得有一点是不变的，那就是不管什么考核，都要“公平，公正，公开”，同时，不要随意打破规则，新规则没出来，所有人都必须遵守老规则。</p>
+<p>就拿我们分公司来说，薪水调整的时间点和方法。</p>
+<ol>
+<li>要想提高薪水，首先提高能力，能力提高了，就提高对客户的报价。</li>
+<li>如果考核周期中觉得自己不公平，可以提出改进考核的建议。</li>
+<li>要求加薪需要在正确的时间点，一个考核周期没结束或者报价没变化时尽量不要要求随时加薪，重承诺。每年对考核进行修正，可以提出考核制度需要改进的地方，可以提出考核制度不公平的地方。另外一个时间点就是和客户谈新的报价或者合同之前。</li>
+<li>可以做更多的事来提高薪水，可以给公司带来更多的价值或者收入。</li>
+</ol>
+<h2 id="不要让员工讨价还价"><a href="#不要让员工讨价还价" class="headerlink" title="不要让员工讨价还价"></a>不要让员工讨价还价</h2><p>比如制定一个清晰的考核计划，严格的执行，同时让员工贡献自己的想法，以免出现不公的事情。给员工清晰的薪水提升路线、时间、方法。</p>
+<p>做好这些后，如果一个员工告诉你他找到了一份好工作而要离开时，这个时候你的立场一定要坚定，不要模棱两可，也不要发出错误的信号，让其他的员工感觉你通过加薪而留住了他们，对那些不想为公司工作的人不要留恋。</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>所以，加薪是一把双刃剑，用好了，事半功倍，用不好，事倍功半！</p>
+<p>我也在不断学习和思考，愿君与我同行，愿我们公司的小伙伴一起出谋划策，打下一片江土。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%AE%A1%E7%90%86/">管理</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-06-10  <a class="commentCountImg" href="/2016/06/10/management-2016-06-10-management-thinking-introduction/#comment-container"><span class="display-none-class">/2016/06/10/management-2016-06-10-management-thinking-introduction/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="a2deb3007da89a01f7b30cecd1f4c3cb">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>1.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/06/10/management-2016-06-10-management-thinking-introduction/">管理沉思录系列(一):开篇</a></h1><div class="content"><blockquote>
+<p>感谢公司的这个平台，让我这个毛头小子，不知天高地厚的人做了几年事业部负责人，然后又从2011年开始作为西安第一分公司的负责人至今。虽然分公司人员并不多，但是依然经历了很多事，才有了许多的思考和实践！</p>
+</blockquote>
+<h1 id="为何一直没有写管理相关的文章"><a href="#为何一直没有写管理相关的文章" class="headerlink" title="为何一直没有写管理相关的文章"></a>为何一直没有写管理相关的文章</h1><p>我其实是一个很喜欢思考的人，对团队管理，公司建设等相关的东西很感兴趣，但是一直没敢记录一些相关的想法，主要有一下几个原因：</p>
+<h2 id="害怕得罪人"><a href="#害怕得罪人" class="headerlink" title="害怕得罪人"></a>害怕得罪人</h2><p>管理人员有几类：</p>
+<ol>
+<li>“全是假话，没有真话”—我很讨厌这种人</li>
+<li>“假话全不说，真话不全说”–有一定修养，但不愿得罪人，算是好的管理人员</li>
+<li>“假话全不说，真话全都说”— <strong>我就是这种人</strong></li>
+</ol>
+<p>我就是上面的第三种人，我这个人比较简单，喜欢有一说一，所以很多时候说话的时候不分场合，喜欢说真话，所以容易得罪人。而任何管理的方法和认识，很多时候很难照顾到所有人，很难和很多人达成一致，而又的时候，我说的一些管理的方法和思考，正好和有些人的冲突，那么别人就会觉得我是公开反对。</p>
+<h2 id="管理经验不足，不敢分享想法"><a href="#管理经验不足，不敢分享想法" class="headerlink" title="管理经验不足，不敢分享想法"></a>管理经验不足，不敢分享想法</h2><p>由于只是分公司的负责人，而且人并不多，相比那些“大领导”，我的管理经验算个毛？对自己一些管理的思考缺乏自信。</p>
+<h2 id="害怕流失员工"><a href="#害怕流失员工" class="headerlink" title="害怕流失员工"></a>害怕流失员工</h2><p>我的一些管理的理念，可能别的人看了，有的人表示赞同，有的人嗤之以鼻，最多是关掉网页罢了，但是假如我单位自己员工看了，他和自己的领导理念不一致怎么办？我说的那些人不认同怎么办？那么是不是这些人会流失？流失了项目怎么办？</p>
+<h2 id="害怕员工误解"><a href="#害怕员工误解" class="headerlink" title="害怕员工误解"></a>害怕员工误解</h2><p>比如我之前写过<a target="_blank" rel="noopener" href="http://deshui.wang/%E7%AE%A1%E7%90%86/2015/04/16/why-we-should-not-work-overtime">加班有罪</a>, 当我们偶尔需要加班的时候，很多人就会误解，会觉得我言行不一致，觉得我自己打脸了，很多人喜欢看别人打脸，但是我一直认为领导要敢于打脸，不要该打脸的时候硬撑着，随后我又不得不写一篇<a target="_blank" rel="noopener" href="http://deshui.wang/%E7%AE%A1%E7%90%86/2015/04/17/what-I-talk-when-I-talk-overwork">当我谈 “加班有罪” 我在谈什么？</a>, 所以很多时候，一篇文章很难把一件事情说的通透，就拿加班这件事，我们认同加班有罪，但是我们如何能够做到不加班，恰恰需要大家的共同努力。（注：我们基本不加班，但是不代表着零加班，所有的人6点整就走人, 所有人都看着表走的公司，你真的敢去吗？)</p>
+<h2 id="害怕得罪领导"><a href="#害怕得罪领导" class="headerlink" title="害怕得罪领导"></a>害怕得罪领导</h2><p>如果领导看了，觉得我的很多想法不对，和领导的想法不一致怎么办？</p>
+<blockquote>
+<p>文章其实是一种交流和信息的流通，我觉得很多管理人员不愿分享自己的管理想法，应该也有我上面的几个担忧吧。</p>
+</blockquote>
+<h1 id="为何我现在要分享一些自己的管理想法和心得"><a href="#为何我现在要分享一些自己的管理想法和心得" class="headerlink" title="为何我现在要分享一些自己的管理想法和心得"></a>为何我现在要分享一些自己的管理想法和心得</h1><h2 id="一个害怕得罪人的领导不是好领导"><a href="#一个害怕得罪人的领导不是好领导" class="headerlink" title="一个害怕得罪人的领导不是好领导"></a>一个害怕得罪人的领导不是好领导</h2><p>我觉得，作为公司的管理人员，我们需要首先需要考虑公司的员工，考虑员工的发展，那么公司发展好了，公司文化建设好了，才能让员工发展有一定的基石。从管理的角度思考，当公司多余10个人时，很难所有人对所有的事情都有一致的认识，必然有个别人的一些认识，个人素质等与整体不一致，那么作为管理人员，必须兼顾大部分的想法，让大部分人认可公司的价值和文化，那么一些管理的方法，制度等等必然会得罪一些人，如果我们害怕去得罪人而选择很多中庸的做法，那么反过来，害得还是大部分员工。</p>
+<h2 id="分享管理的想法和经验可以提高自己的管理能力"><a href="#分享管理的想法和经验可以提高自己的管理能力" class="headerlink" title="分享管理的想法和经验可以提高自己的管理能力"></a>分享管理的想法和经验可以提高自己的管理能力</h2><p>通过分享自己的想法，会有以下一些好处:</p>
+<ul>
+<li>会对自己的一些想法进行总结。 </li>
+<li>通过总结，会对自己的想法进行梳理，同时还可以验证自己的想法。</li>
+<li>可以看到自己的成长，对事情认识的提高，很多年以后，也许觉得自己当时的想法是什么样，为什么那么幼稚？</li>
+<li>如果有有兴趣的人，对你的观点进行讨论，必然会激发出一些新的思考和认识。</li>
+</ul>
+<p>so, why not share your thoughts?</p>
+<h2 id="和员工交流"><a href="#和员工交流" class="headerlink" title="和员工交流"></a>和员工交流</h2><p>我一直提倡员工与自己多沟通，有什么想法可以多交流，现在的交流方式已经非常发达，邮件，电话，微信，会议室一对一，活动等。我也努力创造各种交流的机会，但是中国人尤其是IT人员，很不善于沟通，也非常羞涩于和你交流想法，这让沟通的效果很不理想。由于对很多东西的误解和不理解或者了解，很多中国的员工会在离职的时候才表达自己的想法，最终让自己和公司都遭受不必要的损失。所以，通过写一些文章，员工可以看到自己领导对事情的认知，以及做决定背后的原因。</p>
+<h2 id="小公司也有很多经验，“小而美”也很难"><a href="#小公司也有很多经验，“小而美”也很难" class="headerlink" title="小公司也有很多经验，“小而美”也很难"></a>小公司也有很多经验，“小而美”也很难</h2><p>之前一直觉得分公司是个小公司，但是这几年，尤其是今年经历的一些事，我发现小公司其实很难管理，有些事情在大公司很好处理，比如，大公司大项目，50个人，走几个人不是任何问题，但是小公司，一个萝卜一个坑，走一个人你可能都头疼，类似的事情很多。</p>
+<p>另外，小公司的数量很多，而且也会越来越多，依据“长尾理论”，这个是很正常的，即使是大公司，里面也有部分，部门里也有团队，其实我这里遇到的问题，解决问题的方法，他们都能用的上。</p>
+<p>“小而美” 是趋势，能做到“小而美”，很难，做好了，何尝不是能力的体现呢？</p>
+<h2 id="让其它人理解你做的一些决定"><a href="#让其它人理解你做的一些决定" class="headerlink" title="让其它人理解你做的一些决定"></a>让其它人理解你做的一些决定</h2><p>在一个公司，我们肯定要和很多人，甚至是很多部门打交道，那么我们有的时候把自己做的一件事再三解释，不如通过文章传播一下自己的想法，这么做的原因，这样可以节省不少时间，同时也可以争取到相关人员或者领导的理解。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%AE%A1%E7%90%86/">管理</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-04-14  <a class="commentCountImg" href="/2016/04/14/practices-2016-04-14-team-guideline-unit-testing/#comment-container"><span class="display-none-class">/2016/04/14/practices-2016-04-14-team-guideline-unit-testing/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="fad228e3e1c5338bc5f80bb29802b3af">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>2 m  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/14/practices-2016-04-14-team-guideline-unit-testing/">团队最佳实践和 GuideLine 系列 (十)：单元测试</a></h1><div class="content"><blockquote>
+<p>之前的文章写过 <a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/06/unit-test-best-practices">单元测试最佳实践</a> 有兴趣的可以看一下，今天列出我的单元测试规范：</p>
+</blockquote>
+<h2 id="单元测试规范："><a href="#单元测试规范：" class="headerlink" title="单元测试规范："></a>单元测试规范：</h2><ul>
+<li>所有public方法必须被单元测试覆盖</li>
+<li>只测试public方法</li>
+<li>不要依赖其它的类，除非是静态Helper或者测试框架的类。</li>
+<li>所有需要依赖类都必须被mock。</li>
+<li>必须很快速的运行，单元测试里不能有耗时的代码</li>
+<li>使用一些工具，比如NCrunch 可以在后台实时运行单元测试，随时知道自己写的代码有没有破坏测试。</li>
+<li>文件，外部Service和数据库的存取都必须mock掉</li>
+<li>单元测试要可以无限次的重复运行</li>
+<li>单元测试不是要实验想法，不要去测.NET本身的问题。</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-04-13  <a class="commentCountImg" href="/2016/04/13/practices-2016-04-13-team-guideline-css-js/#comment-container"><span class="display-none-class">/2016/04/13/practices-2016-04-13-team-guideline-css-js/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e3fe735093c935ed5470c9253d219403">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/13/practices-2016-04-13-team-guideline-css-js/">团队最佳实践和 GuideLine 系列 (九)：CSS和JS</a></h1><div class="content"><blockquote>
+<p>CSS和JavaScript的规范网上有很多，今天列出一些规范</p>
+</blockquote>
+<ul>
+<li>JS代码一定要使用模块话，比如RequireJS, ES6等等</li>
+<li>不能写内联样式</li>
+<li>不要直接在页面写CSS和JavaScript代码 （放到独立文件里）</li>
+<li>不要在JavaScript写HTML代码，除非是是组件里，尽量使用HTML Template</li>
+<li>BR 标签只用在段落里，不是用来换行的!!!</li>
+<li>CSS的命名需要和内容匹配，不要写成left-nav, 要是你想放到右边呢？使用side-nva.</li>
+</ul>
+<p>就是这么几句，能做到就很不容易！</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-04-12  <a class="commentCountImg" href="/2016/04/12/practices-2016-04-12-guideline-communication/#comment-container"><span class="display-none-class">/2016/04/12/practices-2016-04-12-guideline-communication/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="285b4502eaee0ebcf6d9efdf153b9d4b">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/12/practices-2016-04-12-guideline-communication/">团队最佳实践和 GuideLine 系列 (八)：沟通</a></h1><div class="content"><blockquote>
+<p>沟通是软件开发过程中极其重要的一部分，今天主要列一下做项目的时候沟通的规范</p>
+</blockquote>
+<ul>
+<li>和客户沟通之前先和团队沟通。</li>
+<li>第一时间提出你遇到的问题和障碍。</li>
+<li>了解团队每个成员擅长的东西。</li>
+<li>不要浪费时间寻找方案，如果团队成员有人有相关经验。</li>
+<li>如果你自己对某些需求或者方案不确信的时候，一定要找团队一起沟通一下。</li>
+<li>沟通的时候必须态度端正。</li>
+<li>沟通的时候必须讨论事情本身，不得有人身攻击。</li>
+<li>沟通的时候所有人都有表达想法的权利。 </li>
+<li>必要的时候 “Show me the code”!</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-04-11  <a class="commentCountImg" href="/2016/04/11/practices-2016-04-11-team-guideline-deliver-check-list/#comment-container"><span class="display-none-class">/2016/04/11/practices-2016-04-11-team-guideline-deliver-check-list/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="31ae88d05f019b6cd83c18c69679edd4">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>2 m  <i class="fas fa-pencil-alt"> </i>0.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/11/practices-2016-04-11-team-guideline-deliver-check-list/">团队最佳实践和 GuideLine 系列 (七)：给客户提交前的CheckList</a></h1><div class="content"><p>给客户提交前除了完成之前提的Definition of Done, 良好的代码规范等，我根据大家比较容易忽略的地方，列出来作为这一方面的规范。</p>
+<ul>
+<li>给客户列出按计划或者需求定义但是没有完成的功能 （这样，客户就不会把这类问题当Bug）</li>
+<li>给客户准备测试数据</li>
+<li>确保你的测试数据和你给的客户的版本匹配 （容易出错的就是数据库脚本和客户用的不一致）</li>
+<li>列出客户需要注意的地方，比如数据库连接字符串，API地址等。</li>
+<li>确保你的最后一次改动，程序能够工作 （容易出错的是你发现了一个错误，然后就改了，但是你觉得是小改动，没有测试，但是导致客户连主页都进不了）</li>
+<li>确保客户测试或者运行系统需要的所有信息。</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-04-10  <a class="commentCountImg" href="/2016/04/10/practices-2016-04-10-team-guideline-git/#comment-container"><span class="display-none-class">/2016/04/10/practices-2016-04-10-team-guideline-git/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="ff21d3ac46213992a34b5f10ea97e210">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>2 m  <i class="fas fa-pencil-alt"> </i>0.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/10/practices-2016-04-10-team-guideline-git/">团队最佳实践和 GuideLine 系列 (六)：Git规范</a></h1><div class="content"><blockquote>
+<p>之前我讲过Git flow, 请参考我的文章<a target="_blank" rel="noopener" href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management">敏捷实践系列(四)：代码管理流程</a></p>
+</blockquote>
+<p>想知道个整体概念的，就看一下下面的图<br><img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-nvie.png"/></p>
+<h2 id="我们团队的Git规范"><a href="#我们团队的Git规范" class="headerlink" title="我们团队的Git规范"></a>我们团队的Git规范</h2><ul>
+<li>使用Git时，总是使用SSH连接</li>
+<li>任何时候不要在代码里包含密码，尤其是数据库密码，服务器密码，即使你删掉了，因为Git history可以看到所有历史！！！</li>
+<li>严格遵守Git flow</li>
+<li>每一次提交都要写清楚修改的是什么</li>
+<li>每天离开办公室必须提交所有的代码到Git服务器</li>
+<li>频繁提交 （small workable piece of code）</li>
+<li>如果你feature分支没有完成,不要合并回Develop分支, 请参考之前文章 Definition of Done</li>
+<li>仔细检查config的设置，不要用自己本地的覆盖了服务器上的。</li>
+<li>每一个新的feature必须在一个新的分支上。</li>
+<li>解决冲突后，一定要测试！！！</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/">团队实践</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/2/">Previous</a></div><div class="pagination-next"><a href="/page/4/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link is-current" href="/page/3/">3</a></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/10/">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

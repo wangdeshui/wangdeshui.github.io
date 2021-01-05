@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Tag: FrontEnd - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">FrontEnd</a></li></ul></nav></div></div><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="3074e4d56fd0cabf29e555b60265eb22">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">前端构建大法 Gulp 系列 (四)：gulp实战</a></h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p>先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 <a target="_blank" rel="noopener" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a> 安装</p>
+<p>然后再用 npm -v 来确保Node.js 安装正确</p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1><p>我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里</p>
+<pre><code>npm install gulp -g</code></pre>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>创建一个文件目录，然后建立对应的文件夹</p>
+<ul>
+<li><p><strong>src</strong> — 源文件:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+<li><p><strong>build</strong> — 编译后文件输出到的生产文件夹:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+</ul>
+<p>我们先使用npm init来创建类似Nuget package的package.config一样的文件，这样我们就知道项目依赖哪些插件，而且我们不需要把插件提交到代码库，其它程序员只需要使用 npm install 就可以安装所有配置的插件</p>
+<p>然后我们需要创建一个gulpfile.js文件，gulp默认是调用这个文件的。</p>
+<p>我们在目录下使用</p>
+<pre><code>  npm install gulp --save-dev  # 这样可以把gulp安装到本地</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png" />
+
+<h1 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h1><p>比如我们想检查我们的js文件，那么我们需要安装 gulp-jshint插件</p>
+<pre><code>  npm install gulp-jshint --save-dev</code></pre>
+<p>然后添加一个test.js文件到src/scripts下，内容如下</p>
+<pre><code>var hi=&quot;hello&quot;
+
+function sayHello()&#123;
+    console.log(&quot;Jack &quot;+hi)
+&#125;</code></pre>
+<h2 id="jshint-代码检查"><a href="#jshint-代码检查" class="headerlink" title="jshint 代码检查"></a>jshint 代码检查</h2><p>然后我们修改gulpfile.js内容如下</p>
+<pre><code>// include gulp
+var gulp = require(&#39;gulp&#39;); 
+
+// include plug-ins
+var jshint = require(&#39;gulp-jshint&#39;);
+
+// JS hint task
+gulp.task(&#39;jshint&#39;, function() &#123;
+    gulp.src(&#39;./src/scripts/*.js&#39;)
+      .pipe(jshint())
+      .pipe(jshint.reporter(&#39;default&#39;));
+&#125;);</code></pre>
+<p>然后运行 </p>
+<pre><code>gulp jshint</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png" />
+
+<p>看控制台输出就知道我们少了分号。</p>
+<h2 id="代码合并压缩"><a href="#代码合并压缩" class="headerlink" title="代码合并压缩"></a>代码合并压缩</h2><p>我们新建一个 ./scripts/b.js， 然后我们把js文件合并然后压缩并输出到./build/scripts/all.js 下，同时移除debug信息</p>
+<p>我们需要安装一下插件</p>
+<pre><code>npm install gulp-concat --save-dev 
+npm install gulp-strip-debug --save-dev 
+npm install gulp-uglify --save-dev</code></pre>
+<p>修改gulpfile.js</p>
+<pre><code>var gulp = require(&#39;gulp&#39;); 
+var concat = require(&#39;gulp-concat&#39;);
+var stripDebug = require(&#39;gulp-strip-debug&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+
+gulp.task(&#39;scripts&#39;, function() &#123;
+  gulp.src([&#39;./src/scripts/*.js&#39;])
+    .pipe(concat(&#39;all.js&#39;))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/scripts/&#39;));
+&#125;);</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png" />
+
+<p>我们看到gulp已经把我们文件合并了，移除了console.log, 而且进行了压缩。</p>
+<p>至此，已经基本上知道gulp怎么使用了，下面展示一些其它的功能的代码</p>
+<pre><code>npm install gulp-autoprefixer --save-dev 
+npm install gulp-minify-css --save-dev </code></pre>
+<p>示例代码</p>
+<pre><code>var gulp = require(&#39;gulp&#39;); 
+var concat = require(&#39;gulp-concat&#39;);
+var stripDebug = require(&#39;gulp-strip-debug&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+var autoprefix = require(&#39;gulp-autoprefixer&#39;);
+var minifyCSS = require(&#39;gulp-minify-css&#39;);
+
+gulp.task(&#39;scripts&#39;, function() &#123;
+  gulp.src([&#39;./src/scripts/*.js&#39;])
+    .pipe(concat(&#39;all.js&#39;))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/scripts/&#39;));
+&#125;);
+
+
+// CSS concat, auto-prefix and minify
+gulp.task(&#39;styles&#39;, function() &#123;
+  gulp.src([&#39;./src/styles/*.css&#39;])
+    .pipe(concat(&#39;styles.css&#39;))
+    .pipe(autoprefix(&#39;last 2 versions&#39;))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(&#39;./build/styles/&#39;));
+&#125;);
+
+// default gulp task
+gulp.task(&#39;default&#39;, [ &#39;scripts&#39;, &#39;styles&#39;], function() &#123;   
+
+// watch for JS changes
+gulp.watch(&#39;./src/scripts/*.js&#39;, function() &#123;
+    gulp.run(&#39;jshint&#39;, &#39;scripts&#39;);
+  &#125;);
+// watch for CSS changes
+    gulp.watch(&#39;./src/styles/*.css&#39;, function() &#123;
+        gulp.run(&#39;styles&#39;);
+  &#125;);
+&#125;);</code></pre>
+<p>至此，大家应该熟悉gulp的使用，尽情去挖掘gulp plugin的宝藏吧。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-03  <a class="commentCountImg" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/#comment-container"><span class="display-none-class">/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="72fea748960574ea2bd2f0c8ac4245a0">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/">前端构建大法 Gulp 系列 (三)：gulp的4个API 让你成为gulp专家</a></h1><div class="content"><p>gulp 本身能做的事情非常少，主要是通过插件来提供各种功能，gulp本身只提供了4个非常简洁的API, 掌握这4个API你就基本掌握了gulp的全部。</p>
+<h1 id="一、gulp-task"><a href="#一、gulp-task" class="headerlink" title="一、gulp.task"></a>一、gulp.task</h1><p>gulp 是基于task的方式来运行</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>gulp.task(name [, deps, fn])<br>注册一个task, name 是task的名字，deps是可选项，就是这个task依赖的tasks, fn是task要执行的函数</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>gulp.task(&#39;js&#39;, ,[&#39;jscs&#39;, &#39;jshint&#39;], function()&#123;
+ return gulp
+    .src(&#39;./src/**/*.js&#39;)
+    .pipe(concat(&#39;alljs&#39;))
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/&#39;));                 
+&#125;);</code></pre>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>上例中 </p>
+<ul>
+<li>jscs和jshint先运行，随后再运行js的task.</li>
+<li>jscs和jshint是并行执行的，而不是顺序执行</li>
+</ul>
+<h1 id="二、gulp-src"><a href="#二、gulp-src" class="headerlink" title="二、gulp.src"></a>二、gulp.src</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>gulp.src(globs[, options])</p>
+<p>与globs 匹配的文件，可以是string或者一个数组</p>
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><pre><code>gulp.src([&#39;client/*.js&#39;, &#39;!client/b*.js&#39;, &#39;client/c.js&#39;])   # !是排除某些文件
+
+gulp.task(&#39;js&#39;,[&#39;jscs&#39;, &#39;jshint&#39;],function()&#123;
+ return gulp
+    .src(&#39;./src/**/*.js&#39;, &#123;base:&#39;./src/&#39;&#125;)        
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/&#39;));
+
+&#125;);</code></pre>
+<p>options.base 是指多少路径被保留，比如上面的 ./src/users/list.js 会被输出到 ./build/users/list.js</p>
+<h2 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h2><p>如果我们需要文件保持顺序，那么出现在前面的文件就写在数组的前面</p>
+<pre><code>  gulp.src([&#39;client/baby.js&#39;, &#39;client/b*.js&#39;, &#39;client/c.js&#39;])  </code></pre>
+<p>上面baby.js就出现在最上面。</p>
+<h1 id="三、-gulp-dest"><a href="#三、-gulp-dest" class="headerlink" title="三、 gulp.dest"></a>三、 gulp.dest</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><p>gulp.dest(path[, options])  就是最终文件要输出的路径，options一般不用</p>
+<h1 id="四、gulp-watch"><a href="#四、gulp-watch" class="headerlink" title="四、gulp.watch"></a>四、gulp.watch</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><p>gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb]) 就是监视文件的变化，然后运行指定的Tasks或者函数，这个相比Grunt需要使用插件，gulp本身就支持的很好。</p>
+<h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><pre><code>gulp.task(&#39;watch-js&#39;, function()&#123;
+   gulp.watch(&#39;./src/**/*.js&#39;,[&#39;jshint&#39;,&#39;jscs&#39;]); 
+&#125;);
+
+gulp.task(&#39;watch-less&#39;, function()&#123;
+ gulp.watch(&#39;./src/**/*.less&#39;,function(event)&#123;
+   console.log(&#39;less event&#39;+event.type+&#39; &#39;+event.path)
+ &#125;); 
+&#125;);</code></pre>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>gulp就是如此的简单，你只需要掌握这四个API就够了，剩下的就是熟悉相关的plugin了。</p>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">https://github.com/gulpjs/gulp/blob/master/docs/API.md</a></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-02  <a class="commentCountImg" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/#comment-container"><span class="display-none-class">/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6036af9015cc16841d0a4da09a65e0c2">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/">前端构建大法 Gulp 系列 (二)：为什么选择gulp</a></h1><div class="content"><p>在上一篇 <a target="_blank" rel="noopener" href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。</p>
+<p>相信熟悉前端的人对Grunt一定不陌生，实际上我自己之前的很多项目也是在用Grunt, Grunt的出现是前端开发者的福音，大大减少了前端之前很多手工工作的繁琐以及我上一篇 <a target="_blank" rel="noopener" href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 提到的那些问题。</p>
+<p>那么既然Grunt可以做到几乎所有的事情，那么为什么我们需要Gulp呢？</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/1.png" />
+
+<h2 id="Grunt与Gulp的区别"><a href="#Grunt与Gulp的区别" class="headerlink" title="Grunt与Gulp的区别"></a>Grunt与Gulp的区别</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/2.png" />
+
+<p>我们来看一下一般前端构建的流程<br><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/3.png" /></p>
+<h3 id="二者处理流程的区别"><a href="#二者处理流程的区别" class="headerlink" title="二者处理流程的区别"></a>二者处理流程的区别</h3><h4 id="Grunt-的方式"><a href="#Grunt-的方式" class="headerlink" title="Grunt 的方式"></a>Grunt 的方式</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/4.png" />
+
+<h4 id="Gulp的方式"><a href="#Gulp的方式" class="headerlink" title="Gulp的方式"></a>Gulp的方式</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/5.png" />
+
+<h3 id="配置的简洁程度"><a href="#配置的简洁程度" class="headerlink" title="配置的简洁程度"></a>配置的简洁程度</h3><h4 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a>Grunt</h4><pre><code>module.exports = function(grunt) &#123;
+
+// Project configuration.
+grunt.initConfig(&#123;
+  pkg: grunt.file.readJSON(&#39;package.json&#39;),
+  uglify: &#123;
+    options: &#123;
+      banner: &#39;/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today(&quot;yyyy-mm-dd&quot;) %&gt; */\n&#39;
+    &#125; ,
+    build: &#123;
+      src: &#39;src/&lt;%= pkg.name %&gt;.js&#39;,
+      dest: &#39;build/&lt;%= pkg.name %&gt;.min.js&#39;
+    &#125;
+  &#125;
+&#125;);
+
+grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;); 
+grunt.registerTask(&#39;default&#39;, [&#39;uglify&#39;]);
+&#125;;</code></pre>
+<h4 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h4><pre><code>gulp.task(&#39;default&#39;,function()&#123;    
+return gulp
+        .src(&quot;**/*.js&quot;)
+        .pipe(jshint())
+        .pipe(concat())
+        .pipe(uglify())
+        .pipe(gulp.dest(&#39;./build/&#39;))        
+&#125;)</code></pre>
+<p>所以从上面的一些代码对比来看，Gulp明显比Grunt要简洁易用很多。</p>
+<h2 id="最后，总结一些-Grunt的一些问题"><a href="#最后，总结一些-Grunt的一些问题" class="headerlink" title="最后，总结一些 Grunt的一些问题"></a>最后，总结一些 Grunt的一些问题</h2><ul>
+<li>配置过于复杂</li>
+<li>插件职责不单一 （就是不SRP）</li>
+<li>临时文件目录多</li>
+<li>性能慢 （因为临时文件多，自然读IO多)</li>
+</ul>
+<p>下一篇我们将开始学习如何使用gulp来构建我们的前端。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-01  <a class="commentCountImg" href="/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/#comment-container"><span class="display-none-class">/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="5c664b7fc24b2cf1f035057aa11c4db7">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>11 m  <i class="fas fa-pencil-alt"> </i>1.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a></h1><div class="content"><p>我们都知道使用IDE编写后端程序时，我们都需要Build, 对.NET来说，我们一般需要使用Visual Studio来确保我们的项目编译通过，而且项目编译通过是对所有程序员的基本要求。</p>
+<p>但是，由于很多后端程序员对前端的很多东西不了解，导致在做WEB项目时出现了一些问题。</p>
+<h2 id="JavaScript和CSS的版本问题"><a href="#JavaScript和CSS的版本问题" class="headerlink" title="JavaScript和CSS的版本问题"></a>JavaScript和CSS的版本问题</h2><p>我们都知道 JavaScript和CSS属于静态文件，如果地址不变，浏览器会缓存这些文件，那就意味着当我们需要改JavaScript或者CSS文件的时候，即使我们后端改了，那么客户端也是看不到，这个在“JS一统天下”的时代是不可接受的，因为现在几乎所有的WEB 程序都严重依赖JavaScript，而所有的网站都是需要使用CSS的。在我经历过的项目即使是很多年经验的程序员都出现过JavaScript和CSS文件的版本问题，比如客户让修复一个Bug，这个Bug是JavaScript引起的，程序员修复了，或者是客户说改一个背景颜色，<strong>可是当我们给客户部署后或者代码交给客户客户部署时，客户说Bug依然存在</strong>，这个时候程序员经常说的话就会出现了 <strong>“我本地是好的呀”</strong>，最后再找来别人帮忙后，发现原来是没有清除浏览器的缓存，于是有的程序员就赶紧给客户说：“你需要Ctrl+F5 清除浏览器的缓存”。 每当我听到这样的话时就像关上灯留给我一屋子黑，首先，有几个普通用户会使用Ctrl+F5？ 其次，有几个用户愿意去Ctrl+F5?</p>
+<p>那么怎么办？我想很多程序员都知道加一个版本号就可以了，这样浏览器就会认为是新的文件，比如原来是 <a target="_blank" rel="noopener" href="http://www.a.com/app.js">http://www.a.com/app.js</a> 你现在只需要把地址改为<a target="_blank" rel="noopener" href="http://www.a.com/app.js?v=1.0">http://www.a.com/app.js?v=1.0</a> 即可</p>
+<p>但是如果这个动作是手动的，那么10次基本上至少有5次程序员会忘掉，那么这就是为什么我们需要前端构建</p>
+<h2 id="JavaScript和CSS的依赖问题"><a href="#JavaScript和CSS的依赖问题" class="headerlink" title="JavaScript和CSS的依赖问题"></a>JavaScript和CSS的依赖问题</h2><p>我们经常出现的另一个问题，就是JavaScript和CSS的依赖问题，说的通俗点就是JavaScript和CSS的在页面中的顺序问题！</p>
+<p>我们经常发现CSS没起作用，JavaScript的某个变量和方法找不到，有很多情况都是因为引入JavaScript或者CSS的顺序不对，虽然我们可以使用一些RequireJS之类的模块管理，但是依然在很多情况下需要引入不同的文件，尤其是CSS没有一个好的模块化管理的组件。</p>
+<p>那么我们就需要有一个统一的地方来管理JavaScript和CSS的顺序问题，而构建工具可以大大减少此类问题。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事</p>
+<h3 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h3><p>浏览器需要下载多个JS文件，而浏览器是有并发限制，也就是同时并发只能下载几个文件，假如浏览器并发数是5，你有20个JS文件，而每5个需要2S, 那么你光下载JS文件都需要8S，那么网页的性能可想而知，所以我们需要合并多个文件以减少文件的数量。</p>
+<h3 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h3><p>我们知道文件越大，下载越慢，而针对JavaScript和CSS, 里面的空格，换行这些都是为了让我们读代码时更容易阅读，但是对机器来说，这些对它没有影响，所以为了减少文件大小，一般的情况我们都会用工具去掉空格和换行，有时候我们还会用比较短的变量名(记住这个要让工具最后压缩时做，而源代码一定要保证命名可读性) 来减少文件大小。</p>
+<p>而所有的前端构建工具都具有文件合并和压缩的功能。</p>
+<h2 id="效率提升"><a href="#效率提升" class="headerlink" title="效率提升"></a>效率提升</h2><h3 id="Vendor前缀"><a href="#Vendor前缀" class="headerlink" title="Vendor前缀"></a>Vendor前缀</h3><p>在CSS3使用越来越多的时候，我们都知道一些CSS的特性，不同的浏览器CSS有不同的前缀，如果我们手工添加将会很繁琐，而如果使用构建工具，很多构建工具可以自动给我添加CSS的Vendor前缀</p>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>JavaScript的单元测试在使用MVC或者MVVM的框架后，变得越来越容易，而单元测试是质量保证的一个很重要的手段，所以在提交之前，使用构建工具自动跑一遍我们的单元测试是非常重要的</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>我们写的JavaScript很多时候会有一些潜在的bug, 比如忘了添加分号，某个变量没有等等，使用一些JavaScript的代码分析工具，可以很好的帮我们检查一些常见的问题。</p>
+<h3 id="HTML引用JavaScript或者CSS文件"><a href="#HTML引用JavaScript或者CSS文件" class="headerlink" title="HTML引用JavaScript或者CSS文件"></a>HTML引用JavaScript或者CSS文件</h3><p>比如我们需要使用Bower之类来引用前端JavaScript和CSS的第三方库，那么如果版本升级，添加移除等都用手工来修改HTML的话，第一比较耗时，第二比较容易疏漏，尤其是在我们需要切换Debug和production版本时将会有很多额外的工作，那么使用前端构建工具可以很好的解决这些问题。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>以上我只是列出了前端构建最常用的一些功能，我相信还可以发觉很多构建工具可以替代我们手工做的事，后面我将详细讲讲如何使用Gulp这个神器来一一解决我们上面提到的问题。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

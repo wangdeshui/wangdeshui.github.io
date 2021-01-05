@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Tag: DDD - 敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">DDD</a></li></ul></nav></div></div><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2017-11-01  <a class="commentCountImg" href="/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/#comment-container"><span class="display-none-class">/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="579263c0536a449cac2f1dd3df3124d3">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>31 m  <i class="fas fa-pencil-alt"> </i>4.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/">领域驱动设计系列（七）:领域驱动开发实践之路:我们如何从领域驱动开发当中获益</a></h1><div class="content"><h2 id="领域驱动设计，遇见你之前"><a href="#领域驱动设计，遇见你之前" class="headerlink" title="领域驱动设计，遇见你之前"></a>领域驱动设计，遇见你之前</h2><p>我们公司推行和实践敏捷已经很多年了，SCRUM已经成功应用于大部分项目，得益与业界敏捷开发大师以及国内很多优秀工程师的分享和宣传，我们使用了很多优秀的软件开发实践，比如测试驱动开发(TDD)，行为驱动开发(BDD), 持续集成(CI)等等为我们带来了很多收益。由于我们公司以做项目为主，虽然这些软件实践确实能很好的提高软件交付质量和效率，但是要想用好这些实践，涉及到的因素很多，常见的如下：</p>
+<ul>
+<li><p>Scrum里需要Product Owner, 客户方很少能有一个比较符合Scrum里提到的Product Owner来定义需求为As a role I want to do something so that I can get some benefit.</p>
+</li>
+<li><p>行为驱动开发BDD对客户方要求更高，客户需要写Specific, Scenaro, Given…When…Then. 我做过一个项目，客户开始写BDD,而且也能写出比较高质量的BDD, 但是客户后来就不写了，觉得写的麻烦。</p>
+</li>
+<li><p>我们主要使用.NET，虽然大家都熟悉面向对象，熟悉类，接口，继承，封装等等，但是面对一个项目的时候，如何对业务就行合适的抽象，正确使用面向对象依然是非常大的挑战。</p>
+</li>
+<li><p>由于使用敏捷，不再像之前传统开发过程中有详细的需求说明书（假定那个需求说明书及时更新，且描述准确易于理解), 强调的是可工作的软件，但是很多业务逻辑很难通过界面来体现，虽然有User story, 但是就像第一步PO很难写出符合SMART原则的用户故事，常出现的情况，就是PO说一个需求的大意，程序员就“秒懂”了，最后也确实开发出了经过验收测试的软件，但是因为有测试和Feedback的修复，这一类的需求就“丢失”了。</p>
+</li>
+<li><p>人员变动，软件行业成员变动是很正常的现象，但是很多小团队一个萝卜一个坑，如果没有好的方法，项目的相关context就丢失了，且不说有的人走的时候没有心思做交接，就算想好好做交接，也只能是最大程度减少项目相关内容不能很好传递。</p>
+</li>
+</ul>
+<p>几年前，当我开始做分公司的时候，刚开始我一直在致力于敏捷的推行，好的软件开发实践的实践，很多同事的软件技能大幅提升，比如熟悉了很多Clean Code的东西，单元测试的重要性和好处，持续集成，Gitflow等的好处。但是有几个问题一直是我在考虑的问题</p>
+<ol>
+<li>如何减少客户反馈的bug, 虽然敏捷强调客户频繁互动和反馈来让错误无限靠近开发的时间，但是能把事情一次做对而不是多次改对依然能大幅提高项目提交速度，也就节省了客户的成本，提高了开发程序员的效率。</li>
+<li>人员变更时候的知识传递，虽然清晰的软件架构，整洁的代码，高的单元测试覆盖率能大幅加快新的人员理解项目的速度，但是看用户故事，单元测试以及散落在很多类中的代码（单一职责的时候，我们会有大量类，注意：这里不是说不要单一职责）对中途加入项目的人依然是需要较长时间熟悉项目和代码。</li>
+<li>提高开发人员软件技能，提高开发效率从而提高对客户的产出，然后开发人员的薪水自然能有对应的提升是做为一个分公司负责人的第一责任，员工第一嘛！另一个方面，我认为相对简单的项目，比如一些CRUD项目，一些前端项目比如Angular/React的项目越来越没有竞争力。（注：这里并没有任何贬低前端的意思，只是说直接使用已有的这些框架门槛并不是非常高), 我们必须去接一些”不好做”的项目，也就是业务复杂，需求复杂类的，这类项目才能提升程序员的能力而且报价相对较高。</li>
+</ol>
+<p>追求软件卓越，原来，我一直强调质量和效率的重要性，但是大家很难理解和应用，突然有一天，我想到（也许从别的地方看到的），软件最重要的是要解决两个问题：</p>
+<ol>
+<li><p><strong>做正确的事情 (Do Right Thing)</strong></p>
+</li>
+<li><p><strong>把事情做正确 (Do Thing Right)</strong></p>
+</li>
+</ol>
+<h2 id="初遇领域驱动设计"><a href="#初遇领域驱动设计" class="headerlink" title="初遇领域驱动设计"></a>初遇领域驱动设计</h2><p><strong>做正确的事情 (Do Right Thing)</strong></p>
+<p><strong>把事情做正确 (Do Thing Right)</strong></p>
+<p>一直在我脑海里，然后简单的CRUD项目越来越没竞争力，程序员的报价难以提高，自然薪水就会有瓶颈，而我也想解决这样的问题，突然有一天我看到了另一句话：<strong>我选择做这件事，不是因为他简单，而是因为他难</strong>，这句话对我触动很大。我的脑海里就一直萦绕着“简单”，“复杂”，“麻烦”，  于是我要做的事情就是下面三个:</p>
+<p><strong>做正确的事情 (Do Right Thing)</strong></p>
+<p><strong>把事情做正确 (Do Thing Right)</strong></p>
+<p><strong>做难的事情  (Do Hard Thing)</strong></p>
+<p>我就在网上搜索Complex, Software 等，一本叫做Domain Driven Design的这本书出现在我面前，Domain Driven Design这个词语早就听说过，但是更吸引我的是副标题 “Tackling complexity in the heart of software”, 我就大概看了一下书，里面的战略设计正好提供了解决复杂业务的方法，统一语言，Bounded Context, 界限上下文，设计就是代码，代码就是设计等等。 我相信这正是解决 <strong>做难的事情</strong>，<strong>做正确的事情</strong> 但是对战略有些了解，怎么去实现呢？一直没有一个好的例子来帮助大家如何使用领域驱动设计，直到一本《实现领域驱动设计》这本书的出现，才真的让我们有了打通任督二脉的机会。</p>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ddd/DDDBook.jpg"/>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ddd/implementingDDD.jpg"/>
+
+
+<h2 id="实践领域驱动设计"><a href="#实践领域驱动设计" class="headerlink" title="实践领域驱动设计"></a>实践领域驱动设计</h2><p>有了《领域驱动设计》和《实现领域驱动设计》两大神器，也只是向美女要了个联系方式和家庭住址而已，中间还隔了一个漫长的日落和日出，没有正式的项目，我们永远是在岸上游泳，虽然我们也在项目里开始或多或少使用了领域的一些概念，但是我们应该知道基于数据驱动(Database Driven) 是很难成功应用领域驱动设计的。正好这个时候公司来了一个项目（客户是Fortune Global 500), 他们的架构师指定要求使用领域驱动设计，这让我非常兴奋，让我们有机会对复杂业务进行领域驱动开发的实践。</p>
+<p>就像实现领域驱动力说的一样，领域驱动主要有两大块儿战略设计和战术设计。</p>
+<h3 id="战略设计-Do-Right-Things"><a href="#战略设计-Do-Right-Things" class="headerlink" title="战略设计 (Do Right Things)"></a>战略设计 (Do Right Things)</h3><h3 id="Ubiquitous-language"><a href="#Ubiquitous-language" class="headerlink" title="Ubiquitous language"></a>Ubiquitous language</h3><p>领域驱动开发让业务专家(Domain Expert)和开发人员一起来梳理业务，而双方有效沟通的方式是使用通用语言，在这个项目里，一开始我们就定义了很多<strong>词汇表</strong>, 就是我们自己的通用语言。 </p>
+<h3 id="Bounded-Context-和-Domain"><a href="#Bounded-Context-和-Domain" class="headerlink" title="Bounded Context 和 Domain"></a>Bounded Context 和 Domain</h3><p>有了通用语言，<strong>词汇表</strong> 每一个词汇一定是有边界的，不同的边界内是不一样，比如你爱人在你家这个Bounded Context是你的Wife, 但是如果她是一个老师，那么在学校这个边界里就是一个Teacher. 我们经过多次讨论，采取的方法是拆成多个子系统（Bounded Context,是不是很像现在的微服务？)，每个子系统进行自治。</p>
+<p>随后我们把一个个业务抽象为领域对象(Domain Model), 每一个Domain对领域进行自治。而模型里的属性和行为表达为业务专家都可以理解的代码，用比如Job.Publish().  虽然这里面最终产生了聚合根、实体、值对象等，但是我们和业务专家沟通的时候尽量不要说这些词汇，比如我们可以说， 在招聘这块儿，职位是不是必须经过公司进行管理，那样我们就知道 Job是属于公司这个聚合根。 对领域进行“通用”（类名，方法名等都用自然语言表达）建模，业务人员可以直接读懂我们的代码，从而可以知道是否表达了业务需求。</p>
+<h3 id="战术设计-Do-Things-Right"><a href="#战术设计-Do-Things-Right" class="headerlink" title="战术设计 (Do Things Right)"></a>战术设计 (Do Things Right)</h3><p>在战术设计方面，由于业务行为和规则都在领域里，而且系统被拆分成多个子系统，这对技术实现上带来了非常大的挑战，尤其是大部分人都是有牢固的基于数据驱动开发的思想。 技术上有不同实现方式，但是一开始我们选择了“最佳实践”(实现领域驱动设计)，也就是使用了Event Source和CQRS, 但是这条路是陡峭的。</p>
+<h4 id="Event-Sourcing"><a href="#Event-Sourcing" class="headerlink" title="Event Sourcing"></a>Event Sourcing</h4><p>Event Sourcing 就是我们不记录数据的最终状态，我们记录对数据的每一次改变(Event)，而读取的时候我们把这些改变从头再来一遍来取得数据状态，比如你有100块钱，现在剩下10块了，我们记录的不是money.total=10, 而是记录你每一次取钱的记录，然后从100块开始一步步重放你取钱的过程，来得到10. </p>
+<p>一开始，我们写的过程中，时常回想起数据驱动的好，（每次开始一个新东西的时候，是不是很熟悉的感觉？)，觉得用Event Sourcing各种麻烦，直到后来随着系统的复杂性不断增加，我们才感觉到带来了非常大的好处, 这个随后单独来说。</p>
+<h4 id="CQRS"><a href="#CQRS" class="headerlink" title="CQRS"></a>CQRS</h4><p>由于使用了EventSourcing, 对数据查询，尤其是跨业务(aggregate)的查询非常麻烦，很难像关系数据那样有查询优势，CQRS是解决这一问题非常好的方法，CQRS让查询和写入分开，把界面需要查询的数据进行原样写入，原样的意思就是界面显示什么样的，就提前保存成什么样的，类似于原来的缓存，没有任何join操作，这样查询是非常高效的。 </p>
+<h2 id="实践领域驱动过程中面临的技术挑战"><a href="#实践领域驱动过程中面临的技术挑战" class="headerlink" title="实践领域驱动过程中面临的技术挑战"></a>实践领域驱动过程中面临的技术挑战</h2><p><strong>最大的挑战当然是战略设计部分</strong> 就是正确的划分Bounded Context和领域建模，这个部分这里难以几句话说清楚，只能多实践，多向大师学习，比如试试Event Storming的方式。</p>
+<p>然后，如果团队没有任何领域驱动开发的经验，千万不要低估技术部分的挑战，并不是很多人说的技术部分不重要，如果实现不好，领域驱动很难落地。我们遇到一些典型问题，当然后来都很好的解决。</p>
+<ol>
+<li><p>开发人员认为EventSourcing不重要，比如，原来你要发布一个Job, 你可能只需要改一个属性Job.Status=”Published”, 但是现在你需要定义一个JobPublishedEvent的事件，很多时候一次改变需要定义很多事件，比如CompanyNameChangedEvent, CompanyEmployeeAddeedEvent. 最重要的是事件的粒度如何定义？ </p>
+</li>
+<li><p>由于根据Bounded Context拆分成一个个子系统，系统之间的交互比较麻烦。原来在一个Controller里直接调用不同的Repository来改变数据的方式就很不适用了。</p>
+</li>
+<li><p>由于使用CQRS,查询必须要单独保存QueryModel, 这相对传统的数据库驱动的开发方法，写和读都是同一个数据库更加麻烦。</p>
+</li>
+<li><p>事件的版本管理，比如事件改名，删除和增加都需要考虑重放事件重建领域对象的影响。</p>
+</li>
+<li><p>CQRS如何保证数据的及时性和一致性，比如我在一个公司详细页面修改了一个公司名字，然后点击保存按钮导航到公司列表页面，这个时候QueryModel可能还没有更新过来，这些如何解决一致性的问题。</p>
+</li>
+</ol>
+<h2 id="领域驱动开发如何让我们和客户共同获益的"><a href="#领域驱动开发如何让我们和客户共同获益的" class="headerlink" title="领域驱动开发如何让我们和客户共同获益的"></a>领域驱动开发如何让我们和客户共同获益的</h2><ol>
+<li><p>做正确的事情(Do Right Things): 领域专家高效的和团队沟通，确保建立了正确的反映业务规则的模型，而开发人员有了直接可以使用的代码，而且可以因为Domain有了数据和行为，非常方便的进行<strong>单元测试</strong>，因为Domain不依赖第三方的数据存储等，可以确保实现了业务。</p>
+</li>
+<li><p>大大提高了沟通的效率，我们知道一图胜千言，而对开发人员来说，少废话，Show me the code! 不但代码对程序员更容易读，而且Code（领域对象)就是最新的需求. 可以跑起来的需求。</p>
+</li>
+<li><p>大大提高新成员进入项目的速度，最主要的是看领域模型以及对领域模型的测试，几乎就知道了系统的所有的业务规则。 </p>
+</li>
+<li><p>领域驱动的技术部分给系统增加功能或扩展带来了极大的遍历，举几个例子：</p>
+</li>
+</ol>
+<pre><code>a. 由于使用了事件溯源，我们很容易查询历史数据。我们只需要指定一个时间点，我们重放事件的时候重放到这个时间点就可以了。
+
+b. 操作日志，原来如果我们想记录操作日志我们代码里遍布都是Log, 而现在我们只需要重发事件，想看什么日志就看什么日志，而这些就只需要我们回放数据库存储的事件流就可以了。
+
+c. 系统之间的通信，我们只需要发布事件就可以了，其它系统订阅我们的事件就可以，我们和其它系统之间没有直接依赖。
+
+d. 大大提高了系统增加新功能的方便性，很多时候增加新功能就是订阅事件就可以了。
+
+f. CQRS, Query model极大的提高了系统的查询性能，而且当我需要新的界面的时候，我不需要对写入端代码进行任何修改，包括类文件都不用修改，是不是符合对修改关闭，对扩展开放(OCP)？ 我们只需要建一个类似新的EventHandler，然后重放对应的事件就可以了。
+
+e. 因为使用了事件溯源，系统之间通过事件集成，比如通过消息队列发布和订阅事件，这可以大大增加系统的**抗压能力**，我们可以把事件放入队列，后续处理系统即使不能及时处理也不会让前端系统崩溃。
+
+f. 系统性能大福提高，在写入端只有插入操作，没有修改操作，在读取端只有Read操作，那么何须锁表，何须开启事务？由此一来，输出存储和读取的瓶颈可以大大缓解。</code></pre>
+<ol start="5">
+<li><p>开发人员可以更集中的处理业务，由于一切都是事件，实现玩基础库后，开发人员可以忽略数据存储，大部分时间都是在写业务代码，不关心数据怎么存储，数据存储部分就俩操作 AggregateRoot.Get(id), AggregateRoot.Save(), EventPublish.Pubish(CompanyNameChangedEvent), 而事件订阅端只需要增加一个EventHandler就可以了。</p>
+</li>
+<li><p>系统很好进行了解耦，业务逻辑集中在领域中，不会像之前的开发里面业务逻辑充斥在很多地方，修改一些功能的时候，不得不如履薄冰，生怕哪里给破坏了，或者哪里没考虑全。</p>
+</li>
+<li><p>不用过于担心开发人员，尤其初级开发人员不正确的代码遍布系统多个部分，对其它功能的影响可以大大减低，Review代码其实主要Review业务实现的单独的类，不用担心很多技术实现部分不正确，因为基础库写好了，这样可以适当均衡团队成员组成来降低项目开发成本。</p>
+</li>
+</ol>
+<p>最后，<strong>系统更加容易修改和增加新功能，不正好支持了敏捷开发的“拥抱变化”吗？</strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>领域驱动开发好处多多，概念比较多，门槛相对较高，对人员要求较高，团队里至少需要有领路人，不然代价会比较大。 尤其慎用Event Sourcing, 而领域驱动尤其适合业务相对复杂的项目。 对那些很小的项目，CRUD仍然是好的选择。</p>
+<p>最后，如果你对领域驱动比较感兴趣，欢迎如我联系<a href="mailto:&#x77;&#x61;&#x6e;&#x67;&#x64;&#101;&#115;&#104;&#x75;&#105;&#x40;&#111;&#x75;&#116;&#x6c;&#x6f;&#111;&#107;&#46;&#x63;&#111;&#109;">&#x77;&#x61;&#x6e;&#x67;&#x64;&#101;&#115;&#104;&#x75;&#105;&#x40;&#111;&#x75;&#116;&#x6c;&#x6f;&#111;&#107;&#46;&#x63;&#111;&#109;</a></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-04  <a class="commentCountImg" href="/2015/06/04/technologies-DDD-2015-6-5-cqrs/#comment-container"><span class="display-none-class">/2015/06/04/technologies-DDD-2015-6-5-cqrs/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1ceec2924447262e6930846ca9914b8e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>10 m  <i class="fas fa-pencil-alt"> </i>1.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/04/technologies-DDD-2015-6-5-cqrs/">领域驱动设计系列（六）:CQRS</a></h1><div class="content"><style>
+  img {
+      max-width: 600px;
+      border: solid 1px gray;
+      border-radius: 5px;
+      padding: 5px;
+  }
+
+
+</style>
+
+
+<p>CQRS是Command Query Responsibility Seperation（命令查询职责分离）的缩写。 世上很多事情都比较复杂，但是我们只要进行一些简单的分类后，那么事情就简单了很多，比如我们把人分为男人和女人，也可以把人分为大人和小孩，还比如，我们说国内和国外，城市和农村。经过一些类似这样的划分，我们的对不同的类就有不同的关注。 这样我们就会有妇女儿童医院专门让女人生孩子，而不会建一个医院让男女都生孩子。</p>
+<p>##CRUD</p>
+<p>CRUD (Create, Read, Update, Delete) 增查改删，我们很多系统都是对数据的增查改删。过去我们很多系统比较简单，基本上增加的数据就是你要查询的数据，所以很多时候其实一个简单的Excel就能搞定。 而且增删改查也足够的简单，所以我们很多系统分层后在数据层Repository里仍是对单表的增删改查，这样对不少的系统都符合。</p>
+<p>但是，系统规模稍微大一点，我们都知道我们的数据库里的数据模型很难和我们业务层需要的模型一致。 于是我们引入了Domain Model,  Repository里就会做Domain Model的来回转换</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/1.png" />
+
+
+<p>同时我们在UI层要的数据，往往又和具体的Domain不同，这个时候我们又要定义一个ViewModel. 而这些ViewModel又是组合不同的DomainModel得来。 </p>
+<p>传统的代码里的问题：</p>
+<ul>
+<li>领域里有很多分页和排序，尤其是Repository里</li>
+<li>查询的方法里暴露了很多不应该有的领域模型的属性，因为需要组装DTO</li>
+<li>如果使用ORM，预加载了很多数据以提高性能，但是占用大量内存，而且需要维护这些数据。</li>
+<li>加载组合庞大的数据，比如页面是需要一个名字，我们也会把整个User数据取出来。</li>
+</ul>
+<p>重要的原来把数据混在一起，复杂的查询相当难以优化。 尤其是数据库出现大量的Join 系统性能极速下降。</p>
+<p>最重要的是我们把读写都放在了一起，显得责任不够清晰，代码也更复杂了一些，比如读数据是不太关心事物的，读数据是不需要验证的，只有写的时候才需要做数据校验，这也比较符合SRP(单一职责)，但是用CRUD的思维是我们全都混在了一起。</p>
+<h3 id="CQRS"><a href="#CQRS" class="headerlink" title="CQRS"></a>CQRS</h3><p>我们仔细看CRUD, 其实可以更简单的分为读(R)和写(CUD), 我们想想大部分情况都是，一个方法要么是执行一个Command完成一个动作，要么就是查询返回数据。 比如我们回答问题的人不应该去修改问题。</p>
+<p>当我们读写分离后，我们对应的代码也会分离。</p>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><p>写的一端需要保证事物，所以一般数据存储为第三范式,<br>读的一端一般都是反范式可以避免Join操作，这样我们只需要把数据存储为第一范式</p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>大部分的系统里写数据要远远少于读数据，并且一般都是每次修改很少的一部分数据，所以在写这端扩展都不是特别紧迫，读数据基本都远大于写数据的次数， 所以扩展就更重要。 我们很难建立同一个Model 既能给写数据和读数据公用而且能够保证性能都比较好的。</p>
+<h4 id="查询端"><a href="#查询端" class="headerlink" title="查询端"></a>查询端</h4><p>查询端由于只是读数据，那么所有的方法应该都是返回数据，而且返回的数据就是界面直接需要的DTO, 这样可以减少传统的方法中把DomainModel映射为ViewModel或者DTO. 同时可以减少传统的领域里的一些混乱。</p>
+<h4 id="写端"><a href="#写端" class="headerlink" title="写端"></a>写端</h4><p>由于把读分离出去，所以我们就只关注写，那么我们写这一段需要保证事物，数据输入的验证，另外一般写这一端都不需要及时的看到结果，所以大部分都需要一个void方法就可以，那么让我们系统异步就更加方便。这样使系统的扩展性大大增强。</p>
+<h4 id="代码更容易集中处理"><a href="#代码更容易集中处理" class="headerlink" title="代码更容易集中处理"></a>代码更容易集中处理</h4><p>当我在一些系统中使用CQRS后，很多地方代码大大简化，比如我所有的写操作都是一个Command, 那么我定义一个UICommand, 让所有的Command集成这个，那么我可以在这个UICommand里做一些通用的处理，比如Validation</p>
+<p>同时我只需要定义一个CommandBus, 然后把对应的CommandBus分发到对应的Handler里（我前面几篇有实例代码），那么代码的耦合度大大降低。</p>
+<h4 id="代码分工协作更容易"><a href="#代码分工协作更容易" class="headerlink" title="代码分工协作更容易"></a>代码分工协作更容易</h4><p>由于读这一端直接读数据，而且对数据库没有任何操作，那么我们可以根据UI定义对应的DTO, 那么开发的时候我们可以用Mock数据，至于数据怎么存的，那么我们随后只要添加一层Thin Data Layer即可，实际上当我们使用CQRS后，很多时候我们把数据保存的时候都直接保存为Denormalize的，那么从数据里直接查询单表的数据就可以拿到页面需要的数据，大大提升读取数据的性能，同时代码也会极其的简化，开发读这一段代码的开发人员甚至都不需要对业务有太多了解。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="简单的实现"><a href="#简单的实现" class="headerlink" title="简单的实现"></a>简单的实现</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/2.png" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/3.png" />
+
+
+<h4 id="使用的Event后"><a href="#使用的Event后" class="headerlink" title="使用的Event后"></a>使用的Event后</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/4.png" />
+
+
+
+
+<h4 id="使用了Event-Source-和Service-bus后"><a href="#使用了Event-Source-和Service-bus后" class="headerlink" title="使用了Event Source 和Service bus后"></a>使用了Event Source 和Service bus后</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/6.jpg" />
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-12  <a class="commentCountImg" href="/2015/02/12/technologies-DDD-2015-2-12-eventdriven-asyncevent/#comment-container"><span class="display-none-class">/2015/02/12/technologies-DDD-2015-2-12-eventdriven-asyncevent/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="c81d49a45c6f8bb524d50e7618b08020">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/12/technologies-DDD-2015-2-12-eventdriven-asyncevent/">领域驱动设计系列（五）:事件驱动之异步事件</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇讲了事件，以及为什么要使用事件，主要是为了解耦，但是有同学就问了，同步如果订阅事件的人太多，比如13亿人都关心上头条的事，那么RaiseEvent得等13亿人都处理完，那得多久呀，从此再也不敢发事件了。<br>举个例子，你在网上下单，下完单要通知库房，甚至要通知供应商补货，如果都是同步的话，消费者还不等急死呀，实际上你在电商网站上下个单， 一般你很快就能到订单页面，那个页面告诉你：“兄弟，订单已经创建成功，订单号是xxxxx-xxxxx-xxxx-xxxx,你的订单已经提交到库房” 等。然后你就很快了的下另一单了。好吧，<br>提问的同学，说好的妹子呢？</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="发出事件"><a href="#发出事件" class="headerlink" title="发出事件"></a>发出事件</h2><pre><code>   public void Head()
+    &#123;
+        var NewsPaper = new NewsPaper(&quot;南都娱乐&quot;);
+        NewsPaper.WriteToHeader(&quot;汪峰&quot;);
+
+        RaiseEvent(new HeadedEvent &#123;Name = &quot;汪峰&quot;&#125;);
+    &#125;
+
+    private void RaiseEvent(HeadedEvent headedEvent)
+    &#123;
+        EventBus.Publish&lt;HeadedEvent&gt;(new HeadedEvent &#123; Name = &quot;汪峰&quot; &#125;);
+    &#125;</code></pre>
+<p>所以我们只需在代码里RaiseEvent就可以了。</p>
+<h2 id="订阅事件"><a href="#订阅事件" class="headerlink" title="订阅事件"></a>订阅事件</h2><p>其实很简单，因为我们要实现的是同步的事件，我们只需要找到所有处理这个事件的实现类，然后调用所有就可以了。 </p>
+<pre><code>public interface IEventHandler&lt;TEvent&gt; where TEvent : Event
+&#123;
+    void Handle(TEvent e);
+&#125;
+
+public class HeadedEvent:Event
+&#123;
+    public string Name &#123; get; set; &#125;
+&#125;
+
+public class GuoJiZhangMotherEventHandler : IEventHandler&lt;HeadedEvent&gt;
+&#123;
+    public void Handle(HeadedEvent e)
+    &#123;
+         Console.WriteLine(e.Name+&quot;, Are you kidding me?&quot;);
+    &#125;
+&#125;
+
+public class PiMingEventHandler:IEventHandler&lt;HeadedEvent&gt;
+&#123;
+    public void Handle(HeadedEvent e)
+    &#123;
+        Console.WriteLine(e.Name+&quot;, Guo Ji Zhang is your last wife?&quot;);
+    &#125;
+&#125;</code></pre>
+<p>我们可以看到正真的事件协调者是EventBus, 之前的代码如下是同步的。</p>
+<pre><code>public class EventBus
+&#123;
+    public static void Publish&lt;T&gt;(T concreteEvent) where T: Event
+    &#123;
+        var handlers = _container.ResolveAll&lt;IEventHandler&lt;T&gt;&gt;();
+        foreach (var handle in handlers)
+        &#123;
+            handle.Handle(concreteEvent);
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>为了提高性能，我们可以先来第一步改进</p>
+<pre><code> public void Publish&lt;T&gt;(T @event) where T : Event
+ &#123;
+    var handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();
+
+    handlers.AsParallel().ForAll((h)=&gt; h.Handle(@event));
+
+ &#125;</code></pre>
+<p>我们可以看到，现在并行处理可以大大加快速度，但是有两个问题，第一个问题就是没有处理异常，所以让我们加上异常。</p>
+<pre><code> public void Publish&lt;T&gt;(T @event) where T : Event
+    &#123;
+        var handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();
+
+        handlers.AsParallel().ForAll((h)=&gt; HandleEvent&lt;T&gt;(h,@event));
+
+    &#125;
+
+    private void HandleEvent&lt;T&gt;(IEventHandler&lt;T&gt; handle, T @event) where T : Event
+    &#123;
+        try
+        &#123;
+            handle.Handle(@event);
+
+        &#125;
+        catch (Exception e)
+        &#123;
+
+           // Log the exception, as the caller don&#39;t care this
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>第二个问题，就是我们虽然用了并行加快了速度，但是还没有正真实现异步，整个程序还是等所有Handler处理完才返回。</p>
+<pre><code>   public void Publish&lt;T&gt;(T @event) where T : Event
+    &#123;
+        var handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();
+
+        handlers.Select(h =&gt; Task.Factory.StartNew(() =&gt; HandleEvent&lt;T&gt;(h, @event)));
+
+    &#125;</code></pre>
+<p>这段代码执行完，尽然发现Handler没有执行，好吧，原因是IQueryable的延迟执行，所以我们需要调用一下ToList</p>
+<pre><code>public void Publish&lt;T&gt;(T @event) where T : Event
+    &#123;
+        var handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();
+
+        handlers.Select(h =&gt; Task.Factory.StartNew(() =&gt; HandleEvent&lt;T&gt;(h, @event))).ToArray();
+
+    &#125;</code></pre>
+<p>好了，我们就这样轻易的实现了一个AsyncEventBus, 是不是感谢.Net的强大?</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里还只是一个系统内部的Async, 如果涉及到系统之间的交互，这个就不行了，而且如果异步处理有错误，我们就会有信息丢失，所以需要更健壮的异步事件处理系统，这个后面再讲，但是一般的系统我们只需要把出错的时间记录下来，然后再看要不要处理就可以。</p>
+<p>另外，异步要处理的东西很多，比如处理完毕后，如何通知用户，还是让用户刷新？ 我个人建议，一般情况下都不要用异步，只有在真的需要的时候再用。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="72559f22e3230bbd2d30b45fee5ecb39">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>4 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/">领域驱动设计系列 (四)：事件驱动下</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇说到为什么要使用事件驱动，但是只有概念是不够的，我们要代码呀！记得脸书的老总说过: “Talk is cheap, Show me the code!”</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="发出事件"><a href="#发出事件" class="headerlink" title="发出事件"></a>发出事件</h2><p>事件顾名思义就是一件事情发生了，比如我要上头条，这不是一个事件，这事一个Command, HeadCommand, 而我上头条了这就是一个事件HeadedEvent，事件就是一件事情已经发生了。 好，先来一个伪代码</p>
+<pre><code>   public void Head()
+    &#123;
+        var NewsPaper = new NewsPaper(&quot;南都娱乐&quot;);
+        NewsPaper.WriteToHeader(&quot;汪峰&quot;);
+
+        RaiseEvent(new HeadedEvent &#123;Name = &quot;汪峰&quot;&#125;);
+    &#125;</code></pre>
+<p>所以我们只需在代码里RaiseEvent就可以了。</p>
+<h2 id="那么如何订阅事件"><a href="#那么如何订阅事件" class="headerlink" title="那么如何订阅事件"></a>那么如何订阅事件</h2><p>其实很简单，因为我们要实现的是同步的事件，我们只需要找到所有处理这个事件的实现类，然后调用所有就可以了。 </p>
+<pre><code>public interface IEventHandler&lt;TEvent&gt; where TEvent : Event
+&#123;
+    void Handle(TEvent e);
+&#125;
+
+public class HeadedEvent:Event
+&#123;
+    public string Name &#123; get; set; &#125;
+&#125;</code></pre>
+<p>如果国际章的妈妈关注这个Event, 我们就实现一个GuoJiZhangMotherEventHandler</p>
+<pre><code>public class GuoJiZhangMotherEventHandler : IEventHandler&lt;HeadedEvent&gt;
+&#123;
+    public void Handle(HeadedEvent e)
+    &#123;
+         Console.WriteLine(e.Name+&quot;, Are you kidding me?&quot;);
+    &#125;
+&#125;</code></pre>
+<p>如果我等屁民也关心这个事件的话，我们只需要再实现一个 PiMingEventHandler</p>
+<pre><code>public class PiMingEventHandler:IEventHandler&lt;HeadedEvent&gt;
+&#123;
+    public void Handle(HeadedEvent e)
+    &#123;
+        Console.WriteLine(e.Name+&quot;, Guo Ji Zhang is your last wife?&quot;);
+    &#125;
+&#125;</code></pre>
+<p>看，我们可以任意增加关注事件的代码，不用修改原来的代码吧，说好的OCP没骗你吧？ 那么问题来了，发出事件的人和接受事件的人怎么联系上的？在现实世界中，我们都是订阅报纸来看头条知道的，但是代码里我们就需要一个协调者了。如是我们就需要一个EventBus, 直接上代码吧</p>
+<pre><code>    public void Head()
+    &#123;
+        var NewsPaper = new NewsPaper(&quot;南都娱乐&quot;);
+        NewsPaper.WriteToHeader(&quot;汪峰&quot;);
+
+        RaiseEvent(new HeadedEvent &#123;Name = &quot;汪峰&quot;&#125;);
+    &#125;
+
+    private void RaiseEvent(HeadedEvent headedEvent)
+    &#123;
+        EventBus.Publish&lt;HeadedEvent&gt;(new HeadedEvent &#123; Name = &quot;汪峰&quot; &#125;);
+    &#125;</code></pre>
+<p> EventBus找出所有Handle这个事件的实现类，调用对应的Handle方法，我们可以通过Castle或者任何注入框架轻易的实现</p>
+<pre><code>public class EventBus
+&#123;
+    public static void Publish&lt;T&gt;(T concreteEvent) where T: Event
+    &#123;
+        var handlers = _container.ResolveAll&lt;IEventHandler&lt;T&gt;&gt;();
+        foreach (var handle in handlers)
+        &#123;
+            handle.Handle(concreteEvent);
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>好了，哥只负责帮汪老师上头条，上完我发出了事件通知，谁关注谁自己处理去，我的代码也不用改。</p>
+<p>我代码实现完了，如果各位还不知道如何实现一个同步的事件驱动架构，那拜托你们找个漂亮的妹子来问我。事件驱动架构我就只能帮你到这里了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6e76f3e6319b3d7068e33dc317171f1d">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/">领域驱动设计系列（三）:事件驱动上</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天讲一下事件驱动，这个不是领域驱动设计里的事件源(Event Source), 这个以后再讲，今天主要讲一下如何用事件来解耦，主要的原因是我们有个项目有个功能我觉得用事件的方式比较好，正好写篇博客，就不用专门给他们讲了。</p>
+<h1 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h1><p>说到解耦，我们很熟悉分层设计，比如上层依赖于抽象，不依赖于具体的实现。比如一个类使用另一个类，我们使用接口而不直接使用实现类。</p>
+<pre><code> public EquipmentService(IEmailService emailService, IEquipmentRepository equipmentRepository)
+    &#123;
+        _emailService = emailService;
+        _equipmentRepository = equipmentRepository;
+    &#125;</code></pre>
+<h1 id="为何用事件？"><a href="#为何用事件？" class="headerlink" title="为何用事件？"></a>为何用事件？</h1><h2 id="SRP-（单一职责"><a href="#SRP-（单一职责" class="headerlink" title="SRP （单一职责)"></a>SRP （单一职责)</h2><p>比如我们一个会议室预定系统，我们的一个设备坏了。我们需要通知预定这个会议室的所有人。于是我们需要发邮件。</p>
+<p>伪代码如下</p>
+<pre><code>public class EquipmentService
+&#123;
+    private readonly IEmailService _emailService;
+    private readonly IEquipmentRepository _equipmentRepository;
+
+    public EquipmentService(IEmailService emailService, IEquipmentRepository equipmentRepository)
+    &#123;
+        _emailService = emailService;
+        _equipmentRepository = equipmentRepository;
+    &#125;
+
+    public void SetEquipmentBroken(string Id)
+    &#123;
+        var equipment = _equipmentRepository.GetById(Id);
+        equipment.DeActive();
+
+        _emailService.SendEmail();
+    &#125;
+&#125;</code></pre>
+<p>但是，问题来了，如果后来我们要说，如果设备坏了，我们要更改可用库存的数量，这时候我们是不是要在这里修改代码而引入IInventoryService? 后来如果经理说设备坏了你们尽然不告诉我，你们要闹哪样？这个时候我们是不是要修改代码引入ISMSService.Info(Manager)? 即使我们不考虑OCP原则，不考虑单一职责，我们程序员也会哭，我就DeActive一个设备，你要我做这么多事，我哪里清楚所有的功能？我就骂过程序员，你做这个功能呢为什么没考虑全！！！漏掉了这么重要的功能。</p>
+<p>而问题，程序员从来没考虑全过，因此我就想办法如何解决这个程序员不仔细的问题。</p>
+<h2 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h2><p>因为我熟悉iOS的开发，我就想到了iOS的Notification Center. 那我我DeActive一个设备，我就只DeActive这个设备，很SRP是不是？ 但是别的地方如何拿到通知？ 于是事件就自然的付出水面了。如果设备被DeActive了，程序就只需要喊一声，老子把设备DeActive了，你们要闹哪样你们自己看着办，代码如下。</p>
+<pre><code> public void SetEquipmentBroken(string Id)
+    &#123;
+        var equipment = _equipmentRepository.GetById(Id);
+        equipment.DeActive();
+
+        EventBus.Publish(new EquipmentDeActivedEvent &#123;Id = equipment.Id&#125;);
+
+    &#125;</code></pre>
+<p>这样，通知会议室预定者的模块去通知，给老板发短信的模块就通知老板就OK了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里我们先将事件驱动，下一篇展示如何实现同步的事件，以后转换为异步那也很容易，让多个接受者处理这个事件，接受者可以是动态的哦，以后老板娘也想知道的话，代码也不用改的亲，好，我先去写实现代码去！</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-domainmodel/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d0b3d5cca093461b4d5f702559492113">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/">领域驱动设计系列（二）:领域Model？</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>领域驱动设计里有很多东西，我们可以应用在各种各样的开发模式里，所以接下来说的一些东西，我们可以部分使用。</p>
+<p>说道领域驱动的领域，大家肯定就要开始说Bounded Context,聚合，聚合根，容易让大家搞糊涂。 我觉得先抛开这些概念，后面再来说如何设计聚合，先简单来说。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>过去，我们在多层设计里定义了很多Model, 数据库的Model(DB Entity), 然后为了不依赖数据库，我们有设计了业务的Domain Model, 同时我们又设计了ViewModel, 这样一般也没什么问题，职责也很清晰。但是有几个问题</p>
+<ol>
+<li>我们要做很多的模型转换，转入转出。当然我们可以用AutoMapper来但是AutoMapper的性能实在难以恭维，大家可以在网上搜索AutoMapper performance.</li>
+<li>领域模型成了一个单纯的DTO了。</li>
+</ol>
+<h2 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h2><p>首先我们要看领域，就是我们尽量把业务聚合到一个领域里，比如我们要做一个功能，可以看到用户每一次的登录日志，那个这个登录日志其实就是属于用户这个领域里。</p>
+<p>其次我们看模型，原来我们的模型都是只有属性，也就是贫血模型，贫血的意思就是没有行为，像木乃伊一样，但是实际上领域是我们要完成业务的最主要的地方，我们希望领域能够自制，也就是领域自己管理自己。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. </p>
+<pre><code>&#123;% highlight c# linenos %&#125;
+    
+    public class Employee : Entity
+    &#123;
+        public Name Name &#123; get; set; &#125;
+       
+        public EmployeeStatus EmployeeStatus &#123; get; set; &#125;
+
+    &#125;
+    
+    &#123;% endhighlight %&#125;</code></pre>
+<p>如果是贫血的Employee模型，我们往往代码如下</p>
+<pre><code>&#123;% highlight c# %&#125;
+	
+	public class EmployeeService : IEmployeeService
+    &#123;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        &#123;
+            _unitOfWorkFactory = unitOfWorkFactory;
+            _employeeRepository = employeeRepository;
+        &#125;
+
+        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+        &#123;
+            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+            &#123;
+                var employee = _employeeRepository.GetById(employeeId);
+                employee.EmployeeStatus = status;
+
+                unitOfWork.Commit();
+            &#125;
+        &#125;
+    &#125;
+    
+	&#123;% endhighlight %&#125;</code></pre>
+<p>但是上面的代码的问题就是领域没有自治，本来修改我的状态是我的事，你能不能修改，外面随意修改我的状态是很危险的，比如Pending状态只能改为Active状态。 所以如果不是贫血的模型，我们代码就会这样，让领域自己来管理</p>
+<pre><code>&#123;% highlight C# %&#125;
+	public class Employee : Entity
+    &#123;
+   
+        public UserId UserId &#123; get; private set; &#125;
+        public EmployeeStatus EmployeeStatus &#123; get; private set; &#125;
+
+
+        public void ChangeStatus(EmployeeStatus status)
+        &#123;
+            if (this.EmployeeStatus == EmployeeStatus.Pending && status != EmployeeStatus.Active)
+            &#123;
+                throw new Exception("Only can Active when status is pending");
+            &#125;
+
+            this.EmployeeStatus = status;
+        &#125;
+
+    &#125;
+
+	public class EmployeeService : IEmployeeService
+    &#123;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        &#123;
+            _unitOfWorkFactory = unitOfWorkFactory;
+            _employeeRepository = employeeRepository;
+        &#125;
+
+        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+        &#123;
+            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+            &#123;
+                var employee = _employeeRepository.GetById(employeeId);
+                employee.ChangeStatus(status);
+
+                unitOfWork.Commit();
+            &#125;
+        &#125;
+    &#125;
+    &#123;% endhighlight %&#125;</code></pre>
+<p>因此可以看出，我们把业务代码尽量写在领域里让领域自治。 </p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实领域驱动设计最难的就是设计领域(Domain), 也就是后面会说到的AggregateRoot 聚合，但是我想我们先让领域不再贫血，这样在传统的多层设计，数据驱动等架构都可以使用这种模式。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-10  <a class="commentCountImg" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/#comment-container"><span class="display-none-class">/2015/02/10/technologies-DDD-2015-2-10-why-ddd/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1b7efaf5b26fd2f4bb3f918604633030">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/">领域驱动设计系列（一）:为何要领域驱动设计？</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>领域驱动设计最近貌似开始火起来了，越来越多的人开始认识到领域设计的重要性，从我做过的项目来看，似乎欧洲已经有很多的公司开始实施领域驱动设计了，我看领域驱动设计也有些时间了，但是网上不管是文章还是代码，都显得太过“高大上”，一谈领域驱动设计，一大堆的概念一股脑的给你上上来，搞的有点晕头转向，而我想在一些中小项目实施领域驱动也遇到了不小的障碍，大家对很多东西都处于一种恐惧的状态，而且在正真开始实施时，也遇到一些疑问，所以也想和大家交流学习，因此开始在此写写对领域驱动的理解，后面会有一些轻量的演进代码。</p>
+<h1 id="为何要领域驱动设计？"><a href="#为何要领域驱动设计？" class="headerlink" title="为何要领域驱动设计？"></a>为何要领域驱动设计？</h1><h2 id="简化数据存储"><a href="#简化数据存储" class="headerlink" title="简化数据存储"></a>简化数据存储</h2><p>领域驱动设计有很多原因，谈到我为啥要在公司推行领域驱动设计，说起来还是很好玩的，因为原来基于数据驱动的开发方式，也就是传统的多层开发架构，大家定义了一堆DAL来操作数据, 在.Net大家一般有两种使用方式，一种是用ORM像Entity Framework, 另一种想使用Dapper这样轻量级的Mapping工具，这些都要把关系型数据转换为对象。结果导致以下几种结果。</p>
+<ul>
+<li>没有正确的使用ORM, 导致数据加载过多，导致系统性能很差。</li>
+<li>为了解决性能问题，就不加载一些导航属性，但是确保DB Entity返回上层，这样对象的一些属性为空，上层使用这个数据时根本不知道什么时间这个属性是有值的，这个是很丑陋的是不是？</li>
+<li>如是又开始使用一些轻量级的数据方法，比如使用Dapper然后自己写SQL语句，这本来是很不错的方式，但是大部分人的SQL能力实在不敢恭维，大部分写出来的SQL语句，甚至比EnityFramework生成的语句还差。</li>
+</ul>
+<p>所以，我就想我们做项目，大部分处理的应该是因为，如何让程序员从数据存储，模型转换的大泥潭里解放出来，领域驱动设计就进入了我的实现，当然但从数据这个角度还不足以选择领域驱动设计，用一个NoSQL数据库是不是就解决了？ 但是NoSQL也有一些问题，比如MongoDB如何更优雅的保证事务以及数据的一致性等。</p>
+<h2 id="更多了解上下文"><a href="#更多了解上下文" class="headerlink" title="更多了解上下文"></a>更多了解上下文</h2><p>我们很多软件的问题，大家都知道是需求的问题，也就是客户的需求我们很难理解准确，导致程序员更加关注”HOW” 而忽略了”WHAT”, 最终做了几个礼拜甚至更长时间，结果客户会说:”What?! I told you”, 但是客户告诉我的，我们理解是不一样的。比如客户说：“ Great job, I love you!” 这个Love肯定不是男女之间的Love, 我们拿到的是一个客户的需求，他的上下文是什么？ 比如说：“这个球打的好”， 如果是在打篮球，肯定说的事篮球，如果是在打乒乓球肯定说的是乒乓球。 而领域驱动设计里我们可以让业务人员更多的参与系统，更早的参与系统。</p>
+<h2 id="统一语言-Ubiquitous-Language"><a href="#统一语言-Ubiquitous-Language" class="headerlink" title="统一语言(Ubiquitous Language)"></a>统一语言(Ubiquitous Language)</h2><p>业务人员和我们使用一样的语言，我们的程序比如让业务尽量集中在领域里，比如在传统的数据驱动里，如果说Jack爱Rose, 我们一般会这么写</p>
+<pre><code>&#123;% highlight c# %&#125;
+    UserService.Love(Jack, Rose)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>但是我们业务人员很奇怪谁Love谁？ 为什么要UserService?, 如果我们写成下面这样</p>
+<pre><code>&#123;% highlight C# %&#125;
+    Jack.Love(Rose)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>还有如果我们用</p>
+<pre><code>&#123;% highlight C# %&#125;
+    Company.hire(employee)
+	&#123;% endhighlight   %&#125;</code></pre>
+<p>来代替</p>
+<pre><code>&#123;% highlight C# %&#125;
+    companyservice.hire(company,employee)
+	&#123;% endhighlight %&#125;</code></pre>
+<p>这样我们就更容易让业务人员参与进来，而且代码可以更易于表示真实的业务场景。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>

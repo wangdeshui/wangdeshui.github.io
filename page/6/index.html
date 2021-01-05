@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"敏捷的水","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-10  <a class="commentCountImg" href="/2016/01/10/technologies-security-2016-1-10-security-3/#comment-container"><span class="display-none-class">/2016/01/10/technologies-security-2016-1-10-security-3/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="346949081c4c0911a457b1e5e89b29f3">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>12 m  <i class="fas fa-pencil-alt"> </i>1.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/10/technologies-security-2016-1-10-security-3/">程序员之网络安全系列（三）：数据加密之对称加密算法</a></h1><div class="content"><style>
+    .post {
+        font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+        font-size: 16px;
+    }
+
+    .post-full h1 {
+        background-color: #ccc;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        color: #000;
+        line-height: 1.8;
+        text-rendering: optimizelegibility;
+    }
+
+    .post-full h2 {
+        color: #333;
+        padding: 5px;
+        line-height: 1.6;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+
+    .post-full h3 {
+        padding: 5px;
+        color: #000;
+        border-bottom: dashed 1px #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+
+    .post-full img {
+        border: solid 5px #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        max-height: 400px;
+    }
+</style>
+
+<h1 id="前文回顾"><a href="#前文回顾" class="headerlink" title="前文回顾"></a>前文回顾</h1><p>假如，明明和丽丽相互不认识，明明想给丽丽写一封情书，让隔壁老王送去</p>
+<ol>
+<li>如何保证隔壁老王不能看到情书内容？（保密性)</li>
+<li>如何保证隔壁老王不修改情书的内容？（完整性)</li>
+<li>如何保证隔壁老王不冒充明明？（身份认证)</li>
+<li>如何保证明明不能否认情书是自己写的？（来源的不可否认)</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/security/security-1.png" />
+
+<p>上一节，我们使用了Hash算法保证了情书的完整性，也就是确保“隔壁王叔叔”没有修改明明的情书，那么这一节我们来看看如何保证“隔壁王叔叔”不能看到情书的内容，也就是保密性。</p>
+<h1 id="数据加密"><a href="#数据加密" class="headerlink" title="数据加密"></a>数据加密</h1><p>要想不让别人看到数据，那么我们就们就需要对数据加密。</p>
+<p><strong>加密技术</strong>  是最常用的安全保密手段，利用技术手段把重要的数据变为乱码（加密）传送，到达目的地后再用相同或不同的手段还原（解密）。<br>加密包括两个元素：算法和密钥。一个加密算法是将普通的文本（或者可以理解的信息）与一窜数字（密钥）的结合，产生不可理解的密文的步骤，密钥是用来对数据进行编码和解码的一种算法。</p>
+<p>举个例子：</p>
+<p>假设我们要对LOVE加密，我们可以先定义字母的顺序ABCDEFGHIJKLMNOPQRSTUVWXYZ，然后我们让每个字母向后移动两位，那么LOVE就变为了NQXG</p>
+<pre><code>L------&gt;N
+O------&gt;Q
+V------&gt;X
+E------&gt;
+LOVE---&gt;NQXG</code></pre>
+<p>我想这就是最简单的加密方式。</p>
+<p>密钥加密技术的密码体制分为对称密钥体制和非对称密钥体制两种。</p>
+<p>对数据加密的技术分为两类，即对称加密（私人密钥加密）和非对称加密（公开密钥加密）。对称加密以数据加密标准（DES，Data Encryption Standard）算法为典型代表，非对称加密通常以RSA（Rivest Shamir Ad1eman）算法为代表。对称加密的加密密钥和解密密钥相同，而非对称加密的加密密钥和解密密钥不同，加密密钥可以公开而解密密钥需要保密。</p>
+<h1 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h1><p>对称加密采用了对称密码编码技术，它的特点是文件加密和解密使用相同的密钥，即加密密钥也可以用作解密密钥。<br>比如，我们给WORD文档设置密码1234, 那么其他人想要打开文档也必须输入1234才能打开。</p>
+<h2 id="常用加密算法"><a href="#常用加密算法" class="headerlink" title="常用加密算法:"></a>常用加密算法:</h2><ul>
+<li><p>DES（Data Encryption Standard）：数据加密标准，速度较快，适用于加密大量数据的场合。</p>
+</li>
+<li><p>3DES（Triple DES）：是基于DES，对一块数据用三个不同的密钥进行三次加密，强度更高。</p>
+</li>
+<li><p>AES（Advanced Encryption Standard）：高级加密标准，是下一代的加密算法标准，速度快，安全级别高；</p>
+</li>
+<li><p>RC4，也是为   RSA   Data   Security,   Inc.   开发的密码系统的商标名称。</p>
+<p>传统的DES由于只有56位的密钥，从1997年开始，RSA公司发起了一个称作“向DES挑战”的竞技赛。在首届挑战赛上，罗克·维瑟用了96天时间破解了用DES加密的一段信息。1999年12月22日，RSA公司发起“第三届DES挑战赛（DES Challenge III）”。2000年1月19日，由电子边疆基金会组织研制的25万美元的DES解密机以22.5小时的战绩，成功地破解了 DES加密算法。DES已逐渐完成了它的历史使命。</p>
+<p>高级加密标准（英语：Advanced Encryption Standard，缩写：AES），在密码学中又称Rijndael加密法，是美国联邦政府采用的一种区块加密标准。这个标准用来替代原先的DES，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由美国国家标准与技术研究院（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。2006年，高级加密标准已然成为对称密钥加密中最流行的算法之一。</p>
+</li>
+</ul>
+<h2 id="对称加密算法的优点："><a href="#对称加密算法的优点：" class="headerlink" title="对称加密算法的优点："></a>对称加密算法的优点：</h2><ul>
+<li>算法公开</li>
+<li>计算量小</li>
+<li>加密速度快，加密效率高</li>
+</ul>
+<h2 id="对称加密算法的缺点"><a href="#对称加密算法的缺点" class="headerlink" title="对称加密算法的缺点"></a>对称加密算法的缺点</h2><ul>
+<li>加解密双方需要使用相同的秘钥</li>
+<li>秘钥管理很不方便，如果用户很多，那么秘钥的管理成几何性增长</li>
+<li>任何一方秘钥泄露，数据都不安全了</li>
+</ul>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>通过本节，我们知道当明明给丽丽情书时，可以用DES或者AES对数据进行加密，即使“隔壁王叔叔”拿到信件也看不懂内容，同时使用上一节的Hash算法保证了情书的内容完整，但是这就需要明明和丽丽提前设置一个秘钥。</p>
+<h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><p>下面的代码输出如下结果</p>
+<pre><code>    I Love You, Li Li
+    Encrypeted: 0t9glwGMmwtGs8B4QCotyZkKf091WElCwG659QiVVw0=
+    Decrypeted: I Love You, Li Li</code></pre>
+<p>.NET 源码：</p>
+<pre><code>    using System;
+    using System.Security.Cryptography;
+    using System.IO;
+    using System.Text;
+
+    namespace AES
+    &#123;
+        class MainClass
+        &#123;
+            public static void Main (string[] args)
+            &#123;
+                string password = &quot;Don&#39;t believe wang shu shu&quot;;
+                string orginTextToSent = &quot;I Love You, Li Li&quot;;
+                Console.WriteLine (orginTextToSent);
+
+                string encryptedText=EncryptText(orginTextToSent, password);
+
+                Console.WriteLine (&quot;Encrypeted: &quot; + encryptedText);
+
+                string DecryptedText = DecryptText (encryptedText, password);
+                Console.WriteLine (&quot;Decrypeted: &quot; + DecryptedText);
+
+            &#125;
+
+
+
+            public static byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
+            &#123;
+                byte[] encryptedBytes = null;
+
+                // Set your salt here, change it to meet your flavor:
+                // The salt bytes must be at least 8 bytes.
+                byte[] saltBytes = new byte[] &#123; 1, 2, 3, 4, 5, 6, 7, 8 &#125;;
+
+                using (MemoryStream ms = new MemoryStream())
+                &#123;
+                    using (RijndaelManaged AES = new RijndaelManaged())
+                    &#123;
+                        AES.KeySize = 256;
+                        AES.BlockSize = 128;
+
+                        var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
+                        AES.Key = key.GetBytes(AES.KeySize / 8);
+                        AES.IV = key.GetBytes(AES.BlockSize / 8);
+
+                        AES.Mode = CipherMode.CBC;
+
+                        using (var cs = new CryptoStream(ms, AES.CreateEncryptor(), CryptoStreamMode.Write))
+                        &#123;
+                            cs.Write(bytesToBeEncrypted, 0, bytesToBeEncrypted.Length);
+                            cs.Close();
+                        &#125;
+                        encryptedBytes = ms.ToArray();
+                    &#125;
+                &#125;
+
+                return encryptedBytes;
+            &#125;
+
+            public static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
+            &#123;
+                byte[] decryptedBytes = null;
+
+                // Set your salt here, change it to meet your flavor:
+                // The salt bytes must be at least 8 bytes.
+                byte[] saltBytes = new byte[] &#123; 1, 2, 3, 4, 5, 6, 7, 8 &#125;;
+
+                using (MemoryStream ms = new MemoryStream())
+                &#123;
+                    using (RijndaelManaged AES = new RijndaelManaged())
+                    &#123;
+                        AES.KeySize = 256;
+                        AES.BlockSize = 128;
+
+                        var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
+                        AES.Key = key.GetBytes(AES.KeySize / 8);
+                        AES.IV = key.GetBytes(AES.BlockSize / 8);
+
+                        AES.Mode = CipherMode.CBC;
+
+                        using (var cs = new CryptoStream(ms, AES.CreateDecryptor(), CryptoStreamMode.Write))
+                        &#123;
+                            cs.Write(bytesToBeDecrypted, 0, bytesToBeDecrypted.Length);
+                            cs.Close();
+                        &#125;
+                        decryptedBytes = ms.ToArray();
+                    &#125;
+                &#125;
+
+                return decryptedBytes;
+            &#125;
+
+
+            public static string EncryptText(string input, string password)
+            &#123;
+                // Get the bytes of the string
+                byte[] bytesToBeEncrypted = Encoding.UTF8.GetBytes(input);
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+
+                // Hash the password with SHA256
+                passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
+
+                byte[] bytesEncrypted = AES_Encrypt(bytesToBeEncrypted, passwordBytes);
+
+                string result = Convert.ToBase64String(bytesEncrypted);
+
+                return result;
+            &#125;
+
+            public static string DecryptText(string input, string password)
+            &#123;
+                // Get the bytes of the string
+                byte[] bytesToBeDecrypted = Convert.FromBase64String(input);
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
+
+                byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
+
+                string result = Encoding.UTF8.GetString(bytesDecrypted);
+
+                return result;
+            &#125;
+
+        &#125;
+    &#125;</code></pre>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/network-security/">network security</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-09  <a class="commentCountImg" href="/2016/01/09/technologies-security-2016-1-9-security-2/#comment-container"><span class="display-none-class">/2016/01/09/technologies-security-2016-1-9-security-2/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="050e7c41efe3e4e0030ecfb305ab4d1a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>2.0 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/09/technologies-security-2016-1-9-security-2/">程序员之网络安全系列（二）：如何安全保存用户密码及哈希算法</a></h1><div class="content"><style>
+    .post {
+        font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+        font-size: 16px;
+    }
+
+    .post-full h1 {
+        background-color: #ccc;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        color: #000;
+        line-height: 1.8;
+        text-rendering: optimizelegibility;
+    }
+
+    .post-full h2 {
+        color: #333;
+        padding: 5px;
+        line-height: 1.6;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+
+    .post-full h3 {
+        padding: 5px;
+        color: #000;
+        border-bottom: dashed 1px #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+
+    .post-full img {
+        border: solid 5px #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        max-height: 400px;
+    }
+</style>
+
+
+
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在很多网站的早期，甚至是现在仍然有一些网站，当你点击忘记密码功能时，你的邮箱会收到一封邮件，然后里面赫然写着你的密码，很多普通用户还会觉得庆幸，总算是找回来了，殊不知，这是多么可怕地一件事，说明了网站是“几乎是”明文存储你的密码，一旦数据用户数据泄露或者被拖库，那么用户密码将赤裸裸的暴露了，想想之前几次互联网密码泄露事件。</p>
+<p>那么如何解决呢？</p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>为了不让密码明文存储，我们需要对密码进行加密，这样即使数据库用户密码暴露，也是加密后的。但是如何让加密后的数据难以解密呢？我们现在比较流行的做法就是把密码进行Hash存储。</p>
+<h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><p>哈希算法将任意长度的二进制值映射为较短的固定长度的二进制值，这个小的二进制值称为哈希值。哈希值是一段数据唯一且极其紧凑的数值表示形式. 典型的哈希算法包括 MD2、MD4、MD5 和 SHA-1</p>
+<p>Hash算法是给消息生成摘要，那么什么是摘要呢？</p>
+<p>举个例子：</p>
+<blockquote>
+<p>比如你给你女朋友写了一封邮件，确保没被人改过，你可以生成这样一份摘要 “第50个字是我，第100个字是爱， 第998个字是你”，那么你女朋友收到这个摘要，检查一下你的邮件就可以了。</p>
+</blockquote>
+<p>Hash算法有两个非常主要的特征：</p>
+<ul>
+<li>不能通过摘要来反推出原文</li>
+<li>原文的非常细小的改动，都会引起Hash结果的非常大的变化</li>
+</ul>
+<p>因此，这个比较适合用来保存用户密码，因为不能反推出用户密码，Hash结果一致就证明原文一致，我们来用Ruby代码试一下上面的第二点 （MD5是一种常用的Hash算法)</p>
+<pre><code>2.2.3 :003 &gt; require &#39;digest/md5.so&#39;
+=&gt; true
+2.2.3 :004 &gt; puts Digest::MD5.hexdigest(&#39;I love you&#39;)
+e4f58a805a6e1fd0f6bef58c86f9ceb3
+=&gt; nil
+2.2.3 :005 &gt; puts Digest::MD5.hexdigest(&#39;I love you!&#39;)
+690a8cda8894e37a6fff4d1790d53b33
+=&gt; nil
+2.2.3 :006 &gt; puts Digest::MD5.hexdigest(&#39;I love you !&#39;)
+b2c63c3ca6019cff3bad64fcfa807361
+=&gt; nil
+2.2.3 :007 &gt; puts Digest::MD5.hexdigest(&#39;I love you&#39;)
+e4f58a805a6e1fd0f6bef58c86f9ceb3
+=&gt; nil
+2.2.3 :008 &gt; </code></pre>
+<p>那么我们在使用MD5保存密码时候的验证流程是什么呢？</p>
+<ul>
+<li>用户注册时，把用户密码是MD5(password)后保存到数据库。</li>
+<li>用户输入用户名和密码</li>
+<li>服务器从数据库查找用户名</li>
+<li>如果有这个用户，A=MD5(input password), B=Database password</li>
+<li>如果A==B, 那么说明用户密码输入正确，如果不相等，用户输入错误。</li>
+</ul>
+<h2 id="为什么Hash-MD5-后仍然不够安全？"><a href="#为什么Hash-MD5-后仍然不够安全？" class="headerlink" title="为什么Hash(MD5)后仍然不够安全？"></a>为什么Hash(MD5)后仍然不够安全？</h2><h3 id="穷举"><a href="#穷举" class="headerlink" title="穷举"></a>穷举</h3><p>但是，如果你认为就只是这样密码就不会被人知道，那么就不对了，这只是比明文更安全，为什么？</p>
+<p>因为，大部分人的密码都非常简单，当拿到MD5的密码后，攻击者也可以通过比对的方式，比如你的密码是4218</p>
+<pre><code>2.2.3 :008 &gt; puts Digest::MD5.hexdigest(&#39;4218&#39;)
+d278df4919453195d221030324127a0e</code></pre>
+<p>那么攻击者可以把1到4218个数字都MD5一下，然后和你密码的MD5对比一下，就知道你原密码是什么了。</p>
+<p>曾经我的密码箱密码忘了，我把锁给撬了，后来我才想起可以用穷举法，最多就999次不就打开了？那么问题来了，你的密码箱还安全吗？</p>
+<h3 id="彩虹表"><a href="#彩虹表" class="headerlink" title="彩虹表"></a>彩虹表</h3><p>除了穷举法外，由于之前的密码泄露，那么攻击者们，手上都有大量的彩虹表，比如”I love you”,生日等等，这个表保存了这些原值以及MD5后的值，那么使用时直接从已有库里就可以查出来对应的密码。</p>
+<h3 id="加盐-Salt"><a href="#加盐-Salt" class="headerlink" title="加盐 Salt"></a>加盐 Salt</h3><p>那么，由于简单的对密码进行Hash算法不够安全，那么我们就可以对密码加Salt，比如密码是”I love you”, 虽然彩虹表里有这条数据，但是如果加上”安红我爱你”，这样MD5结果就大不一样.</p>
+<pre><code>jacks-MacBook-Air:~ jack$ irb
+2.2.3 :001 &gt; require &#39;digest/md5.so&#39;
+=&gt; true
+2.2.3 :002 &gt; puts Digest::MD5.hexdigest(&#39;I love you&#39;)
+e4f58a805a6e1fd0f6bef58c86f9ceb3
+=&gt; nil
+2.2.3 :003 &gt; puts Digest::MD5.hexdigest(&#39;I love you安红我爱你&#39;)
+b10d890bf46b1a045eb99af5d43c7b13
+=&gt; nil
+2.2.3 :004 &gt; puts Digest::MD5.hexdigest(&#39;I dont love you&#39;)
+c82294c9a7b6e4a372ad25ed4d6011c9
+=&gt; nil
+2.2.3 :005 &gt; puts Digest::MD5.hexdigest(&#39;I dont love you安红我爱你&#39;)
+dce67bcdfdf007445dd4a2c2dc3d29c1
+=&gt; nil
+2.2.3 :006 &gt;</code></pre>
+<p>如此一来，因为攻击者很难猜到“安红我爱你”，那么自然彩虹表里是没有的，当然我建议你在实际项目中不要使用”安红我爱你”，你应该使用一个连你自己都猜不到的较长的字符串。</p>
+<h2 id="加盐了，就安全了吗？"><a href="#加盐了，就安全了吗？" class="headerlink" title="加盐了，就安全了吗？"></a>加盐了，就安全了吗？</h2><p>实际上，加盐并不能100%保证安全，假如有人泄露了你的Salt呢？实际上通过反编译程序很容易可以拿到这个，由于WEB程序一般放在WEB服务器上，那么就需要保证服务器不被攻击，当然这个是运维人员去操心。</p>
+<p>为了让加盐更安全，一般情况下我们可以使用一个“盐+盐”，也就是为每个用户保存一个”Salt”， 然后再使用全局的盐，我们可以对用户的盐使用自己的加密算法。那么代码就如下:</p>
+<pre><code>if MD5(userInputPpassword+globalsalt+usersalt)===user.databasePassword） 
+&#123;
+    login success
+&#125;</code></pre>
+<h2 id="普通用户如何做？"><a href="#普通用户如何做？" class="headerlink" title="普通用户如何做？"></a>普通用户如何做？</h2><p>由于这个是写给程序员，当然是说在前端用户注册时密码应该如何设置，很简单，我们要求用户必须输入强密码！但是，我知道很多用户觉得很烦，这样你就失掉了一个用户，但我们需要做一个适当的折中，比如至少有一个大写字母，小写字母和数字的组合。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>我们来看看解决了之前文章下面例子的什么问题。</p>
+<p>假如，明明和丽丽相互不认识，明明想给丽丽写一封情书，让隔壁老王送去</p>
+<ol>
+<li>如何保证隔壁老王不能看到情书内容？（保密性)</li>
+<li>如何保证隔壁老王不修改情书的内容？（完整性)</li>
+<li>如何保证隔壁老王不冒充明明？（身份认证)</li>
+<li>如何保证明明不能否认情书是自己写的？（来源的不可否认)</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/security/security-1.png" />
+
+<p>通过了解hash算法,”明明” 就有办法让丽丽知道信的内容没有修改，他可以对邮件进行Hash生成邮件的摘要，然后让”隔壁的李叔叔”把摘要送给丽丽，丽丽拿到邮件的摘要后，把邮件内容也Hash一下，然后把结果和”隔壁的李叔叔”给的摘要对比一下，然后通过比较结果就知道邮件有没有被”隔壁的王叔叔”更改过了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/network-security/">network security</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-07  <a class="commentCountImg" href="/2016/01/07/technologies-security-2016-1-8-security-1/#comment-container"><span class="display-none-class">/2016/01/07/technologies-security-2016-1-8-security-1/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="c06de8fb658a14b8a80cc5c0ca3bb43a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/07/technologies-security-2016-1-8-security-1/">程序员之网络安全系列（一）：为什么要关注网络安全？</a></h1><div class="content"><style>
+    .post
+    {
+        font-family:
+'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+    font-size: 16px;
+}
+    .post-full h1 {
+       background-color: #ccc;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+        color: #000;
+        line-height: 1.8;
+        text-rendering: optimizelegibility;
+    }
+
+    .post-full h2 {
+        color: #333;
+        padding: 5px;
+        line-height: 1.6;        
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+
+    }
+
+     .post-full h3 {
+        padding: 5px;
+        color: #000;
+        border-bottom: dashed 1px #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+
+    .post-full img {
+        border: solid 5px #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+        max-height: 400px;
+    }
+</style>
+
+<p>假如，明明和丽丽相互不认识，明明想给丽丽写一封情书，让隔壁老王送去</p>
+<ol>
+<li>如何保证隔壁老王不能看到情书内容？（保密性)</li>
+<li>如何保证隔壁老王不修改情书的内容？（完整性)</li>
+<li>如何保证隔壁老王不冒充明明？（身份认证)</li>
+<li>如何保证明明不能否认情书是自己写的？（来源的不可否认)</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/security/security-1.png" />
+
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家都知道最近几年闹的沸沸扬扬的网络安全事件，之前的CSDN密码泄露，不久前的网易邮箱密码泄露，那么如果你的密码泄露，除了本身的网站外，还有很多人其它很多地方甚至银行密码都使用相同的密码，从而带来了很大的麻烦，据说“半个” 互联网的库都被人拖过。</p>
+<h2 id="亲身经历"><a href="#亲身经历" class="headerlink" title="亲身经历"></a>亲身经历</h2><p>拿我自己经历的一件事来说，前不久，我和一个朋友一起定了趟机票去上海，出发前两小时，收到一个短信说我预定的航班由于天气原因被取消，我需要改签另一个航班，让我拨打航空公司400的电话，由于马上要出发去机场，也没有去查具体航空公司的电话，就打了这个电话，对方的整套系统客服系统和流程几乎和航空公司一模一样，知道我的姓名，身份证，订的航班号等等都一清二楚，最后再说改签需要给用户补偿，需要给你转钱，所以你需要提供银行卡号，然后确认后才能改签，我这样说大家可能觉得如果是自己不太可能上当，但是你们都忽略了人的心里因素，第一你的私密信息他都知道（就像一个陌生人让你爸转钱说你需要钱，说是你的好朋友，知道你的所有只有你爸和你知道的信息), 第二你很着急，因为你在目的地的酒店已定，后面去别的地方的机票、火车票已定，所以你必须这个时间起飞等等。</p>
+<p>最后我没有上当的原因，是因为我问骗子，航站楼是哪一个，他说是4号航站楼，因为西安就没有4号航站楼，当然这个应该是骗子的失误。</p>
+<p>我们所有的人觉得自己百分之百不会上当的人，那是因为你没碰上骗子高手！</p>
+<h2 id="骗子可以得逞的罪魁祸首"><a href="#骗子可以得逞的罪魁祸首" class="headerlink" title="骗子可以得逞的罪魁祸首"></a>骗子可以得逞的罪魁祸首</h2><p>我总结了大部分骗子能够骗成功的最主要的原因，是因为我们的<strong>私密信息被泄露了</strong>！可见网络安全的重要性，而针对我的这个事件，我不知道是航空公司还是某订票网站把我的信息泄露，当然，骗子可能组合多个地方的泄露信息。</p>
+<p>而这些信息系统是谁开发和维护的呢？ 是程序员！ </p>
+<p>所以我们程序员需要学习安全知识，保护用户数据，同时防止自己被骗，对那些安全性不高的网站尽量不要使用，对那些安全不高的系统尽量不使用。</p>
+<p>作为一个多年的程序员，我对网络安全相关的知识也非常少，我知道一些常规的东西，比如敏感数据加密存储，网站尽量使用https等，但是由于对后面的原理知道的太少，所以有的时候不一定做出了正确地选择，直到最近有的程序员说密码MD5存储了，就一定是安全的，这让我感觉了害怕，而且我看有的系统也真的只是MD5了一下，所以我开始决定学点安全的常识，记录一点“大家” 常用的程序安全知识, 在这里和大家共同进步，由于我对这对理解的不深，要学习的东西很多，所以也希望大家帮忙指出错误的地方。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/network-security/">network security</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-06  <a class="commentCountImg" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/#comment-container"><span class="display-none-class">/2016/01/06/agile-2016-1-7-unit-test-best-practices/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="21401e10965a454c551f27fc3615f125">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/">敏捷实践系列(八)：单元测试及最佳实践</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/1.png" />
+
+<p>在工作中或者在面试中，我经常碰到的开发人员就是对单元测试不重视，这一类基本上都表现出了一种“无知的自信”，总觉得自己写的代码质量很高，直到一次次虫子(Bug)把自己咬的头破血流时，才发现原来自己的代码已经到了剪不断理还乱的状态，而每一次修改一个bug，都需要走一遍“墨镜迷宫” （看上图)。还有很多人知道单元测试或者写出了单元测试，但是就是写了一个方法，上面标注了一个[Test]属性而已，甚至很多的人单元测试上面标注的是[IgnoreTest], 每次看见这些，我都深深的感到推行单元测试之路是艰难的，是遥远的，但是我依然坚信是是渴望也可及的，只要有着深深的信念，坚强的意志，无谓的勇气，一头扎进去泥巴堆里，假以时日，当大雨来临，必将带走泥巴，从此你拔剑扬眉，哦，你不用拔剑了，因为你就是剑。。。</p>
+<p>为了让更多人能够拔剑扬眉，也为了我们公司刚入职的新人做一些培训，我精心准备了单元测试的一些知识，在此为你奉上，我尽量用简短的语句来描述，如果你不清楚我说的某一些点，那么欢迎你发邮件给我 <a href="mailto:&#119;&#x61;&#110;&#103;&#x64;&#x65;&#115;&#x68;&#117;&#x69;&#64;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#107;&#x2e;&#x63;&#111;&#x6d;">&#119;&#x61;&#110;&#103;&#x64;&#x65;&#115;&#x68;&#117;&#x69;&#64;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#107;&#x2e;&#x63;&#111;&#x6d;</a>，我可以针对集中的点发篇文章，如果你想知道我说的所有点怎么实践，那就联系我，试试加入到我们公司来。</p>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">什么是单元测试</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">为什么要使用单元测试</a>  </li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9A%BE%E4%BB%A5%E6%8E%A8%E5%8A%A8%E7%9A%84%E5%8E%9F%E5%9B%A0">单元测试难以推动的原因</a><ul>
+<li><a href="#%E5%A4%AA%E8%8A%B1%E6%97%B6%E9%97%B4">太花时间</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E4%B8%8D%E6%98%AF%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C">测试不是我的工作</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%B5%8B%E8%AF%95%E6%80%A7%E5%B7%AE">系统可测试性差</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">单元测试最佳实践</a><ul>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%80-%E4%B8%89%E5%88%B0%E4%BA%94%E6%AD%A5">实践一: 三到五步</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%8C-%E8%BF%90%E8%A1%8C%E5%BF%AB%E9%80%9F">实践二： 运行快速</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%89%E4%B8%80%E8%87%B4%E6%80%A7">实践三：一致性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%9B%9B%E5%8E%9F%E5%AD%90%E6%80%A7">实践四：原子性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%94%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3">实践五：单一职责</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AD%E7%8B%AC%E7%AB%8B%E6%97%A0%E8%80%A6%E5%90%88">实践六：独立无耦合</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%83%E9%9A%94%E7%A6%BB%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8">实践七：隔离外部调用</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AB-%E8%87%AA%E6%8F%8F%E8%BF%B0">实践八： 自描述</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B9%9D-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%80%BB%E8%BE%91">实践九： 单元测试逻辑</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81-%E6%96%AD%E8%A8%80">实践十： 断言</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81%E4%B8%80%E4%BA%A7%E5%93%81%E4%BB%A3%E7%A0%81">实践十一：产品代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%B7%A5%E5%85%B7">最后，单元测试常用技术及工具</a></li>
+</ul>
+<!-- toc stop -->
+
+
+<h1 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h1><p>单元测试是开发者编写的一小段代码，用于检验被测代码中的一个很明确的功能是否正确。通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为。</p>
+<p>执行单元测试，是为了证明某段代码的行为确实和开发者所期望的一致。因此，我们所要测试的是规模很小的、非常独立的功能片段。通过对所有单独部分的行为建立起信心。然后，才能开始测试整个系统。</p>
+<h1 id="为什么要使用单元测试"><a href="#为什么要使用单元测试" class="headerlink" title="为什么要使用单元测试"></a>为什么要使用单元测试</h1><ul>
+<li>单元测试使工作完成的更轻松</li>
+<li>单元测试使你的设计更好</li>
+<li>大大减少花在调试上的时间</li>
+<li>能帮助你更好的理解代码</li>
+</ul>
+<h2 id="没有单元测试"><a href="#没有单元测试" class="headerlink" title="没有单元测试"></a>没有单元测试</h2><ul>
+<li>任何代码都是在假定其他代码是正确无误的情况下编写的。</li>
+<li>修改一处代码时无法得知会对其他代码产生怎样的影响。</li>
+<li>任何一处改动都需要进行功能级别的整体调试。</li>
+</ul>
+<h1 id="单元测试难以推动的原因"><a href="#单元测试难以推动的原因" class="headerlink" title="单元测试难以推动的原因"></a>单元测试难以推动的原因</h1><h2 id="太花时间"><a href="#太花时间" class="headerlink" title="太花时间"></a>太花时间</h2><p>很多人认为单元测试很花时间，但是想想我们在下面几点话的时间，我经常看到为了测试一个简单的API方法，我们很多人必须让前端跑起来，甚至自己写一个客户端才能调用</p>
+<ul>
+<li>调试上花的时间</li>
+<li>对自认为正确的代码，花了多少时间确认代码是正确的。</li>
+<li>定位Bug所耗的时间</li>
+</ul>
+<h2 id="测试不是我的工作"><a href="#测试不是我的工作" class="headerlink" title="测试不是我的工作"></a>测试不是我的工作</h2><p>很多人认为测试不是自己的工作，但是想一想每次测试提出一个bug所花的时间，以及你改bug所化的时间，所以下面2点是很重要</p>
+<ul>
+<li>内在质量的重要性</li>
+<li>测试应该是辅助，好的软件是开发设计出来的，不是测试出来的</li>
+</ul>
+<h2 id="系统可测试性差"><a href="#系统可测试性差" class="headerlink" title="系统可测试性差"></a>系统可测试性差</h2><ul>
+<li>系统耦合度很高，我们需要提高我们的团队的设计能力。</li>
+</ul>
+<h1 id="单元测试最佳实践"><a href="#单元测试最佳实践" class="headerlink" title="单元测试最佳实践"></a>单元测试最佳实践</h1><h2 id="实践一-三到五步"><a href="#实践一-三到五步" class="headerlink" title="实践一: 三到五步"></a>实践一: 三到五步</h2><ul>
+<li>SetUp</li>
+<li>输入</li>
+<li>调用</li>
+<li>输出</li>
+<li>TearDown</li>
+</ul>
+<h2 id="实践二：-运行快速"><a href="#实践二：-运行快速" class="headerlink" title="实践二： 运行快速"></a>实践二： 运行快速</h2><p>###为什么？<br>单元测试运行很频繁，是辅助开发的，在开发过程中运行，如果慢影响很大</p>
+<h3 id="多快较好？"><a href="#多快较好？" class="headerlink" title="多快较好？"></a>多快较好？</h3><ul>
+<li>单个测试小于200ms</li>
+<li>单个测试套件小于10s</li>
+<li>整个测试小于10分钟</li>
+</ul>
+<h2 id="实践三：一致性"><a href="#实践三：一致性" class="headerlink" title="实践三：一致性"></a>实践三：一致性</h2><p><strong>任何时候同样的输入需要同样的结果</strong></p>
+<pre><code>    Date date=new Date()
+    Random.next()</code></pre>
+<p>这样的代码都需要Mock掉，不然时间每次都不同，结果就会不一样。</p>
+<h2 id="实践四：原子性"><a href="#实践四：原子性" class="headerlink" title="实践四：原子性"></a>实践四：原子性</h2><p>** 所有的测试只有两种结果：成功和失败**<br><strong>不能部分测试通过</strong></p>
+<h2 id="实践五：单一职责"><a href="#实践五：单一职责" class="headerlink" title="实践五：单一职责"></a>实践五：单一职责</h2><p><strong>一个测试只验证一个行为</strong></p>
+<p>** 测试行为，不要测试方法 **</p>
+<ul>
+<li>一个方法，多个行为    —–&gt;  多个测试</li>
+<li>一个行为，多个方法   —–   一个测试<br> 这里的一个行为，多个方法一般指这个方法调用private, protected, getters, setters</li>
+<li>多个Assert只有在测试同一个行为时可以接受</li>
+</ul>
+<h2 id="实践六：独立无耦合"><a href="#实践六：独立无耦合" class="headerlink" title="实践六：独立无耦合"></a>实践六：独立无耦合</h2><h3 id="单元测试之间无相互调用"><a href="#单元测试之间无相互调用" class="headerlink" title="单元测试之间无相互调用"></a>单元测试之间无相互调用</h3><ul>
+<li>单元测试执行顺序无关</li>
+<li>不同的顺序无影响</li>
+</ul>
+<h3 id="单元测试之间不能共享状态"><a href="#单元测试之间不能共享状态" class="headerlink" title="单元测试之间不能共享状态"></a>单元测试之间不能共享状态</h3><p>比如一个测试里设置了一个属性值，然后在另外一个测试里用，如果必须共享可以放到Setup里</p>
+<h2 id="实践七：隔离外部调用"><a href="#实践七：隔离外部调用" class="headerlink" title="实践七：隔离外部调用"></a>实践七：隔离外部调用</h2><ul>
+<li>单元测试需要快速运行，且每次结果一致，所以需要隔离一切对外部的调用。</li>
+<li>不使用具体的其它真实类，就是不要new</li>
+<li>不读数据库</li>
+<li>不读网络</li>
+<li>不读外部文件</li>
+<li>适当时候可以构造一个相同的内部文件来Mock</li>
+<li>不依赖本地时间</li>
+<li>不依赖环境变量</li>
+</ul>
+<h2 id="实践八：-自描述"><a href="#实践八：-自描述" class="headerlink" title="实践八： 自描述"></a>实践八： 自描述</h2><ul>
+<li>单元测试是开发级文档</li>
+<li>单元测试是方法的描述</li>
+</ul>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/2.png" />
+
+
+<h2 id="实践九：-单元测试逻辑"><a href="#实践九：-单元测试逻辑" class="headerlink" title="实践九： 单元测试逻辑"></a>实践九： 单元测试逻辑</h2><ul>
+<li>单元测试必须容易读和理解的</li>
+<li>变量名，方法名，类名</li>
+<li>无条件语句,无Switch<br>办法：分解if到多个测试，所有的输入都是已知的，所有的结果都是一定的（Mock）</li>
+<li>无循环语句</li>
+<li>无异常捕捉<br>** 测试预知的异常，用ExpectedException方法 **</li>
+</ul>
+<h2 id="实践十：-断言"><a href="#实践十：-断言" class="headerlink" title="实践十： 断言"></a>实践十： 断言</h2><ul>
+<li><p>断言信息最好包含Business Information</p>
+</li>
+<li><p>断言信息包含出错的具体信息如果失败</p>
+</li>
+<li><p>适当时候可以封装自己的Assert<br>比如：</p>
+<pre><code>Assert.IsProgrammer(Jack)
+Return Jack. Cancooking() &amp;&amp; Jack.CanCoding()</code></pre>
+</li>
+</ul>
+<h2 id="实践十一：产品代码"><a href="#实践十一：产品代码" class="headerlink" title="实践十一：产品代码"></a>实践十一：产品代码</h2><ul>
+<li>产品代码无测试逻辑</li>
+</ul>
+<p>不能有：</p>
+<pre><code>    If(global.IsTest)&#123;…&#125;</code></pre>
+<ul>
+<li>测试代码和产品代码要分离</li>
+<li>不要在产品代码里有任何只供测试用的代码</li>
+<li>使用依赖注入</li>
+</ul>
+<h1 id="最后，单元测试常用技术及工具"><a href="#最后，单元测试常用技术及工具" class="headerlink" title="最后，单元测试常用技术及工具"></a>最后，单元测试常用技术及工具</h1><p>下面是.NET程序常用的单元测试需要的技术和工具，其它语言请自信比对。</p>
+<ul>
+<li>面向接口编程</li>
+<li>依赖注入(Castle, Unity, Ninject)</li>
+<li>Moq</li>
+<li>测试工具(xUnit) </li>
+<li>.Net Nunit</li>
+<li>代码覆盖率测试工具Ncover</li>
+<li>自动运行测试辅助工具NCrunch</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="3074e4d56fd0cabf29e555b60265eb22">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">前端构建大法 Gulp 系列 (四)：gulp实战</a></h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p>先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 <a target="_blank" rel="noopener" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a> 安装</p>
+<p>然后再用 npm -v 来确保Node.js 安装正确</p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1><p>我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里</p>
+<pre><code>npm install gulp -g</code></pre>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>创建一个文件目录，然后建立对应的文件夹</p>
+<ul>
+<li><p><strong>src</strong> — 源文件:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+<li><p><strong>build</strong> — 编译后文件输出到的生产文件夹:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+</ul>
+<p>我们先使用npm init来创建类似Nuget package的package.config一样的文件，这样我们就知道项目依赖哪些插件，而且我们不需要把插件提交到代码库，其它程序员只需要使用 npm install 就可以安装所有配置的插件</p>
+<p>然后我们需要创建一个gulpfile.js文件，gulp默认是调用这个文件的。</p>
+<p>我们在目录下使用</p>
+<pre><code>  npm install gulp --save-dev  # 这样可以把gulp安装到本地</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png" />
+
+<h1 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h1><p>比如我们想检查我们的js文件，那么我们需要安装 gulp-jshint插件</p>
+<pre><code>  npm install gulp-jshint --save-dev</code></pre>
+<p>然后添加一个test.js文件到src/scripts下，内容如下</p>
+<pre><code>var hi=&quot;hello&quot;
+
+function sayHello()&#123;
+    console.log(&quot;Jack &quot;+hi)
+&#125;</code></pre>
+<h2 id="jshint-代码检查"><a href="#jshint-代码检查" class="headerlink" title="jshint 代码检查"></a>jshint 代码检查</h2><p>然后我们修改gulpfile.js内容如下</p>
+<pre><code>// include gulp
+var gulp = require(&#39;gulp&#39;); 
+
+// include plug-ins
+var jshint = require(&#39;gulp-jshint&#39;);
+
+// JS hint task
+gulp.task(&#39;jshint&#39;, function() &#123;
+    gulp.src(&#39;./src/scripts/*.js&#39;)
+      .pipe(jshint())
+      .pipe(jshint.reporter(&#39;default&#39;));
+&#125;);</code></pre>
+<p>然后运行 </p>
+<pre><code>gulp jshint</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png" />
+
+<p>看控制台输出就知道我们少了分号。</p>
+<h2 id="代码合并压缩"><a href="#代码合并压缩" class="headerlink" title="代码合并压缩"></a>代码合并压缩</h2><p>我们新建一个 ./scripts/b.js， 然后我们把js文件合并然后压缩并输出到./build/scripts/all.js 下，同时移除debug信息</p>
+<p>我们需要安装一下插件</p>
+<pre><code>npm install gulp-concat --save-dev 
+npm install gulp-strip-debug --save-dev 
+npm install gulp-uglify --save-dev</code></pre>
+<p>修改gulpfile.js</p>
+<pre><code>var gulp = require(&#39;gulp&#39;); 
+var concat = require(&#39;gulp-concat&#39;);
+var stripDebug = require(&#39;gulp-strip-debug&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+
+gulp.task(&#39;scripts&#39;, function() &#123;
+  gulp.src([&#39;./src/scripts/*.js&#39;])
+    .pipe(concat(&#39;all.js&#39;))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/scripts/&#39;));
+&#125;);</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png" />
+
+<p>我们看到gulp已经把我们文件合并了，移除了console.log, 而且进行了压缩。</p>
+<p>至此，已经基本上知道gulp怎么使用了，下面展示一些其它的功能的代码</p>
+<pre><code>npm install gulp-autoprefixer --save-dev 
+npm install gulp-minify-css --save-dev </code></pre>
+<p>示例代码</p>
+<pre><code>var gulp = require(&#39;gulp&#39;); 
+var concat = require(&#39;gulp-concat&#39;);
+var stripDebug = require(&#39;gulp-strip-debug&#39;);
+var uglify = require(&#39;gulp-uglify&#39;);
+var autoprefix = require(&#39;gulp-autoprefixer&#39;);
+var minifyCSS = require(&#39;gulp-minify-css&#39;);
+
+gulp.task(&#39;scripts&#39;, function() &#123;
+  gulp.src([&#39;./src/scripts/*.js&#39;])
+    .pipe(concat(&#39;all.js&#39;))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/scripts/&#39;));
+&#125;);
+
+
+// CSS concat, auto-prefix and minify
+gulp.task(&#39;styles&#39;, function() &#123;
+  gulp.src([&#39;./src/styles/*.css&#39;])
+    .pipe(concat(&#39;styles.css&#39;))
+    .pipe(autoprefix(&#39;last 2 versions&#39;))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(&#39;./build/styles/&#39;));
+&#125;);
+
+// default gulp task
+gulp.task(&#39;default&#39;, [ &#39;scripts&#39;, &#39;styles&#39;], function() &#123;   
+
+// watch for JS changes
+gulp.watch(&#39;./src/scripts/*.js&#39;, function() &#123;
+    gulp.run(&#39;jshint&#39;, &#39;scripts&#39;);
+  &#125;);
+// watch for CSS changes
+    gulp.watch(&#39;./src/styles/*.css&#39;, function() &#123;
+        gulp.run(&#39;styles&#39;);
+  &#125;);
+&#125;);</code></pre>
+<p>至此，大家应该熟悉gulp的使用，尽情去挖掘gulp plugin的宝藏吧。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-03  <a class="commentCountImg" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/#comment-container"><span class="display-none-class">/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="72fea748960574ea2bd2f0c8ac4245a0">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/">前端构建大法 Gulp 系列 (三)：gulp的4个API 让你成为gulp专家</a></h1><div class="content"><p>gulp 本身能做的事情非常少，主要是通过插件来提供各种功能，gulp本身只提供了4个非常简洁的API, 掌握这4个API你就基本掌握了gulp的全部。</p>
+<h1 id="一、gulp-task"><a href="#一、gulp-task" class="headerlink" title="一、gulp.task"></a>一、gulp.task</h1><p>gulp 是基于task的方式来运行</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>gulp.task(name [, deps, fn])<br>注册一个task, name 是task的名字，deps是可选项，就是这个task依赖的tasks, fn是task要执行的函数</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>gulp.task(&#39;js&#39;, ,[&#39;jscs&#39;, &#39;jshint&#39;], function()&#123;
+ return gulp
+    .src(&#39;./src/**/*.js&#39;)
+    .pipe(concat(&#39;alljs&#39;))
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/&#39;));                 
+&#125;);</code></pre>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>上例中 </p>
+<ul>
+<li>jscs和jshint先运行，随后再运行js的task.</li>
+<li>jscs和jshint是并行执行的，而不是顺序执行</li>
+</ul>
+<h1 id="二、gulp-src"><a href="#二、gulp-src" class="headerlink" title="二、gulp.src"></a>二、gulp.src</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>gulp.src(globs[, options])</p>
+<p>与globs 匹配的文件，可以是string或者一个数组</p>
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><pre><code>gulp.src([&#39;client/*.js&#39;, &#39;!client/b*.js&#39;, &#39;client/c.js&#39;])   # !是排除某些文件
+
+gulp.task(&#39;js&#39;,[&#39;jscs&#39;, &#39;jshint&#39;],function()&#123;
+ return gulp
+    .src(&#39;./src/**/*.js&#39;, &#123;base:&#39;./src/&#39;&#125;)        
+    .pipe(uglify())
+    .pipe(gulp.dest(&#39;./build/&#39;));
+
+&#125;);</code></pre>
+<p>options.base 是指多少路径被保留，比如上面的 ./src/users/list.js 会被输出到 ./build/users/list.js</p>
+<h2 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h2><p>如果我们需要文件保持顺序，那么出现在前面的文件就写在数组的前面</p>
+<pre><code>  gulp.src([&#39;client/baby.js&#39;, &#39;client/b*.js&#39;, &#39;client/c.js&#39;])  </code></pre>
+<p>上面baby.js就出现在最上面。</p>
+<h1 id="三、-gulp-dest"><a href="#三、-gulp-dest" class="headerlink" title="三、 gulp.dest"></a>三、 gulp.dest</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><p>gulp.dest(path[, options])  就是最终文件要输出的路径，options一般不用</p>
+<h1 id="四、gulp-watch"><a href="#四、gulp-watch" class="headerlink" title="四、gulp.watch"></a>四、gulp.watch</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><p>gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb]) 就是监视文件的变化，然后运行指定的Tasks或者函数，这个相比Grunt需要使用插件，gulp本身就支持的很好。</p>
+<h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><pre><code>gulp.task(&#39;watch-js&#39;, function()&#123;
+   gulp.watch(&#39;./src/**/*.js&#39;,[&#39;jshint&#39;,&#39;jscs&#39;]); 
+&#125;);
+
+gulp.task(&#39;watch-less&#39;, function()&#123;
+ gulp.watch(&#39;./src/**/*.less&#39;,function(event)&#123;
+   console.log(&#39;less event&#39;+event.type+&#39; &#39;+event.path)
+ &#125;); 
+&#125;);</code></pre>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>gulp就是如此的简单，你只需要掌握这四个API就够了，剩下的就是熟悉相关的plugin了。</p>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">https://github.com/gulpjs/gulp/blob/master/docs/API.md</a></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-02  <a class="commentCountImg" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/#comment-container"><span class="display-none-class">/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6036af9015cc16841d0a4da09a65e0c2">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/">前端构建大法 Gulp 系列 (二)：为什么选择gulp</a></h1><div class="content"><p>在上一篇 <a target="_blank" rel="noopener" href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。</p>
+<p>相信熟悉前端的人对Grunt一定不陌生，实际上我自己之前的很多项目也是在用Grunt, Grunt的出现是前端开发者的福音，大大减少了前端之前很多手工工作的繁琐以及我上一篇 <a target="_blank" rel="noopener" href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 提到的那些问题。</p>
+<p>那么既然Grunt可以做到几乎所有的事情，那么为什么我们需要Gulp呢？</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/1.png" />
+
+<h2 id="Grunt与Gulp的区别"><a href="#Grunt与Gulp的区别" class="headerlink" title="Grunt与Gulp的区别"></a>Grunt与Gulp的区别</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/2.png" />
+
+<p>我们来看一下一般前端构建的流程<br><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/3.png" /></p>
+<h3 id="二者处理流程的区别"><a href="#二者处理流程的区别" class="headerlink" title="二者处理流程的区别"></a>二者处理流程的区别</h3><h4 id="Grunt-的方式"><a href="#Grunt-的方式" class="headerlink" title="Grunt 的方式"></a>Grunt 的方式</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/4.png" />
+
+<h4 id="Gulp的方式"><a href="#Gulp的方式" class="headerlink" title="Gulp的方式"></a>Gulp的方式</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/5.png" />
+
+<h3 id="配置的简洁程度"><a href="#配置的简洁程度" class="headerlink" title="配置的简洁程度"></a>配置的简洁程度</h3><h4 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a>Grunt</h4><pre><code>module.exports = function(grunt) &#123;
+
+// Project configuration.
+grunt.initConfig(&#123;
+  pkg: grunt.file.readJSON(&#39;package.json&#39;),
+  uglify: &#123;
+    options: &#123;
+      banner: &#39;/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today(&quot;yyyy-mm-dd&quot;) %&gt; */\n&#39;
+    &#125; ,
+    build: &#123;
+      src: &#39;src/&lt;%= pkg.name %&gt;.js&#39;,
+      dest: &#39;build/&lt;%= pkg.name %&gt;.min.js&#39;
+    &#125;
+  &#125;
+&#125;);
+
+grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;); 
+grunt.registerTask(&#39;default&#39;, [&#39;uglify&#39;]);
+&#125;;</code></pre>
+<h4 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h4><pre><code>gulp.task(&#39;default&#39;,function()&#123;    
+return gulp
+        .src(&quot;**/*.js&quot;)
+        .pipe(jshint())
+        .pipe(concat())
+        .pipe(uglify())
+        .pipe(gulp.dest(&#39;./build/&#39;))        
+&#125;)</code></pre>
+<p>所以从上面的一些代码对比来看，Gulp明显比Grunt要简洁易用很多。</p>
+<h2 id="最后，总结一些-Grunt的一些问题"><a href="#最后，总结一些-Grunt的一些问题" class="headerlink" title="最后，总结一些 Grunt的一些问题"></a>最后，总结一些 Grunt的一些问题</h2><ul>
+<li>配置过于复杂</li>
+<li>插件职责不单一 （就是不SRP）</li>
+<li>临时文件目录多</li>
+<li>性能慢 （因为临时文件多，自然读IO多)</li>
+</ul>
+<p>下一篇我们将开始学习如何使用gulp来构建我们的前端。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-01  <a class="commentCountImg" href="/2016/01/01/agile-2016-1-1-why-fully-follow-customer-is-wrong/#comment-container"><span class="display-none-class">/2016/01/01/agile-2016-1-1-why-fully-follow-customer-is-wrong/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="7bf6b22d799ab65cdac56c28455ad013">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>12 m  <i class="fas fa-pencil-alt"> </i>1.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/01/agile-2016-1-1-why-fully-follow-customer-is-wrong/">敏捷实践系列(七)：为什么你都听客户的，客户却不满意</a></h1><div class="content"><h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p> 这样的场景你是不是很熟悉？客户让你做一个软件，你需要他给你写出需求，当它给你写出需求后，在你认为时间非常紧的情况下，你辛辛苦苦，加班加点，费劲九牛二虎之力，最后赶在最后时刻给客户提交了，你满怀希望等待客户给你的表扬，你万分坚信领导对你的辛苦会给予高度认可和鼓励，你觉得很快就要带一朵“小红花”时，最后你得到的是绵绵无绝期的等待，甚至是客户的不满意，这是为什么呢？这种情况在我的团队里也会出现，有时候我让改一个东西，经常得到的回复就是:”客户就是这么要求的，而且描述很清晰，不能改！”, 最后如果不改的结果就是客户不满意。</p>
+<p>为什么我们听客户的，客户却不满意？</p>
+<h2 id="客户如果说要一个-“杯子”，-我们是怎么做的？"><a href="#客户如果说要一个-“杯子”，-我们是怎么做的？" class="headerlink" title="客户如果说要一个 “杯子”， 我们是怎么做的？"></a>客户如果说要一个 “杯子”， 我们是怎么做的？</h2><p>我们的很多程序员一般是这么工作的，客户说我需要一个 “杯子”，然后程序员就在网上或者生活中搜索杯子，于是程序员就得到了很多杯子，现在各种各样的茶杯，各种各样的酒杯等等，这时候程序员就按自己的喜好选中了一个杯子，聪明一点的程序员可能会衡量一下制造不同杯子的时间成本，选定以后就开始进行模仿，最后你没日没夜，加班加点终于把杯子做出来了，客户会说：怎么会做一个这样的杯子要这么久时间？ 因为市场上已经有人做出来过，所以客户就会觉得照抄应该很快，其次客户会觉得这个杯子不是他想要的，如果是抄一个别人一样的杯子，那为什么不直接买一个呢？</p>
+<h2 id="客户如果说要一个”杯子”，-他要的不是一个”杯子”"><a href="#客户如果说要一个”杯子”，-他要的不是一个”杯子”" class="headerlink" title="客户如果说要一个”杯子”， 他要的不是一个”杯子”"></a>客户如果说要一个”杯子”， 他要的不是一个”杯子”</h2><p>实际上，客户说要一个“杯子”， 他要的不是一个杯子，他要的不是用来装水的，这个就像我们对一个女孩说：“我想和你一起看明早的太阳”，我们都知道他要的不是白天而是夜晚，不是吗？</p>
+<p>所以，当客户说要一个“杯子”时，他要的不是一个“杯子”，因为“杯子”只是一个名词，显然客户要的不是一个名词，而是一个”动词”, 所以我们要想到的是这个杯子用来干什么？我们脑子里要想是不是几个老人在喝茶？一对情侣在喝咖啡？一个婴儿要用来喝奶？还是单身狗要用这个“杯子”？ </p>
+<p>可见，当客户要一个“杯子”时，他要的是一种场景，一个动态的场景，一个有人使用的场景，这个场景就是用户体验，你想想老人喝茶的杯子和单身狗要用的杯子能一样吗？</p>
+<h2 id="要自信的对客户说-“NO”"><a href="#要自信的对客户说-“NO”" class="headerlink" title="要自信的对客户说 “NO”"></a>要自信的对客户说 “NO”</h2><p>这个还是那句话，就是“为什么你都听客户的, 客户却不满意？”  我举个简单的例子，你生病了，你到医院去看病，你告诉医生怎么给你治疗，有的人甚至是在网上查了查资料，或者曾经有别的医生给这个病开个药方，然后你给医生说你要吃什么药，还有的人拒绝血常规检查，最后他的病要么没好，要么拖的时间很长，最后你还对医生非常不满意。你想想你的客户给你提需求的时候，是不是有的时候就和这个病人一样？ </p>
+<p>为什么医生会对你说 “NO” ，甚至不管你了呢？ 因为医生比你更知道怎么治疗，如果按你说的肯定是不行，那么回到程序开发，软件设计上，做一个程序员或者高级软件开发人员，为什么不能给客户说 “NO” 呢？因为我们比客户更知道怎么开发，我们比客户对软件更专业不是吗？</p>
+<h2 id="协助客户改进需求"><a href="#协助客户改进需求" class="headerlink" title="协助客户改进需求"></a>协助客户改进需求</h2><p>当然，我们不能简单粗暴的对客户说 “NO”, 由于我们对软件更了解或者说更专业，我们就可以给客户一些更好的方案，由于客户对技术的不了解，经常会提出一些既耗时又非常“愚蠢”的方案，那我们需要利用我们的专业知识来告诉客户什么是更好更省时的方案，有的时候需求稍加改动会让客户体验更好，而且开发更快，我相信这样的场景在不同的项目里有很多。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>所以，当我们拿到客户需求的时候，我们不是卷起袖子就开始编码，而是第一步想想客户要的到底是什么？他说的真的是他想要的吗？ 他想要的说了吗？我们需要知道客户的项目的远景是什么？我们需要站在整体的角度，站在更 High level的角度来看需求。</p>
+<blockquote>
+<p>举个例子，我曾经做过的一个项目，客户说要做房间预订，还要分淡旺季，还要有Offer, 还有内部员工不同价，团队当时想的很复杂，想到了想艺龙那样的，但是当我去了客户那边了解后，他们只有5个公寓而已，而且只是给集团员工别的地方来的提供住宿从而计入别的分公司成本而已，我觉得hard code出来一个版本都够用好几年，而且这样的话，原来的估计至少得半年以上吧，当你清楚客户最终需要啥的时候最多两个礼拜就弄完了。</p>
+</blockquote>
+<p>总之，听客户没错，但是无脑的听客户的，完全听客户的就有问题了，就像如果你完全听你媳妇的，然后她错了后，她会说：“我让你那样做，你就那样做吗？你自己脑子是干什么的!”</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-01  <a class="commentCountImg" href="/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/#comment-container"><span class="display-none-class">/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="5c664b7fc24b2cf1f035057aa11c4db7">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>11 m  <i class="fas fa-pencil-alt"> </i>1.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a></h1><div class="content"><p>我们都知道使用IDE编写后端程序时，我们都需要Build, 对.NET来说，我们一般需要使用Visual Studio来确保我们的项目编译通过，而且项目编译通过是对所有程序员的基本要求。</p>
+<p>但是，由于很多后端程序员对前端的很多东西不了解，导致在做WEB项目时出现了一些问题。</p>
+<h2 id="JavaScript和CSS的版本问题"><a href="#JavaScript和CSS的版本问题" class="headerlink" title="JavaScript和CSS的版本问题"></a>JavaScript和CSS的版本问题</h2><p>我们都知道 JavaScript和CSS属于静态文件，如果地址不变，浏览器会缓存这些文件，那就意味着当我们需要改JavaScript或者CSS文件的时候，即使我们后端改了，那么客户端也是看不到，这个在“JS一统天下”的时代是不可接受的，因为现在几乎所有的WEB 程序都严重依赖JavaScript，而所有的网站都是需要使用CSS的。在我经历过的项目即使是很多年经验的程序员都出现过JavaScript和CSS文件的版本问题，比如客户让修复一个Bug，这个Bug是JavaScript引起的，程序员修复了，或者是客户说改一个背景颜色，<strong>可是当我们给客户部署后或者代码交给客户客户部署时，客户说Bug依然存在</strong>，这个时候程序员经常说的话就会出现了 <strong>“我本地是好的呀”</strong>，最后再找来别人帮忙后，发现原来是没有清除浏览器的缓存，于是有的程序员就赶紧给客户说：“你需要Ctrl+F5 清除浏览器的缓存”。 每当我听到这样的话时就像关上灯留给我一屋子黑，首先，有几个普通用户会使用Ctrl+F5？ 其次，有几个用户愿意去Ctrl+F5?</p>
+<p>那么怎么办？我想很多程序员都知道加一个版本号就可以了，这样浏览器就会认为是新的文件，比如原来是 <a target="_blank" rel="noopener" href="http://www.a.com/app.js">http://www.a.com/app.js</a> 你现在只需要把地址改为<a target="_blank" rel="noopener" href="http://www.a.com/app.js?v=1.0">http://www.a.com/app.js?v=1.0</a> 即可</p>
+<p>但是如果这个动作是手动的，那么10次基本上至少有5次程序员会忘掉，那么这就是为什么我们需要前端构建</p>
+<h2 id="JavaScript和CSS的依赖问题"><a href="#JavaScript和CSS的依赖问题" class="headerlink" title="JavaScript和CSS的依赖问题"></a>JavaScript和CSS的依赖问题</h2><p>我们经常出现的另一个问题，就是JavaScript和CSS的依赖问题，说的通俗点就是JavaScript和CSS的在页面中的顺序问题！</p>
+<p>我们经常发现CSS没起作用，JavaScript的某个变量和方法找不到，有很多情况都是因为引入JavaScript或者CSS的顺序不对，虽然我们可以使用一些RequireJS之类的模块管理，但是依然在很多情况下需要引入不同的文件，尤其是CSS没有一个好的模块化管理的组件。</p>
+<p>那么我们就需要有一个统一的地方来管理JavaScript和CSS的顺序问题，而构建工具可以大大减少此类问题。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事</p>
+<h3 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h3><p>浏览器需要下载多个JS文件，而浏览器是有并发限制，也就是同时并发只能下载几个文件，假如浏览器并发数是5，你有20个JS文件，而每5个需要2S, 那么你光下载JS文件都需要8S，那么网页的性能可想而知，所以我们需要合并多个文件以减少文件的数量。</p>
+<h3 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h3><p>我们知道文件越大，下载越慢，而针对JavaScript和CSS, 里面的空格，换行这些都是为了让我们读代码时更容易阅读，但是对机器来说，这些对它没有影响，所以为了减少文件大小，一般的情况我们都会用工具去掉空格和换行，有时候我们还会用比较短的变量名(记住这个要让工具最后压缩时做，而源代码一定要保证命名可读性) 来减少文件大小。</p>
+<p>而所有的前端构建工具都具有文件合并和压缩的功能。</p>
+<h2 id="效率提升"><a href="#效率提升" class="headerlink" title="效率提升"></a>效率提升</h2><h3 id="Vendor前缀"><a href="#Vendor前缀" class="headerlink" title="Vendor前缀"></a>Vendor前缀</h3><p>在CSS3使用越来越多的时候，我们都知道一些CSS的特性，不同的浏览器CSS有不同的前缀，如果我们手工添加将会很繁琐，而如果使用构建工具，很多构建工具可以自动给我添加CSS的Vendor前缀</p>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>JavaScript的单元测试在使用MVC或者MVVM的框架后，变得越来越容易，而单元测试是质量保证的一个很重要的手段，所以在提交之前，使用构建工具自动跑一遍我们的单元测试是非常重要的</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>我们写的JavaScript很多时候会有一些潜在的bug, 比如忘了添加分号，某个变量没有等等，使用一些JavaScript的代码分析工具，可以很好的帮我们检查一些常见的问题。</p>
+<h3 id="HTML引用JavaScript或者CSS文件"><a href="#HTML引用JavaScript或者CSS文件" class="headerlink" title="HTML引用JavaScript或者CSS文件"></a>HTML引用JavaScript或者CSS文件</h3><p>比如我们需要使用Bower之类来引用前端JavaScript和CSS的第三方库，那么如果版本升级，添加移除等都用手工来修改HTML的话，第一比较耗时，第二比较容易疏漏，尤其是在我们需要切换Debug和production版本时将会有很多额外的工作，那么使用前端构建工具可以很好的解决这些问题。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>以上我只是列出了前端构建最常用的一些功能，我相信还可以发觉很多构建工具可以替代我们手工做的事，后面我将详细讲讲如何使用Gulp这个神器来一一解决我们上面提到的问题。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-12-30  <a class="commentCountImg" href="/2015/12/30/agile-2015-12-30-team-leader-should-not-only-coding/#comment-container"><span class="display-none-class">/2015/12/30/agile-2015-12-30-team-leader-should-not-only-coding/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="64bca19e649174de996e3793a42323ff">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>17 m  <i class="fas fa-pencil-alt"> </i>2.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/12/30/agile-2015-12-30-team-leader-should-not-only-coding/">敏捷实践系列(六)：Team Leader 你不再只是编码, 来炖一锅石头汤吧</a></h1><div class="content"><h2 id="为什么软件项目需要-Team-Leader"><a href="#为什么软件项目需要-Team-Leader" class="headerlink" title="为什么软件项目需要 Team Leader"></a>为什么软件项目需要 Team Leader</h2><p>多年以前，当我接触敏捷时，我接触到一个概念，叫做 “自组织的团队”，当时我看了一些估计从没做过敏捷的一些凭空捏造的很多文章（事实上，这类人现在越来越多），那些文章多见名猜意，提出了自组织的团队就是团队自己组织，不需要Leader, 一开始我也是这么认为，甚至想尽一切办法向这个方向靠拢，而且成功的提交了一些项目，甚至于连我自己都相信这是自组织的结果，但是后来一想，我在团队里的所想所做不正是一个Team Leader 需要做的吗？</p>
+<h3 id="自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到"><a href="#自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到" class="headerlink" title="自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到"></a>自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到</h3><p>就拿一个足球团队来说，就拿 “宇宙队” 巴萨来说，也是需要一个教练，同时也需要组建团队，买卖球员，队伍文化建设，战术打法等等，那么软件项目团队来说，自组织团队同样需要组建，文化建设，代码规范，Team Rule, 团队磨合，质量意识，技术交流，客户需求范围把控，会议组织，冲突解决，开发流程等等。</p>
+<h3 id="自我保护，害怕承担责任是大部分人的天性"><a href="#自我保护，害怕承担责任是大部分人的天性" class="headerlink" title="自我保护，害怕承担责任是大部分人的天性"></a>自我保护，害怕承担责任是大部分人的天性</h3><p>在没有一个好的敏捷文化的公司，大部分的程序员都不愿意做更多的事情，话句话说，更愿意做明确分配的事情，因为做的事情越少，自然问题越少，那么责任就越少，这是一种本能的自我保护，这也是大部分人难以成长的重要原因，所以必须要一个人来承担更多的责任，当然方法可以是把要做的事情分的更细，更明确，最终每个人做的事情更细，更多，更明确，那么每一个人要承担的责任就更多了。</p>
+<p>###被领导惯了</p>
+<p>很多中国的孩子，尤其是很多现在正处于黄金时代的程序员，独立意识确实要差一些，从小被父母装在一个大 “笼子”里，比如去哪里都是大人在前面牵着后面的小孩，老师严格教条的作业却只有一个标准答案，甚至在我看了写错一个字要重写一百遍一样猪一样的惩罚还至今流传着，忘了教育的本质是要把字学会而不是把字写一百遍，等等类似的东西，使我们不敢去思考，习惯被别人领导。</p>
+<p>比如，我爱爬山，和我一起爬山的大部分人去一个没有去过的地方，都喜欢走在我的背后，因为他对未知有恐惧！习惯别人牵着走。</p>
+<p>这个问题，我以前以为对高智商的程序员来说应该很少，后来经过10几年，我发现这和其它行业的人一样多。</p>
+<p>所以，如果没有Leader, 大家不知道怎么干！ 没有Leader组织，大家不知道干什么？</p>
+<h2 id="软件团队Team-Leader的诞生"><a href="#软件团队Team-Leader的诞生" class="headerlink" title="软件团队Team Leader的诞生"></a>软件团队Team Leader的诞生</h2><p>由于上面的原因，我们需要一个Team Leader, 但是由于太多人习惯被领导，害怕承担更多责任，我们就急需要一个Team Leader, 但是一个好的Team Leader是非常难找的，因为一个好的Team Leader要做很多事情才能把一个Team变成好的Team.</p>
+<h3 id="不懂技术的Team-Leader在软件项目里成功的概率很小"><a href="#不懂技术的Team-Leader在软件项目里成功的概率很小" class="headerlink" title="不懂技术的Team Leader在软件项目里成功的概率很小"></a>不懂技术的Team Leader在软件项目里成功的概率很小</h3><p>由于软件项目来说，一个不懂技术的人可以当一个Team Leader, 但是要想当一个<strong>好</strong>的Team Leader是难于登天，因为如果你不懂技术，那问题太多了，你怎么知道大家的评估时间靠谱？你如何向客户展示你的方案，你的优势？由于文人相亲，有技术的人一般会鄙视不懂技术的人瞎指挥，从技术人员喜欢鄙视技术人员这点就不难想象的出来。</p>
+<p>请不要举马云的例子，你啥时间看到马云去直接领导一个技术团队了.</p>
+<h3 id="不懂管理的Team-Leader-也难以成为优秀的Team-Leader"><a href="#不懂管理的Team-Leader-也难以成为优秀的Team-Leader" class="headerlink" title="不懂管理的Team Leader 也难以成为优秀的Team Leader"></a>不懂管理的Team Leader 也难以成为优秀的Team Leader</h3><p>因为Team Leader难找，所以在中国又一个常见的事情不断上演，那就是 “学而优则仕”，同样这个在我的团队里也大量存在，这是没有办法的事情, 因为如果他不懂管理，他还至少是一个程序员，相比不懂技术的管理人来说，如果他管理做不好，那对公司就没有什么价值了。</p>
+<h3 id="学而优则仕"><a href="#学而优则仕" class="headerlink" title="学而优则仕"></a>学而优则仕</h3><p>在软件团队里，我们都知道一个Leader懂技术是多么的重要，那么我们唯一的选择就是沿用了中国多年的传统，那就是“学而优则仕”，比如上小学时，老师不都是让学霸的当班长吗？ 所以很多技术还不错的人，都在团队需要的时候 “被挺身而出”，“被临危受命” 成为了Team Leader，但是这样出来的Team Leader 由于由于没有太多的管理项目的知识，没有团队管理的经验，往往也有不少问题，请继续往下看！</p>
+<h2 id="Team-Leader-你不再只是编码，请炖一锅石头汤"><a href="#Team-Leader-你不再只是编码，请炖一锅石头汤" class="headerlink" title="Team Leader 你不再只是编码，请炖一锅石头汤"></a>Team Leader 你不再只是编码，请炖一锅石头汤</h2><p>由于“学而优则仕”，导致大部分软件团队Team Leader更多的专注于技术，就自然把更多的时间花在编码上，因为编码是立即可以看到的产出，而忽略了一个Team Leader要做的更重要的事情，比如团队文化建设，项目过程，质量保证，进度跟踪等等的事情。很多时候，我们缺少这些依然把项目做完了，但是实在很多加班，甚至是Team Leader卷起袖子一个定俩的情况下干完了，这样大部分情况就是客户感觉还OK, 但是难以达到满意。这还是自我保护的意识，害怕客户看不到自己实际的编码产出，实际上忽略了团队整体的目标的重要性。</p>
+<p>关于技术团队Team Leader应该做什么，我本文就不想讲太多，有时间我会再写几篇关于Team Leader的文章，但是本文我强调的是技术团队的Team Leader不能只是编码，他要意识团队管理的重要性，哪怕这个“重要性”在别人看来什么都没有，不用害怕，因为我们只需要最终的项目成功来证明。</p>
+<p>三言两语难以让大家明白Team Leader应该做什么，我就用一则寓言故事来告诉Team Leader 请炖一锅石头汤。</p>
+<blockquote>
+<p>很多年前，有三个士兵，他们从战场回来既饥饿又疲倦，这时他们来到了一个小村庄。然而由于粮食遭遇欠收和连年的战争，村民们迅速的将它们的一小点粮食藏了起来，并在村子的广场中接待了士兵们，搓着双手，哀叹着他们是多么缺少食物。</p>
+</blockquote>
+<blockquote>
+<p>士兵们平静地与村民们交谈着，第一个士兵对村庄的长老说道：“既然你们的土地收成不好，不能分给我们点吃的，那么我们将会与你们分享我们所有的：如何用石头做一道好汤的秘密。”</p>
+</blockquote>
+<blockquote>
+<p>自然啦，村民们都十分好奇，很快他们就升起了火，架起了城里最大的一口锅，士兵们将三颗光滑的石子丢到了锅里。“这将是一锅好汤”第二个士兵说；“不过如果有一撮盐和一些欧芹那就更棒啦！”一个村民跳了起来，喊道“多幸运啊！我刚刚想起来家里还剩下些呢！”于是她跑回家，带着满满一围裙的欧芹和一根萝卜回来了。随着锅里的水渐渐煮沸，村民们的记忆力也变的越来越好，很快地，大麦，胡萝卜，牛肉还有奶油，统统被投入了这个大罐子里。</p>
+</blockquote>
+<blockquote>
+<p>他们吃啊<del>跳啊</del>唱啊~直到深夜，美妙的宴会和新结交的朋友让每个人都感到焕然一新。当早上三个士兵醒来时，他们发现所有村民正站在他们面前。在他们脚边放着有一包这个村子最好的面包和奶酪。“你们把最好的礼物送给了我们：如何从石头里做汤的秘密”，一位长老说道，“这一点我们永远也不会忘记。”第三个士兵转身冲大伙说到：“这并没有什么秘密，但是有一件事是确定的：只有一起分享，我们才可能举办一次宴会。”说完，他们又踏上了路，慢慢走去了。</p>
+</blockquote>
+<p>上面这个故事，我希望Team Leader能够明白虽然士兵并没有什么，但是他却让大家把好东西都拿出来一起做了一锅好烫，村民就是你的团队成员，一开始都把好东西藏起来不是吗？你需要做的就是拿出你的“秘密配方” 和大家一起炖上一个鲜美的石头汤吧！</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/5/">Previous</a></div><div class="pagination-next"><a href="/page/7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/5/">5</a></li><li><a class="pagination-link is-current" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/10/">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.727Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-11-xian-beauty/">南湖</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.713Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-11-01-love-running-100km/">爱上跑步，突破100公里</a></p><p class="categories"><a href="/categories/%E8%B7%91%E6%AD%A5/">跑步</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.700Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-24-beijing-visa/">你的时间比你想象的多</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.685Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-qinqushe/">青楼聚会</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-05T08:59:56.668Z">2021-01-05</time></p><p class="title"><a href="/2021/01/05/life-2014-10-20-new-blog/">新起航</a></p><p class="categories"><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流]<br /></span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(false){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('undefined','undefined','undefined','undefined',undefined);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>
