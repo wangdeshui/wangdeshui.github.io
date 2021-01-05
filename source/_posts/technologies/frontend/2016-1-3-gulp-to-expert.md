@@ -22,13 +22,15 @@ gulp.task(name [, deps, fn])
 
 ## 示例
 
-    gulp.task('js', ,['jscs', 'jshint'], function(){
-     return gulp
-        .src('./src/**/*.js')
-        .pipe(concat('alljs'))
-        .pipe(uglify())
-        .pipe(gulp.dest('./build/'));                 
-    });
+```javascript
+gulp.task('js', ,['jscs', 'jshint'], function(){
+ return gulp
+    .src('./src/**/*.js')
+    .pipe(concat('alljs'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/'));                 
+});
+```
 
 ## 提示
 
@@ -45,15 +47,17 @@ gulp.src(globs[, options])
 
 ## 示例
 
-    gulp.src(['client/*.js', '!client/b*.js', 'client/c.js'])   # !是排除某些文件
+```javascript
+gulp.src(['client/*.js', '!client/b*.js', 'client/c.js'])   # !是排除某些文件
 
-    gulp.task('js',['jscs', 'jshint'],function(){
-     return gulp
-        .src('./src/**/*.js', {base:'./src/'})        
-        .pipe(uglify())
-        .pipe(gulp.dest('./build/'));
-                 
-    });
+gulp.task('js',['jscs', 'jshint'],function(){
+ return gulp
+    .src('./src/**/*.js', {base:'./src/'})        
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/'));
+             
+});
+```
 
 options.base 是指多少路径被保留，比如上面的 ./src/users/list.js 会被输出到 ./build/users/list.js
 
@@ -61,7 +65,9 @@ options.base 是指多少路径被保留，比如上面的 ./src/users/list.js �
 
 如果我们需要文件保持顺序，那么出现在前面的文件就写在数组的前面
 
-      gulp.src(['client/baby.js', 'client/b*.js', 'client/c.js'])  
+```javascript
+  gulp.src(['client/baby.js', 'client/b*.js', 'client/c.js'])  
+```
 
 上面baby.js就出现在最上面。
 
@@ -78,15 +84,17 @@ gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb]) 就是监视�
 
 ## 示例
 
-    gulp.task('watch-js', function(){
-       gulp.watch('./src/**/*.js',['jshint','jscs']); 
-    });
+```javascript
+gulp.task('watch-js', function(){
+   gulp.watch('./src/**/*.js',['jshint','jscs']); 
+});
 
-    gulp.task('watch-less', function(){
-     gulp.watch('./src/**/*.less',function(event){
-       console.log('less event'+event.type+' '+event.path)
-     }); 
-    });
+gulp.task('watch-less', function(){
+ gulp.watch('./src/**/*.less',function(event){
+   console.log('less event'+event.type+' '+event.path)
+ }); 
+});
+```
 
 # 最后
 

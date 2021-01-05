@@ -43,17 +43,21 @@ tags: [整洁代码系列]
 
 我一直觉得方法里返回 null 是一个比较令人迷惑的一个事情，比如下面代码
 
-    public string GetContent(int id)
-    
+```c#
+public string GetContent(int id)
+```
+
 这个方法返回一个 null 是什么意思呢？ 是数据库里没有值，还是 string.empty? 如果是string.empty我们是返回null还是" "? 那么如果是 null 我们是不是应该抛出异常？我们是不是可以定义一个类型?
 
 
-    public EmptyOrValue<string> GetContent(int id)
-    
+```c#
+public EmptyOrValue<string> GetContent(int id)
+```
+
 ## Out参数
 
 很多情况我们都不应该使用out参数，但有些场景却比较适合，比如Int.TryParse类似的，那么我们在读一些值或者转换的时候，也可以使用类似的方法来是调用发更容易使用。    
- 
+
 # CQS(Command Query Segregation)
 
 命令与查询分离，这个不是CQRS, 这个就是我们在定义一个类的方法时，如何定义方法。
@@ -64,29 +68,33 @@ tags: [整洁代码系列]
 
 我们看一下下面的代码有什么问题
 
-    public class FileStore
-    {
-        public bool Save(string text){}
-        
-        public void Read (string path) {}    
-    }    
+```c#
+public class FileStore
+{
+    public bool Save(string text){}
     
+    public void Read (string path) {}    
+}    
+```
+
 我经常看到很多代码比如保存数据到数据库，操作成功与否返回一个 bool, 这个就是有问题，如果返回 bool ,那么 false 就是失败？ 如果这样，我们的调用层就会嵌套很多 if 判断，同时隐藏了错误的异常细节。 正确的做法应该是运用命令与查询的模式，命令(Save) 永远返回void, Query永远都需要返回一个值/对象。
 
 下面是改进的版本。
 
-    public class FileStore
-    {
-       public void Save(string text)
-       {
-           if(!file.exists(...)) throw new FileNotExistException();
-       }   
-       
-       public string Read(string path)
-       {
-         ... read content from file    
-       }        
-    }    
+```c#
+public class FileStore
+{
+   public void Save(string text)
+   {
+       if(!file.exists(...)) throw new FileNotExistException();
+   }   
+   
+   public string Read(string path)
+   {
+     ... read content from file    
+   }        
+}    
+```
 
 # 总结
 

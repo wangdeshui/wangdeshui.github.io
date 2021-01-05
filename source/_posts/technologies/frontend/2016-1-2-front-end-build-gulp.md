@@ -37,36 +37,40 @@ tags: [FrontEnd]
 
 #### Grunt
 
-    module.exports = function(grunt) {
+```javascript
+module.exports = function(grunt) {
 
-    // Project configuration.
-    grunt.initConfig({
-      pkg: grunt.file.readJSON('package.json'),
-      uglify: {
-        options: {
-          banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-        } ,
-        build: {
-          src: 'src/<%= pkg.name %>.js',
-          dest: 'build/<%= pkg.name %>.min.js'
-        }
-      }
-    });
+// Project configuration.
+grunt.initConfig({
+  pkg: grunt.file.readJSON('package.json'),
+  uglify: {
+    options: {
+      banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+    } ,
+    build: {
+      src: 'src/<%= pkg.name %>.js',
+      dest: 'build/<%= pkg.name %>.min.js'
+    }
+  }
+});
  
-    grunt.loadNpmTasks('grunt-contrib-uglify'); 
-    grunt.registerTask('default', ['uglify']);
-    };
+grunt.loadNpmTasks('grunt-contrib-uglify'); 
+grunt.registerTask('default', ['uglify']);
+};
+```
 
 #### Gulp
 
-    gulp.task('default',function(){    
-    return gulp
-            .src("**/*.js")
-            .pipe(jshint())
-            .pipe(concat())
-            .pipe(uglify())
-            .pipe(gulp.dest('./build/'))        
-    })
+```javascript
+gulp.task('default',function(){    
+return gulp
+        .src("**/*.js")
+        .pipe(jshint())
+        .pipe(concat())
+        .pipe(uglify())
+        .pipe(gulp.dest('./build/'))        
+})
+```
 
 所以从上面的一些代码对比来看，Gulp明显比Grunt要简洁易用很多。
 

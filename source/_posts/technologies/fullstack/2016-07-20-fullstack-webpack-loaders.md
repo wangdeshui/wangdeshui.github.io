@@ -21,45 +21,55 @@ ES6提供了很多优秀的新特性，在我的[ES6+现在就用系列](http://
 
 1. 我们先修改hello.js
 
-        let hello=(name)=>{
-            return "Hello "+ name +", Welcome to Webpack, I am webpack dev server";
-        };
+    ```javascript
+    let hello=(name)=>{
+        return "Hello "+ name +", Welcome to Webpack, I am webpack dev server";
+};
+    
+    module.exports=hello;
+    ```
 
-        module.exports=hello;
 
 
-    由于Chrome已经支持了很多ES6的特性，所以我们打开Safari浏览器。
+由于Chrome已经支持了很多ES6的特性，所以我们打开Safari浏览器。
 
-    我们发现浏览器的console里输出
+我们发现浏览器的console里输出
 
-        SyntaxError: Unexpected identifier 'hello'
+```bash
+SyntaxError: Unexpected identifier 'hello'
+```
 
-    说明，我们浏览器还不能支持let, 那么我们需要使用babel这个loader来进行转换，我们先把hello.js
+说明，我们浏览器还不能支持let, 那么我们需要使用babel这个loader来进行转换，我们先把hello.js
+
 
 2. 安装babel loader
 
-        npm install babel-loader babel-core babel-preset-es2015 --save-dev
+    ```bash
+    npm install babel-loader babel-core babel-preset-es2015 --save-dev
+    ```
 
 3. 配置webpack使用babel-loader
 
-        module.exports = {
-            entry: './main.js',
-            output: {
-                filename: 'bundle.js'
-            },
-            module: {
-                loaders: [
-                    {
-                        test: /\.js$/,
-                        exclude: /node_modules/,
-                        loader: 'babel',
-                        query: {
-                            presets: ['es2015']
-                        }
+    ```javascript
+    module.exports = {
+        entry: './main.js',
+        output: {
+            filename: 'bundle.js'
+        },
+        module: {
+            loaders: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'babel',
+                    query: {
+                        presets: ['es2015']
                     }
-                ],
-            }
-        };    
+                }
+            ],
+        }
+    };    
+    ```
 
     loaders是一个数组，是webpack使用的loader的集合，上面的意思就是 使用babel-loader处理所有以.js后缀的文件，但是忽略node_modules下的。 query参数是指babel使用的参数。
 
@@ -71,54 +81,62 @@ webpack也可以很好的管理我们的css依赖。
 
 我们安装
 
-    npm install style-loader css-loader
+```bash
+npm install style-loader css-loader
+```
 
 css-loader是加载我们的css,style-loader把读取到的css内容全部插入到页面中。
 
 我们创建一个main.css
 
-    h2 {
-        background: green;
-        color: yellow;
-    } 
+```css
+h2 {
+    background: green;
+    color: yellow;
+} 
+```
 
 在之前的webpack.config.js的loaders数组里添加如下
 
-    {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: 'style!css'
-    } 
+```javascript
+{
+    test: /\.css$/,
+    exclude: /node_modules/,
+    loader: 'style!css'
+} 
+```
 
 webpack对一个文件可以使用多个loader,顺序是从右向左，中间用!分开，这个类似于gulp里的pipe, 不过语法也太wired了。
 
 完整的配置如下:
 
-    module.exports={
-        entry: './main.js',
-        output: {
-            filename: 'bundle.js'
-        },
-        module: {
-            loaders: [
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'babel',
-                    query: {
-                        presets: [
-                            'es2015'
-                        ]
-                    }
-                }，
-                {
-                    test: /\.css$/,
-                    exclude: /node_modules/,
-                    loader: 'style!css'
+```javascript
+module.exports={
+    entry: './main.js',
+    output: {
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                    presets: [
+                        'es2015'
+                    ]
                 }
-            ],
-        }
-    }; 
+            }，
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: 'style!css'
+            }
+        ],
+    }
+}; 
+```
 
 
 重启webpack-dev-server, 浏览器显示如下
@@ -129,92 +147,106 @@ webpack对一个文件可以使用多个loader,顺序是从右向左，中间用
 
 现在很少有人使用css, 都会使用SASS, LESS之类的，那么我们把main.css改为main.less, 修改内容如下
 
-    @nice-blue: #5B83AD;
-    @light-blue: @nice-blue + #111;
+```css
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
 
-    h2 {
-        background: @light-blue;
-        color: yellow;
-    }
+h2 {
+    background: @light-blue;
+    color: yellow;
+}
+```
 
 安装对应的loaders
 
-    npm install less less-loader --save-dev
+```bash
+npm install less less-loader --save-dev
+```
 
 修改main.js中 require('./main.css')为require('./main.less')
 
 
-    require('./main.less');
+```javascript
+require('./main.less');
 
-    var hello=require("./hello.js");
+var hello=require("./hello.js");
 
-    document.querySelector('h2').textContent = hello("Jack");
+document.querySelector('h2').textContent = hello("Jack");
+```
 
 修改webpack.config.js
 
-    module.exports={
-        entry: './main.js',
-        output: {
-            filename: 'bundle.js'
-        },
-        module: {
-            loaders: [
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'babel',
-                    query: {
-                        presets: [
-                            'es2015'
-                        ]
-                    }
-                },
-                {
-                    test: /\.less$/,
-                    exclude: /node_modules/,
-                    loader: 'style!css!less'
+```javascript
+module.exports={
+    entry: './main.js',
+    output: {
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                    presets: [
+                        'es2015'
+                    ]
                 }
-            ],
-        }
-    }; 
+            },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                loader: 'style!css!less'
+            }
+        ],
+    }
+}; 
+```
 
 重启webpack-dev-server, 我们看到h2背景色已经变为#6c94be 
 
 ## url-loader
 如果我们css里使用了url,或者js里require了一个image,那么我们就需要安装url-loader
 
-    npm install url-loader --save-dev 
+```bash
+npm install url-loader --save-dev 
+```
 
 修改main.less
 
-    @nice-blue: #5B83AD;
-    @light-blue: @nice-blue + #111;
+```javascript
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
 
-    h2 {
-        background: @light-blue;
-        color: yellow;
-    }
+h2 {
+    background: @light-blue;
+    color: yellow;
+}
 
-    #aboutMe {
-        width: 200px;
-        height: 200px;
-        background: url('./images/me.jpeg');
-    } 
+#aboutMe {
+    width: 200px;
+    height: 200px;
+    background: url('./images/me.jpeg');
+} 
+```
 
 修改index.html
 
-    <!doctype html>
-    <html>
-        <head>
-            <meta charset="utf-8">
-            <title>Webpack demo</title>
-        </head>
-        <body>
-            <div id="aboutMe"></div>
-            <h2></h2>
-            <script src="bundle.js"></script>
-        </body>
-    </html>
+```html
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Webpack demo</title>
+    </head>
+    <body>
+        <div id="aboutMe"></div>
+        <h2></h2>
+        <script src="bundle.js"></script>
+    </body>
+</html>
+```
 
 
 <img src="http://7xpzem.com1.z0.glb.clouddn.com/webpack-url-loader.png" class="img-responsive" />    

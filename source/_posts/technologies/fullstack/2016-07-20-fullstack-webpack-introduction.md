@@ -31,53 +31,65 @@ tags: [技术]
 
 **index.html**
 
-    <!doctype html>
-    <html>
-        <head>
-            <meta charset="utf-8">
-            <title>Webpack demo</title>
-        </head>
-        <body>
-            <h2></h2>
-            <script src="bundle.js"></script>
-        </body>
-    </html>
+```javascript
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Webpack demo</title>
+    </head>
+    <body>
+        <h2></h2>
+        <script src="bundle.js"></script>
+    </body>
+</html>
+```
 
 
 **hello.js**
 
 
-    function SayHello(name) {
-        return "Hello "+ name +", Welcome to Webpack";
-    }
+```javascript
+function SayHello(name) {
+    return "Hello "+ name +", Welcome to Webpack";
+}
 
-    module.exports=SayHello;
+module.exports=SayHello;
+```
 
 **main.js**
 
 
-    var hello=require("./hello.js");
-    document.querySelector('h2').textContent = hello("Jack");
+```javascript
+var hello=require("./hello.js");
+document.querySelector('h2').textContent = hello("Jack");
+```
 
 
 然后，在终端执行 
 
-    webpack main.js bundle.js
+```bash
+webpack main.js bundle.js
+```
 
 下面是终端的输出:
 
-    jacks-MacBook-Air:webpack-demo jack$ webpack main.js bundle.js
-    Hash: 43eaa05d6fc827ebad1f
-    Version: webpack 1.13.1
-    Time: 104ms
-        Asset     Size  Chunks             Chunk Names
-    bundle.js  1.66 kB       0  [emitted]  main
-    [0] ./main.js 91 bytes {0} [built]
-    [1] ./hello.js 104 bytes {0} [built]
+```bash
+jacks-MacBook-Air:webpack-demo jack$ webpack main.js bundle.js
+Hash: 43eaa05d6fc827ebad1f
+Version: webpack 1.13.1
+Time: 104ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  1.66 kB       0  [emitted]  main
+[0] ./main.js 91 bytes {0} [built]
+[1] ./hello.js 104 bytes {0} [built]
+```
 
 然后，打开index.html,我们可以看到页面输出:
 
-    Hello Jack, Welcome to Webpack
+```html
+Hello Jack, Welcome to Webpack
+```
 
 ## 配置
 
@@ -85,16 +97,20 @@ tags: [技术]
 
 webpack默认的配置文件是webpack.config.js，所以我们就在根目录下创建一个webpack.config.js, 内容如下：
 
-    module.exports = {
-        entry: './main.js',
-        output: {
-            filename: 'bundle.js'
-        }
-    };
+```javascript
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename: 'bundle.js'
+    }
+};
+```
 
 然后我们在控制台输入
 
-    webpack
+```bash
+webpack
+```
 
 打开页面我们看到之前一样的结果。
 
@@ -107,17 +123,21 @@ webpack默认的配置文件是webpack.config.js，所以我们就在根目录�
 
 然后，我们输入
 
-    webpack-dev-server
+```bash
+webpack-dev-server
+```
 
 我们打开浏览器，输入 http://localhost:8080/webpack-dev-server/index.html
 
 随后，我们修改hello.js为如下
 
-    function SayHello(name) {
-        return "Hello "+ name +", Welcome to Webpack, I am webpack dev server";
-    }
+```javascript
+function SayHello(name) {
+    return "Hello "+ name +", Welcome to Webpack, I am webpack dev server";
+}
 
-    module.exports=SayHello;    
- 
+module.exports=SayHello;    
+```
+
 我们看到页面自动刷新，内容也跟着变了
 <img src="http://7xpzem.com1.z0.glb.clouddn.com/webpack-dev-server.png" class="img-responsive"/>

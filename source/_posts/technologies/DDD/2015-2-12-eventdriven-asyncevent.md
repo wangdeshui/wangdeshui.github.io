@@ -17,19 +17,21 @@ tags: [DDD]
 
 ## 发出事件
 
-       
-       public void Head()
-        {
-            var NewsPaper = new NewsPaper("南都娱乐");
-            NewsPaper.WriteToHeader("汪峰");
 
-            RaiseEvent(new HeadedEvent {Name = "汪峰"});
-        }
+```c#
+   public void Head()
+    {
+        var NewsPaper = new NewsPaper("南都娱乐");
+        NewsPaper.WriteToHeader("汪峰");
 
-		private void RaiseEvent(HeadedEvent headedEvent)
-        {
-            EventBus.Publish<HeadedEvent>(new HeadedEvent { Name = "汪峰" });
-        }
+        RaiseEvent(new HeadedEvent {Name = "汪峰"});
+    }
+
+	private void RaiseEvent(HeadedEvent headedEvent)
+    {
+        EventBus.Publish<HeadedEvent>(new HeadedEvent { Name = "汪峰" });
+    }
+```
 
 所以我们只需在代码里RaiseEvent就可以了。
 
@@ -38,104 +40,116 @@ tags: [DDD]
 
 其实很简单，因为我们要实现的是同步的事件，我们只需要找到所有处理这个事件的实现类，然后调用所有就可以了。 
 
-    public interface IEventHandler<TEvent> where TEvent : Event
+```c#
+public interface IEventHandler<TEvent> where TEvent : Event
+{
+    void Handle(TEvent e);
+}
+
+public class HeadedEvent:Event
+{
+    public string Name { get; set; }
+}
+
+public class GuoJiZhangMotherEventHandler : IEventHandler<HeadedEvent>
+{
+    public void Handle(HeadedEvent e)
     {
-        void Handle(TEvent e);
+         Console.WriteLine(e.Name+", Are you kidding me?");
     }
+}
 
-    public class HeadedEvent:Event
+public class PiMingEventHandler:IEventHandler<HeadedEvent>
+{
+    public void Handle(HeadedEvent e)
     {
-        public string Name { get; set; }
+        Console.WriteLine(e.Name+", Guo Ji Zhang is your last wife?");
     }
+}
+```
 
-    public class GuoJiZhangMotherEventHandler : IEventHandler<HeadedEvent>
-	{
-	    public void Handle(HeadedEvent e)
-	    {
-	         Console.WriteLine(e.Name+", Are you kidding me?");
-	    }
-	}
 
-    public class PiMingEventHandler:IEventHandler<HeadedEvent>
-	{
-	    public void Handle(HeadedEvent e)
-	    {
-	        Console.WriteLine(e.Name+", Guo Ji Zhang is your last wife?");
-	    }
-	}
-   
 
-   
 我们可以看到正真的事件协调者是EventBus, 之前的代码如下是同步的。
 
 
-	public class EventBus
+```c#
+public class EventBus
+{
+    public static void Publish<T>(T concreteEvent) where T: Event
     {
-        public static void Publish<T>(T concreteEvent) where T: Event
+        var handlers = _container.ResolveAll<IEventHandler<T>>();
+        foreach (var handle in handlers)
         {
-            var handlers = _container.ResolveAll<IEventHandler<T>>();
-            foreach (var handle in handlers)
-            {
-                handle.Handle(concreteEvent);
-            }
+            handle.Handle(concreteEvent);
         }
     }
+}
+```
 
 为了提高性能，我们可以先来第一步改进
     
 
-     public void Publish<T>(T @event) where T : Event
-     {
-        var handlers = _eventHandlerFactory.GetHandlers<T>();
+```c#
+ public void Publish<T>(T @event) where T : Event
+ {
+    var handlers = _eventHandlerFactory.GetHandlers<T>();
 
-        handlers.AsParallel().ForAll((h)=> h.Handle(@event));
-       
-     }
+    handlers.AsParallel().ForAll((h)=> h.Handle(@event));
+   
+ }
+```
 
 我们可以看到，现在并行处理可以大大加快速度，但是有两个问题，第一个问题就是没有处理异常，所以让我们加上异常。
 
-     public void Publish<T>(T @event) where T : Event
-        {
-            var handlers = _eventHandlerFactory.GetHandlers<T>();
+```c#
+ public void Publish<T>(T @event) where T : Event
+    {
+        var handlers = _eventHandlerFactory.GetHandlers<T>();
 
-            handlers.AsParallel().ForAll((h)=> HandleEvent<T>(h,@event));
-           
+        handlers.AsParallel().ForAll((h)=> HandleEvent<T>(h,@event));
+       
+    }
+
+    private void HandleEvent<T>(IEventHandler<T> handle, T @event) where T : Event
+    {
+        try
+        {
+            handle.Handle(@event);
+
         }
-
-        private void HandleEvent<T>(IEventHandler<T> handle, T @event) where T : Event
+        catch (Exception e)
         {
-            try
-            {
-                handle.Handle(@event);
-
-            }
-            catch (Exception e)
-            {
-                
-               // Log the exception, as the caller don't care this
-            }
+            
+           // Log the exception, as the caller don't care this
         }
     }
+}
+```
 
 第二个问题，就是我们虽然用了并行加快了速度，但是还没有正真实现异步，整个程序还是等所有Handler处理完才返回。
 
-       public void Publish<T>(T @event) where T : Event
-        {
-            var handlers = _eventHandlerFactory.GetHandlers<T>();
+```c#
+   public void Publish<T>(T @event) where T : Event
+    {
+        var handlers = _eventHandlerFactory.GetHandlers<T>();
 
-            handlers.Select(h => Task.Factory.StartNew(() => HandleEvent<T>(h, @event)));
-           
-        }
+        handlers.Select(h => Task.Factory.StartNew(() => HandleEvent<T>(h, @event)));
+       
+    }
+```
 
 这段代码执行完，尽然发现Handler没有执行，好吧，原因是IQueryable的延迟执行，所以我们需要调用一下ToList
 
-    public void Publish<T>(T @event) where T : Event
-        {
-            var handlers = _eventHandlerFactory.GetHandlers<T>();
+```c#
+public void Publish<T>(T @event) where T : Event
+    {
+        var handlers = _eventHandlerFactory.GetHandlers<T>();
 
-            handlers.Select(h => Task.Factory.StartNew(() => HandleEvent<T>(h, @event))).ToArray();
-           
-        }
+        handlers.Select(h => Task.Factory.StartNew(() => HandleEvent<T>(h, @event))).ToArray();
+       
+    }
+```
 
 好了，我们就这样轻易的实现了一个AsyncEventBus, 是不是感谢.Net的强大?
 

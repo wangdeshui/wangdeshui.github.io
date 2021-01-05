@@ -28,96 +28,97 @@ tags: [DDD]
 
 比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. 
 
-    {% highlight c# linenos %}
-    
-    public class Employee : Entity
-    {
-        public Name Name { get; set; }
-       
-        public EmployeeStatus EmployeeStatus { get; set; }
+```c#
+public class Employee : Entity
+{
+    public Name Name { get; set; }
+   
+    public EmployeeStatus EmployeeStatus { get; set; }
 
-    }
-    
-    {% endhighlight %}
-	
+}c
+```
+
 如果是贫血的Employee模型，我们往往代码如下
 
 
-	{% highlight c# %}
-	
-	public class EmployeeService : IEmployeeService
+```c#
+public class EmployeeService : IEmployeeService
+{
+    private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+    private readonly IEmployeeRepository _employeeRepository;
+
+    public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
     {
-        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
-        private readonly IEmployeeRepository _employeeRepository;
+        _unitOfWorkFactory = unitOfWorkFactory;
+        _employeeRepository = employeeRepository;
+    }
 
-        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+    public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+    {
+        using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
         {
-            _unitOfWorkFactory = unitOfWorkFactory;
-            _employeeRepository = employeeRepository;
-        }
+            var employee = _employeeRepository.GetById(employeeId);
+            employee.EmployeeStatus = status;
 
-        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
-        {
-            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
-            {
-                var employee = _employeeRepository.GetById(employeeId);
-                employee.EmployeeStatus = status;
-
-                unitOfWork.Commit();
-            }
+            unitOfWork.Commit();
         }
     }
-    
-	{% endhighlight %}
+}
+
+```
 
 
 但是上面的代码的问题就是领域没有自治，本来修改我的状态是我的事，你能不能修改，外面随意修改我的状态是很危险的，比如Pending状态只能改为Active状态。 所以如果不是贫血的模型，我们代码就会这样，让领域自己来管理
 
-	
-	{% highlight C# %}
-	public class Employee : Entity
-    {
+
+```c#
+
+public class Employee : Entity
+{
    
-        public UserId UserId { get; private set; }
-        public EmployeeStatus EmployeeStatus { get; private set; }
+    public UserId UserId { get; private set; }
+    public EmployeeStatus EmployeeStatus { get; private set; }
+```
 
 
-        public void ChangeStatus(EmployeeStatus status)
-        {
-            if (this.EmployeeStatus == EmployeeStatus.Pending && status != EmployeeStatus.Active)
-            {
-                throw new Exception("Only can Active when status is pending");
-            }
-
-            this.EmployeeStatus = status;
-        }
-
-    }
-
-	public class EmployeeService : IEmployeeService
+```c#
+    public void ChangeStatus(EmployeeStatus status)
     {
-        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
-        private readonly IEmployeeRepository _employeeRepository;
-
-        public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+        if (this.EmployeeStatus == EmployeeStatus.Pending && status != EmployeeStatus.Active)
         {
-            _unitOfWorkFactory = unitOfWorkFactory;
-            _employeeRepository = employeeRepository;
+            throw new Exception("Only can Active when status is pending");
         }
 
-        public void ChangeStatus(EmployeeStatus status, Guid employeeId)
-        {
-            using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
-            {
-                var employee = _employeeRepository.GetById(employeeId);
-                employee.ChangeStatus(status);
+        this.EmployeeStatus = status;
+    }
 
-                unitOfWork.Commit();
-            }
+}
+
+public class EmployeeService : IEmployeeService
+{
+    private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+    private readonly IEmployeeRepository _employeeRepository;
+
+    public EmployeeService(IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository)
+    {
+        _unitOfWorkFactory = unitOfWorkFactory;
+        _employeeRepository = employeeRepository;
+    }
+
+    public void ChangeStatus(EmployeeStatus status, Guid employeeId)
+    {
+        using (var unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())
+        {
+            var employee = _employeeRepository.GetById(employeeId);
+            employee.ChangeStatus(status);
+
+            unitOfWork.Commit();
         }
     }
-    {% endhighlight %}
-	
+}
+
+```
+
 
 因此可以看出，我们把业务代码尽量写在领域里让领域自治。 
 

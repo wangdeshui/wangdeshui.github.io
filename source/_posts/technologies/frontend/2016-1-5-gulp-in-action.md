@@ -19,7 +19,9 @@ tags: [FrontEnd]
 
 我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里
 
-    npm install gulp -g
+```bash
+npm install gulp -g
+```
 
 # 创建项目
 
@@ -50,31 +52,37 @@ tags: [FrontEnd]
 
 比如我们想检查我们的js文件，那么我们需要安装 gulp-jshint插件
 
-      npm install gulp-jshint --save-dev
+```bash
+  npm install gulp-jshint --save-dev
+```
 
 然后添加一个test.js文件到src/scripts下，内容如下
       
-    var hi="hello"
+```javascript
+var hi="hello"
 
-    function sayHello(){
-        console.log("Jack "+hi)
-    }
+function sayHello(){
+    console.log("Jack "+hi)
+}
+```
 
 ## jshint 代码检查
 然后我们修改gulpfile.js内容如下
 
-    // include gulp
-    var gulp = require('gulp'); 
+```javascript
+// include gulp
+var gulp = require('gulp'); 
 
-    // include plug-ins
-    var jshint = require('gulp-jshint');
+// include plug-ins
+var jshint = require('gulp-jshint');
 
-    // JS hint task
-    gulp.task('jshint', function() {
-        gulp.src('./src/scripts/*.js')
-          .pipe(jshint())
-          .pipe(jshint.reporter('default'));
-    });
+// JS hint task
+gulp.task('jshint', function() {
+    gulp.src('./src/scripts/*.js')
+      .pipe(jshint())
+      .pipe(jshint.reporter('default'));
+});
+```
 
 然后运行 
 
@@ -90,25 +98,29 @@ tags: [FrontEnd]
 
 我们需要安装一下插件
 
-    npm install gulp-concat --save-dev 
-    npm install gulp-strip-debug --save-dev 
-    npm install gulp-uglify --save-dev
+```bash
+npm install gulp-concat --save-dev 
+npm install gulp-strip-debug --save-dev 
+npm install gulp-uglify --save-dev
+```
 
 修改gulpfile.js
 
-    
-    var gulp = require('gulp'); 
-    var concat = require('gulp-concat');
-    var stripDebug = require('gulp-strip-debug');
-    var uglify = require('gulp-uglify');
 
-    gulp.task('scripts', function() {
-      gulp.src(['./src/scripts/*.js'])
-        .pipe(concat('all.js'))
-        .pipe(stripDebug())
-        .pipe(uglify())
-        .pipe(gulp.dest('./build/scripts/'));
-    });
+```javascript
+var gulp = require('gulp'); 
+var concat = require('gulp-concat');
+var stripDebug = require('gulp-strip-debug');
+var uglify = require('gulp-uglify');
+
+gulp.task('scripts', function() {
+  gulp.src(['./src/scripts/*.js'])
+    .pipe(concat('all.js'))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/scripts/'));
+});
+```
 
 
 
@@ -118,48 +130,54 @@ tags: [FrontEnd]
 
 至此，已经基本上知道gulp怎么使用了，下面展示一些其它的功能的代码
 
-    npm install gulp-autoprefixer --save-dev 
-    npm install gulp-minify-css --save-dev 
+```bash
+npm install gulp-autoprefixer --save-dev 
+npm install gulp-minify-css --save-dev 
+```
 
 示例代码
 
-        
-    var gulp = require('gulp'); 
-    var concat = require('gulp-concat');
-    var stripDebug = require('gulp-strip-debug');
-    var uglify = require('gulp-uglify');
-    var autoprefix = require('gulp-autoprefixer');
-    var minifyCSS = require('gulp-minify-css');
 
-    gulp.task('scripts', function() {
-      gulp.src(['./src/scripts/*.js'])
-        .pipe(concat('all.js'))
-        .pipe(stripDebug())
-        .pipe(uglify())
-        .pipe(gulp.dest('./build/scripts/'));
-    });
+```javascript
+var gulp = require('gulp'); 
+var concat = require('gulp-concat');
+var stripDebug = require('gulp-strip-debug');
+var uglify = require('gulp-uglify');
+var autoprefix = require('gulp-autoprefixer');
+var minifyCSS = require('gulp-minify-css');
+
+gulp.task('scripts', function() {
+  gulp.src(['./src/scripts/*.js'])
+    .pipe(concat('all.js'))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/scripts/'));
+});
+```
 
 
-    // CSS concat, auto-prefix and minify
-    gulp.task('styles', function() {
-      gulp.src(['./src/styles/*.css'])
-        .pipe(concat('styles.css'))
-        .pipe(autoprefix('last 2 versions'))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest('./build/styles/'));
-    });
+```javascript
+// CSS concat, auto-prefix and minify
+gulp.task('styles', function() {
+  gulp.src(['./src/styles/*.css'])
+    .pipe(concat('styles.css'))
+    .pipe(autoprefix('last 2 versions'))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('./build/styles/'));
+});
 
-    // default gulp task
-    gulp.task('default', [ 'scripts', 'styles'], function() {   
+// default gulp task
+gulp.task('default', [ 'scripts', 'styles'], function() {   
 
-    // watch for JS changes
-    gulp.watch('./src/scripts/*.js', function() {
-        gulp.run('jshint', 'scripts');
-      });
-    // watch for CSS changes
-        gulp.watch('./src/styles/*.css', function() {
-            gulp.run('styles');
-      });
-    });
-    
+// watch for JS changes
+gulp.watch('./src/scripts/*.js', function() {
+    gulp.run('jshint', 'scripts');
+  });
+// watch for CSS changes
+    gulp.watch('./src/styles/*.css', function() {
+        gulp.run('styles');
+  });
+});
+```
+
 至此，大家应该熟悉gulp的使用，尽情去挖掘gulp plugin的宝藏吧。

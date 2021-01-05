@@ -41,90 +41,105 @@ img {
 1. 在ViewDidLoad里添加如下代码
 
 
-		super.viewDidLoad()
-		        
-		let arr = NSBundle.mainBundle().loadNibNamed("View", owner: nil, options: nil)
+```swift
+	super.viewDidLoad()
+	        
+	let arr = NSBundle.mainBundle().loadNibNamed("View", owner: nil, options: nil)
 
-		let v = arr[0] as! UIView
-		        
-		containerView.addSubview(v)
+	let v = arr[0] as! UIView
+	        
+	containerView.addSubview(v)
+```
 
 
-	运行
+运行
 
-	<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/3.png" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/3.png" />
 
-	试图添加进去了，但是试图显示的不对，那是因为没有添加约束
-	
+
+
 2. 添加约束
 
 
 
-		import UIKit
+```swift
+	import UIKit
 
-		class ViewController: UIViewController {
+	class ViewController: UIViewController {
+
+    @IBOutlet weak var containerView: UIView!
     
-	    @IBOutlet weak var containerView: UIView!
-	    
-	    var v: UIView!
-	    
-	    override func viewDidLoad() {
-	        
-	        super.viewDidLoad()
-	        
-	        let arr = NSBundle.mainBundle().loadNibNamed("View", owner: nil, options: nil)
-	        v = arr[0] as! UIView
-	        
-	        
-	        containerView.addSubview(v)
-	        
-	        setUpConstraint()
-	        
-	        
-	        // Do any additional setup after loading the view, typically from a nib.
-	    }
-	    
-	    override func didReceiveMemoryWarning() {
-	        super.didReceiveMemoryWarning()
-	        // Dispose of any resources that can be recreated.
-	    }
-	    
-	    
-	    func setUpConstraint()
-	    {
-	        
-	        v.setTranslatesAutoresizingMaskIntoConstraints(false)
-	        
-	        containerView.addConstraint(NSLayoutConstraint(
-	            item:v, attribute:.Leading,
-	            relatedBy:.Equal, toItem:containerView,
-	            attribute:.Left, multiplier:1, constant:0))
-	        
-	        containerView.addConstraint(NSLayoutConstraint(
-	            item:v, attribute:.Trailing,
-	            relatedBy:.Equal, toItem:containerView,
-	            attribute:.Right, multiplier:1, constant:0))
-	        
-	        containerView.addConstraint(NSLayoutConstraint(
-	            item:v, attribute:.Top,
-	            relatedBy:.Equal, toItem:containerView,
-	            attribute:.Top, multiplier:1, constant:0))
-	        
-	        containerView.addConstraint(NSLayoutConstraint(
-	            item:v, attribute:.Bottom,
-	            relatedBy:.Equal, toItem:containerView,
-	            attribute:.Bottom, multiplier:1, constant:0))
-	        
-	    }	    
-	    
-		}
+    var v: UIView!
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        let arr = NSBundle.mainBundle().loadNibNamed("View", owner: nil, options: nil)
+        v = arr[0] as! UIView
+```
 
-	
+
+​	        
+​	        containerView.addSubview(v)
+​	        
+```swift
+        setUpConstraint()
+```
+
+
+​	        
+​	        // Do any additional setup after loading the view, typically from a nib.
+​	    }
+​	    
+```swift
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+```
+
+
+​	    
+​	  
+```swift
+  func setUpConstraint()
+	    {
+	              
+		v.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Leading,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Left, multiplier:1, constant:0))
+        
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Trailing,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Right, multiplier:1, constant:0))
+        
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Top,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Top, multiplier:1, constant:0))
+        
+        containerView.addConstraint(NSLayoutConstraint(
+            item:v, attribute:.Bottom,
+            relatedBy:.Equal, toItem:containerView,
+            attribute:.Bottom, multiplier:1, constant:0))
+        
+    }	    
+    
+	}
+```
+
+
+​	
 3. 运行结果, 我们的Xib已经可以自适应容器了
 
 <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/4.png" />
 <img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/5.png"/>
 
 
-    
-    
+​    
+​    

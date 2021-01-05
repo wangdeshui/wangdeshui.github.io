@@ -21,42 +21,45 @@ img {
 
 
 
-	import UIKit
+```swift
+import UIKit
 
-	class RoundButton: UIButton {
+class RoundButton: UIButton {
 
-	    /*
-	    // Only override drawRect: if you perform custom drawing.
-	    // An empty implementation adversely affects performance during animation.
-	    override func drawRect(rect: CGRect) {
-	        // Drawing code
-	    }
-	    */
-	    
-	    required init(coder aDecoder: NSCoder) {
-	        super.init(coder: aDecoder)
-	    }
-	    
-	    override init(frame: CGRect) {
-	        super.init(frame: frame)
-	    }
-	    
-	    override func awakeFromNib() {
-	      
-	        self.layer.cornerRadius=10
-	        self.layer.borderColor=UIColor.redColor().CGColor
-	        self.layer.borderWidth=2
-	        self.layer.backgroundColor=UIColor.yellowColor().CGColor
-	        self.contentEdgeInsets=UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
-	    }
+    /*
+    // Only override drawRect: if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func drawRect(rect: CGRect) {
+        // Drawing code
+    }
+    */
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     
-    
-    
+    override func awakeFromNib() {
+      
+        self.layer.cornerRadius=10
+        self.layer.borderColor=UIColor.redColor().CGColor
+        self.layer.borderWidth=2
+        self.layer.backgroundColor=UIColor.yellowColor().CGColor
+        self.contentEdgeInsets=UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+    }
+}
+```
+
+
+​    
+​    
+​    
  设置UIButton的Custom class为 RoundButton
-  
- 
+
+
 <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/1.png" />
     
 <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/2.png" />
