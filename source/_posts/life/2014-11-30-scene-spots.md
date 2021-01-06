@@ -6,24 +6,6 @@ date: 2014-11-30 7:00:00
 tags: [生活]
 ---
 
-<style type="text/css">
-.img-container img {	
-    margin: 10px;
-    max-width: 400px;  
-    max-height: 400px;      
-	}
-
-	img {	
-    margin: 10px;
-    max-width: 600px;  
-         
-	}
-
-blockquote p{
-	font-size: 1em;
-}
-
-</style>
 
 昨天周六赶工了一天，今天周日决定好好休息一下，把瑞典的几个主要的旅游经典参观一下。
 

@@ -6,13 +6,7 @@ date: 2014-11-21 7:00:00
 tags: [生活]
 ---
 
-<style type="text/css">
-img {	
-    margin: 10px;
-    max-width: 300px;        
-	}
 
-</style>
 
 Stockholm的楼层都相对较低，客户所在的大楼稍微高一些，所以能看到城市的楼顶。楼等果然和国内的不同呀，典型的欧式建筑。
 

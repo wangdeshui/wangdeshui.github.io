@@ -6,16 +6,6 @@ date: 2014-12-5 7:00:00
 tags: [生活]
 ---
 
-<style type="text/css">
-img {	
-    margin: 10px;
-    max-width: 600px; 
-    border-radius: 15px;  
-    border: solid 4px #ccc;     
-	}
-
-</style>
-
 
 很有幸参加了客户的年会，听说大家都带家属，帅哥美女云集，所以我们都迫不及待。
 

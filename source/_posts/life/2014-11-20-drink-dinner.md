@@ -6,13 +6,6 @@ date: 2014-11-20 7:00:00
 tags: [生活]
 ---
 
-<style type="text/css">
-img {	
-    margin: 10px;
-    max-width: 300px;        
-	}
-
-</style>
 
 今天客户的大Boss请我们去吃饭。
 

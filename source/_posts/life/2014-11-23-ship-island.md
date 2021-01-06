@@ -6,13 +6,6 @@ date: 2014-11-23 7:00:00
 tags: [生活]
 ---
 
-<style type="text/css">
-img {	
-    margin: 10px;
-    max-width: 450px;        
-	}
-
-</style>
 
 今天是周日，由于星期中间都是相当的忙，今天决定自己转转，准备出发去船岛。
 

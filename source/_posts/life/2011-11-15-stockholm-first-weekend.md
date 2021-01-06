@@ -6,15 +6,7 @@ date: 2014-11-15 7:00:00
 tags: [生活]
 ---
 
-<style type="text/css">
 
-img {	
-    margin: 10px;
-    max-width: 600px; 
-
-       
-	}
-</style>
 第一个周末，我们都非常着急的想看看这个北欧最大的城市。
 
 我们决定沿着我们住得岛--国王岛走一圈。
