@@ -1,5 +1,327 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-02  <a class="commentCountImg" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/#comment-container"><span class="display-none-class">/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6036af9015cc16841d0a4da09a65e0c2">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/">前端构建大法 Gulp 系列 (二)：为什么选择gulp</a></h1><div class="content"><p>在上一篇 <a href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。</p>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-09  <a class="commentCountImg" href="/2016/01/09/technologies-security-2016-1-9-security-2/#comment-container"><span class="display-none-class">/2016/01/09/technologies-security-2016-1-9-security-2/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="050e7c41efe3e4e0030ecfb305ab4d1a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>1.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/09/technologies-security-2016-1-9-security-2/">程序员之网络安全系列（二）：如何安全保存用户密码及哈希算法</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在很多网站的早期，甚至是现在仍然有一些网站，当你点击忘记密码功能时，你的邮箱会收到一封邮件，然后里面赫然写着你的密码，很多普通用户还会觉得庆幸，总算是找回来了，殊不知，这是多么可怕地一件事，说明了网站是“几乎是”明文存储你的密码，一旦数据用户数据泄露或者被拖库，那么用户密码将赤裸裸的暴露了，想想之前几次互联网密码泄露事件。</p>
+<p>那么如何解决呢？</p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>为了不让密码明文存储，我们需要对密码进行加密，这样即使数据库用户密码暴露，也是加密后的。但是如何让加密后的数据难以解密呢？我们现在比较流行的做法就是把密码进行Hash存储。</p>
+<h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><p>哈希算法将任意长度的二进制值映射为较短的固定长度的二进制值，这个小的二进制值称为哈希值。哈希值是一段数据唯一且极其紧凑的数值表示形式. 典型的哈希算法包括 MD2、MD4、MD5 和 SHA-1</p>
+<p>Hash算法是给消息生成摘要，那么什么是摘要呢？</p>
+<p>举个例子：</p>
+<blockquote>
+<p>比如你给你女朋友写了一封邮件，确保没被人改过，你可以生成这样一份摘要 “第50个字是我，第100个字是爱， 第998个字是你”，那么你女朋友收到这个摘要，检查一下你的邮件就可以了。</p>
+</blockquote>
+<p>Hash算法有两个非常主要的特征：</p>
+<ul>
+<li>不能通过摘要来反推出原文</li>
+<li>原文的非常细小的改动，都会引起Hash结果的非常大的变化</li>
+</ul>
+<p>因此，这个比较适合用来保存用户密码，因为不能反推出用户密码，Hash结果一致就证明原文一致，我们来用Ruby代码试一下上面的第二点 （MD5是一种常用的Hash算法)</p>
+<pre><code>2.2.3 :003 &gt; require &#39;digest/md5.so&#39;
+=&gt; true
+2.2.3 :004 &gt; puts Digest::MD5.hexdigest(&#39;I love you&#39;)
+e4f58a805a6e1fd0f6bef58c86f9ceb3
+=&gt; nil
+2.2.3 :005 &gt; puts Digest::MD5.hexdigest(&#39;I love you!&#39;)
+690a8cda8894e37a6fff4d1790d53b33
+=&gt; nil
+2.2.3 :006 &gt; puts Digest::MD5.hexdigest(&#39;I love you !&#39;)
+b2c63c3ca6019cff3bad64fcfa807361
+=&gt; nil
+2.2.3 :007 &gt; puts Digest::MD5.hexdigest(&#39;I love you&#39;)
+e4f58a805a6e1fd0f6bef58c86f9ceb3
+=&gt; nil
+2.2.3 :008 &gt; </code></pre>
+<p>那么我们在使用MD5保存密码时候的验证流程是什么呢？</p>
+<ul>
+<li>用户注册时，把用户密码是MD5(password)后保存到数据库。</li>
+<li>用户输入用户名和密码</li>
+<li>服务器从数据库查找用户名</li>
+<li>如果有这个用户，A=MD5(input password), B=Database password</li>
+<li>如果A==B, 那么说明用户密码输入正确，如果不相等，用户输入错误。</li>
+</ul>
+<h2 id="为什么Hash-MD5-后仍然不够安全？"><a href="#为什么Hash-MD5-后仍然不够安全？" class="headerlink" title="为什么Hash(MD5)后仍然不够安全？"></a>为什么Hash(MD5)后仍然不够安全？</h2><h3 id="穷举"><a href="#穷举" class="headerlink" title="穷举"></a>穷举</h3><p>但是，如果你认为就只是这样密码就不会被人知道，那么就不对了，这只是比明文更安全，为什么？</p>
+<p>因为，大部分人的密码都非常简单，当拿到MD5的密码后，攻击者也可以通过比对的方式，比如你的密码是4218</p>
+<pre><code>2.2.3 :008 &gt; puts Digest::MD5.hexdigest(&#39;4218&#39;)
+d278df4919453195d221030324127a0e</code></pre>
+<p>那么攻击者可以把1到4218个数字都MD5一下，然后和你密码的MD5对比一下，就知道你原密码是什么了。</p>
+<p>曾经我的密码箱密码忘了，我把锁给撬了，后来我才想起可以用穷举法，最多就999次不就打开了？那么问题来了，你的密码箱还安全吗？</p>
+<h3 id="彩虹表"><a href="#彩虹表" class="headerlink" title="彩虹表"></a>彩虹表</h3><p>除了穷举法外，由于之前的密码泄露，那么攻击者们，手上都有大量的彩虹表，比如”I love you”,生日等等，这个表保存了这些原值以及MD5后的值，那么使用时直接从已有库里就可以查出来对应的密码。</p>
+<h3 id="加盐-Salt"><a href="#加盐-Salt" class="headerlink" title="加盐 Salt"></a>加盐 Salt</h3><p>那么，由于简单的对密码进行Hash算法不够安全，那么我们就可以对密码加Salt，比如密码是”I love you”, 虽然彩虹表里有这条数据，但是如果加上”安红我爱你”，这样MD5结果就大不一样.</p>
+<pre><code>jacks-MacBook-Air:~ jack$ irb
+2.2.3 :001 &gt; require &#39;digest/md5.so&#39;
+=&gt; true
+2.2.3 :002 &gt; puts Digest::MD5.hexdigest(&#39;I love you&#39;)
+e4f58a805a6e1fd0f6bef58c86f9ceb3
+=&gt; nil
+2.2.3 :003 &gt; puts Digest::MD5.hexdigest(&#39;I love you安红我爱你&#39;)
+b10d890bf46b1a045eb99af5d43c7b13
+=&gt; nil
+2.2.3 :004 &gt; puts Digest::MD5.hexdigest(&#39;I dont love you&#39;)
+c82294c9a7b6e4a372ad25ed4d6011c9
+=&gt; nil
+2.2.3 :005 &gt; puts Digest::MD5.hexdigest(&#39;I dont love you安红我爱你&#39;)
+dce67bcdfdf007445dd4a2c2dc3d29c1
+=&gt; nil
+2.2.3 :006 &gt;</code></pre>
+<p>如此一来，因为攻击者很难猜到“安红我爱你”，那么自然彩虹表里是没有的，当然我建议你在实际项目中不要使用”安红我爱你”，你应该使用一个连你自己都猜不到的较长的字符串。</p>
+<h2 id="加盐了，就安全了吗？"><a href="#加盐了，就安全了吗？" class="headerlink" title="加盐了，就安全了吗？"></a>加盐了，就安全了吗？</h2><p>实际上，加盐并不能100%保证安全，假如有人泄露了你的Salt呢？实际上通过反编译程序很容易可以拿到这个，由于WEB程序一般放在WEB服务器上，那么就需要保证服务器不被攻击，当然这个是运维人员去操心。</p>
+<p>为了让加盐更安全，一般情况下我们可以使用一个“盐+盐”，也就是为每个用户保存一个”Salt”， 然后再使用全局的盐，我们可以对用户的盐使用自己的加密算法。那么代码就如下:</p>
+<pre><code>if MD5(userInputPpassword+globalsalt+usersalt)===user.databasePassword） 
+&#123;
+    login success
+&#125;</code></pre>
+<h2 id="普通用户如何做？"><a href="#普通用户如何做？" class="headerlink" title="普通用户如何做？"></a>普通用户如何做？</h2><p>由于这个是写给程序员，当然是说在前端用户注册时密码应该如何设置，很简单，我们要求用户必须输入强密码！但是，我知道很多用户觉得很烦，这样你就失掉了一个用户，但我们需要做一个适当的折中，比如至少有一个大写字母，小写字母和数字的组合。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>我们来看看解决了之前文章下面例子的什么问题。</p>
+<p>假如，明明和丽丽相互不认识，明明想给丽丽写一封情书，让隔壁老王送去</p>
+<ol>
+<li>如何保证隔壁老王不能看到情书内容？（保密性)</li>
+<li>如何保证隔壁老王不修改情书的内容？（完整性)</li>
+<li>如何保证隔壁老王不冒充明明？（身份认证)</li>
+<li>如何保证明明不能否认情书是自己写的？（来源的不可否认)</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/security/security-1.png" />
+
+<p>通过了解hash算法,”明明” 就有办法让丽丽知道信的内容没有修改，他可以对邮件进行Hash生成邮件的摘要，然后让”隔壁的李叔叔”把摘要送给丽丽，丽丽拿到邮件的摘要后，把邮件内容也Hash一下，然后把结果和”隔壁的李叔叔”给的摘要对比一下，然后通过比较结果就知道邮件有没有被”隔壁的王叔叔”更改过了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/network-security/">network security</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-07  <a class="commentCountImg" href="/2016/01/07/technologies-security-2016-1-8-security-1/#comment-container"><span class="display-none-class">/2016/01/07/technologies-security-2016-1-8-security-1/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="c06de8fb658a14b8a80cc5c0ca3bb43a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>7 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/07/technologies-security-2016-1-8-security-1/">程序员之网络安全系列（一）：为什么要关注网络安全？</a></h1><div class="content"><p>假如，明明和丽丽相互不认识，明明想给丽丽写一封情书，让隔壁老王送去</p>
+<ol>
+<li>如何保证隔壁老王不能看到情书内容？（保密性)</li>
+<li>如何保证隔壁老王不修改情书的内容？（完整性)</li>
+<li>如何保证隔壁老王不冒充明明？（身份认证)</li>
+<li>如何保证明明不能否认情书是自己写的？（来源的不可否认)</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/security/security-1.png" />
+
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家都知道最近几年闹的沸沸扬扬的网络安全事件，之前的CSDN密码泄露，不久前的网易邮箱密码泄露，那么如果你的密码泄露，除了本身的网站外，还有很多人其它很多地方甚至银行密码都使用相同的密码，从而带来了很大的麻烦，据说“半个” 互联网的库都被人拖过。</p>
+<h2 id="亲身经历"><a href="#亲身经历" class="headerlink" title="亲身经历"></a>亲身经历</h2><p>拿我自己经历的一件事来说，前不久，我和一个朋友一起定了趟机票去上海，出发前两小时，收到一个短信说我预定的航班由于天气原因被取消，我需要改签另一个航班，让我拨打航空公司400的电话，由于马上要出发去机场，也没有去查具体航空公司的电话，就打了这个电话，对方的整套系统客服系统和流程几乎和航空公司一模一样，知道我的姓名，身份证，订的航班号等等都一清二楚，最后再说改签需要给用户补偿，需要给你转钱，所以你需要提供银行卡号，然后确认后才能改签，我这样说大家可能觉得如果是自己不太可能上当，但是你们都忽略了人的心里因素，第一你的私密信息他都知道（就像一个陌生人让你爸转钱说你需要钱，说是你的好朋友，知道你的所有只有你爸和你知道的信息), 第二你很着急，因为你在目的地的酒店已定，后面去别的地方的机票、火车票已定，所以你必须这个时间起飞等等。</p>
+<p>最后我没有上当的原因，是因为我问骗子，航站楼是哪一个，他说是4号航站楼，因为西安就没有4号航站楼，当然这个应该是骗子的失误。</p>
+<p>我们所有的人觉得自己百分之百不会上当的人，那是因为你没碰上骗子高手！</p>
+<h2 id="骗子可以得逞的罪魁祸首"><a href="#骗子可以得逞的罪魁祸首" class="headerlink" title="骗子可以得逞的罪魁祸首"></a>骗子可以得逞的罪魁祸首</h2><p>我总结了大部分骗子能够骗成功的最主要的原因，是因为我们的<strong>私密信息被泄露了</strong>！可见网络安全的重要性，而针对我的这个事件，我不知道是航空公司还是某订票网站把我的信息泄露，当然，骗子可能组合多个地方的泄露信息。</p>
+<p>而这些信息系统是谁开发和维护的呢？ 是程序员！ </p>
+<p>所以我们程序员需要学习安全知识，保护用户数据，同时防止自己被骗，对那些安全性不高的网站尽量不要使用，对那些安全不高的系统尽量不使用。</p>
+<p>作为一个多年的程序员，我对网络安全相关的知识也非常少，我知道一些常规的东西，比如敏感数据加密存储，网站尽量使用https等，但是由于对后面的原理知道的太少，所以有的时候不一定做出了正确地选择，直到最近有的程序员说密码MD5存储了，就一定是安全的，这让我感觉了害怕，而且我看有的系统也真的只是MD5了一下，所以我开始决定学点安全的常识，记录一点“大家” 常用的程序安全知识, 在这里和大家共同进步，由于我对这对理解的不深，要学习的东西很多，所以也希望大家帮忙指出错误的地方。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/network-security/">network security</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-06  <a class="commentCountImg" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/#comment-container"><span class="display-none-class">/2016/01/06/agile-2016-1-7-unit-test-best-practices/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="21401e10965a454c551f27fc3615f125">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/">敏捷实践系列(八)：单元测试及最佳实践</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/1.png" />
+
+<p>在工作中或者在面试中，我经常碰到的开发人员就是对单元测试不重视，这一类基本上都表现出了一种“无知的自信”，总觉得自己写的代码质量很高，直到一次次虫子(Bug)把自己咬的头破血流时，才发现原来自己的代码已经到了剪不断理还乱的状态，而每一次修改一个bug，都需要走一遍“墨镜迷宫” （看上图)。还有很多人知道单元测试或者写出了单元测试，但是就是写了一个方法，上面标注了一个[Test]属性而已，甚至很多的人单元测试上面标注的是[IgnoreTest], 每次看见这些，我都深深的感到推行单元测试之路是艰难的，是遥远的，但是我依然坚信是是渴望也可及的，只要有着深深的信念，坚强的意志，无谓的勇气，一头扎进去泥巴堆里，假以时日，当大雨来临，必将带走泥巴，从此你拔剑扬眉，哦，你不用拔剑了，因为你就是剑。。。</p>
+<p>为了让更多人能够拔剑扬眉，也为了我们公司刚入职的新人做一些培训，我精心准备了单元测试的一些知识，在此为你奉上，我尽量用简短的语句来描述，如果你不清楚我说的某一些点，那么欢迎你发邮件给我 <a href="mailto:&#119;&#97;&#x6e;&#x67;&#100;&#x65;&#x73;&#x68;&#117;&#105;&#64;&#111;&#x75;&#116;&#108;&#x6f;&#111;&#x6b;&#46;&#x63;&#111;&#109;">&#119;&#97;&#x6e;&#x67;&#100;&#x65;&#x73;&#x68;&#117;&#105;&#64;&#111;&#x75;&#116;&#108;&#x6f;&#111;&#x6b;&#46;&#x63;&#111;&#109;</a>，我可以针对集中的点发篇文章，如果你想知道我说的所有点怎么实践，那就联系我，试试加入到我们公司来。</p>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">什么是单元测试</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">为什么要使用单元测试</a>  </li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9A%BE%E4%BB%A5%E6%8E%A8%E5%8A%A8%E7%9A%84%E5%8E%9F%E5%9B%A0">单元测试难以推动的原因</a><ul>
+<li><a href="#%E5%A4%AA%E8%8A%B1%E6%97%B6%E9%97%B4">太花时间</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E4%B8%8D%E6%98%AF%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C">测试不是我的工作</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%B5%8B%E8%AF%95%E6%80%A7%E5%B7%AE">系统可测试性差</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">单元测试最佳实践</a><ul>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%80-%E4%B8%89%E5%88%B0%E4%BA%94%E6%AD%A5">实践一: 三到五步</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%8C-%E8%BF%90%E8%A1%8C%E5%BF%AB%E9%80%9F">实践二： 运行快速</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%89%E4%B8%80%E8%87%B4%E6%80%A7">实践三：一致性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%9B%9B%E5%8E%9F%E5%AD%90%E6%80%A7">实践四：原子性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%94%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3">实践五：单一职责</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AD%E7%8B%AC%E7%AB%8B%E6%97%A0%E8%80%A6%E5%90%88">实践六：独立无耦合</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%83%E9%9A%94%E7%A6%BB%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8">实践七：隔离外部调用</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AB-%E8%87%AA%E6%8F%8F%E8%BF%B0">实践八： 自描述</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B9%9D-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%80%BB%E8%BE%91">实践九： 单元测试逻辑</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81-%E6%96%AD%E8%A8%80">实践十： 断言</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81%E4%B8%80%E4%BA%A7%E5%93%81%E4%BB%A3%E7%A0%81">实践十一：产品代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%B7%A5%E5%85%B7">最后，单元测试常用技术及工具</a></li>
+</ul>
+<!-- toc stop -->
+
+
+<h1 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h1><p>单元测试是开发者编写的一小段代码，用于检验被测代码中的一个很明确的功能是否正确。通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为。</p>
+<p>执行单元测试，是为了证明某段代码的行为确实和开发者所期望的一致。因此，我们所要测试的是规模很小的、非常独立的功能片段。通过对所有单独部分的行为建立起信心。然后，才能开始测试整个系统。</p>
+<h1 id="为什么要使用单元测试"><a href="#为什么要使用单元测试" class="headerlink" title="为什么要使用单元测试"></a>为什么要使用单元测试</h1><ul>
+<li>单元测试使工作完成的更轻松</li>
+<li>单元测试使你的设计更好</li>
+<li>大大减少花在调试上的时间</li>
+<li>能帮助你更好的理解代码</li>
+</ul>
+<h2 id="没有单元测试"><a href="#没有单元测试" class="headerlink" title="没有单元测试"></a>没有单元测试</h2><ul>
+<li>任何代码都是在假定其他代码是正确无误的情况下编写的。</li>
+<li>修改一处代码时无法得知会对其他代码产生怎样的影响。</li>
+<li>任何一处改动都需要进行功能级别的整体调试。</li>
+</ul>
+<h1 id="单元测试难以推动的原因"><a href="#单元测试难以推动的原因" class="headerlink" title="单元测试难以推动的原因"></a>单元测试难以推动的原因</h1><h2 id="太花时间"><a href="#太花时间" class="headerlink" title="太花时间"></a>太花时间</h2><p>很多人认为单元测试很花时间，但是想想我们在下面几点话的时间，我经常看到为了测试一个简单的API方法，我们很多人必须让前端跑起来，甚至自己写一个客户端才能调用</p>
+<ul>
+<li>调试上花的时间</li>
+<li>对自认为正确的代码，花了多少时间确认代码是正确的。</li>
+<li>定位Bug所耗的时间</li>
+</ul>
+<h2 id="测试不是我的工作"><a href="#测试不是我的工作" class="headerlink" title="测试不是我的工作"></a>测试不是我的工作</h2><p>很多人认为测试不是自己的工作，但是想一想每次测试提出一个bug所花的时间，以及你改bug所化的时间，所以下面2点是很重要</p>
+<ul>
+<li>内在质量的重要性</li>
+<li>测试应该是辅助，好的软件是开发设计出来的，不是测试出来的</li>
+</ul>
+<h2 id="系统可测试性差"><a href="#系统可测试性差" class="headerlink" title="系统可测试性差"></a>系统可测试性差</h2><ul>
+<li>系统耦合度很高，我们需要提高我们的团队的设计能力。</li>
+</ul>
+<h1 id="单元测试最佳实践"><a href="#单元测试最佳实践" class="headerlink" title="单元测试最佳实践"></a>单元测试最佳实践</h1><h2 id="实践一-三到五步"><a href="#实践一-三到五步" class="headerlink" title="实践一: 三到五步"></a>实践一: 三到五步</h2><ul>
+<li>SetUp</li>
+<li>输入</li>
+<li>调用</li>
+<li>输出</li>
+<li>TearDown</li>
+</ul>
+<h2 id="实践二：-运行快速"><a href="#实践二：-运行快速" class="headerlink" title="实践二： 运行快速"></a>实践二： 运行快速</h2><p>###为什么？<br>单元测试运行很频繁，是辅助开发的，在开发过程中运行，如果慢影响很大</p>
+<h3 id="多快较好？"><a href="#多快较好？" class="headerlink" title="多快较好？"></a>多快较好？</h3><ul>
+<li>单个测试小于200ms</li>
+<li>单个测试套件小于10s</li>
+<li>整个测试小于10分钟</li>
+</ul>
+<h2 id="实践三：一致性"><a href="#实践三：一致性" class="headerlink" title="实践三：一致性"></a>实践三：一致性</h2><p><strong>任何时候同样的输入需要同样的结果</strong></p>
+<pre><code>    Date date=new Date()
+    Random.next()</code></pre>
+<p>这样的代码都需要Mock掉，不然时间每次都不同，结果就会不一样。</p>
+<h2 id="实践四：原子性"><a href="#实践四：原子性" class="headerlink" title="实践四：原子性"></a>实践四：原子性</h2><p>** 所有的测试只有两种结果：成功和失败**<br><strong>不能部分测试通过</strong></p>
+<h2 id="实践五：单一职责"><a href="#实践五：单一职责" class="headerlink" title="实践五：单一职责"></a>实践五：单一职责</h2><p><strong>一个测试只验证一个行为</strong></p>
+<p>** 测试行为，不要测试方法 **</p>
+<ul>
+<li>一个方法，多个行为    —–&gt;  多个测试</li>
+<li>一个行为，多个方法   —–   一个测试<br> 这里的一个行为，多个方法一般指这个方法调用private, protected, getters, setters</li>
+<li>多个Assert只有在测试同一个行为时可以接受</li>
+</ul>
+<h2 id="实践六：独立无耦合"><a href="#实践六：独立无耦合" class="headerlink" title="实践六：独立无耦合"></a>实践六：独立无耦合</h2><h3 id="单元测试之间无相互调用"><a href="#单元测试之间无相互调用" class="headerlink" title="单元测试之间无相互调用"></a>单元测试之间无相互调用</h3><ul>
+<li>单元测试执行顺序无关</li>
+<li>不同的顺序无影响</li>
+</ul>
+<h3 id="单元测试之间不能共享状态"><a href="#单元测试之间不能共享状态" class="headerlink" title="单元测试之间不能共享状态"></a>单元测试之间不能共享状态</h3><p>比如一个测试里设置了一个属性值，然后在另外一个测试里用，如果必须共享可以放到Setup里</p>
+<h2 id="实践七：隔离外部调用"><a href="#实践七：隔离外部调用" class="headerlink" title="实践七：隔离外部调用"></a>实践七：隔离外部调用</h2><ul>
+<li>单元测试需要快速运行，且每次结果一致，所以需要隔离一切对外部的调用。</li>
+<li>不使用具体的其它真实类，就是不要new</li>
+<li>不读数据库</li>
+<li>不读网络</li>
+<li>不读外部文件</li>
+<li>适当时候可以构造一个相同的内部文件来Mock</li>
+<li>不依赖本地时间</li>
+<li>不依赖环境变量</li>
+</ul>
+<h2 id="实践八：-自描述"><a href="#实践八：-自描述" class="headerlink" title="实践八： 自描述"></a>实践八： 自描述</h2><ul>
+<li>单元测试是开发级文档</li>
+<li>单元测试是方法的描述</li>
+</ul>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/2.png" />
+
+
+<h2 id="实践九：-单元测试逻辑"><a href="#实践九：-单元测试逻辑" class="headerlink" title="实践九： 单元测试逻辑"></a>实践九： 单元测试逻辑</h2><ul>
+<li>单元测试必须容易读和理解的</li>
+<li>变量名，方法名，类名</li>
+<li>无条件语句,无Switch<br>办法：分解if到多个测试，所有的输入都是已知的，所有的结果都是一定的（Mock）</li>
+<li>无循环语句</li>
+<li>无异常捕捉<br>** 测试预知的异常，用ExpectedException方法 **</li>
+</ul>
+<h2 id="实践十：-断言"><a href="#实践十：-断言" class="headerlink" title="实践十： 断言"></a>实践十： 断言</h2><ul>
+<li><p>断言信息最好包含Business Information</p>
+</li>
+<li><p>断言信息包含出错的具体信息如果失败</p>
+</li>
+<li><p>适当时候可以封装自己的Assert<br>比如：</p>
+<pre><code>Assert.IsProgrammer(Jack)
+Return Jack. Cancooking() &amp;&amp; Jack.CanCoding()</code></pre>
+</li>
+</ul>
+<h2 id="实践十一：产品代码"><a href="#实践十一：产品代码" class="headerlink" title="实践十一：产品代码"></a>实践十一：产品代码</h2><ul>
+<li>产品代码无测试逻辑</li>
+</ul>
+<p>不能有：</p>
+<pre><code>    If(global.IsTest)&#123;…&#125;</code></pre>
+<ul>
+<li>测试代码和产品代码要分离</li>
+<li>不要在产品代码里有任何只供测试用的代码</li>
+<li>使用依赖注入</li>
+</ul>
+<h1 id="最后，单元测试常用技术及工具"><a href="#最后，单元测试常用技术及工具" class="headerlink" title="最后，单元测试常用技术及工具"></a>最后，单元测试常用技术及工具</h1><p>下面是.NET程序常用的单元测试需要的技术和工具，其它语言请自信比对。</p>
+<ul>
+<li>面向接口编程</li>
+<li>依赖注入(Castle, Unity, Ninject)</li>
+<li>Moq</li>
+<li>测试工具(xUnit) </li>
+<li>.Net Nunit</li>
+<li>代码覆盖率测试工具Ncover</li>
+<li>自动运行测试辅助工具NCrunch</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="3074e4d56fd0cabf29e555b60265eb22">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">前端构建大法 Gulp 系列 (四)：gulp实战</a></h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p>先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 <a target="_blank" rel="noopener" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a> 安装</p>
+<p>然后再用 npm -v 来确保Node.js 安装正确</p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1><p>我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br></pre></td></tr></table></figure>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>创建一个文件目录，然后建立对应的文件夹</p>
+<ul>
+<li><p><strong>src</strong> — 源文件:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+<li><p><strong>build</strong> — 编译后文件输出到的生产文件夹:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
+</li>
+</ul>
+<p>我们先使用npm init来创建类似Nuget package的package.config一样的文件，这样我们就知道项目依赖哪些插件，而且我们不需要把插件提交到代码库，其它程序员只需要使用 npm install 就可以安装所有配置的插件</p>
+<p>然后我们需要创建一个gulpfile.js文件，gulp默认是调用这个文件的。</p>
+<p>我们在目录下使用</p>
+<pre><code>  npm install gulp --save-dev  # 这样可以把gulp安装到本地</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png" />
+
+<h1 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h1><p>比如我们想检查我们的js文件，那么我们需要安装 gulp-jshint插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-jshint --save-dev</span><br></pre></td></tr></table></figure>
+<p>然后添加一个test.js文件到src/scripts下，内容如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hi=<span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Jack &quot;</span>+hi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="jshint-代码检查"><a href="#jshint-代码检查" class="headerlink" title="jshint 代码检查"></a>jshint 代码检查</h2><p>然后我们修改gulpfile.js内容如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// include gulp</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// include plug-ins</span></span><br><span class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">&#x27;gulp-jshint&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// JS hint task</span></span><br><span class="line">gulp.task(<span class="string">&#x27;jshint&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">&#x27;./src/scripts/*.js&#x27;</span>)</span><br><span class="line">      .pipe(jshint())</span><br><span class="line">      .pipe(jshint.reporter(<span class="string">&#x27;default&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后运行 </p>
+<pre><code>gulp jshint</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png" />
+
+<p>看控制台输出就知道我们少了分号。</p>
+<h2 id="代码合并压缩"><a href="#代码合并压缩" class="headerlink" title="代码合并压缩"></a>代码合并压缩</h2><p>我们新建一个 ./scripts/b.js， 然后我们把js文件合并然后压缩并输出到./build/scripts/all.js 下，同时移除debug信息</p>
+<p>我们需要安装一下插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-concat --save-dev </span><br><span class="line">npm install gulp-strip-debug --save-dev </span><br><span class="line">npm install gulp-uglify --save-dev</span><br></pre></td></tr></table></figure>
+<p>修改gulpfile.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> stripDebug = <span class="built_in">require</span>(<span class="string">&#x27;gulp-strip-debug&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;scripts&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src([<span class="string">&#x27;./src/scripts/*.js&#x27;</span>])</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;all.js&#x27;</span>))</span><br><span class="line">    .pipe(stripDebug())</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/scripts/&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png" />
+
+<p>我们看到gulp已经把我们文件合并了，移除了console.log, 而且进行了压缩。</p>
+<p>至此，已经基本上知道gulp怎么使用了，下面展示一些其它的功能的代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-autoprefixer --save-dev </span><br><span class="line">npm install gulp-minify-css --save-dev </span><br></pre></td></tr></table></figure>
+<p>示例代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> stripDebug = <span class="built_in">require</span>(<span class="string">&#x27;gulp-strip-debug&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefix = <span class="built_in">require</span>(<span class="string">&#x27;gulp-autoprefixer&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;scripts&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src([<span class="string">&#x27;./src/scripts/*.js&#x27;</span>])</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;all.js&#x27;</span>))</span><br><span class="line">    .pipe(stripDebug())</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/scripts/&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CSS concat, auto-prefix and minify</span></span><br><span class="line">gulp.task(<span class="string">&#x27;styles&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src([<span class="string">&#x27;./src/styles/*.css&#x27;</span>])</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;styles.css&#x27;</span>))</span><br><span class="line">    .pipe(autoprefix(<span class="string">&#x27;last 2 versions&#x27;</span>))</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/styles/&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// default gulp task</span></span><br><span class="line">gulp.task(<span class="string">&#x27;default&#x27;</span>, [ <span class="string">&#x27;scripts&#x27;</span>, <span class="string">&#x27;styles&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;   </span><br><span class="line"></span><br><span class="line"><span class="comment">// watch for JS changes</span></span><br><span class="line">gulp.watch(<span class="string">&#x27;./src/scripts/*.js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.run(<span class="string">&#x27;jshint&#x27;</span>, <span class="string">&#x27;scripts&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">// watch for CSS changes</span></span><br><span class="line">    gulp.watch(<span class="string">&#x27;./src/styles/*.css&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        gulp.run(<span class="string">&#x27;styles&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>至此，大家应该熟悉gulp的使用，尽情去挖掘gulp plugin的宝藏吧。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-03  <a class="commentCountImg" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/#comment-container"><span class="display-none-class">/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="72fea748960574ea2bd2f0c8ac4245a0">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/">前端构建大法 Gulp 系列 (三)：gulp的4个API 让你成为gulp专家</a></h1><div class="content"><p>gulp 本身能做的事情非常少，主要是通过插件来提供各种功能，gulp本身只提供了4个非常简洁的API, 掌握这4个API你就基本掌握了gulp的全部。</p>
+<h1 id="一、gulp-task"><a href="#一、gulp-task" class="headerlink" title="一、gulp.task"></a>一、gulp.task</h1><p>gulp 是基于task的方式来运行</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>gulp.task(name [, deps, fn])<br>注册一个task, name 是task的名字，deps是可选项，就是这个task依赖的tasks, fn是task要执行的函数</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">&#x27;js&#x27;</span>, ,[<span class="string">&#x27;jscs&#x27;</span>, <span class="string">&#x27;jshint&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> gulp</span><br><span class="line">    .src(<span class="string">&#x27;./src/**/*.js&#x27;</span>)</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;alljs&#x27;</span>))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/&#x27;</span>));                 </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>上例中 </p>
+<ul>
+<li>jscs和jshint先运行，随后再运行js的task.</li>
+<li>jscs和jshint是并行执行的，而不是顺序执行</li>
+</ul>
+<h1 id="二、gulp-src"><a href="#二、gulp-src" class="headerlink" title="二、gulp.src"></a>二、gulp.src</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>gulp.src(globs[, options])</p>
+<p>与globs 匹配的文件，可以是string或者一个数组</p>
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([&#x27;client/*.js&#x27;, &#x27;!client/b*.js&#x27;, &#x27;client/c.js&#x27;])   # !是排除某些文件</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;js&#x27;</span>,[<span class="string">&#x27;jscs&#x27;</span>, <span class="string">&#x27;jshint&#x27;</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> gulp</span><br><span class="line">    .src(<span class="string">&#x27;./src/**/*.js&#x27;</span>, &#123;<span class="attr">base</span>:<span class="string">&#x27;./src/&#x27;</span>&#125;)        </span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/&#x27;</span>));</span><br><span class="line">             </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>options.base 是指多少路径被保留，比如上面的 ./src/users/list.js 会被输出到 ./build/users/list.js</p>
+<h2 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h2><p>如果我们需要文件保持顺序，那么出现在前面的文件就写在数组的前面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([<span class="string">&#x27;client/baby.js&#x27;</span>, <span class="string">&#x27;client/b*.js&#x27;</span>, <span class="string">&#x27;client/c.js&#x27;</span>])  </span><br></pre></td></tr></table></figure>
+<p>上面baby.js就出现在最上面。</p>
+<h1 id="三、-gulp-dest"><a href="#三、-gulp-dest" class="headerlink" title="三、 gulp.dest"></a>三、 gulp.dest</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><p>gulp.dest(path[, options])  就是最终文件要输出的路径，options一般不用</p>
+<h1 id="四、gulp-watch"><a href="#四、gulp-watch" class="headerlink" title="四、gulp.watch"></a>四、gulp.watch</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><p>gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb]) 就是监视文件的变化，然后运行指定的Tasks或者函数，这个相比Grunt需要使用插件，gulp本身就支持的很好。</p>
+<h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">&#x27;watch-js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   gulp.watch(<span class="string">&#x27;./src/**/*.js&#x27;</span>,[<span class="string">&#x27;jshint&#x27;</span>,<span class="string">&#x27;jscs&#x27;</span>]); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;watch-less&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> gulp.watch(<span class="string">&#x27;./src/**/*.less&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;less event&#x27;</span>+event.type+<span class="string">&#x27; &#x27;</span>+event.path)</span><br><span class="line"> &#125;); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>gulp就是如此的简单，你只需要掌握这四个API就够了，剩下的就是熟悉相关的plugin了。</p>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">https://github.com/gulpjs/gulp/blob/master/docs/API.md</a></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-02  <a class="commentCountImg" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/#comment-container"><span class="display-none-class">/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6036af9015cc16841d0a4da09a65e0c2">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/">前端构建大法 Gulp 系列 (二)：为什么选择gulp</a></h1><div class="content"><p>在上一篇 <a href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。</p>
 <p>相信熟悉前端的人对Grunt一定不陌生，实际上我自己之前的很多项目也是在用Grunt, Grunt的出现是前端开发者的福音，大大减少了前端之前很多手工工作的繁琐以及我上一篇 <a href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 提到的那些问题。</p>
 <p>那么既然Grunt可以做到几乎所有的事情，那么为什么我们需要Gulp呢？</p>
 <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/1.png" />
@@ -268,363 +590,7 @@ static void Main(string[] args)
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面一到八我认为都是比较有用的新特性，后面的几个我觉得用处不大，当然如果找到合适的使用场景应该有用，欢迎大家补充。</p>
 <p>最后，祝大家编程愉快。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/Microsoft/">Microsoft</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-11-22  <a class="commentCountImg" href="/2015/11/22/management-2015-12-22-best-time-of-microsoft-tech-developers/#comment-container"><span class="display-none-class">/2015/11/22/management-2015-12-22-best-time-of-microsoft-tech-developers/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d2648164aa9614925c28d0b0bc95391b">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>27 m  <i class="fas fa-pencil-alt"> </i>4.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/11/22/management-2015-12-22-best-time-of-microsoft-tech-developers/">微软程序员最好的时代来了</a></h1><div class="content"><p>每过一段时间就有人跳出来说微软不行了，.NET不行了，然后就去舔Java, 但是一直让我觉得比较奇怪的是，几年以后那些人还在用.NET,而且继续喷着.NET, 舔着JAVA, 在我看来，这些人和那些天天喷自己的公司，却依然在那个公司，天天喷中国，却依然在中国的那些人是一样的。</p>
-<h2 id="语言只是工具"><a href="#语言只是工具" class="headerlink" title="语言只是工具"></a>语言只是工具</h2><p>因为我不是非常熟习JAVA, 所以我不知道JAVA擅长做什么，但是我觉得.NET能做的事，基本上JAVA应该都能做，就像我认为JAVA能做的事.NET基本也都能做一样。但是奇怪的是我经常看到的是.NET人员喷.NET, 很少听到JAVA人员喷.NET, 不过我估计很多JAVA人员应该也忙着去喷JAVA吧。这个其实和语言没关系，只是和人的心理有关系，因为人总觉得“碗里的没锅里的好”。</p>
-<p>语言之争已经持续很多年了，其实这个大家都知道没什么意义，网上不是流传一个语言的鄙视链吗？我觉得大家把他当个玩笑罢了，千万别当真，因为不管怎么鄙视，我们毕竟要吃饭的。</p>
-<p>本来我也觉得写这篇文章没什么意义，但是看到那些喷.NET文章，<strong>基本上句句说的都没理</strong>，但是却可能对初入行的人带来很大的误解，就像骗子很容易骗小孩，因为小孩涉世未深。</p>
-<p>我做开发已经10多年了，学过很多语言，但是真正用来吃饭的最主要的语言其实是Visual Basic和.NET, 当然还有”汉语”. 当初也学过Java, JSP, SSH. 但是最后选择了.NET，为什么，一是因为.NET技术真的入门很快，当年入门快的好处之一就是你立马就有一定的生产力，也就是你能很快开始干活，这样就有公司愿意给你付薪水了，也就意味着你可以更早从父母那里断奶了，另外一个原因就是当时面试的要.NET比要JAVA的多呀。</p>
-<h3 id="C-语言"><a href="#C-语言" class="headerlink" title="C# 语言"></a>C# 语言</h3><p>我学习过C, Java，Visual Basic, Ruby，Node.js等，但是我还是觉得C#是生产力非常高的一门语言，比如一些非常优秀的语言特性，你刚刚才能从其它语言里看到一点点，比如自动属性，LINQ, Lamda表达式，Action等，另外C#对多线程的封装让我们在多线程编程时极其方便,比如TPL. 还有令大家头疼的异步回调的问题，C#用非常优雅的Async, Await来解决，我们看到ES7里面已经开始实现类似的东西，是不是借鉴了C#呢？</p>
-<h3 id="多语言混用"><a href="#多语言混用" class="headerlink" title="多语言混用"></a>多语言混用</h3><p>对一个稍微复杂一点的程序来说，我们为什么一定要只使用一个语言呢？比如我们前端可以使用ASP.NET MVC, 后端可以使用Java 甚至是别的任何一个语言，服务我们可以使用WCF, 搜索我们可以使用Solar等等，我们甚至是WEB层，业务层都是用.NET, 而数据库可以使用MySQL或者MongoDB.</p>
-<h3 id="NET或者JAVA只是系统的一部分"><a href="#NET或者JAVA只是系统的一部分" class="headerlink" title=".NET或者JAVA只是系统的一部分"></a>.NET或者JAVA只是系统的一部分</h3><p>我们知道一个WEB程序，除了后端以外，很多其它的东西比如HTML, CSS，JavaScript,数据库这些不管你做Java还是.NET都是一样需要的。也就是前端技术都是相同，另外HTTP协议，TCP/IP这些也不分语言吧。不管你是JAVA还是.NET, AngularJS, ReactJS, HTML5, Bootstrap, Bower, Grunt, Gulp这些东西对你都是一样的吧？</p>
-<h2 id="微软技术能做什么"><a href="#微软技术能做什么" class="headerlink" title="微软技术能做什么"></a>微软技术能做什么</h2><p>我没有做过JAVA程序，但是我使用微软技术10多年了，我就说一说微软技术能做什么。</p>
-<h3 id="桌面程序"><a href="#桌面程序" class="headerlink" title="桌面程序"></a>桌面程序</h3><h4 id="Visual-Basic"><a href="#Visual-Basic" class="headerlink" title="Visual Basic"></a>Visual Basic</h4><p>当年我毕业没多久，就加入一家马来西亚在中国的软件公司，这个公司主要是做门票系统，当时我们选择了Visual Basic, 做过VB的人都知道VB是多么的强大，除了极其方便的可见即所得的Form外，而且有几乎一切你想要的组件，另外我们都知道Windows是桌面系统中当之无愧的的霸主, 我不知道JAVA在这方面的优势是什么，如果有些人说要跨平台，但是我做了这么多年的企业软件，没有几个企业软件是需要跨平台的。当时在这个公司里做了售票系统，还有闸机系统，POS系统，我估计很多人不知道闸机系统原来用Visual Basic也可以做。广州，北京最大的游乐园都是我们当年做的，而当年整个乐园的信息系统都是使用的微软的技术。</p>
-<h4 id="WPF"><a href="#WPF" class="headerlink" title="WPF"></a>WPF</h4><p>微软推出的WPF, 我觉得是对桌面开发程序的极大的进步，几乎所有的桌面程序的展示都可以使用WPF来呈现，而通过WPF可以让我们非常方便快速的做出非常炫的桌面程序，WPF的XAML方式给了我们非常方便的写桌面窗体。 同时模板，动画等在WPF都是极其容易实现，另外MVVM在WPF的应用里非常盛行，WPF可是比Angular早出现了很多年。</p>
-<h4 id="UWP"><a href="#UWP" class="headerlink" title="UWP"></a>UWP</h4><p>不久前，微软推出了Windows 10, 这使一套系统可以运行在桌面，平板以及手机上，而我们可以使用XAML,甚至是JavaScript来开发一套程序就可以运行在多个终端，这个对个人用户可能没有什么，但是对企业用户太重要了，具体的细节我觉得大家可以去看一下MSDN或者Channel9</p>
-<h3 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h3><h4 id="ASP-NET-WEB-Forms"><a href="#ASP-NET-WEB-Forms" class="headerlink" title="ASP.NET WEB Forms"></a>ASP.NET WEB Forms</h4><p>我觉得很多人对微软的误解可能主要是这一部分，当年的ASP.NET WEB Forms由于是快速拖控件，导致界面生成很多难以认识的代码，大量的ViewState等，但是这并不能说ASP.NET WEB Forms不好，第一我们可以使用ASP.NET WEB Forms快速完成一些小型的WEB程序，加上有大量的第三方控件，是开发一些常规的程序快如闪电。第二我们可以尽量使用客户端的控件比如Repeater等，现在仍然有很多网站都是ASP.NET WEB Forms做的，难道这些网站都没有用户?!</p>
-<h4 id="ASP-NET-WEB-MVC"><a href="#ASP-NET-WEB-MVC" class="headerlink" title="ASP.NET WEB MVC"></a>ASP.NET WEB MVC</h4><p>由于很多人对ASP.NET WEB Forms充满抱怨，而且WEB开发技术不断地革新，微软也顺应潮流及时的推出了ASP.NET MVC, 使用MVC可以写出非常清爽的代码，我们团队从ASP.NET MVC1.0 beta就开始使用，由于我也学习过Ruby On Rails，基本上这两个框架非常相似，极其方便的路由管理，View, Controller, Model的分层，使我们可以很好的使用强类型类开发，我们已经使用ASP.NET MVC成果提交过很多项目，还从来没有遇到过问题是出自.NET本身的。</p>
-<h4 id="WEB-服务"><a href="#WEB-服务" class="headerlink" title="WEB 服务"></a>WEB 服务</h4><h5 id="WCF"><a href="#WCF" class="headerlink" title="WCF"></a>WCF</h5><p>使用统一的模型，让我们开发WEB服务极其方便，大部分情况下我们只需要定义一个接口，配置相关的Binding和EndPoint就可以了，可以很方便的使用Http, TCP, Https，可以非常方便的使用各种安全策略，而这些就只需要简简单单的几行配置而已，WCF极大的简化了WEB服务的开发。 </p>
-<h5 id="ASP-NET-WEB-API"><a href="#ASP-NET-WEB-API" class="headerlink" title="ASP.NET WEB API"></a>ASP.NET WEB API</h5><p>除了WCF, 微软又推出了ASP.NET WEB API, 使得我们开发轻量级的WEB 服务极其容易，使用ASP.NET WEB API 我们可以非常容易实现服务的Restful. 而使用OWEN我们可以以任何方式来部署我们的API。</p>
-<h3 id="Azure-微软云"><a href="#Azure-微软云" class="headerlink" title="Azure 微软云"></a>Azure 微软云</h3><p>微软的云非常的强大，使用过微软云的都知道，微软云几乎可以满足我们一切对程序的要求，我们可以使用Azure web apps很方便的创建一个WEB, Webjob, 我们可以使用Azure SQL, 使用Azure storage, 可以极其方便的使用云的Queue, Bus等等，而且云集成了很多优秀的第三方程序，比如我们可以使用Redis作为Cache. 另外微软的Cloud Services让我们可以极其方便的管理我们的部署。这让我们很多程序员从一个程序员可以快速成为可以运维企业整套系统的人，而你只需要学习一些Azure的管理知识，比如自动扩展等等，而这些在云里面都可以快速简单的配置。我们几乎一半客户的系统都运行在Azure里面，而且我们可以一键部署，如果有问题，我们甚至可以使用Visual Studio来直接Debug云里面的网站。</p>
-<h3 id="移动开发"><a href="#移动开发" class="headerlink" title="移动开发"></a>移动开发</h3><p>由于Mono，现在可以使用.NET来开发移动的应用程序，使用Xamarin可以使用C#开发出和原生性能一模一样的iOS和Android程序，我也熟悉Objective-C, 而且用Objective-C开发过程序，虽然说Objective-C 在某些方面很优秀，但是开发效率实在不敢恭维，不然Apple也不会推出Swift来革自己的命，另外当你既需要iOS,又需要Android的时候，你至少需要一个熟悉Objective-C的，又需要一个熟悉Java. 而同样地东西需要做两遍。而使用Xamarin做企业级APP，大量的业务逻辑可以共享，更别说可以直接使用效率非常的C#语言了，我们已经成功提交了好几个基于Xamarin的程序。</p>
-<p>另外，Xamarin推出的Xamarin.Forms可以使用XAML及C#用一套代码来开发iOS, Android以及Windows Phone的程序，而且性能和原生的一模一样，我们也顺利开发过基于Xamarin.Forms的程序。</p>
-<h3 id="游戏开发"><a href="#游戏开发" class="headerlink" title="游戏开发"></a>游戏开发</h3><p>现在已经有很多程序基于Unity开发，而你可以选择C#来作为基于Unity的游戏的主要语言。可以搜索一下，已经有大量的上架游戏是使用.NET开发的。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>当然，以上只是我使用的微软相关技术，目前来说，除了客户明确选择其它语言以外，还真的没有多少是Java能做而.NET做不了的。</p>
-<p><strong>桌面，WEB, 移动开发 都可以使用.NET，简单点说，就是你都可以使用一门语言，那就是C#来开发</strong></p>
-<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><h3 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h3><p>做.NET开发，配套的开发工具是Visual Studio, 我觉得Visual Studio是最好的IDE之一，你几乎可以使用做任何语言的开发，这个使用过的人都非常清楚，虽然说Vim是编辑器之神，而Emacs是神的编辑器，但是显示世界能有多少个神？</p>
-<h3 id="Resharper"><a href="#Resharper" class="headerlink" title="Resharper"></a>Resharper</h3><p>Resharper是每个.NET程序员的必备工具之一，基本上可以让我们的开发效率提高三分之一，设个谁用过谁知道。</p>
-<h2 id="领域驱动设计"><a href="#领域驱动设计" class="headerlink" title="领域驱动设计"></a>领域驱动设计</h2><p>如果我没有记错的话，虽然Eric Evans较早写了领域驱动设计一书，但真正推动领域驱动设计的是有很多做.NET开发的，比如Greg Young, 我们可以看看NServicebus. 可以看看 <a target="_blank" rel="noopener" href="http://particular.net/">NServicebus</a></p>
-<p>我们已经使用领域驱动设计提交了一个非常大型的项目，这个项目是一个世界500强的主要系统。而这个系统就是使用的.NET C#，使用了CQRS, NServicebus, ASP.NET MVC, ASP.NET WEB API，SQL Server等等，系统已经运行了好几年了，还没有发现什么问题。</p>
-<p>有兴趣的可以关注一下我的领域驱动系列。</p>
-<h2 id="长尾理论"><a href="#长尾理论" class="headerlink" title="长尾理论"></a>长尾理论</h2><p>很多人说大型的一些系统都没有用.NET, 比如BAT, 比如新浪微博，他们是不是一点都没有用.NET我不知道。我想说的第一那些系统都比较庞大，使用JAVA或者PHP很多时候是基于历史的选择，另外这些系统就那么几个，而且并不是所有的软件都是电商，都是微博？</p>
-<p>我在这里想说的长尾，就是第一中小企业几乎占据所有的企业的80%, 而这些企业需要各种各样的系统，而这些企业不论是国内还是国外，都是Windows占大部分。虽然我也非常喜欢苹果的产品，但是企业是需要赚钱的。 也就是说80%的企业都不会像BAT那么大，那么至少这80%的系统使用.NET开发没有任何问题，再加上.NET有着很高的开发效率，我们有什么理由不选择呢？</p>
-<h2 id="使用-NET应该是企业或者客户项目的第一选择"><a href="#使用-NET应该是企业或者客户项目的第一选择" class="headerlink" title="使用.NET应该是企业或者客户项目的第一选择"></a>使用.NET应该是企业或者客户项目的第一选择</h2><p>如果只做WEB系统，或者只做电商之类，那么使用其它任何语言都没问题，但是一旦做企业系统，往往.NET是一开始非常安全的选择，为什么？ 因为很多企业使用的系统是Windows， 使用的办公软件是Office, 使用的服务器是Windows Server，使用的是AD, 使用的邮件系统是Exchang Server， 我不知道你们使用JAVA和PHP和这些系统集成时是否方便，但是使用.NET是非常方便的。目前来看，.NET几乎可以满足企业应用的所有的现有的需求以及潜在的需求。</p>
-<h2 id="关于开源，关于免费"><a href="#关于开源，关于免费" class="headerlink" title="关于开源，关于免费"></a>关于开源，关于免费</h2><p>现在.NET很多东西都开源了，.NET CORE 和 ASP.NET VNext已经可以跑在Mac和Linux上了，我相信会越来越多的.NET程序将来会跑在Linux服务器上，另外大部分程序根本就用不了那么多服务器，如果我们真的需要那么多服务，证明公司已经很有钱了，还买不起几个Windows？而且如果真的需要那么多服务器，我们可以使用Microsoft Azure, 买几个Windows总比要请几个Linux运维工程师要便宜很多吧。</p>
-<h2 id="最后，没有人限制你只会-NET"><a href="#最后，没有人限制你只会-NET" class="headerlink" title="最后，没有人限制你只会.NET"></a>最后，没有人限制你只会.NET</h2><p>没有谁能限制.NET程序员学习其他的语言，.NET程序员可以学习Java, Ruby, Node.js， 可以学习Event Driven, Message Queue, Solar, 学习MongoDB, Redis, 学习分布式缓存，学习任何其它语言需要学习的东西。</p>
-<h2 id="关于薪水"><a href="#关于薪水" class="headerlink" title="关于薪水"></a>关于薪水</h2><p>我不相信一个人学两个月JAVA, 不学习其它东西就可以立马成为一个优秀的程序员，就可以拿到很高的薪水，因为在我看来，要成为一个优秀的.NET程序员，需要学习大量的知识，我相信JAVA程序员也是一样。如果说.NET程序员年薪几百万我没见过，但是把.NET学好可以拿到相对不错的薪水还是没有问题的。</p>
-<p>我们就是使用.NET的技术，如果你觉得你.NET技术还可以而没有地方发挥的，欢迎联系我 <a href="mailto:&#x77;&#97;&#x6e;&#103;&#x64;&#101;&#115;&#104;&#x75;&#x69;&#x40;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#x2e;&#x63;&#x6f;&#x6d;">&#x77;&#97;&#x6e;&#103;&#x64;&#101;&#115;&#104;&#x75;&#x69;&#x40;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-11-05  <a class="commentCountImg" href="/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/#comment-container"><span class="display-none-class">/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="07f01070d401b8435bec17d54b152d7b">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/">敏捷实践系列(五)：迁移已有项目到Git flow</a></h1><div class="content"><p>上一篇 <a href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management/">敏捷实践系列(四)：代码管理流程</a> 给大家详细的讲解了一下Git flow, 本周我们就把一个客户的所有项目实施了Git flow, 如果说你详细看了那篇文章，那么你就能了解为何要进行Git flow 以及如何对一个新项目按Git flow的流程操作， 但是当我们整理已有的项目时，我们发现了以下几个问题需要一些方法处理。</p>
-<h2 id="错乱的分支名如何解决"><a href="#错乱的分支名如何解决" class="headerlink" title="错乱的分支名如何解决"></a>错乱的分支名如何解决</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>我们遇到的一个项目，一开始生产环境用的是master分支，突然客户提出他们有一个客户有特殊需求，让打一个分支出来，团队成员就打出了一个master-quickfix 分支，但是后来这个分支上功能越来越多，慢慢的团队成员就把这个分支当做master分支用了，此时develop和 master-quickfix 分支也早已分道扬镳。然后所有的客户又需要相同的功能，这样如果想合并会master将是非常难的，因为冲突太大。 经过沟通和核实，我们发现现在的master-quickfix其实承担了master的角色，所以我们要让master-quickfix当做master.</p>
-<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><h4 id="方案一-用master-quickfix-代码覆盖master"><a href="#方案一-用master-quickfix-代码覆盖master" class="headerlink" title="方案一 用master-quickfix 代码覆盖master"></a>方案一 用master-quickfix 代码覆盖master</h4><pre><code>git checkout master-quickfix
-
-merge master - ignoring master&#39;s changes
-git merge -s ours master
-
-git checkout master
-
-# finally merge all our stuff to new master - actually it replaces the master with master-quickfix
-git merge master-quickfix
-
-# now master-quickfix can be deleted
-git push origin: master-quickfix</code></pre>
-<p>然后我们就看到master上代码已经和原来master-quickfix上一样了，但是<strong>这个方法有一个问题就是 master-quickfix上的提交日志没有了</strong>，如果你不在乎提交日志那么就可以使用这个方法。</p>
-<h4 id="方案二-改分支名"><a href="#方案二-改分支名" class="headerlink" title="方案二 改分支名"></a>方案二 改分支名</h4><pre><code>git branch -m master new_master         # Rename branch locally    
-git push origin :master                 # Delete the old branch    
-git push --set-upstream origin new_master   # Push the new branch, set local branch to track the new remote
-
-
-git branch -m master-quickfix master         # Rename branch locally    
-git push origin : master-quickfix                 # Delete the old branch    
-git push --set-upstream origin master   # Push the new branch, set local branch to track the new remote</code></pre>
-<p>使用这个方法，就可以看到master-quickfix上的分支的提交记录，过程当中会删除旧的远程master分支，以及master-quickfix分支<br>，所以需要你确认要删除的分支有备份及没有问题，危险系数5星， 我在做这个操作的时候向别人确认了多次。我操作的时候手都抖呀！</p>
-<h2 id="不同的客户不同的分支问题"><a href="#不同的客户不同的分支问题" class="headerlink" title="不同的客户不同的分支问题"></a>不同的客户不同的分支问题</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>原来有一个项目，项目有不同的客户，导致不同的客户的代码在不同的分支上，这导致代码难以管理，功能散乱在各个分支，时间久了，开发人员都不知道每个分支上有哪些功能。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>针对这个问题，我们的想法是不同客户使用同一套代码库，还是使用Git flow, 因为不同的客户需要不同的功能，这其实就是一个SaaS系统，所以我们把系统改为SaaS系统，代码用同一套，不同的客户使用什么功能使用SaaS管理端来配置。 这样做有很多好处，比如：给A客户做的功能很容易再卖给B客户，同时很容易给不同的客户做个性化的配置，例如界面样式等等。 当然，这个需要你的强大的沟通能力，因为改为SaaS需要时间哪，时间就是金钱嘛！</p>
-<p>如果你的客户不同意，或者你需要项目遵守一些”特殊规则或者某个国家特殊政策”，导致整套系统<strong>非常</strong>不同, 那么我的建议是你重新建一个代码库给这个特殊客户，而不要用分支来区分。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由于我们团队的敏捷程度还可以，所以推行Git flow的流程除了以上几个技术上的问题以外，其它的都很顺利。 如果你想实行Git flow，那么再次提醒务必完全理解这个流程再开始。请阅读：<a href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management/">敏捷实践系列(四)：代码管理流程</a></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-sample.png" />
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-10-27  <a class="commentCountImg" href="/2015/10/27/agile-2015-10-27-sourcecode-management/#comment-container"><span class="display-none-class">/2015/10/27/agile-2015-10-27-sourcecode-management/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="eb1caedbfd0f7b90da095d5b21f75474">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>1.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/10/27/agile-2015-10-27-sourcecode-management/">敏捷实践系列(四)：代码管理流程</a></h1><div class="content"><blockquote>
-<p>本来没有这么快到流程以及技术部分，但是因为公司需要，所以就临时写了这一部分。</p>
-</blockquote>
-<p>我们已经从SVN 切换到Git很多年了，现在几乎所有的项目都在使用Github管理。对与那些还在坚持使用SVN的，我实在想不出原因，权且称作守旧派吧。</p>
-<h2 id="Git的优点"><a href="#Git的优点" class="headerlink" title="Git的优点"></a>Git的优点</h2><p>Git的优点很多，但是这里只列出我认为非常突出的几点。</p>
-<ol>
-<li>由于是分布式，所有本地库包含了远程库的所有内容。</li>
-<li>优秀的分支模型，打分支以及合并分支，机器方便。</li>
-<li>快速，在这个时间就是金钱的时代，Git由于代码都在本地，打分支和合并分支机器快速，使用个SVN的能深刻体会到这种优势。</li>
-</ol>
-<p>感兴趣的，可以去看一下Git本身的设计，内在的架构体现了很多的优势，不愧是出资天才程序员Linus (Linux之父) 之手</p>
-<h2 id="版本管理的挑战"><a href="#版本管理的挑战" class="headerlink" title="版本管理的挑战"></a>版本管理的挑战</h2><p>虽然有这么优秀的版本管理工具，但是我们面对版本管理的时候，依然有非常大得挑战，我们都知道大家工作在同一个仓库上，那么彼此的代码协作必然带来很多问题和挑战，如下：</p>
-<ol>
-<li>如何开始一个Feature的开发，而不影响别的Feature？</li>
-<li>由于很容易创建新分支，分支多了如何管理，时间久了，如何知道每个分支是干什么的？</li>
-<li>哪些分支已经合并回了主干？</li>
-<li>如何进行Release的管理？开始一个Release的时候如何冻结Feature, 如何在Prepare Release的时候，开发人员可以继续开发新的功能？</li>
-<li>线上代码出Bug了，如何快速修复？而且修复的代码要包含到开发人员的分支以及下一个Release?</li>
-</ol>
-<p>大部分开发人员现在使用Git就只是用三个甚至两个分支，一个是Master, 一个是Develop, 还有一个是基于Develop打得各种分支。这个在小项目规模的时候还勉强可以支撑，因为很多人做项目就只有一个Release, 但是人员一多，而且项目周期一长就会出现各种问题。</p>
-<h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>就像代码需要代码规范一样，代码管理同样需要一个清晰的流程和规范</p>
-<p>Vincent Driessen 同学为了解决这个问题提出了 <a target="_blank" rel="noopener" href="http://nvie.com/posts/a-successful-git-branching-model/">A Successful Git Branching Model</a></p>
-<p>下面是Git Flow的流程图 </p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-nvie.png"/>
-
-
-<p>上面的图你理解不了？ 没关系，这不是你的错，我觉得这张图本身有点问题，这张图应该左转90度，大家应该就很用以理解了。</p>
-<h3 id="Git-Flow常用的分支"><a href="#Git-Flow常用的分支" class="headerlink" title="Git Flow常用的分支"></a>Git Flow常用的分支</h3><ul>
-<li>Production 分支</li>
-</ul>
-<blockquote>
-<p>也就是我们经常使用的Master分支，这个分支最近发布到生产环境的代码，最近发布的Release， 这个分支只能从其他分支合并，不能在这个分支直接修改</p>
-</blockquote>
-<ul>
-<li>Develop 分支</li>
-</ul>
-<blockquote>
-<p>这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Feature分支</p>
-</blockquote>
-<ul>
-<li>Feature 分支</li>
-</ul>
-<blockquote>
-<p>这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回Develop分支进入下一个Release</p>
-</blockquote>
-<ul>
-<li>Release分支</li>
-</ul>
-<blockquote>
-<p>当你需要一个发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支  </p>
-</blockquote>
-<ul>
-<li>Hotfix分支</li>
-</ul>
-<blockquote>
-<p>当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release</p>
-</blockquote>
-<h3 id="Git-Flow如何工作"><a href="#Git-Flow如何工作" class="headerlink" title="Git Flow如何工作"></a>Git Flow如何工作</h3><h4 id="初始分支"><a href="#初始分支" class="headerlink" title="初始分支"></a>初始分支</h4><p>所有在Master分支上的Commit应该Tag</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-1historical.png"/>
-
-<h4 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h4><p>分支名 feature/*</p>
-<p>Feature分支做完后，必须合并回Develop分支, 合并完分支后一般会删点这个Feature分支，但是我们也可以保留</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-2feature.png" />
-
-
-<h4 id="Release分支"><a href="#Release分支" class="headerlink" title="Release分支"></a>Release分支</h4><p>分支名 release/*</p>
-<p>Release分支基于Develop分支创建，打完Release分之后，我们可以在这个Release分支上测试，修改Bug等。同时，其它开发人员可以基于开发新的Feature (记住：<font style="color:red">一旦打了Release分支之后不要从Develop分支上合并新的改动到Release分支</font>)</p>
-<p>发布Release分支时，合并Release到Master和Develop， 同时在Master分支上打个Tag记住Release版本号，然后可以删除Release分支了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-3release.png" />
-
-
-<h4 id="维护分支-Hotfix"><a href="#维护分支-Hotfix" class="headerlink" title="维护分支 Hotfix"></a>维护分支 Hotfix</h4><p>分支名 hotfix/*</p>
-<p>hotfix分支基于Master分支创建，开发完后需要合并回Master和Develop分支，同时在Master上打一个tag</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-4maintenance.png" />
-
-
-<h3 id="Git-Flow代码示例"><a href="#Git-Flow代码示例" class="headerlink" title="Git Flow代码示例"></a>Git Flow代码示例</h3><p>a.   创建develop分支</p>
-<pre><code>git branch develop
-git push -u origin develop</code></pre>
-<p>b. 开始新Feature开发</p>
-<pre><code>git checkout -b some-feature develop
-
-# Optionally, push branch to origin:
-git push -u origin some-feature
-
-
-
-# 做一些改动
-
-
-git status
-git add some-file
-git commit</code></pre>
-<p>c. 完成Feature</p>
-<pre><code>git pull origin develop
-git checkout develop
-git merge --no-ff some-feature
-git push origin develop
-
-git branch -d some-feature
-
-# If you pushed branch to origin:
-git push origin --delete some-feature</code></pre>
-<p>d. 开始Relase</p>
-<pre><code>git checkout -b release-0.1.0 develop
-
-# Optional: Bump version number, commit
-# Prepare release, commit</code></pre>
-<p>e. 完成Release</p>
-<pre><code>git checkout master
-git merge --no-ff release-0.1.0
-git push
-
-git checkout develop
-git merge --no-ff release-0.1.0
-git push
-
-git branch -d release-0.1.0
-
-# If you pushed branch to origin:
-git push origin --delete release-0.1.0
-
-
-
-
-git tag -a v0.1.0 master
-git push --tags</code></pre>
-<p>f. 开始Hotfix</p>
-<pre><code>git checkout -b hotfix-0.1.1 master</code></pre>
-<p>g. 完成Hotfix</p>
-<pre><code>git checkout master
-git merge --no-ff hotfix-0.1.1
-git push
-
-
-
-
-git checkout develop
-git merge --no-ff hotfix-0.1.1
-git push
-
-git branch -d hotfix-0.1.1
-
-git tag -a v0.1.1 master
-git push --tags</code></pre>
-<h3 id="Git-flow工具"><a href="#Git-flow工具" class="headerlink" title="Git flow工具"></a>Git flow工具</h3><p>实际上，当你理解了上面的流程后，你完全不用使用工具，但是实际上我们大部分人很多命令就是记不住呀，流程就是记不住呀，肿么办呢？</p>
-<p>总有聪明的人创造好的工具给大家用, 那就是Git flow script.</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li>OS X</li>
-</ul>
-<blockquote>
-<p>brew install git-flow</p>
-</blockquote>
-<ul>
-<li>Linux</li>
-</ul>
-<blockquote>
-<p>apt-get install git-flow</p>
-</blockquote>
-<ul>
-<li>Windows</li>
-</ul>
-<blockquote>
-<p>wget -q -O - –no-check-certificate <a target="_blank" rel="noopener" href="https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh">https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh</a> | bash</p>
-</blockquote>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
-<li><p><strong>初始化:</strong> git flow init</p>
-</li>
-<li><p><strong>开始新Feature:</strong> git flow feature start MYFEATURE</p>
-</li>
-<li><p><strong>Publish一个Feature(也就是push到远程):</strong> git flow feature publish MYFEATURE</p>
-</li>
-<li><p><strong>获取Publish的Feature:</strong> git flow feature pull origin MYFEATURE</p>
-</li>
-<li><p><strong>完成一个Feature:</strong> git flow feature finish MYFEATURE</p>
-</li>
-<li><p><strong>开始一个Release:</strong> git flow release start RELEASE [BASE]</p>
-</li>
-<li><p><strong>Publish一个Release:</strong> git flow release publish RELEASE</p>
-</li>
-<li><p><strong>发布Release:</strong> git flow release finish RELEASE<br>  别忘了git push –tags</p>
-</li>
-<li><p><strong>开始一个Hotfix:</strong> git flow hotfix start VERSION [BASENAME]</p>
-</li>
-<li><p><strong>发布一个Hotfix:</strong> git flow hotfix finish VERSION</p>
-</li>
-</ul>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-commands.png"/>
-
-
-<h3 id="Git-Flow-GUI"><a href="#Git-Flow-GUI" class="headerlink" title="Git Flow GUI"></a>Git Flow GUI</h3><p>上面讲了这么多，我知道还有人记不住，那么又有人做出了GUI 工具，你只需要点击下一步就行，工具帮你干这些事！！！</p>
-<h4 id="SourceTree"><a href="#SourceTree" class="headerlink" title="SourceTree"></a>SourceTree</h4><p>当你用Git-flow初始化后，基本上你只需要点击git flow菜单选择start feature, release或者hotfix, 做完后再次选择git flow菜单，点击Done Action. 我勒个去，我实在想不到还有比这更简单的了。</p>
-<p>目前SourceTree支持Mac, Windows, Linux.</p>
-<p>这么好的工具请问多少钱呢？ <strong>免费!!!!</strong></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/sourcetree-hero-mac-log.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/source-tree-git-flow-init.png" />
-
-
-
-<h4 id="Git-flow-for-visual-studio"><a href="#Git-flow-for-visual-studio" class="headerlink" title="Git flow for visual studio"></a>Git flow for visual studio</h4><p>广大VS的福音<br><a target="_blank" rel="noopener" href="https://visualstudiogallery.msdn.microsoft.com/27f6d087-9b6f-46b0-b236-d72907b54683">GitFlow for Visual Studio</a></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_init-vs.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_startfeature.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_finishfeature.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_features.png" />
-
-
-
-
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-10-26  <a class="commentCountImg" href="/2015/10/26/agile-2015-10-16-agile-communication/#comment-container"><span class="display-none-class">/2015/10/26/agile-2015-10-16-agile-communication/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="40c6b9eeb991977a1e4c647aaad08a65">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/10/26/agile-2015-10-16-agile-communication/">敏捷实践系列(三)：沟通</a></h1><div class="content"><p></style></p>
-<p>大话西游里有一段因为没有沟通的经典, 结局如何大家都知道。</p>
-<blockquote>
-<p>唐僧：你想要啊？悟空，你要是想要的话你就说话嘛，你不说我怎么知道你想要呢，虽然你很有诚意地看着我，可是你还是要跟我说你想要的。你真的想要吗？那你就拿去吧！你不是真的想要吧？难道你真的想要吗？…… </p>
-</blockquote>
-<blockquote>
-<p>悟空：… </p>
-</blockquote>
-<h2 id="敏捷项目沟通尤其重要"><a href="#敏捷项目沟通尤其重要" class="headerlink" title="敏捷项目沟通尤其重要"></a>敏捷项目沟通尤其重要</h2><p>敏捷开发多采用短迭代，要求尽快交付可以工作的软件，所以项目的需求文档就很难像原来的瀑布开发模式一样面面俱到。这就要求我们多进行沟通以确保双方的理解一致。根据以往很多项目的经验来看，失败的项目很多都是缺乏沟通，成功的项目必然是沟通做的比较好的。</p>
-<h2 id="敏捷经常出现的沟通问题"><a href="#敏捷经常出现的沟通问题" class="headerlink" title="敏捷经常出现的沟通问题"></a>敏捷经常出现的沟通问题</h2><h3 id="你以为你以为的就是你以为的"><a href="#你以为你以为的就是你以为的" class="headerlink" title="你以为你以为的就是你以为的"></a>你以为你以为的就是你以为的</h3><p>有时候，我们很多人做项目，拿到项目的需求以后，自己简单看了看，然后就开始做了，等到我们做完一个迭代以后，拿给客户看时，完全不是客户要的东西，因为我们对项目的需求的理解比较片面，就是自以为是。</p>
-<h3 id="不敢沟通"><a href="#不敢沟通" class="headerlink" title="不敢沟通"></a>不敢沟通</h3><p>还有的人，尤其是新入团队的人，客户写的东西或者说的东西，自己没有完全理解，然后又不问，他总觉客户已经说过了，已经写过了，然后再去问客户，是不是不妥？如果按自己的理解或者猜测万一对了呢？， 然后就碰运气。 事实上我们的猜测都常常都是错误的，尤其是在我们对项目没有更全局的了解的情况下。</p>
-<h3 id="拖延"><a href="#拖延" class="headerlink" title="拖延"></a>拖延</h3><p>还有一类沟通的问题，就是我们自己也发现了问题，需求上的，或者客户的流程上的，但是我们总是心想等到明天沟通，明天再等明天，其实是希望这个问题自动消失，但最终的结果往往越来越严重。</p>
-<h3 id="不敢沟通客户的问题"><a href="#不敢沟通客户的问题" class="headerlink" title="不敢沟通客户的问题"></a>不敢沟通客户的问题</h3><p>在我的一些项目里，比如我们团队觉得客户那边需要提高，比如需求都很碎片化，客户的UI改来改去，希望客户能提供一个比较接近Final Design的设计，但是总觉得说出客户的问题不好意思，或者对客户的不尊重，实际上我们提出问题和自己的想法才是对客户最大的尊重。</p>
-<h3 id="沟通方法单一"><a href="#沟通方法单一" class="headerlink" title="沟通方法单一"></a>沟通方法单一</h3><p>我们很多人习惯了一种沟通方式，不管什么问题都是同一种，所有的问题都写邮件或者所有的问题都用语音，这也是很没沟通效率的方式。</p>
-<h2 id="敏捷项目如何沟通"><a href="#敏捷项目如何沟通" class="headerlink" title="敏捷项目如何沟通"></a>敏捷项目如何沟通</h2><h3 id="平等沟通的意识"><a href="#平等沟通的意识" class="headerlink" title="平等沟通的意识"></a>平等沟通的意识</h3><p>首先，我们要理解，敏捷项目里的沟通，不管是与客户还是与团队成员，大家都是平等的，沟通项目相关的问题都是平等的，尤其是把客户也当做自己团队的一部分，客户也是希望项目做好的那一个人, 只有这样，我们才能畅所欲言，无所顾忌，更不会有想法掖着藏着。</p>
-<h3 id="多种沟通方式结合"><a href="#多种沟通方式结合" class="headerlink" title="多种沟通方式结合"></a>多种沟通方式结合</h3><p>小平说： “白猫黑猫，抓住老鼠就是好猫”，沟通也一样，下面是常见的几种沟通方式。</p>
-<ul>
-<li>面对面</li>
-<li>视频</li>
-<li>语音</li>
-<li>IM 文字沟通</li>
-<li>邮件沟通</li>
-</ul>
-<p>这几种沟通方式的效率一般情况下由高到低，所以我们尽量选择沟通效率比较高的方式， 因为当我们能看见对方的时候，我们可以根据对方的表情就可以看出来对方是否真的理解了自己所说的。</p>
-<p>但是实际当中我们需要多种沟通方式的有效结合，比如离岸团队面对面的机会比较少，我们可以视频和语音，但是视频语音由于他强调及时性，需要大家的时间都合适，但是视频语音也有缺点，很难有文字记录，虽然可以录音，但是视频和语音很难搜索内容，也较难在组内传播。 那么文字沟通有时候就体现出了很多的优势，有历史记录，多人可以参与等。</p>
-<p>但是IM得文字沟通也有一些不足，比如很难通过图形沟通，对图形标注等，除此之外，很多时候很难及时给出答案等，那么邮件的优势就是不需要客户立即回复，也给客户更多的时间思考，同时格式化的文档更容易把一件事情描述清楚。</p>
-<p>所以，我们在沟通的时候，要结合情况选择最适合，最快速能够把问题沟通清楚的方式。</p>
-<h3 id="一图胜千言"><a href="#一图胜千言" class="headerlink" title="一图胜千言"></a>一图胜千言</h3><p>软件项目很多时候，图形化的沟通非常重要，我们很多项目的设计，以及架构，开发人员难以达到统一的认识，就是缺乏图形，设计图或者架构图。我们都知道，人对图形的记忆力要好于文字。</p>
-<p>系统之间的交互，软件如何部署，项目的架构封层等，这些用图形来表示往往一页纸就可以，而且大家看后，很容易理解，很容易记住。因为只有别人对你的想法理解了，别人才能够发现你的问题，才能给出建议。我觉得软件项目，非常重要的两张图，一个是 Architecture Diagram, 一个是Use Case Diagram, 这两张图可以大大节省项目的开发沟通时间。</p>
-<h3 id="原型或者草图"><a href="#原型或者草图" class="headerlink" title="原型或者草图"></a>原型或者草图</h3><p>敏捷项目流行边做边改，但是我对这个是不太认可的，<strong>客户付钱是让我们把事情做对而不是把事情改对</strong>。那么怎么样能够在做之前尽量就明白要做什么？那就是先做一个原型，我说的原型是不需要花太多时间的，如果花太多时间就得不偿失了，比如UI我们可以先在开发之前先画出Wireframe, 如果需要交互，我们可以先做交互的Prototype. 现在有很多工具比如Invision都可以建立静态图形之间的交互，这样可以大大减少返工的时间。</p>
-<h3 id="提出问题时尽量给出方案"><a href="#提出问题时尽量给出方案" class="headerlink" title="提出问题时尽量给出方案"></a>提出问题时尽量给出方案</h3><p>很多人只问问题，所以导致客户回复的很慢，因为客户需要思考，但是有的时候客户思考后给我们的方案又不适合，所以一来二去就浪费了很多时间，那么好的方法是就是，我们给客户提的问题，想想是不是我们没有方案呢？ 还是我们有多个方案不能确定是哪一个方案呢？很多时候我们其实有方案的。</p>
-<p>我们都知道我们上学的时候都喜欢做判断题，其次是选择题，其次是填空，最不想做的就是问答题，想想我们要想得到客户的快速反馈，我们是不是想想应该给客户出比较容易做的题呢？</p>
-<p>其实，凡是我们提的方案被客户采纳的，我们做起来也更顺手，也就更有效率。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后，沟通最主要的两点：</p>
-<ol>
-<li>如果你想要，就一定要说，不说，别人怎么知道你想要呢？ （敢于沟通）</li>
-<li>要想尽一切办法， 让客户觉得：“你以为你以为的就是你以为的” （确认自己的想法)</li>
-</ol>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/dahuaxiyou.jpg"/></div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-09-28  <a class="commentCountImg" href="/2015/09/28/agile-2015-9-28-agile-mindset/#comment-container"><span class="display-none-class">/2015/09/28/agile-2015-9-28-agile-mindset/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="dda71f20600a45e544870d3e16b93e68">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>9 m  <i class="fas fa-pencil-alt"> </i>1.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/09/28/agile-2015-9-28-agile-mindset/">敏捷实践系列(二)：敏捷意识</a></h1><div class="content"><p>上篇文章我提到了敏捷的心法，但是我想除了心法之外，更重要的是敏捷的意识。</p>
-<h2 id="为什么意识更重要？"><a href="#为什么意识更重要？" class="headerlink" title="为什么意识更重要？"></a>为什么意识更重要？</h2><p>意识：辩证唯物主义的解释是，意识是物质运动变化的场所，意识是人脑对大脑<strong>内外表象</strong>的觉察，即它可以辨识自己脑区中的表象是来自于外部感官的还是来自于想像或回忆的。</p>
-<p>我们这里说的意识，一是你能主管的去想一件事情，另一个就是你对一件事情的发自内心的认可程度。</p>
-<p>敏捷，光有心法是没有用的，有没有要敏捷的意识，敏捷的意愿。有没有主观的愿望去做，我们经常说的话：没有成不成，就是看你想不想做。</p>
-<h2 id="欲推敏捷，首先要培养敏捷的意识"><a href="#欲推敏捷，首先要培养敏捷的意识" class="headerlink" title="欲推敏捷，首先要培养敏捷的意识"></a>欲推敏捷，首先要培养敏捷的意识</h2><p>我举两个例子：</p>
-<p>一个是最近推行**”无车日”**, 无车日本来是想让大家绿色出行，减少二氧化碳的排放，但是结果是什么，结果是堵的一塌糊涂。 为什么？据说原因如下：有车的人想，本来平时不开车，但是今天无车日，路上车少，那我就开车肯定不赌。这样造成的结果是，坐公交的人觉得无车日大家都挤公交，开车的人觉得今天无车日开车应该不赌，所以开车。造成的结果是，公交也堵，开车也堵。这就是政府和民众对环保的意识不够，如果政府意识够了，那么政府是不是多提供公共交通的数量，以及提高公共交通的便捷以及服务？如果民众意识够了，那么我是不是可以走着去上班？我是不是可以骑自行车？我是不是可以跑步？若能如此，无车日才有了真正的意义。</p>
-<p>另一个例子，就是我看到的道路旁边的自行车道栅栏，政府甚至花了不少钱来弄这个，但是效果呢? 我看到的情况是很多地方没人用，甚至造成地段的拥堵。为什么？ 有些地方自行车道里面有面包车在里面堵着，还有的地方有人逆向骑过来，试想，如果你骑自行车有这样的经历，你还会骑自行车道吗？骑到中间你飞出来？ 如果这个自行车道没人用，那么另一个问题又来，本来3车道，现在一个车道停车，一个车道过车，原来没有自行车道时，如果前面的车临时停车，其他的人还能利用空的地方错开车，现在就能硬等，这样岂不是更堵？结果就是，本来就赌的路，硬硬的把路切一块空着浪费了！</p>
-<p>从上面的两个例子，我们都能感觉到，都是为了要把事情做好，但是，就是意识层面没做好工作，才导致截然相反的结果。（以上只是我自己片面的感觉，真正的事实数据请看官方数据）。</p>
-<h2 id="如何培养敏捷的意识？"><a href="#如何培养敏捷的意识？" class="headerlink" title="如何培养敏捷的意识？"></a>如何培养敏捷的意识？</h2><p>首先，我觉得培养敏捷的意识之前，首先要知道是什么事敏捷的意识，我觉得敏捷的意识就是：</p>
-<ul>
-<li>高质、高效的做事情</li>
-<li>持续的学习</li>
-<li>团队精神，Good team player.</li>
-<li>责任心</li>
-<li>关心客户的价值</li>
-<li>解决问题</li>
-<li>努力改变现状，不抱怨现状。</li>
-</ul>
-<p>其次，那么如何培养敏捷的意识呢？我个人觉得两种方式：</p>
-<ul>
-<li><p>招聘具有敏捷意识的人。 其实我列的敏捷的意识和大家想象的SCRUM那些无关的。</p>
-</li>
-<li><p>培养已有的人具有上面提到的敏捷的意识，方法比如说是宣传、强调、加薪、惩罚等等各种方法，关键是推行的人自己有没有这个意识来推行敏捷。</p>
-</li>
-</ul>
-<p>最后，最重要的是要让大家知道为什么要敏捷，敏捷解决的问题是什么？敏捷对工程师自己的好处是什么？因为只有人敏捷了，项目才能敏捷，所有的项目都敏捷了，公司才能说是一个敏捷的公司。若如此，强行推行一个SCRUM框架，持续交付等等，就必然走向文章开头的那两个例子，结果只能是适得其反。</p>
-<p>愿君更饮一杯酒，敏捷路上无故人。</p>
-<p>且行、且思、切记！</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/fuguang.png"/>
-(注：佛光，图片拍摄于2015-6-6 太白山)
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/5/">Previous</a></div><div class="pagination-next"><a href="/page/7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/5/">5</a></li><li><a class="pagination-link is-current" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/10/">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">96</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2017-10-31T23:00:00.000Z">2017-11-01</time></p><p class="title"><a href="/2017/11/01/technologies-DDD-2017-11-1-ddd-practice-road/">领域驱动设计系列（七）:领域驱动开发实践之路:我们如何从领域驱动开发当中获益</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2016-09-03T12:00:00.000Z">2016-09-03</time></p><p class="title"><a href="/2016/09/03/books-2016-09-03-book-the-hard-thing-about-hard-things-10/">拆书系列(十):《联盟》</a></p><p class="categories"><a href="/categories/%E7%AE%A1%E7%90%86/">管理</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2016-08-09T13:00:00.000Z">2016-08-09</time></p><p class="title"><a href="/2016/08/09/books-2016-08-09-book-the-hard-thing-about-hard-things-9/">拆书系列(九):《创业维艰》之关注眼前的麻烦</a></p><p class="categories"><a href="/categories/%E7%AE%A1%E7%90%86/">管理</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2016-08-08T13:00:00.000Z">2016-08-08</time></p><p class="title"><a href="/2016/08/08/books-2016-08-08-book-the-hard-thing-about-hard-things-8/">拆书系列(八):《创业维艰》之有效的人力资源管理</a></p><p class="categories"><a href="/categories/%E7%AE%A1%E7%90%86/">管理</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2016-08-07T13:00:00.000Z">2016-08-07</time></p><p class="title"><a href="/2016/08/07/books-2016-08-07-book-the-hard-thing-about-hard-things-7/">拆书系列(七):《创业维艰》之招聘</a></p><p class="categories"><a href="/categories/%E7%AE%A1%E7%90%86/">管理</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/06/"><span class="level-start"><span class="level-item">June 2016</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/Microsoft/">Microsoft</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/5/">Previous</a></div><div class="pagination-next"><a href="/page/7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/5/">5</a></li><li><a class="pagination-link is-current" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/11/">11</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">101</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">15</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-16T15:00:00.000Z">2019-02-16</time></p><p class="title"><a href="/2019/02/16/personaldev-2019-02-16-when-you-are-a-hammer/">当你是个锤子</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-14T15:00:00.000Z">2019-02-14</time></p><p class="title"><a href="/2019/02/14/personaldev-2019-02-14-why-we-should-respect-professional/">为什么要敬畏专业？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-14T15:00:00.000Z">2019-02-14</time></p><p class="title"><a href="/2019/02/14/personaldev-2019-02-15-how-to-be-professional/">如何做到专业</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-12T15:00:00.000Z">2019-02-12</time></p><p class="title"><a href="/2019/02/12/personaldev-2019-02-12-professional-and-no-professional/">聊聊专业和业余</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-11T15:00:00.000Z">2019-02-11</time></p><p class="title"><a href="/2019/02/11/personaldev-2019-02-11-focus-on-one-road/">路千万条，但你不能同时走两条路</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
