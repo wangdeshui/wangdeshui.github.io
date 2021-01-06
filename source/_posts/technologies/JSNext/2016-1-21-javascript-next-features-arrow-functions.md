@@ -18,49 +18,55 @@ ES6 允许使用 => 来定义函数， 他是函数的缩写，这个熟悉C#的
 
 ## 定义格式
 
-    (<arguments>) => <return statement>
-    
+```javascript
+(<arguments>) => <return statement>
+```
+
 当只有一个参数时，括号可省略，下面两种写法是等价的.
 
-    (x) => x * x
-    x => x * x
+```javascript
+(x) => x * x
+x => x * x
+```
 
 ## 示例代码
 
 
 
-    'use strict';
-    // 数组
-    const items = [1, 2, 3, 4];
+```javascript
+'use strict';
+// 数组
+const items = [1, 2, 3, 4];
 
-    // lamda 表达式
-    let byTwo = items.map(i => i * 2);
+// lamda 表达式
+let byTwo = items.map(i => i * 2);
 
-    // 可以使用block
-    let byFour = items.map(i => {
-        return i * 2;
-    });
+// 可以使用block
+let byFour = items.map(i => {
+    return i * 2;
+});
 
-    // 绑定this
-    function Person() {
-        this.company = "deshui.wang";
-        this.Names = ["Jack", "Alex", "Eric"];
-        this.print = () => {
-            return this.Names.map((n) => {
-                return n + " is from " + "company "+ this.company;
-            });
-        };
-    }
+// 绑定this
+function Person() {
+    this.company = "deshui.wang";
+    this.Names = ["Jack", "Alex", "Eric"];
+    this.print = () => {
+        return this.Names.map((n) => {
+            return n + " is from " + "company "+ this.company;
+        });
+    };
+}
 
-    console.log(new Person().print());
-    
-    // 输出:
-    [ 
-        'Jack is from company deshui.wang',
-        'Alex is from company deshui.wang',
-        'Eric is from company deshui.wang'
-    ]
-  
+console.log(new Person().print());
+
+// 输出:
+[ 
+    'Jack is from company deshui.wang',
+    'Alex is from company deshui.wang',
+    'Eric is from company deshui.wang'
+]
+```
+
 # 注意事项
 
 
@@ -74,15 +80,16 @@ ES6 允许使用 => 来定义函数， 他是函数的缩写，这个熟悉C#的
 
 5.  **arguments、super、new.target 在在箭头函数之中是不存在的，他们指向外层函数的对应变量。**
 
-        function hello() {
-        setTimeout( () => {
-            console.log("args:", arguments);
-        },100);
-        }
-
-        hello( 1, 2, 3, 4 );
-
-        // 输出 1, 2, 3, 4
+    ```javascript
+    function hello() {
+    setTimeout( () => {
+        console.log("args:", arguments);
+    },100);
+}
     
+hello( 1, 2, 3, 4 );
+    
+    // 输出 1, 2, 3, 4
+    ```
     
 6. **箭头函数没有自己的 this，所以不能用call()、apply()、bind()这些方法去改变 this 的指向。**

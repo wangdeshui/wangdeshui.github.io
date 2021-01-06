@@ -61,17 +61,7 @@ tags: [管理]
 9. ODC的项目也更容易规划开发人员的个人发展，更容易做出一个长期的计划，从而增加员工对公司的认同，一个能留住人才的公司，肯定是可以提供更好的服务的。
 
 
-ODC的好处远远不止这几点，我们使用ODC成功提交了大量的项目，当然单单使用这种合作模式也是不够的，软件行业想在ODC服务模式下提供高质量的服务依然没有那么简单，具体怎么做，欢迎阅读我的 [我的敏捷系列](http://deshui.wang/categories.html#敏捷-ref)
-
-* [敏捷实践系列(九)：SCRUM](http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/06/01/scrum-training)
-* [敏捷实践系列(八)：单元测试及最佳实践](http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/06/unit-test-best-practices)
-* [敏捷实践系列(七)：为什么你都听客户的，客户却不满意](http://deshui.wang/%E6%95%8F%E6%8D%B7/2016/01/01/why-fully-follow-customer-is-wrong)
-* [敏捷实践系列(六)：Team Leader 你不再只是编码, 来炖一锅石头汤吧](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/12/30/team-leader-should-not-only-coding)
-* [敏捷实践系列(五)：迁移已有项目到Git flow](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/11/05/agile-gif-flow-practice)
-* [敏捷实践系列(四)：代码管理流程](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management)
-* [敏捷实践系列(三)：沟通](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/26/agile-communication)
-* [敏捷实践系列(二)：敏捷意识](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/09/28/agile-mindset)
-* [敏捷实践系列(一)：什么是敏捷](http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/09/18/what-is-agile)
+ODC的好处远远不止这几点，我们使用ODC成功提交了大量的项目，当然单单使用这种合作模式也是不够的，软件行业想在ODC服务模式下提供高质量的服务依然没有那么简单，具体怎么做，欢迎阅读我的 
 
 # ODC的问题
 

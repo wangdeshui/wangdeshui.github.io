@@ -10,18 +10,18 @@ tags: [Microsoft]
 <style>
 
  img {
-  
+
    border: solid 5px #ccc;
    padding: 5px;
    border-radius:5px;  
    text-align: center;
    max-height: 400px;
-   
+
 
  }
 
 
- 
+
 
 </style>
 
@@ -41,7 +41,7 @@ C# 6之前我们拼接字符串时需要这样
 
      var Name = "Jack";
      var results = string.Format("Hello {0}", Name);
-    
+
 但是C#6里我们就可以使用新的字符串插值特性
       
       var Name = "Jack";
@@ -59,7 +59,7 @@ C# 6之前我们拼接字符串时需要这样
 字符串插值不光是可以插简单的字符串，还可以直接插入代码
 
      Console.WriteLine($"Jack is saying { new Tools().SayHello() }");
-
+    
      var info = $"Your discount is {await GetDiscount()}";
 
 那么如何处理多语言呢？
@@ -70,7 +70,7 @@ C# 6之前我们拼接字符串时需要这样
 
      Double remain = 2000.5; 
      var results= $"your money is {remain:C}";  
-
+    
     # 输出 your money is $2,000.50
 
 使用IFormattable 多语言
@@ -79,21 +79,21 @@ C# 6之前我们拼接字符串时需要这样
     {
         static void Main(string[] args)
         {
-
+    
             Double remain = 2000.5; 
-
+    
             var results= ChineseText($"your money is {remain:C}");
-
+    
             Console.WriteLine(results);
             Console.Read();
         }
-
+    
         public static string ChineseText(IFormattable formattable)
         {
             return formattable.ToString(null, new CultureInfo("zh-cn"));
         }
     }
-
+    
     # 输出  your money is ￥2,000.50
 
 ## 二、空操作符 ( ?. )
@@ -120,7 +120,7 @@ C# 6添加了一个 ?. 操作符，当一个对象或者属性职为空时直接
             Console.Read();
         }
     }
-
+    
     public class User
     {
         public void SayHello()
@@ -135,15 +135,15 @@ C# 6添加了一个 ?. 操作符，当一个对象或者属性职为空时直接
         static void Main(string[] args)
         {
             User[] users = null;
-
+    
             List<User> listUsers = null;
-
+    
             // Console.WriteLine(users[1]?.Name); // 报错
             // Console.WriteLine(listUsers[1]?.Name); //报错
-
+    
             Console.WriteLine(users?[1].Name); // 正常
             Console.WriteLine(listUsers?[1].Name); // 正常
-
+    
             Console.ReadLine();
         }
     }
@@ -181,7 +181,7 @@ WPF 也经常有这样的代码
           RaisePropertyChanged(NameOf(Name));
       }
     }
-
+    
     static void Main(string[] args)
       {
           Console.WriteLine(nameof(User.Name)); //  output: Name
@@ -220,95 +220,109 @@ WPF 也经常有这样的代码
         private static string SayHello() => "Hello World";
         private static string JackSayHello() => $"Jack {SayHello()}";
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(SayHello());
-            Console.WriteLine(JackSayHello());
-            
-            Console.ReadLine();
-        }
+```c#
+    static void Main(string[] args)
+    {
+        Console.WriteLine(SayHello());
+        Console.WriteLine(JackSayHello());
+        
+        Console.ReadLine();
     }
+}
+```
 
 
 ## 六、自动属性初始化器
 
 之前我们需要赋初始化值，一般需要这样
 
-    public class Person
-    {
-        public int Age { get; set; }
+```c#
+public class Person
+{
+    public int Age { get; set; }
 
-        public Person()
-        {
-            Age = 100;
-        }
+    public Person()
+    {
+        Age = 100;
     }
+}
+```
 
 但是C# 6的新特性里我们这样赋值
 
-    public class Person
-    {
-        public int Age { get; set; } = 100;
-    }
+```c#
+public class Person
+{
+    public int Age { get; set; } = 100;
+}
+```
 
 
 ## 七、只读自动属性
 
 C# 1里我们可以这样实现只读属性
 
-    public class Person
-    {
-        private int age=100;
+```c#
+public class Person
+{
+    private int age=100;
 
-        public int Age
-        {
-            get { return age; }
-        }
+    public int Age
+    {
+        get { return age; }
     }
+}
+```
 
 但是当我们有自动属性时，我们没办法实行只读属性，因为自动属性不支持readonly关键字，所以我们只能缩小访问权限
 
-    public class Person
-    {
-        public  int Age { get; private set; }
-       
-    }
+```c#
+public class Person
+{
+    public  int Age { get; private set; }
+   
+}
+```
 
 但是 C#6里我们可以实现readonly的自动属性了
 
-    public class Person
-    {
-        public int Age { get; } = 100;
-    }
+```c#
+public class Person
+{
+    public int Age { get; } = 100;
+}
+```
 
 
 
 ## 八、异常过滤器 Exception Filter
 
-       static void Main(string[] args)
+```c#
+   static void Main(string[] args)
+    {
+
+        try
         {
-
-            try
-            {
-                throw  new ArgumentException("Age");
-            }
-            catch (ArgumentException argumentException) when( argumentException.Message.Equals("Name"))
-            {
-                throw  new ArgumentException("Name Exception");
-
-            }
-
-            catch (ArgumentException argumentException) when( argumentException.Message.Equals("Age"))
-            {
-                throw new Exception("not handle");
-                
-            }
-            catch  (Exception e)
-            {
-                
-                throw;
-            }
+            throw  new ArgumentException("Age");
         }
+        catch (ArgumentException argumentException) when( argumentException.Message.Equals("Name"))
+        {
+            throw  new ArgumentException("Name Exception");
+
+        }
+
+        catch (ArgumentException argumentException) when( argumentException.Message.Equals("Age"))
+        {
+            throw new Exception("not handle");
+            
+        }
+        catch  (Exception e)
+        {
+            
+            throw;
+        }
+    }
+```
 
 在之前，一种异常只能被Catch一次，现在有了Filter后可以对相同的异常进行过滤，至于有什么用，那就是见仁见智了，我觉得上面的例子，定义两个具体的异常 NameArgumentException 和AgeArgumentException代码更易读。
 
@@ -316,35 +330,39 @@ C# 1里我们可以这样实现只读属性
 
 这个主要是用在Dictionary上，至于有什么用，我目前没感觉到有一点用处，谁能知道很好的使用场景，欢迎补充:
 
-    var names = new Dictionary<int, string>
-    {
-        [1] = "Jack",
-        [2] = "Alex",
-        [3] = "Eric",
-        [4] = "Jo"
-    };
+```c#
+var names = new Dictionary<int, string>
+{
+    [1] = "Jack",
+    [2] = "Alex",
+    [3] = "Eric",
+    [4] = "Jo"
+};
 
-    foreach (var item in names)
-    {
-        Console.WriteLine($"{item.Key} = {item.Value}");
-    }
+foreach (var item in names)
+{
+    Console.WriteLine($"{item.Key} = {item.Value}");
+}
+```
 
 ## 十、using 静态类的方法可以使用 static using
 
   这个功能在我看来，同样是很没有用的功能，也为去掉前缀有的时候我们不知道这个是来自哪里的，而且如果有一个同名方法不知道具体用哪个，当然经证实是使用类本身的覆盖，但是容易搞混不是吗？
     
-    using System;
-    using static System.Math;
-    namespace CSharp6NewFeatures
-     {
-      class Program
-      {
-          static void Main(string[] args)
-        {
-            Console.WriteLine(Log10(5)+PI);
-        }
-      }
+```c#
+using System;
+using static System.Math;
+namespace CSharp6NewFeatures
+ {
+  class Program
+  {
+      static void Main(string[] args)
+    {
+        Console.WriteLine(Log10(5)+PI);
     }
+  }
+}
+```
 
 
 ## 总结

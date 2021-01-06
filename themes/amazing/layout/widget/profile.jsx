@@ -48,7 +48,7 @@ class Profile extends Component {
                     <div class="level-item has-text-centered flex-shrink-1">
                         <div>
                             <p>公众号：敏捷的水, 扫码关注</p>
-                            <figure class="image is-128x128 mx-auto mb-2">
+                            <figure class="image  mx-auto mb-2">
                                 <img class={'avatar' + (avatarRounded ? ' is-rounded' : '')} src={avatar} alt={author} />
                             </figure>
                             {author ? <p class="title is-size-4 is-block" style={{'line-height': 'inherit'}}>{author}</p> : null}

@@ -19,69 +19,83 @@ tags: [JavaScript.Next]
 
 示例1:
 
-    (function() {
-        return NaN === NaN;
-    })();
-        
-    输出: false
+```javascript
+(function() {
+    return NaN === NaN;
+})();
     
+输出: false
+```
+
 示例2:
 
-    (function() {
-        return (0.1 + 0.2 === 0.3);
-    })();
-    
-    输出: false
+```javascript
+(function() {
+    return (0.1 + 0.2 === 0.3);
+})();
+
+输出: false
+```
 
 示例3:
 
-    [5, 12, 9, 2, 18, 1, 25].sort();
-    
-    输出: [1, 12, 18, 2, 25, 5, 9]
-    
+```javascript
+[5, 12, 9, 2, 18, 1, 25].sort();
+
+输出: [1, 12, 18, 2, 25, 5, 9]
+```
+
 示例4:
 
-    var a = "1"
-    var b = 2
-    var c = a + b
-    
-    输出：c = "12" 
-    
-    var a = "1"
-    var b = 2
-    var c = +a + b
-    
-    输出：c = 3   
-    
+```javascript
+var a = "1"
+var b = 2
+var c = a + b
+
+输出：c = "12" 
+
+var a = "1"
+var b = 2
+var c = +a + b
+
+输出：c = 3   
+```
+
 示例5:
 
-    (function() {
-        return ['10','10','10','10'].map(parseInt);
-    })();
-    
-    输出: [10, NaN, 2, 3]
-    
+```javascript
+(function() {
+    return ['10','10','10','10'].map(parseInt);
+})();
+
+输出: [10, NaN, 2, 3]
+```
+
 示例6:
 
-    (function() {
-        return 9999999999999999;
-    })();
-    
-    输出: 10000000000000000
-    
+```javascript
+(function() {
+    return 9999999999999999;
+})();
+
+输出: 10000000000000000
+```
+
 示例7:
 
-    var a = [];
-    for (var i = 0; i < 10; i++) {
-    a[i] = function () {
-        console.log(i);
-    };
-    }
-    a[1](); 
-    a[2]();
-    a[3]();
-    
-    输出: 10,10,10
+```javascript
+var a = [];
+for (var i = 0; i < 10; i++) {
+a[i] = function () {
+    console.log(i);
+};
+}
+a[1](); 
+a[2]();
+a[3]();
+
+输出: 10,10,10
+```
 
 我是觉得如果按正常人的理解，代码不能得到想要的结果，那就算是语言本身的问题。如果一个程序执行的和人期望的不一样，或者还需要一些Hack的方法，那么是很糟糕的。
 
@@ -105,16 +119,19 @@ ES6和ES7的一些新特性，可以大大提高项目的健壮性，同时让�
 
 这里简单说一Gulp和babel如何结合使用
 
-    $ npm install -g gulp-babel
-    
-    var gulp=require('gulp'), babel=require('gulp-babel');
-    
-    gulp.task('build',function(){
-        return gulp.src('src/app.js')
-                   .pipe(babel())
-                   .pipe(gulp.dest('build'))    
-    })
-    
-    
+```javascript
+$ npm install -g gulp-babel
+
+var gulp=require('gulp'), babel=require('gulp-babel');
+
+gulp.task('build',function(){
+    return gulp.src('src/app.js')
+               .pipe(babel())
+               .pipe(gulp.dest('build'))    
+})
+```
+
+
+​    
 后面的系列，我将以此介绍ES6, ES7的一些可以现在就用的主要特性。    
 

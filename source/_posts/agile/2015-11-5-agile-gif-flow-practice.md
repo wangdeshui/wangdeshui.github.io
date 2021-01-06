@@ -34,7 +34,7 @@ tags: [管理]
 	git push origin: master-quickfix
 
 
-然后我们就看到master上代码已经和原来master-quickfix上一样了，但是<font style="color:red; font-weight:bold">这个方法有一个问题就是 master-quickfix上的提交日志没有了</font>，如果你不在乎提交日志那么就可以使用这个方法。
+然后我们就看到master上代码已经和原来master-quickfix上一样了，但是**这个方法有一个问题就是 master-quickfix上的提交日志没有了**，如果你不在乎提交日志那么就可以使用这个方法。
 
 
 #### 方案二 改分支名
@@ -49,8 +49,8 @@ tags: [管理]
 	git push --set-upstream origin master   # Push the new branch, set local branch to track the new remote
 
 
-使用这个方法，就可以看到master-quickfix上的分支的提交记录，<font style="color:red; font-weight:bold">过程当中会删除旧的远程master分支，以及master-quickfix分支
-，所以需要你确认要删除的分支有备份及没有问题，危险系数5星</font>， 我在做这个操作的时候向别人确认了多次。我操作的时候手都抖呀！
+使用这个方法，就可以看到master-quickfix上的分支的提交记录，过程当中会删除旧的远程master分支，以及master-quickfix分支
+，所以需要你确认要删除的分支有备份及没有问题，危险系数5星， 我在做这个操作的时候向别人确认了多次。我操作的时候手都抖呀！
 
 ## 不同的客户不同的分支问题
 

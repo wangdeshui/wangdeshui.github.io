@@ -31,131 +31,155 @@ tags: [JavaScript.Next]
 
 简单字符串替换
 
-    var name = "Brendan";
-    console.log(`Yo, ${name}!`);
+```javascript
+var name = "Brendan";
+console.log(`Yo, ${name}!`);
 
-    // => "Yo, Brendan!"
+// => "Yo, Brendan!"
+```
 
 表达式
 
-    var a = 10;
-    var b = 10;
-    console.log(`JavaScript first appeared ${a+b} years ago. Crazy!`);
+```javascript
+var a = 10;
+var b = 10;
+console.log(`JavaScript first appeared ${a+b} years ago. Crazy!`);
 
-    //=> JavaScript first appeared 20 years ago. Crazy!
+//=> JavaScript first appeared 20 years ago. Crazy!
 
-    console.log(`The number of JS MVC frameworks is ${2 * (a + b)} and not ${10 * (a + b)}.`);
-    //=> The number of JS frameworks is 40 and not 200.
+console.log(`The number of JS MVC frameworks is ${2 * (a + b)} and not ${10 * (a + b)}.`);
+//=> The number of JS frameworks is 40 and not 200.
+```
 
 函数
 
-    function fn() { return "I am a result. Rarr"; }
-    console.log(`foo ${fn()} bar`);
-    //=> foo I am a result. Rarr bar.
+```javascript
+function fn() { return "I am a result. Rarr"; }
+console.log(`foo ${fn()} bar`);
+//=> foo I am a result. Rarr bar.
+```
 
 
 $() 可以使用任何表达式和方法调用
 
-    var user = {name: 'Caitlin Potter'};
-    console.log(`Thanks for getting this into V8, ${user.name.toUpperCase()}.`);
+```javascript
+var user = {name: 'Caitlin Potter'};
+console.log(`Thanks for getting this into V8, ${user.name.toUpperCase()}.`);
 
-    // => "Thanks for getting this into V8, CAITLIN POTTER";
+// => "Thanks for getting this into V8, CAITLIN POTTER";
 
-    // And another example
-    var thing = 'drugs';
-    console.log(`Say no to ${thing}. Although if you're talking to ${thing} you may already be on ${thing}.`);
+// And another example
+var thing = 'drugs';
+console.log(`Say no to ${thing}. Although if you're talking to ${thing} you may already be on ${thing}.`);
 
-    // => Say no to drugs. Although if you're talking to drugs you may already be on drugs.
+// => Say no to drugs. Although if you're talking to drugs you may already be on drugs.
+```
 
 
 示例代码：
 
 ES5:
 
-    'use strict';
+```javascript
+'use strict';
 
-    var customer = { name: "Foo" };
-    var card = { amount: 7, product: "Bar", unitprice: 42 };
+var customer = { name: "Foo" };
+var card = { amount: 7, product: "Bar", unitprice: 42 };
 
-    var message = "Hello " + customer.name + ",\n" +
-    "want to buy " + card.amount + " " + card.product + " for\n" +
-    "a total of " + (card.amount * card.unitprice) + " bucks?";
+var message = "Hello " + customer.name + ",\n" +
+"want to buy " + card.amount + " " + card.product + " for\n" +
+"a total of " + (card.amount * card.unitprice) + " bucks?";
 
-    console.log(message);
-    
-    输出:
-    
-    Hello Foo,
-    want to buy 7 Bar for
-    a total of 294 bucks?
-    
+console.log(message);
+
+输出:
+
+Hello Foo,
+want to buy 7 Bar for
+a total of 294 bucks?
+```
+
 ES6:
 
-    var customer = { name: "Foo" }
-    var card = { amount: 7, product: "Bar", unitprice: 42 }
-    message = `Hello ${customer.name},
-    want to buy ${card.amount} ${card.product} for
-    a total of ${card.amount * card.unitprice} bucks?`
-    
-    输出:
-    
-    Hello Foo,
-    want to buy 7 Bar for
-    a total of 294 bucks?
-    
+```javascript
+var customer = { name: "Foo" }
+var card = { amount: 7, product: "Bar", unitprice: 42 }
+message = `Hello ${customer.name},
+want to buy ${card.amount} ${card.product} for
+a total of ${card.amount * card.unitprice} bucks?`
+
+输出:
+
+Hello Foo,
+want to buy 7 Bar for
+a total of 294 bucks?
+```
+
 
 ## Tagged Templates (标签模板？不知道如何翻译)
 
 比如
 
-    fn`Hello ${you}! You're looking ${adjective} today!`
+```javascript
+fn`Hello ${you}! You're looking ${adjective} today!`
+```
 
 实际上等于
 
     fn(["Hello ", "! You're looking ", " today!"], you, adjective);
-    
+
 fn可以是任何函数名，也就是把字符串分解传到到方法的第一个参数里，第一个参数必须是数组，数组的每一项，就是被$()分开的没一串字符， 每一个$()里面的值将传给函数的剩余参数。等于下面函数定义，strings是一个数组，values是Rest参数。
 
-    fn(strings, ...values)
-    
+```javascript
+fn(strings, ...values)
+```
+
 示例
 
-    var a = 5;
-    var b = 10;
+```javascript
+var a = 5;
+var b = 10;
 
-    function tag(strings, ...values) {
-        console.log(strings[0]); // "Hello "
-        console.log(strings[1]); // " world "
-        console.log(values[0]);  // 15
-        console.log(values[1]);  // 50
+function tag(strings, ...values) {
+    console.log(strings[0]); // "Hello "
+    console.log(strings[1]); // " world "
+    console.log(values[0]);  // 15
+    console.log(values[1]);  // 50
 
-        return "Bazinga!";
-    }
+    return "Bazinga!";
+}
 
-    tag`Hello ${ a + b } world ${ a * b }`;
-    // "Bazinga!"
-    
+tag`Hello ${ a + b } world ${ a * b }`;
+// "Bazinga!"
+```
+
 有了 tagged template 我们可以让代码看起来更简洁，比如我们可以把下面的调用
 
-    get([ "http://example.com/foo?bar=", "&quux=", "" ],bar + baz, quux);
-    
+```javascript
+get([ "http://example.com/foo?bar=", "&quux=", "" ],bar + baz, quux);
+```
+
 用新的写法
 
-    get`http://example.com/foo?bar=${bar + baz}&quux=${quux}`
-    
+```javascript
+get`http://example.com/foo?bar=${bar + baz}&quux=${quux}`
+```
+
 
 
 ## String.raw
 
 存取 raw template string, 就是如果遇见\将增加一个\,然后原样输出。
 
-    let interpreted = 'raw\nstring';
-    let esaped = 'raw\\nstring';
-    let raw = String.raw`raw\nstring`;
-    console.log(interpreted);    // raw
-                                // string
-    console.log(raw === esaped); // true    
-    
+```javascript
+let interpreted = 'raw\nstring';
+let esaped = 'raw\\nstring';
+let raw = String.raw`raw\nstring`;
+console.log(interpreted);    // raw
+                            // string
+console.log(raw === esaped); // true    
+```
 
 
-    
+
+​    
