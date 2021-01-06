@@ -10817,6 +10817,9 @@ article.article .article-meta {
   overflow-x: auto;
   margin-bottom: 0.5rem;
 }
+article.article strong {
+  color: #ef7060;
+}
 article.article .content {
   word-wrap: break-word;
   font-size: 1.1rem;
@@ -10826,6 +10829,14 @@ article.article .content h1 {
 }
 article.article .content h2 {
   font-size: 1.5em;
+  border-bottom: 2px solid #ef7060;
+  font-weight: bold;
+  background: #ef7060;
+  color: #fff;
+  padding: 3px 10px 1px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  margin-right: 3px;
 }
 article.article .content h3 {
   font-size: 1.25em;
@@ -12270,7 +12281,7 @@ textarea {
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 body {
-  background: url("/img/background.png");
+  background-color: #eee;
 }
 .img-x {
   position: relative;
@@ -12509,19 +12520,6 @@ body {
 }
 .social-share {
   text-align: center;
-}
-.level img {
-  transition: all 0.5s ease-in;
-  -webkit-transition: all 0.5s ease-in;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-}
-.level figure img:hover {
-  transform: rotate(360deg);
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
 }
 .content .gt-container .gt-comment-edit {
   margin-right: 2%;
