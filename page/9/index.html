@@ -1,253 +1,581 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6e76f3e6319b3d7068e33dc317171f1d">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/">领域驱动设计系列（三）:事件驱动上</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天讲一下事件驱动，这个不是领域驱动设计里的事件源(Event Source), 这个以后再讲，今天主要讲一下如何用事件来解耦，主要的原因是我们有个项目有个功能我觉得用事件的方式比较好，正好写篇博客，就不用专门给他们讲了。</p>
-<h1 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h1><p>说到解耦，我们很熟悉分层设计，比如上层依赖于抽象，不依赖于具体的实现。比如一个类使用另一个类，我们使用接口而不直接使用实现类。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">EquipmentService</span>(<span class="params">IEmailService emailService, IEquipmentRepository equipmentRepository</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       _emailService = emailService;</span><br><span class="line">       _equipmentRepository = equipmentRepository;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="为何用事件？"><a href="#为何用事件？" class="headerlink" title="为何用事件？"></a>为何用事件？</h1><h2 id="SRP-（单一职责"><a href="#SRP-（单一职责" class="headerlink" title="SRP （单一职责)"></a>SRP （单一职责)</h2><p>比如我们一个会议室预定系统，我们的一个设备坏了。我们需要通知预定这个会议室的所有人。于是我们需要发邮件。</p>
-<p>伪代码如下</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EquipmentService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEmailService _emailService;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEquipmentRepository _equipmentRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EquipmentService</span>(<span class="params">IEmailService emailService, IEquipmentRepository equipmentRepository</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _emailService = emailService;</span><br><span class="line">        _equipmentRepository = equipmentRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetEquipmentBroken</span>(<span class="params"><span class="built_in">string</span> Id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> equipment = _equipmentRepository.GetById(Id);</span><br><span class="line">        equipment.DeActive();</span><br><span class="line"></span><br><span class="line">        _emailService.SendEmail();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是，问题来了，如果后来我们要说，如果设备坏了，我们要更改可用库存的数量，这时候我们是不是要在这里修改代码而引入IInventoryService? 后来如果经理说设备坏了你们尽然不告诉我，你们要闹哪样？这个时候我们是不是要修改代码引入ISMSService.Info(Manager)? 即使我们不考虑OCP原则，不考虑单一职责，我们程序员也会哭，我就DeActive一个设备，你要我做这么多事，我哪里清楚所有的功能？我就骂过程序员，你做这个功能呢为什么没考虑全！！！漏掉了这么重要的功能。</p>
-<p>而问题，程序员从来没考虑全过，因此我就想办法如何解决这个程序员不仔细的问题。</p>
-<h2 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h2><p>因为我熟悉iOS的开发，我就想到了iOS的Notification Center. 那我我DeActive一个设备，我就只DeActive这个设备，很SRP是不是？ 但是别的地方如何拿到通知？ 于是事件就自然的付出水面了。如果设备被DeActive了，程序就只需要喊一声，老子把设备DeActive了，你们要闹哪样你们自己看着办，代码如下。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetEquipmentBroken</span>(<span class="params"><span class="built_in">string</span> Id</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       <span class="keyword">var</span> equipment = _equipmentRepository.GetById(Id);</span><br><span class="line">       equipment.DeActive();</span><br><span class="line"></span><br><span class="line">       EventBus.Publish(<span class="keyword">new</span> EquipmentDeActivedEvent &#123;Id = equipment.Id&#125;);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>这样，通知会议室预定者的模块去通知，给老板发短信的模块就通知老板就OK了。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里我们先将事件驱动，下一篇展示如何实现同步的事件，以后转换为异步那也很容易，让多个接受者处理这个事件，接受者可以是动态的哦，以后老板娘也想知道的话，代码也不用改的亲，好，我先去写实现代码去！</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/#comment-container"><span class="display-none-class">/2015/02/11/technologies-DDD-2015-2-11-domainmodel/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d0b3d5cca093461b4d5f702559492113">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/">领域驱动设计系列（二）:领域Model？</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>领域驱动设计里有很多东西，我们可以应用在各种各样的开发模式里，所以接下来说的一些东西，我们可以部分使用。</p>
-<p>说道领域驱动的领域，大家肯定就要开始说Bounded Context,聚合，聚合根，容易让大家搞糊涂。 我觉得先抛开这些概念，后面再来说如何设计聚合，先简单来说。</p>
-<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>过去，我们在多层设计里定义了很多Model, 数据库的Model(DB Entity), 然后为了不依赖数据库，我们有设计了业务的Domain Model, 同时我们又设计了ViewModel, 这样一般也没什么问题，职责也很清晰。但是有几个问题</p>
-<ol>
-<li>我们要做很多的模型转换，转入转出。当然我们可以用AutoMapper来但是AutoMapper的性能实在难以恭维，大家可以在网上搜索AutoMapper performance.</li>
-<li>领域模型成了一个单纯的DTO了。</li>
-</ol>
-<h2 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h2><p>首先我们要看领域，就是我们尽量把业务聚合到一个领域里，比如我们要做一个功能，可以看到用户每一次的登录日志，那个这个登录日志其实就是属于用户这个领域里。</p>
-<p>其次我们看模型，原来我们的模型都是只有属性，也就是贫血模型，贫血的意思就是没有行为，像木乃伊一样，但是实际上领域是我们要完成业务的最主要的地方，我们希望领域能够自制，也就是领域自己管理自己。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. </p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Employee</span> : <span class="title">Entity</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Name Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">public</span> EmployeeStatus EmployeeStatus &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">&#125;c</span><br></pre></td></tr></table></figure>
-<p>如果是贫血的Employee模型，我们往往代码如下</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EmployeeService</span> : <span class="title">IEmployeeService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IUnitOfWorkFactory _unitOfWorkFactory;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEmployeeRepository _employeeRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EmployeeService</span>(<span class="params">IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _unitOfWorkFactory = unitOfWorkFactory;</span><br><span class="line">        _employeeRepository = employeeRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeStatus</span>(<span class="params">EmployeeStatus status, Guid employeeId</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> employee = _employeeRepository.GetById(employeeId);</span><br><span class="line">            employee.EmployeeStatus = status;</span><br><span class="line"></span><br><span class="line">            unitOfWork.Commit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>但是上面的代码的问题就是领域没有自治，本来修改我的状态是我的事，你能不能修改，外面随意修改我的状态是很危险的，比如Pending状态只能改为Active状态。 所以如果不是贫血的模型，我们代码就会这样，让领域自己来管理</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Employee</span> : <span class="title">Entity</span></span><br><span class="line">&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">public</span> UserId UserId &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> EmployeeStatus EmployeeStatus &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeStatus</span>(<span class="params">EmployeeStatus status</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.EmployeeStatus == EmployeeStatus.Pending &amp;&amp; status != EmployeeStatus.Active)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;Only can Active when status is pending&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.EmployeeStatus = status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EmployeeService</span> : <span class="title">IEmployeeService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IUnitOfWorkFactory _unitOfWorkFactory;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEmployeeRepository _employeeRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EmployeeService</span>(<span class="params">IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _unitOfWorkFactory = unitOfWorkFactory;</span><br><span class="line">        _employeeRepository = employeeRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeStatus</span>(<span class="params">EmployeeStatus status, Guid employeeId</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> employee = _employeeRepository.GetById(employeeId);</span><br><span class="line">            employee.ChangeStatus(status);</span><br><span class="line"></span><br><span class="line">            unitOfWork.Commit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>因此可以看出，我们把业务代码尽量写在领域里让领域自治。 </p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实领域驱动设计最难的就是设计领域(Domain), 也就是后面会说到的AggregateRoot 聚合，但是我想我们先让领域不再贫血，这样在传统的多层设计，数据驱动等架构都可以使用这种模式。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-10  <a class="commentCountImg" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/#comment-container"><span class="display-none-class">/2015/02/10/technologies-DDD-2015-2-10-why-ddd/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1b7efaf5b26fd2f4bb3f918604633030">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/">领域驱动设计系列（一）:为何要领域驱动设计？</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>领域驱动设计最近貌似开始火起来了，越来越多的人开始认识到领域设计的重要性，从我做过的项目来看，似乎欧洲已经有很多的公司开始实施领域驱动设计了，我看领域驱动设计也有些时间了，但是网上不管是文章还是代码，都显得太过“高大上”，一谈领域驱动设计，一大堆的概念一股脑的给你上上来，搞的有点晕头转向，而我想在一些中小项目实施领域驱动也遇到了不小的障碍，大家对很多东西都处于一种恐惧的状态，而且在正真开始实施时，也遇到一些疑问，所以也想和大家交流学习，因此开始在此写写对领域驱动的理解，后面会有一些轻量的演进代码。</p>
-<h1 id="为何要领域驱动设计？"><a href="#为何要领域驱动设计？" class="headerlink" title="为何要领域驱动设计？"></a>为何要领域驱动设计？</h1><h2 id="简化数据存储"><a href="#简化数据存储" class="headerlink" title="简化数据存储"></a>简化数据存储</h2><p>领域驱动设计有很多原因，谈到我为啥要在公司推行领域驱动设计，说起来还是很好玩的，因为原来基于数据驱动的开发方式，也就是传统的多层开发架构，大家定义了一堆DAL来操作数据, 在.Net大家一般有两种使用方式，一种是用ORM像Entity Framework, 另一种想使用Dapper这样轻量级的Mapping工具，这些都要把关系型数据转换为对象。结果导致以下几种结果。</p>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"Jack Wang"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-10-26  <a class="commentCountImg" href="/2015/10/26/agile-2015-10-16-agile-communication/#comment-container"><span class="display-none-class">/2015/10/26/agile-2015-10-16-agile-communication/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="40c6b9eeb991977a1e4c647aaad08a65">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/10/26/agile-2015-10-16-agile-communication/">敏捷实践系列(三)：沟通</a></h1><div class="content"><p></style></p>
+<p>大话西游里有一段因为没有沟通的经典, 结局如何大家都知道。</p>
+<blockquote>
+<p>唐僧：你想要啊？悟空，你要是想要的话你就说话嘛，你不说我怎么知道你想要呢，虽然你很有诚意地看着我，可是你还是要跟我说你想要的。你真的想要吗？那你就拿去吧！你不是真的想要吧？难道你真的想要吗？…… </p>
+</blockquote>
+<blockquote>
+<p>悟空：… </p>
+</blockquote>
+<h2 id="敏捷项目沟通尤其重要"><a href="#敏捷项目沟通尤其重要" class="headerlink" title="敏捷项目沟通尤其重要"></a>敏捷项目沟通尤其重要</h2><p>敏捷开发多采用短迭代，要求尽快交付可以工作的软件，所以项目的需求文档就很难像原来的瀑布开发模式一样面面俱到。这就要求我们多进行沟通以确保双方的理解一致。根据以往很多项目的经验来看，失败的项目很多都是缺乏沟通，成功的项目必然是沟通做的比较好的。</p>
+<h2 id="敏捷经常出现的沟通问题"><a href="#敏捷经常出现的沟通问题" class="headerlink" title="敏捷经常出现的沟通问题"></a>敏捷经常出现的沟通问题</h2><h3 id="你以为你以为的就是你以为的"><a href="#你以为你以为的就是你以为的" class="headerlink" title="你以为你以为的就是你以为的"></a>你以为你以为的就是你以为的</h3><p>有时候，我们很多人做项目，拿到项目的需求以后，自己简单看了看，然后就开始做了，等到我们做完一个迭代以后，拿给客户看时，完全不是客户要的东西，因为我们对项目的需求的理解比较片面，就是自以为是。</p>
+<h3 id="不敢沟通"><a href="#不敢沟通" class="headerlink" title="不敢沟通"></a>不敢沟通</h3><p>还有的人，尤其是新入团队的人，客户写的东西或者说的东西，自己没有完全理解，然后又不问，他总觉客户已经说过了，已经写过了，然后再去问客户，是不是不妥？如果按自己的理解或者猜测万一对了呢？， 然后就碰运气。 事实上我们的猜测都常常都是错误的，尤其是在我们对项目没有更全局的了解的情况下。</p>
+<h3 id="拖延"><a href="#拖延" class="headerlink" title="拖延"></a>拖延</h3><p>还有一类沟通的问题，就是我们自己也发现了问题，需求上的，或者客户的流程上的，但是我们总是心想等到明天沟通，明天再等明天，其实是希望这个问题自动消失，但最终的结果往往越来越严重。</p>
+<h3 id="不敢沟通客户的问题"><a href="#不敢沟通客户的问题" class="headerlink" title="不敢沟通客户的问题"></a>不敢沟通客户的问题</h3><p>在我的一些项目里，比如我们团队觉得客户那边需要提高，比如需求都很碎片化，客户的UI改来改去，希望客户能提供一个比较接近Final Design的设计，但是总觉得说出客户的问题不好意思，或者对客户的不尊重，实际上我们提出问题和自己的想法才是对客户最大的尊重。</p>
+<h3 id="沟通方法单一"><a href="#沟通方法单一" class="headerlink" title="沟通方法单一"></a>沟通方法单一</h3><p>我们很多人习惯了一种沟通方式，不管什么问题都是同一种，所有的问题都写邮件或者所有的问题都用语音，这也是很没沟通效率的方式。</p>
+<h2 id="敏捷项目如何沟通"><a href="#敏捷项目如何沟通" class="headerlink" title="敏捷项目如何沟通"></a>敏捷项目如何沟通</h2><h3 id="平等沟通的意识"><a href="#平等沟通的意识" class="headerlink" title="平等沟通的意识"></a>平等沟通的意识</h3><p>首先，我们要理解，敏捷项目里的沟通，不管是与客户还是与团队成员，大家都是平等的，沟通项目相关的问题都是平等的，尤其是把客户也当做自己团队的一部分，客户也是希望项目做好的那一个人, 只有这样，我们才能畅所欲言，无所顾忌，更不会有想法掖着藏着。</p>
+<h3 id="多种沟通方式结合"><a href="#多种沟通方式结合" class="headerlink" title="多种沟通方式结合"></a>多种沟通方式结合</h3><p>小平说： “白猫黑猫，抓住老鼠就是好猫”，沟通也一样，下面是常见的几种沟通方式。</p>
 <ul>
-<li>没有正确的使用ORM, 导致数据加载过多，导致系统性能很差。</li>
-<li>为了解决性能问题，就不加载一些导航属性，但是确保DB Entity返回上层，这样对象的一些属性为空，上层使用这个数据时根本不知道什么时间这个属性是有值的，这个是很丑陋的是不是？</li>
-<li>如是又开始使用一些轻量级的数据方法，比如使用Dapper然后自己写SQL语句，这本来是很不错的方式，但是大部分人的SQL能力实在不敢恭维，大部分写出来的SQL语句，甚至比EnityFramework生成的语句还差。</li>
+<li>面对面</li>
+<li>视频</li>
+<li>语音</li>
+<li>IM 文字沟通</li>
+<li>邮件沟通</li>
 </ul>
-<p>所以，我就想我们做项目，大部分处理的应该是因为，如何让程序员从数据存储，模型转换的大泥潭里解放出来，领域驱动设计就进入了我的实现，当然但从数据这个角度还不足以选择领域驱动设计，用一个NoSQL数据库是不是就解决了？ 但是NoSQL也有一些问题，比如MongoDB如何更优雅的保证事务以及数据的一致性等。</p>
-<h2 id="更多了解上下文"><a href="#更多了解上下文" class="headerlink" title="更多了解上下文"></a>更多了解上下文</h2><p>我们很多软件的问题，大家都知道是需求的问题，也就是客户的需求我们很难理解准确，导致程序员更加关注”HOW” 而忽略了”WHAT”, 最终做了几个礼拜甚至更长时间，结果客户会说:”What?! I told you”, 但是客户告诉我的，我们理解是不一样的。比如客户说：“ Great job, I love you!” 这个Love肯定不是男女之间的Love, 我们拿到的是一个客户的需求，他的上下文是什么？ 比如说：“这个球打的好”， 如果是在打篮球，肯定说的事篮球，如果是在打乒乓球肯定说的是乒乓球。 而领域驱动设计里我们可以让业务人员更多的参与系统，更早的参与系统。</p>
-<h2 id="统一语言-Ubiquitous-Language"><a href="#统一语言-Ubiquitous-Language" class="headerlink" title="统一语言(Ubiquitous Language)"></a>统一语言(Ubiquitous Language)</h2><p>业务人员和我们使用一样的语言，我们的程序比如让业务尽量集中在领域里，比如在传统的数据驱动里，如果说Jack爱Rose, 我们一般会这么写</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserService.Love(Jack, Rose)</span><br></pre></td></tr></table></figure>
-<p>但是我们业务人员很奇怪谁Love谁？ 为什么要UserService?, 如果我们写成下面这样</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jack.Love(Rose)</span><br></pre></td></tr></table></figure>
-<p>还有如果我们用</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Company.hire(employee)</span><br></pre></td></tr></table></figure>
-<p>来代替</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">companyservice.hire(company,employee)</span><br></pre></td></tr></table></figure>
-<p>这样我们就更容易让业务人员参与进来，而且代码可以更易于表示真实的业务场景。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-01-21  <a class="commentCountImg" href="/2015/01/21/life-2014-1-21-football-dream/#comment-container"><span class="display-none-class">/2015/01/21/life-2014-1-21-football-dream/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="4f035ebc33b2516a20c64df2ff3cf58e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/01/21/life-2014-1-21-football-dream/">梦想的实现需要时间</a></h1><div class="content"><h1 id="梦想"><a href="#梦想" class="headerlink" title="梦想"></a>梦想</h1><p>从我记事后，在郝海东那段时间，中国足球在亚洲也算是风生水起，但是从那以后再也没有对中国足球有任何的梦想。教练换了又换，从外国教练换到国内，从国内换到国际，足球每况愈下。</p>
-<p>这次亚洲杯，又一次燃起了中国球迷对中国足球的希望和梦想。</p>
-<h1 id="梦想是需要时间的"><a href="#梦想是需要时间的" class="headerlink" title="梦想是需要时间的"></a>梦想是需要时间的</h1><p>这次国足亚洲杯小组赛赢了沙特，赢了乌兹别克斯坦，然后中国球迷和媒体说，既然赢了两场，那么就全胜出线，打朝鲜，上半场踢的不错，主持人就说中国队是顶级时候的巴萨。可是大家难道没看到朝鲜下半场变成了顶级时候的皇马？</p>
-<p>然后侥幸三场全胜出线了，球迷和媒体有开始说：“既然出线，那就夺冠”， 这让我想起02年世界杯的时候 “赢哥斯达黎加，平土耳其，小输巴西”，最后结果是三场比赛全输，丢了9个球，让我们认识到自己还是“三教九流”</p>
-<p>从这件事情上， 我们可以看到大部分的球迷呀，媒体呀都想一口吃个胖子，我猜中国足球的现状和中国球迷以及媒体也有很大的关系，教练想干点实事，但是大家都要赢，有进步，大家其实很难看到，所以我猜每一个教练都只能是赌博式的，不然输了就得下课。如此下去，就像我们把程序功能做的看起来不错，但是代码里面千疮百孔，经不起时间的考验。</p>
-<p>我觉得，我们都要有梦想，但是梦想都需要一个因素，那就是时间，那就是脚踏实地。那就是科学，每次国足输了，大家都说没拼，拼了就能理解，但是我想说，现代体育光靠拼是不行的，越是体育类比赛越是要靠脑子才能上一个台阶。</p>
-<p>给国足时间，明天的比赛输赢有何重要？五星巴西没输过吗？</p>
-<p>有梦想，有信心，但是务实更重要，持续进步才是最重要的。</p>
-<p>明天彩票买澳大利亚赢吧，看球的时候就不那么紧张了，如果中国赢了，权当买酒庆祝了，如果中国输了，至少彩票还能赚点，你呢？</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-01-14  <a class="commentCountImg" href="/2015/01/14/life-2015-1-14-china-football/#comment-container"><span class="display-none-class">/2015/01/14/life-2015-1-14-china-football/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="84eb198514f28325e227d94da8784e05">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/01/14/life-2015-1-14-china-football/">国足亚洲杯小组赛</a></h1><div class="content"><p>好久没看国家队比赛，上大学时，那几年球市比较火，当时陕西队还在甲B, 那个时候陕西国力踢的很不错，我也几次买了最便宜的票去现场加油，陕西球迷的热情几次搞得比赛不得不移到宝鸡。</p>
-<p>但是中国进入2002年世界杯后，那些熟悉的老将郝海东，范志毅，李明，李铁，李金羽等等都相继老去，而且国家队每每关键时刻给你顶不住最后3分钟，慢慢的我就不怎么看中国队了。</p>
-<p>虽然不看中国比赛，但是新闻还是看的，之前知道中国队预选赛输了尽然都能进亚洲杯。</p>
-<p>这次亚洲杯我正好休假，看了一场中国对沙特的比赛，感觉中国队和之前不太一样了，感觉有拼劲。确实看到了一些亮点，至于是不是佩兰执教带来的一些变化，这个还有待检验。第一场整体感觉上还是运气，因为沙特点球没进，而且我们进的球也很诡异，所以第一场比赛下来，感觉踢的还可以，但是还是觉得中国队有些侥幸。</p>
-<p>今天打乌兹别克斯坦，这个球队实力确实不错，从历史交锋上，中国队就处于下风，观看了前30分钟，感觉中国队踢的不错，从传球到控球都有章法，但是上半场最后15分钟，感觉中国队的球员明显想法不一致，有些想进攻，有些不敢进攻，控球明显不如乌兹别克斯坦，而且失误增多，最后别对手攻入一球。</p>
-<p>但是，我也并没失去希望，因为中国队前半个小时都占优势，回到休息室，我相信教练一定会做出调整，只要球队思路一致，找回之前的感觉，就一定有机会，果然下半场一开始，中国队就打的不错，后来佩兰果断的换人，起了非常重要的作用，大家可能觉得换人是神来之笔，但是我觉得换人后明显中场的球员敢于控球，而且前腰的队员明显敢于突破，这样就让球大部分时间都在对方战场，最终果然2比1逆转。</p>
-<p>这次中国队赢球，着实也让我激动一把，因为看到中国队逆转的足球比赛太少了，听到主持人说：“留给乌兹别克斯坦斯坦的时间不多了”，我相信大部分中国球迷都是无比的激动，感觉压抑多年的一口气终于可以释放一次了。</p>
-<p>中国足球要想提高，除了提升球员个人能力之外，球队的团结，技战术的提高，以及球队的信息和意志是更重要的。</p>
-<p>期待中国足球越来越好。</p>
-<p>写下此片日记的目的，就是中国足球的胜利了，都逆袭了，我还有什么不努力呢？ 加油！</p>
-<p>更令人高兴的时，今天心血来潮，堵了一把求，买中国赢，小赚了一把。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-12-05  <a class="commentCountImg" href="/2014/12/05/life-2014-12-5-attend-winter-party/#comment-container"><span class="display-none-class">/2014/12/05/life-2014-12-5-attend-winter-party/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e257c6481f2e4d2490d7cfb8afad05a7">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/12/05/life-2014-12-5-attend-winter-party/">斯德哥尔摩30天-参加客户的年会</a></h1><div class="content"><p>很有幸参加了客户的年会，听说大家都带家属，帅哥美女云集，所以我们都迫不及待。</p>
-<p>年会的逼格还是非常高，先是大Boss讲话，然后请了个长的像瑞典王子的人讲话，一开始大家都被骗了，后来才知道是演员。</p>
-<p>每一个人都端着红酒杯，风度翩翩的和别人聊天，我们当然作为嘉宾也受到了分外的照顾。 我们也和很多人聊了会儿天，对大家有更多的了解。</p>
-<p>随后就是表演，晚餐。</p>
-<p>晚餐过后，就是跳舞，虽然有位美女极力邀请我跳舞，可惜我不会，只好找个借口溜之大吉了。</p>
-<p>还是上图片吧。</p>
-<p>晚会的地方</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/1.jpg"/>
+<p>这几种沟通方式的效率一般情况下由高到低，所以我们尽量选择沟通效率比较高的方式， 因为当我们能看见对方的时候，我们可以根据对方的表情就可以看出来对方是否真的理解了自己所说的。</p>
+<p>但是实际当中我们需要多种沟通方式的有效结合，比如离岸团队面对面的机会比较少，我们可以视频和语音，但是视频语音由于他强调及时性，需要大家的时间都合适，但是视频语音也有缺点，很难有文字记录，虽然可以录音，但是视频和语音很难搜索内容，也较难在组内传播。 那么文字沟通有时候就体现出了很多的优势，有历史记录，多人可以参与等。</p>
+<p>但是IM得文字沟通也有一些不足，比如很难通过图形沟通，对图形标注等，除此之外，很多时候很难及时给出答案等，那么邮件的优势就是不需要客户立即回复，也给客户更多的时间思考，同时格式化的文档更容易把一件事情描述清楚。</p>
+<p>所以，我们在沟通的时候，要结合情况选择最适合，最快速能够把问题沟通清楚的方式。</p>
+<h3 id="一图胜千言"><a href="#一图胜千言" class="headerlink" title="一图胜千言"></a>一图胜千言</h3><p>软件项目很多时候，图形化的沟通非常重要，我们很多项目的设计，以及架构，开发人员难以达到统一的认识，就是缺乏图形，设计图或者架构图。我们都知道，人对图形的记忆力要好于文字。</p>
+<p>系统之间的交互，软件如何部署，项目的架构封层等，这些用图形来表示往往一页纸就可以，而且大家看后，很容易理解，很容易记住。因为只有别人对你的想法理解了，别人才能够发现你的问题，才能给出建议。我觉得软件项目，非常重要的两张图，一个是 Architecture Diagram, 一个是Use Case Diagram, 这两张图可以大大节省项目的开发沟通时间。</p>
+<h3 id="原型或者草图"><a href="#原型或者草图" class="headerlink" title="原型或者草图"></a>原型或者草图</h3><p>敏捷项目流行边做边改，但是我对这个是不太认可的，<strong>客户付钱是让我们把事情做对而不是把事情改对</strong>。那么怎么样能够在做之前尽量就明白要做什么？那就是先做一个原型，我说的原型是不需要花太多时间的，如果花太多时间就得不偿失了，比如UI我们可以先在开发之前先画出Wireframe, 如果需要交互，我们可以先做交互的Prototype. 现在有很多工具比如Invision都可以建立静态图形之间的交互，这样可以大大减少返工的时间。</p>
+<h3 id="提出问题时尽量给出方案"><a href="#提出问题时尽量给出方案" class="headerlink" title="提出问题时尽量给出方案"></a>提出问题时尽量给出方案</h3><p>很多人只问问题，所以导致客户回复的很慢，因为客户需要思考，但是有的时候客户思考后给我们的方案又不适合，所以一来二去就浪费了很多时间，那么好的方法是就是，我们给客户提的问题，想想是不是我们没有方案呢？ 还是我们有多个方案不能确定是哪一个方案呢？很多时候我们其实有方案的。</p>
+<p>我们都知道我们上学的时候都喜欢做判断题，其次是选择题，其次是填空，最不想做的就是问答题，想想我们要想得到客户的快速反馈，我们是不是想想应该给客户出比较容易做的题呢？</p>
+<p>其实，凡是我们提的方案被客户采纳的，我们做起来也更顺手，也就更有效率。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后，沟通最主要的两点：</p>
+<ol>
+<li>如果你想要，就一定要说，不说，别人怎么知道你想要呢？ （敢于沟通）</li>
+<li>要想尽一切办法， 让客户觉得：“你以为你以为的就是你以为的” （确认自己的想法)</li>
+</ol>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/dahuaxiyou.jpg"/></div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-09-28  <a class="commentCountImg" href="/2015/09/28/agile-2015-9-28-agile-mindset/#comment-container"><span class="display-none-class">/2015/09/28/agile-2015-9-28-agile-mindset/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="dda71f20600a45e544870d3e16b93e68">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>9 m  <i class="fas fa-pencil-alt"> </i>1.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/09/28/agile-2015-9-28-agile-mindset/">敏捷实践系列(二)：敏捷意识</a></h1><div class="content"><p>上篇文章我提到了敏捷的心法，但是我想除了心法之外，更重要的是敏捷的意识。</p>
+<h2 id="为什么意识更重要？"><a href="#为什么意识更重要？" class="headerlink" title="为什么意识更重要？"></a>为什么意识更重要？</h2><p>意识：辩证唯物主义的解释是，意识是物质运动变化的场所，意识是人脑对大脑<strong>内外表象</strong>的觉察，即它可以辨识自己脑区中的表象是来自于外部感官的还是来自于想像或回忆的。</p>
+<p>我们这里说的意识，一是你能主管的去想一件事情，另一个就是你对一件事情的发自内心的认可程度。</p>
+<p>敏捷，光有心法是没有用的，有没有要敏捷的意识，敏捷的意愿。有没有主观的愿望去做，我们经常说的话：没有成不成，就是看你想不想做。</p>
+<h2 id="欲推敏捷，首先要培养敏捷的意识"><a href="#欲推敏捷，首先要培养敏捷的意识" class="headerlink" title="欲推敏捷，首先要培养敏捷的意识"></a>欲推敏捷，首先要培养敏捷的意识</h2><p>我举两个例子：</p>
+<p>一个是最近推行**”无车日”**, 无车日本来是想让大家绿色出行，减少二氧化碳的排放，但是结果是什么，结果是堵的一塌糊涂。 为什么？据说原因如下：有车的人想，本来平时不开车，但是今天无车日，路上车少，那我就开车肯定不赌。这样造成的结果是，坐公交的人觉得无车日大家都挤公交，开车的人觉得今天无车日开车应该不赌，所以开车。造成的结果是，公交也堵，开车也堵。这就是政府和民众对环保的意识不够，如果政府意识够了，那么政府是不是多提供公共交通的数量，以及提高公共交通的便捷以及服务？如果民众意识够了，那么我是不是可以走着去上班？我是不是可以骑自行车？我是不是可以跑步？若能如此，无车日才有了真正的意义。</p>
+<p>另一个例子，就是我看到的道路旁边的自行车道栅栏，政府甚至花了不少钱来弄这个，但是效果呢? 我看到的情况是很多地方没人用，甚至造成地段的拥堵。为什么？ 有些地方自行车道里面有面包车在里面堵着，还有的地方有人逆向骑过来，试想，如果你骑自行车有这样的经历，你还会骑自行车道吗？骑到中间你飞出来？ 如果这个自行车道没人用，那么另一个问题又来，本来3车道，现在一个车道停车，一个车道过车，原来没有自行车道时，如果前面的车临时停车，其他的人还能利用空的地方错开车，现在就能硬等，这样岂不是更堵？结果就是，本来就赌的路，硬硬的把路切一块空着浪费了！</p>
+<p>从上面的两个例子，我们都能感觉到，都是为了要把事情做好，但是，就是意识层面没做好工作，才导致截然相反的结果。（以上只是我自己片面的感觉，真正的事实数据请看官方数据）。</p>
+<h2 id="如何培养敏捷的意识？"><a href="#如何培养敏捷的意识？" class="headerlink" title="如何培养敏捷的意识？"></a>如何培养敏捷的意识？</h2><p>首先，我觉得培养敏捷的意识之前，首先要知道是什么事敏捷的意识，我觉得敏捷的意识就是：</p>
+<ul>
+<li>高质、高效的做事情</li>
+<li>持续的学习</li>
+<li>团队精神，Good team player.</li>
+<li>责任心</li>
+<li>关心客户的价值</li>
+<li>解决问题</li>
+<li>努力改变现状，不抱怨现状。</li>
+</ul>
+<p>其次，那么如何培养敏捷的意识呢？我个人觉得两种方式：</p>
+<ul>
+<li><p>招聘具有敏捷意识的人。 其实我列的敏捷的意识和大家想象的SCRUM那些无关的。</p>
+</li>
+<li><p>培养已有的人具有上面提到的敏捷的意识，方法比如说是宣传、强调、加薪、惩罚等等各种方法，关键是推行的人自己有没有这个意识来推行敏捷。</p>
+</li>
+</ul>
+<p>最后，最重要的是要让大家知道为什么要敏捷，敏捷解决的问题是什么？敏捷对工程师自己的好处是什么？因为只有人敏捷了，项目才能敏捷，所有的项目都敏捷了，公司才能说是一个敏捷的公司。若如此，强行推行一个SCRUM框架，持续交付等等，就必然走向文章开头的那两个例子，结果只能是适得其反。</p>
+<p>愿君更饮一杯酒，敏捷路上无故人。</p>
+<p>且行、且思、切记！</p>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/fuguang.png"/>
+(注：佛光，图片拍摄于2015-6-6 太白山)
 
-<p>酒</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/2.jpg"/>
-
-<p>正装</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/3.jpg"/>
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/4.jpg"/>
-
-<p>我们的帅哥，也是我们的朋友</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/5.jpg"/>
-
-<p>三个屌丝，中间是我</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/6.jpg"/>
-
-<p>高朋满座</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/7.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/8.jpg"/>
-
-
-<p>假瑞典王子，骗过不少人呀</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/9.jpg"/>
-
-<p>他们最佳员工，和我们密切合作的，主要是与外包团队协作，我们是不是也骄傲一下？</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/10.jpg"/>
-
-<p>美女们，其中一个来机场接我们，谢谢了。</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/11.jpg"/>
-
-<p>真心不错的合唱，天籁之音的感觉</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/12.jpg"/>
-
-<p>姑娘，你的衣服真的穿好了吗？</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/13.jpg"/>
-
-<p>和我一起做项目的帅哥，看看人家，以后你们再叫我帅哥，我就知道你们是违心的。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/14.jpg"/>
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-30  <a class="commentCountImg" href="/2014/11/30/life-2014-11-30-scene-spots/#comment-container"><span class="display-none-class">/2014/11/30/life-2014-11-30-scene-spots/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1fd86e0e729acd82cebb28f74e60190a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>4 m  <i class="fas fa-pencil-alt"> </i>0.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/30/life-2014-11-30-scene-spots/">斯德哥尔摩30天-一日游</a></h1><div class="content"><p>昨天周六赶工了一天，今天周日决定好好休息一下，把瑞典的几个主要的旅游经典参观一下。</p>
-<h1 id="市政厅"><a href="#市政厅" class="headerlink" title="市政厅"></a>市政厅</h1><blockquote>
-<p>建于1911年，历时12年才完成，是瑞典建筑中最重要的作品。建筑两边临水，一座巍然矗立着的塔楼，与沿水面展开的裙房形成强烈的对比，加之装饰性很强的纵向长条窗，整个建筑犹如一艘航行中的大船，宏伟壮丽。<br>斯德哥尔摩市政厅位于瑞典首都市中心的梅拉伦湖畔，是斯德哥尔摩的形象和代表，也是该市市政委员会的办公场所。<br>斯德哥尔摩市政厅是一座宏伟壮观，设计新颖的红砖砌筑的建筑物，800万块红砖砌成的外墙，在高低错落、虚实相谐中保持着北欧传统古典建筑的诗情画意。市政厅的右侧是一座高106米，带有3个镀金皇冠的尖塔，代表瑞典、丹麦、挪威三国人民的合作无间。据说登上塔顶部，可一览整个城市的风貌。<br>市政厅内有巨大的宴会厅。宴会厅也有“蓝厅”的誉称。每年的12月10日是诺贝尔逝世日。这一天，诺贝尔奖金颁发后，瑞典国王和王后都要在宴会厅，为诺贝尔奖金获得者举行隆重盛大的宴会，表示热烈的祝贺。</p>
-</blockquote>
-<div class="img-container">
-    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/1.jpg"/>
-    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/2.jpg"/>
-    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/3.jpg"/>
-
-<img class="img-responsive"  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/8.jpg"/>
-</div>
-
-<h1 id="瑞典皇宫"><a href="#瑞典皇宫" class="headerlink" title="瑞典皇宫"></a>瑞典皇宫</h1><blockquote>
-<p>瑞典皇宫是国王办公和举行庆典的地方，斯德哥尔摩主要旅游景点。坐落在斯德哥尔摩市中心。建于17世纪，是瑞典著名建巩学家特里亚尔的作品。皇宫方正宽敞，中间有一个很大的场院，楼房围着场院而建，共有608个房间，比英国的白金汉宫还多4间。如今瑞典王室并不住在这里，而是住在在郊区的皇后岛，国王每天开车到皇宫来上班。</p>
-</blockquote>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/4.jpg"/>
-
-<h1 id="诺贝尔博物馆"><a href="#诺贝尔博物馆" class="headerlink" title="诺贝尔博物馆"></a>诺贝尔博物馆</h1><p>这里能看到莫言的图像和介绍，还是很骄傲的！</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/5.jpg" style="max-width:300px;" />
-
-
-<h1 id="斯堪森"><a href="#斯堪森" class="headerlink" title="斯堪森"></a>斯堪森</h1><p>斯堪森的介绍很好，但是去了确实没意思，比起我大秦岭野生动物园差太多了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/6.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/7.jpg"/>
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/9.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/10.jpg"/>
-
-<p>下面是修女吗？</p>
-<p>一首 《we wish you a merry christmas》甚是好听。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/11.jpg"/>
-
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-23  <a class="commentCountImg" href="/2014/11/23/life-2014-11-23-ship-island/#comment-container"><span class="display-none-class">/2014/11/23/life-2014-11-23-ship-island/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="33f0b0a4edeedb0119374766ca144a34">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/23/life-2014-11-23-ship-island/">斯德哥尔摩30天-船岛</a></h1><div class="content"><p>今天是周日，由于星期中间都是相当的忙，今天决定自己转转，准备出发去船岛。</p>
-<p>天气非常晴朗。</p>
-<p>走了一段，就被一个户外的溜冰场给吸引了，那是真的冰，太酷了。</p>
-<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/1.jpg"/>
-
-<p>然后竟然走到了那天晚上喝酒的酒店</p>
-<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/3.jpg"/>
-
-<p>很快就到了船岛，美景无法言表，天很清，水很清，空气很fresh.</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/2.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/4.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/5.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/6.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/7.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/8.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/9.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/10.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/11.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/12.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/13.jpg"/>
-
-<p>最后，偶遇瑞典皇家歌剧院</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/14.jpg"/>
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-22  <a class="commentCountImg" href="/2014/11/22/life-2014-11-22-vasa/#comment-container"><span class="display-none-class">/2014/11/22/life-2014-11-22-vasa/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8783d090da0278d5c1988ace7d8b71fb">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/22/life-2014-11-22-vasa/">斯德哥尔摩30天-瓦萨博物馆</a></h1><div class="content"><p>今天是周六。</p>
-<p>朋友带我们一起去VASA博物馆，由于朋友的老婆一个人带俩小孩不方便，所以我们就一起带了一个出来。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/1.JPG"/>
-
-<h1 id="瓦萨博物馆"><a href="#瓦萨博物馆" class="headerlink" title="瓦萨博物馆"></a>瓦萨博物馆</h1><p><strong><em>VASA乘船的故事早就知道了，这个对一个管理者或者一个产品经理来说都很有教育意义</em></strong></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-09-18  <a class="commentCountImg" href="/2015/09/18/agile-2015-9-18-what-is-agile/#comment-container"><span class="display-none-class">/2015/09/18/agile-2015-9-18-what-is-agile/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="40d56d4fed0d56804fae8465498b84aa">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>9 m  <i class="fas fa-pencil-alt"> </i>1.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/09/18/agile-2015-9-18-what-is-agile/">敏捷实践系列(一)：什么是敏捷</a></h1><div class="content"><p>开篇：</p>
+<pre><code>悟空：师傅，为什么你写东西，喜欢写系列呢？
+师傅：因为很多东西需要长期的实践呀。
+悟空：怎么又开始说敏捷了
+师傅：就像一本好书，常读常新，人生不同阶段过的都是不同的人生呀。
+悟空：师傅，为什么你原来用上、中、下呢？
+师傅：因为原来只写了个上中，别人一直问下，现在如果只写一二，别人要问，我就说写完了呀!
+悟空：。。。。。。</code></pre>
+<h2 id="敏捷是什么？"><a href="#敏捷是什么？" class="headerlink" title="敏捷是什么？"></a>敏捷是什么？</h2><p>其实别人问敏捷是什么？几年前我觉得很好回答，但是现在我觉得很难回答，就像你问天龙八部里的扫地僧：“功夫是什么？” 我觉得他可能真的会被问住的。你再问：功夫是“降龙十八掌”？， 是“九阴真经”？，是“一阳指”？他可能说不是，但是待会儿他可能会说：“也算”。</p>
+<p>所以很多人问我什么是敏捷，我其实很难定义，用了SCRUM算吗？用了Kanban算吗？用了Target Process,Trello算吗？我也只能说：“也算，也不算”。</p>
+<p>还有人觉得用了持续集成，用了测试驱动开发，用了结对这个应该算是敏捷了吧？ 我只能说如果你用了“轩辕剑”，“倚天剑”，“屠龙刀”，”莫问剑”,”游龙剑”，你就是高手吗？君不见，扫地僧一把扫帚就制服两大高手？ 由此我们可以看到功夫要好，更重要的是内功，是心法。</p>
+<h2 id="敏捷的心法是什么？"><a href="#敏捷的心法是什么？" class="headerlink" title="敏捷的心法是什么？"></a>敏捷的心法是什么？</h2><p>这个心法其实就是武林高手总结的敏捷宣言</p>
 <blockquote>
-<p>瓦萨王朝统治时期，瑞典是欧洲的强国之一。为了与劲敌丹麦、波兰对抗，称霸波罗的海，瑞典国王古斯塔夫·阿道夫斯二世要求建造一批新的战舰，并要求战舰航速要快、火力要强、装饰要华丽，因为这样才足以显示瓦萨王朝的权力、财富和战斗力。1626年初，作为其中最大的战舰“瓦萨”号在国王的亲自监督下正式开始建造。</p>
+<ul>
+<li><p><strong>个体和交互         胜过   过程和工具</strong></p>
+</li>
+<li><p><strong>可以工作的软件     胜过   面面俱到的文档</strong></p>
+</li>
+<li><p><strong>客户合作          胜过   合同谈判</strong></p>
+</li>
+<li><p><strong>响应变化          胜过   遵循计划</strong></p>
+</li>
+</ul>
 </blockquote>
+<p>这个其实就是：“九阴真经”，“易筋经”，“六脉神剑”，“葵花宝典”（正宗的是不需要自宫的）</p>
+<p>知道了心法，其实每个人的修炼方法都不一样，但是前人为了后人节省时间，给出了自己修炼的一些经验和原则，那就是十二条原则。</p>
 <blockquote>
-<p>瓦萨号内部<br>国王总是有太多要求。在“瓦萨”号建造期间，他不断下令依照他的旨意改变设计和建造要求。在“瓦萨”号的骨架已经安装好的时候，他下令增加战舰的长度。面对以性情暴躁闻名的国王，经验丰富的主造船师亨里克·哈伯特备感无奈，只得奉命行事。1627年，亨里克·哈伯特病逝。他的助手、没有太多经验的海因·雅各布森接替他主持建造。而此时，国王得知了丹麦建成双层炮舰的消息，于是他又决定，为原计划修建单层炮舰的“瓦萨”号增加一个枪械甲板，把它改建成“双层”炮舰。这样一来，“瓦萨”号便拥有了双排共64门舰炮，全长达到了69米，成了当时装备最齐全、武装程度最高的战船。但对于横梁和压舱物来说，在一个并不稳固的平台上安装的这些装备显得过高过长了，而且与平台的功能极不相称。但国王的命令没人敢违抗。<br>对“瓦萨”号进行的稳定性测试试验更像一场闹剧：让30个船员从船一端跑到另一端，以此检测船的摇动情况。试验中“瓦萨”号发生了危险的摇动，但对这个预警信号，海因·雅各布森却视而不见，还是决定取消试验，准备航行，结果—首航沉成绝唱。</p>
+<ol>
+<li><p> 最优先的目标是通过尽早地、持续地交付有价值的软件来满足客户</p>
+</li>
+<li><p> 欢迎需求变化，甚至在开发后期。敏捷过程控制、利用变化帮助客户取得竞争优势</p>
+</li>
+<li><p> 频繁交付可用的软件，间隔从两周到两个月，偏爱更短的时间尺度</p>
+</li>
+<li><p> 在整个项目中业务人员和开发人员必须每天在一起工作</p>
+</li>
+<li><p> 以积极主动的员工为核心建立项目，给予他们所需的环境和支持，信任他们能够完成工作</p>
+</li>
+<li><p> 在开发团队内外传递信息最有效率和效果的方法是面对面的交流</p>
+</li>
+<li><p> 可用的软件是进展的主要度量指标</p>
+</li>
+<li><p> 敏捷过程提倡可持续发展。发起人、开发者和用户应始终保持稳定的步调</p>
+</li>
+<li><p> 持续关注技术上的精益求精和良好的设计以增强敏捷性</p>
+</li>
+<li><p>简化——使必要的工作最小化的艺术——是关键</p>
+</li>
+<li><p>最好的架构、需求和设计产生于自我组织的团队</p>
+</li>
+<li><p>团队定期地对运作如何更加有效进行反思，并相应地调整、校正自己的行为</p>
+</li>
+</ol>
 </blockquote>
-<h1 id="瓦萨沉船"><a href="#瓦萨沉船" class="headerlink" title="瓦萨沉船"></a>瓦萨沉船</h1><p>不亲身见vasa号是绝对感受不到这个船的霸气，高大，金色的船体，木雕堪称一绝。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/2.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/3.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/4.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/5.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/6.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/7.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/8.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/16.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/17.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/18.JPG"/>
-
-<h1 id="圣诞来临了"><a href="#圣诞来临了" class="headerlink" title="圣诞来临了"></a>圣诞来临了</h1><p>回来时已经晚上，整个街道已经该是感觉到圣诞的气氛了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/9.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/10.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/11.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/12.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/13.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/14.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/15.jpg"/>
+<p>注意：上面我说的是这是前人根据自己修炼的过程总结出来的经验，那么也就是说只是经验，100%可以拿来自己用？那就不一定。</p>
+<p>比如有一条原则说：情人节一定要给老婆买花？那么问题来了，没老婆怎么办？ 当然是先找个老婆。总不能买花送给别人老婆吧。</p>
+<p>比如，上面有一条：“在整个项目中业务人员和开发人员必须每天在一起工作”， 很多时候很难，那么怎么办？第一创造条件能让业务和开发人员每天在一起工作，这个一起不一定是坐在一起，可以每天及时回复你的邮件，也可以你自己就当业务人员，那么你自己不就是每天和自己在一起？</p>
+<h2 id="怎么样才算敏捷了？"><a href="#怎么样才算敏捷了？" class="headerlink" title="怎么样才算敏捷了？"></a>怎么样才算敏捷了？</h2><p>尽管公司实行敏捷也很多年了，这个问题，我想说我不知道怎么回答，因为我们也还在努力变得更敏捷，但是我理想中的敏捷，应该是这样子的：“草在发它的牙，风在摇它的叶，小鸟在唱他的歌，而敏捷团队的Leader静静的座在那里一句话也不用说”，此时敏捷就像空气一样充满了整个房间，知道有一天PM高了，这个时候大家说：“哎呦，最近是不是不敏捷了?”</p>
+<h2 id="怎么开始敏捷呢？"><a href="#怎么开始敏捷呢？" class="headerlink" title="怎么开始敏捷呢？"></a>怎么开始敏捷呢？</h2><p>重要的事情说三遍:</p>
+<ul>
+<li><strong>读书，实践!</strong></li>
+<li><strong>读书，实践!</strong></li>
+<li><strong>读书，实践!</strong></li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-28  <a class="commentCountImg" href="/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/#comment-container"><span class="display-none-class">/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="db31a94dba32294a34dda719a53cbcaf">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/">iOS UI系列 (四) ：可复用的Xib(1) 静态内容</a></h1><div class="content"><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
 
 
 
 
+<p>有时候页面中的部分内容相同，或者是一些静态的内容组合，这时候我们就可以把这些见面封装到一个XIB里</p>
+<h2 id="新建Single-View-Application"><a href="#新建Single-View-Application" class="headerlink" title="新建Single View Application"></a>新建Single View Application</h2><h2 id="新建一个View-Xib"><a href="#新建一个View-Xib" class="headerlink" title="新建一个View.Xib"></a>新建一个View.Xib</h2><ol>
+<li>Command+N–&gt;User Interface–&gt;View</li>
+<li>把界面大小改为Freeform</li>
+<li>添加一个UILabel, 两个UIView, 并设置对应的背景色</li>
+<li>添加对应的约束，让两个UIView等宽，且Space都是10， 高度固定，且与周围的约速为10， 对UILabel也设置对应的约速，细节就不写了，看图</li>
+</ol>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/1.png" />
+
+
+<h2 id="使用Xib"><a href="#使用Xib" class="headerlink" title="使用Xib"></a>使用Xib</h2><p>在ViewController添加 一个UIView, 并设置对应的约束，连接这个UIView为Controller的 IBOutlet ContainerView</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/2.png" />
+
+<ol>
+<li>在ViewDidLoad里添加如下代码</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line"><span class="keyword">let</span> arr <span class="operator">=</span> <span class="type">NSBundle</span>.mainBundle().loadNibNamed(<span class="string">&quot;View&quot;</span>, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v <span class="operator">=</span> arr[<span class="number">0</span>] <span class="keyword">as!</span> <span class="type">UIView</span></span><br><span class="line">        </span><br><span class="line">containerView.addSubview(v)</span><br></pre></td></tr></table></figure>
+
+<p>运行</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/3.png" />
+
+
+
+<ol start="2">
+<li>添加约束</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> containerView: <span class="type">UIView</span>!</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">var</span> v: <span class="type">UIView</span>!</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">let</span> arr <span class="operator">=</span> <span class="type">NSBundle</span>.mainBundle().loadNibNamed(<span class="string">&quot;View&quot;</span>, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>)</span><br><span class="line">       v <span class="operator">=</span> arr[<span class="number">0</span>] <span class="keyword">as!</span> <span class="type">UIView</span></span><br></pre></td></tr></table></figure>
+
+<p>​<br>​            containerView.addSubview(v)<br>​            </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setUpConstraint()</span><br></pre></td></tr></table></figure>
+
+<p>​<br>​            // Do any additional setup after loading the view, typically from a nib.<br>​        }<br>​        </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​<br>​      </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">setUpConstraint</span><span class="params">()</span></span></span><br><span class="line">    &#123;</span><br><span class="line">              </span><br><span class="line">	v.setTranslatesAutoresizingMaskIntoConstraints(false)</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Leading</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Left</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Trailing</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Right</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Top</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Top</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Bottom</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Bottom</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">   &#125;	    </span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​<br>3. 运行结果, 我们的Xib已经可以自适应容器了</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/4.png" />
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/5.png"/>
+
+
+<p>​<br>​    </p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/#comment-container"><span class="display-none-class">/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="db457a329aeecdd2a2439a0169231b2c">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/">iOS UI系列 (三) ：Reusable Button</a></h1><div class="content"><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+
+<p>有时候我们需要给一些做一些设置，但是这些控件却需要用在多个地方，如果在每一个ViewController都设置一遍，那么代码就不整洁了，而且比较耗时间。</p>
+<p>创建一个RoundButton.swift 文件，集成自UIButton</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RoundButton</span>: <span class="title">UIButton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    // Only override drawRect: if you perform custom drawing.</span></span><br><span class="line"><span class="comment">    // An empty implementation adversely affects performance during animation.</span></span><br><span class="line"><span class="comment">    override func drawRect(rect: CGRect) &#123;</span></span><br><span class="line"><span class="comment">        // Drawing code</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">awakeFromNib</span><span class="params">()</span></span> &#123;</span><br><span class="line">      </span><br><span class="line">        <span class="keyword">self</span>.layer.cornerRadius<span class="operator">=</span><span class="number">10</span></span><br><span class="line">        <span class="keyword">self</span>.layer.borderColor<span class="operator">=</span><span class="type">UIColor</span>.redColor().<span class="type">CGColor</span></span><br><span class="line">        <span class="keyword">self</span>.layer.borderWidth<span class="operator">=</span><span class="number">2</span></span><br><span class="line">        <span class="keyword">self</span>.layer.backgroundColor<span class="operator">=</span><span class="type">UIColor</span>.yellowColor().<span class="type">CGColor</span></span><br><span class="line">        <span class="keyword">self</span>.contentEdgeInsets<span class="operator">=</span><span class="type">UIEdgeInsets</span>(top: <span class="number">10</span>,left: <span class="number">10</span>,bottom: <span class="number">10</span>,right: <span class="number">10</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​<br>​<br>​<br> 设置UIButton的Custom class为 RoundButton</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/1.png" />
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/2.png" />
 
 
 
 
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-21  <a class="commentCountImg" href="/2014/11/21/life-2014-11-21-work-friday/#comment-container"><span class="display-none-class">/2014/11/21/life-2014-11-21-work-friday/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="88d90be774fad08bc223783a3becd7b8">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/21/life-2014-11-21-work-friday/">斯德哥尔摩30天-客户现场</a></h1><div class="content"><p>Stockholm的楼层都相对较低，客户所在的大楼稍微高一些，所以能看到城市的楼顶。楼等果然和国内的不同呀，典型的欧式建筑。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/2.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/3.jpg"/>
-
-
-<p>清一色的苹果电脑，可升降的桌椅站立和坐着办公自由切换，这个很不错。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/1.jpg"/>
-
-
-<p>工作了一天，讨论需求和设计，面对面的沟通，辅助白板效率是相当的高。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/5.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/6.jpg"/>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/#comment-container"><span class="display-none-class">/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="3230540add4e47abfc48266658e7c69e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/">iOS UI系列 (二) ：使用多个StoryBoard</a></h1><div class="content"><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
 
 
-<p>周五的下午可以喝着啤酒办公，这个不错，感觉我们是否也可以引进？（我的Surface其实也蛮霸气！）</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/4.jpg"/>
+<h2 id="为什么要使用多个StoryBoard"><a href="#为什么要使用多个StoryBoard" class="headerlink" title="为什么要使用多个StoryBoard"></a>为什么要使用多个StoryBoard</h2><p>StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个项目页面之间的关系，但是如果项目所有的页面都放到一个StoryBoard, 会带来以下一些问题</p>
+<ul>
+<li>UIStoryBoard太大</li>
+<li>每次打开StoryBoard比较慢</li>
+<li>一个窗口里面显示所有的View，显得比较混乱，尤其是一个显示器看不全的时候</li>
+<li>UIStoryBoard 项目解决源码冲突太麻烦</li>
+</ul>
+<p>所以，我建议项目使用多个StoryBoard, 不同模块使用不同的UIStoryBoard, 下面是如何使用的实例。</p>
+<h2 id="Main-Storyboard"><a href="#Main-Storyboard" class="headerlink" title="Main Storyboard"></a>Main Storyboard</h2><p>首先建立一个Single View Application, 在StoryBoard里添加2个UIViewController, 并且设置好导航关系</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/1.png" /> 
+
+
+<p>新建一个SecondViewController类, Command+N–&gt;Coca Touch cass–&gt;Next, 继承UIViewController, 选择Swift语言</p>
+<pre><code>import UIKit
+
+class SecondViewController: UIViewController &#123;
+
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    &#125;
+
+    override func didReceiveMemoryWarning() &#123;
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    &#125;
+&#125;</code></pre>
+<p>设置第二ViewController的File’s owner 的class为刚新建的SecondViewController</p>
+<h2 id="第二个StoryBoard"><a href="#第二个StoryBoard" class="headerlink" title="第二个StoryBoard"></a>第二个StoryBoard</h2><p> Command+N–&gt;User Interface—&gt;StoryBoard，命名Second</p>
+<p> 添加2个UIViewController, 并添加对应的按钮，将View的背景色改为黄色，以区别这是第二个UIStoryBoard, 按住Ctrl从第一个ViewController拖到第二个ViewController,选择Show</p>
+<p> 设置第一个UIViewController如下</p>
+<p>&lt;img  class=”img-responsive”src=”<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/3.png&quot;">https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/3.png&quot;</a> /&gt;</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/2.png" />
+
+
+<h2 id="连接2个StoryBoard"><a href="#连接2个StoryBoard" class="headerlink" title="连接2个StoryBoard"></a>连接2个StoryBoard</h2><p>打开Main.storyboard, 为SecondViewController上的按钮建立一个IBAction, 然后在SecondViewController.swift里添加如下代码</p>
+<pre><code> @IBAction func GotoSecondStoryBoard(sender: AnyObject) &#123;
+
+         let vc = UIStoryboard(name: &quot;Second&quot;, bundle: nil).instantiateInitialViewController() as! UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    &#125;</code></pre>
+<p>如果我们不设置Is Intial View Controller, 那么我们需要设置View Controller的StoryBoard Id, 然后使用如下代码</p>
+<pre><code>let vc = UIStoryboard(name: &quot;Second&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;FirstView&quot;) as! UIViewController
+self.navigationController?.pushViewController(vc, animated: true)</code></pre>
+<h2 id="结果图-Gif"><a href="#结果图-Gif" class="headerlink" title="结果图 (Gif)"></a>结果图 (Gif)</h2><img class="img-responsive"  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/mutli-storyboard.gif" />
 
 
 
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/8/">Previous</a></div><div class="pagination-next"><a href="/page/10/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><a class="pagination-link is-current" href="/page/9/">9</a></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><a class="pagination-link" href="/page/11/">11</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">101</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">15</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-16T15:00:00.000Z">2019-02-16</time></p><p class="title"><a href="/2019/02/16/personaldev-2019-02-16-when-you-are-a-hammer/">当你是个锤子</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-14T15:00:00.000Z">2019-02-14</time></p><p class="title"><a href="/2019/02/14/personaldev-2019-02-14-why-we-should-respect-professional/">为什么要敬畏专业？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-14T15:00:00.000Z">2019-02-14</time></p><p class="title"><a href="/2019/02/14/personaldev-2019-02-15-how-to-be-professional/">如何做到专业</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-12T15:00:00.000Z">2019-02-12</time></p><p class="title"><a href="/2019/02/12/personaldev-2019-02-12-professional-and-no-professional/">聊聊专业和业余</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-02-11T15:00:00.000Z">2019-02-11</time></p><p class="title"><a href="/2019/02/11/personaldev-2019-02-11-focus-on-one-road/">路千万条，但你不能同时走两条路</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/07/"><span class="level-start"><span class="level-item">July 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/#comment-container"><span class="display-none-class">/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="9633073c08930f79790d3d12fd5f583c">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/">iOS UI系列 (一) ：Auto Layout 高度三等分</a></h1><div class="content"><style>
+img {
+  max-width: 900px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+
+
+<p>首先我们创建一个Single View Application</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/1.png" /> 
+
+<p>然后我们向StoryBoard的ViewController 添加3个UIView, 设置不同的背景色，我们的目的是让这三个UIView垂直高度三等分。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/2.png" />
+
+<p>接下来我们需要设置约速，我们让每个试图和周围的具体都是5，然后设置三个视图等高约束，具体看gif动态图, 如果看不清 右键图片–&gt;open in new Tab  </p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/3.gif" />
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-15  <a class="commentCountImg" href="/2015/06/15/life-travel-2011-6-15-climb-mountain/#comment-container"><span class="display-none-class">/2015/06/15/life-travel-2011-6-15-climb-mountain/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="cbd93ac1f12ecce98bfdc6fd02be70e6">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>15 m  <i class="fas fa-pencil-alt"> </i>2.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/15/life-travel-2011-6-15-climb-mountain/">太白山游记</a></h1><div class="content"><p>之前爬过陕西的很多山，华山、骊山、翠华山、王顺山、南五台、太平森林公园，祥裕。但是太白山则是爬完华山之后最想爬的山。因为它是秦岭山脉主峰，也是中国大陆青藏高原以东第一高峰，海拔3767米。更是长江和黄河两大水系分水岭，中国南北分界线，所谓人往高处走，我们都想爬的更高来看的更远。</p>
+<p>由于我们公司一个团队做的很不错，去年获得了优秀团队的奖励，大家决定用团队奖励来活动一次。经过大家一致的表决，最后决定爬太白山。</p>
+<h2 id="出发（2015年6月5号）"><a href="#出发（2015年6月5号）" class="headerlink" title="出发（2015年6月5号）"></a>出发（2015年6月5号）</h2><p>我们计划周五12点出发，但是由于团队要发布系统，后来基本到下午1点才正式从西安出发。一路高速到绛法高速太白山方向，我们一行6个人，2辆车，去的时候由于很精神我开的相对较快，下高速等了同事大概10多分钟，原本以为下高速还要开很远，但是下了高速沿法场线差不多10分钟就到了太白山游客服务中心，问了一下要自驾进山必须是2.0以上的SUV, 我们一辆车是2.0T的但不是SUV, 我们另一辆是SUV, 但不是2.0以上的，只能把车停到停车场，收费是20元一天。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/1.jpg"/>
+
+<h2 id="盘山公路"><a href="#盘山公路" class="headerlink" title="盘山公路"></a>盘山公路</h2><p>必须乘坐景区大巴，大概两个小时到下板寺，沿途有几个景点莲花峰瀑布，三国古栈道，盘山公路非常漂亮，终于明白了为啥必须是2.0以上的SUV才能进。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/lianhuafeng.jpeg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/2.jpg"/>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/5.jpg"/>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/3.jpg"/>
+
+
+<h2 id="缆车"><a href="#缆车" class="headerlink" title="缆车"></a>缆车</h2><p>直接坐车到下板寺，海拔已经2700米，一下车，大家就感觉冷，而且开始有点高原反应了，由于缆车最后一趟是下午5点，我们只有10几分钟，赶紧买了缆车票，乘坐缆车。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/4.jpg" />
+
+<p>小鸟独立枝头，此处已经3000米了，我们多想像飞翔的小鸟，这才叫傲世。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/6.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/7.jpg" />
+
+<p>缆车上已经可以看到上板寺, 已经是云雾缭绕，高山的冷松</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/8.jpg" />
+
+<p>回望远处的山，我们已经与云同高，坐在缆车里感觉真的是冲上云霄。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/9.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/11.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/12.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/13.jpg" />
+
+<p>下了缆车，兄弟们先合个影</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/10.jpg" />
+
+<h2 id="天圆地方"><a href="#天圆地方" class="headerlink" title="天圆地方"></a>天圆地方</h2><p>在往上走40分钟左右，差不多到天圆地方，凌空玻璃， 我们有个兄弟害怕，不赶上去，拉都拉不上去，奇怪的是后来他还到了拔仙台。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/14.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/tianyuandifang.jpeg"/>
+
+<h2 id="佛光"><a href="#佛光" class="headerlink" title="佛光"></a>佛光</h2><p>继续往上走，云雾越来越近</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/15.jpg" />
+
+<p>突然，我们杨同学大喊一声: “看，佛光”，我们都停下来欣赏佛光，之前只听过，而且一直半信半疑，今天真的亲眼看见了。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/16.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/17.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/18.jpg"  style="max-height:300px;"/>
+
+<h2 id="中国南北分界岭"><a href="#中国南北分界岭" class="headerlink" title="中国南北分界岭"></a>中国南北分界岭</h2><p>继续往上走，就进入中国南北分界岭，中间有一个外事检查站，老外是不能进去的，我不明白这是为什么，难道因为军事机密？</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/19.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/20.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/21.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/22.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/23.jpg" style="max-height:500px;" />
+
+<p>又见神奇佛光，每个人看到的中间的影子都是自己，你动他也动，你走他也走，真实佛在心中，佛就是你自己。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/24.jpg" />
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/25.jpg" />
+
+
+<h2 id="太白自然保护区"><a href="#太白自然保护区" class="headerlink" title="太白自然保护区"></a>太白自然保护区</h2><p>往前走几步，就到了太白自然保护区，又见佛光。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/26.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/27.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/28.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/29.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/30.jpg" style="max-height:500px;"/>
+
+<h2 id="夜宿小文公"><a href="#夜宿小文公" class="headerlink" title="夜宿小文公"></a>夜宿小文公</h2><p>晚上7点多，终于到了小文公，听说到大文公需要两个小时，所以我们决定在小文公住，60元一个床，我们6个人买了4张床。 床是硬板床，被子也比较薄，安顿好后。此时已经感觉到比较冷了。</p>
+<p>来时的路</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/31.jpg" />
+
+<p>山里的云海</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/32.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/33.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/34.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/35.jpg" />
+
+<p>大家已经感觉到很冷了，开始做俯卧撑。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/fuwocheng.jpeg" />
+
+<p>由于高原反应，大家基本上都头疼，基本上一晚上没怎么睡着，还有人打呼噜，迷迷糊糊最后可能只睡了两个小时吧。</p>
+<h2 id="日出"><a href="#日出" class="headerlink" title="日出"></a>日出</h2><p>早上5点半我们准备出发，我们决定在去大文公的路上看日出，早上看到的群山真的很漂亮，随着太阳的升起，每一分钟都不一样，从水墨画到山水画，任何大片都拍不出自然的本身，任何画家也画不出这么漂亮的山水，我驻足看了很久，心想，学画的要画山水，就应该在此住一段时间。</p>
+<p>日出江花红胜火，日出的过程大概就2分钟，真的是很漂亮。 欣赏图吧，很遗憾没带单反，用我的iPhone 5S拍的。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/36.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/37.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/38.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/40.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/41.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/42.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/43.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/44.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/45.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/46.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/47.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/48.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/49.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/50.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/51.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/52.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/53.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/54.jpg" />
+
+<p>去往大文公路上已经可以看到太白山顶，拔仙绝顶，但是想不到的是到那里比我们想像的时间长很多。</p>
+<h2 id="大文公"><a href="#大文公" class="headerlink" title="大文公"></a>大文公</h2><p>我们走了将近2小时，才到大文公，中间的路基本上都是石头路，不太好走，我们有2个人太慢了，可能是高原反应，我们走到大文公就留下了杨同学等另外的2个人。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/55.jpg" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/56.jpg" />
+
+<p>我背的装备比较多，睡袋，急救包，野外小工具箱，我在这里都拿出来交给杨同学了，杨同学在这里等另外两个同事。说在此等我们三个人回来。</p>
+<h2 id="大爷海"><a href="#大爷海" class="headerlink" title="大爷海"></a>大爷海</h2><p>很多人走到大文公就返回了，因为去大爷海要先爬一段山，从小文公到大文公很多人已经走的很累了。</p>
+<p>真正的高山杜鹃。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/57.jpg" />
+
+<p>驴友的尼玛堆</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/58.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/59.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/60.jpg"/>
+
+<p>走了将近2个小时，终于到了大爷海，这段路是很难走的，先上山，然后下山，建议没有爬山经验的就不要去了，尤其是如果下雨下雪，路都基本走不成。</p>
+<p>大爷海</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/61.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/62.jpg"/>
+
+<p>六个人，到这里就三个人。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/63.jpg"/>
+
+<h2 id="拔仙台"><a href="#拔仙台" class="headerlink" title="拔仙台"></a>拔仙台</h2><p>从大爷海去拔仙台，有两条路，左边的路比较陡峭，但是大概20多分钟就到了，右边比较平坦，但是要将近1个小时，于是我们选择的耗时较短的路。</p>
+<p>山上还有些积雪没化</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/64.jpg"/>
+
+<p>上山的路，全都是石头上走</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/65.jpg"/>
+
+<p>拔仙台不远了</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/66.jpg"/>
+
+<p>回望来时的路</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/67.jpg"/>
+
+<p>马上到山顶了</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/68.jpg"/>
+
+<p>往下看大爷海</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/69.jpg"/>
+
+<p>已经到拔仙台，可以看到来时走的路都在3500米高的山顶，婉如一条丝带。</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/70.jpg"/>
+
+<p>拔仙绝顶，一览众山小， 我想化作苍鹰，展翅翱翔！</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/71.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/72.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/73.jpg"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/baxiantai.jpg"/>
+
+<p>我们三个人留下脚印</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/3foot.jpg" />
+
+<p>回来的时候，我们选择了走平坦的路，因为上山时基本都是手脚并用。 </p>
+<p>二爷海和三爷海</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/2yehai-3yehai.jpg" />
+
+<h2 id="返程"><a href="#返程" class="headerlink" title="返程"></a>返程</h2><p>回来的时候，我们两个同事明显感觉很累了，但是我看到乌云一来，就加快了脚步，我们返回大文公时，我们等着的同事已经走了，所以我们就一路不停的一直走会缆车，当我们到达缆车时已经是下午2点多了，至此我们已经来回共走了9个小时。我们回来时比同事预计的快了2个小时，主要是下山，高原反应没那么严重了。 到上板寺寺时，很多人问我们他们今天能否到拔仙台，我估计问这话的人，明天都到不了了，因为完全没有准备，还有一些女的就穿着短裙，问还有多远，我说你们还是回吧，不然就冻死了，她们能到小文公就不错了。接下来，就是座缆车，座大巴2小时，然后我们就开车返回西安了，回来时由于太累，基本上一路高速都没赶超过90km/h.</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>要去太白山，而且要登顶的人，必须计划两天时间，而且要带冲锋衣，山上很冷，一定要带登山杖，要穿比较好的登山鞋。带些高热量的食物，如果高原反应严重的最好带点药。山上天气瞬息万变，最好带上防雨的装备，同时带上高能量食物和水，山上也有卖食物和水的，但是你要带钱。 建议在小文公住。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-13  <a class="commentCountImg" href="/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/#comment-container"><span class="display-none-class">/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d8ca6cd8facd415048eb9d2f18991dd9">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/">iOS开发(一)：真机调试</a></h1><div class="content"><p>苹果真机调试是比较麻烦的，需要代码签名，主要的作用就是确保程序是苹果认证的开发者开发，下面列出主要的步骤。</p>
+<h2 id="购买开发者帐号"><a href="#购买开发者帐号" class="headerlink" title="购买开发者帐号"></a>购买开发者帐号</h2><style>
+img {
+  max-width: 700px;
+  border: solid 2px #ccc;
+  padding: 5px;
+  border-radius:5px;
+}
+</style>
+
+<p>之前iOS开发者帐号和Mac开发者帐号需要分开购买，现在都合并为Apple Developer Program了，所以只需要出一份钱了。打开 <a target="_blank" rel="noopener" href="https://developer.apple.com/programs/">https://developer.apple.com/programs/</a>, 点击右上角Enroll</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/ios-developer-center.png"/>
+
+<p>点击start your enrollment</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/start-your-enroll.png"/>
+
+<p>选择你是个人开发者还是企业，选择个人开发者</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/select-develop-type.png"/>
+
+<p>然后就按照步骤完成购买，一般需要几天才能审核通过。</p>
+<h2 id="创建证书请求申请-Certificate-Signing-Request"><a href="#创建证书请求申请-Certificate-Signing-Request" class="headerlink" title="创建证书请求申请 (Certificate Signing Request)"></a>创建证书请求申请 (Certificate Signing Request)</h2><p>选择 “Certificate Assistant”，然后点击 “Request Certificate from A Certificate Authority.”</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/request-certification.png" />
+
+<p>填入你的Email 名字，选择Save to Disk, 这是会生成一个CertificateSigningRequest.certSigningRequest 文件</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/certificaiton-info.png"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/save-certification-info.png"/>
+
+<h2 id="创建开发者证书"><a href="#创建开发者证书" class="headerlink" title="创建开发者证书"></a>创建开发者证书</h2><p>登录开发者中心，选择证书Development, 然后点击右边添加</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/member-center.png" />
+
+<p>选择Development—&gt;iOS App Development</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/select-dev-cert-type.png" />
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/how-to-create-csr.png"/>
+
+<p>这一步上传你刚才的CertificateSigningRequest.certSigningRequest 文件，点击Generate</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-your-certificate.png"/>
+
+<p>Download 你的证书，然后双击就会加入系统</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-dev-certification.png" />
+
+<h2 id="注册你的设备"><a href="#注册你的设备" class="headerlink" title="注册你的设备"></a>注册你的设备</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/register-device.png"/>
+
+<p>如果不知道UUID, 打开iTunes, 双击Serial Number</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/itunes.png" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/uuid.png"/>
+
+
+<h2 id="创建App-ID"><a href="#创建App-ID" class="headerlink" title="创建App ID"></a>创建App ID</h2><p>看说明创建你需要的APP ID, 主要是Bundle ID, 一般我们类似这样确保唯一 com.jackwang.nbapp</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/appid.png"/>
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/buildid.png" />
+
+
+<h2 id="创建Provisioning-Profile"><a href="#创建Provisioning-Profile" class="headerlink" title="创建Provisioning Profile"></a>创建Provisioning Profile</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/add-provision-profile.png" />
+
+<p>选择iOS development, 点击继续，然后选择你刚的App ID，继续，选择要包含的开发者证书，点击继续，选择要包含的设备, 随后就generate你的provisioning profile.</p>
+<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-profile.png"/> 
+
+<p>找到对应的Profile 下载后双击即可。</p>
+<h2 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h2><p>设置项目的Bundle ID 为之前创建的APP ID</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/xcode-setting-bundle.png"/>
+
+<p>然后选择你对应的Code Sign</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/xcode-code-sign.png" />
+
+<h2 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h2><p>插入你的设备，选择你的设备，点击运行，就可以真机调试了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-04  <a class="commentCountImg" href="/2015/06/04/technologies-DDD-2015-6-5-cqrs/#comment-container"><span class="display-none-class">/2015/06/04/technologies-DDD-2015-6-5-cqrs/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="1ceec2924447262e6930846ca9914b8e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>10 m  <i class="fas fa-pencil-alt"> </i>1.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/04/technologies-DDD-2015-6-5-cqrs/">领域驱动设计系列（六）:CQRS</a></h1><div class="content"><style>
+  img {
+      max-width: 600px;
+      border: solid 1px gray;
+      border-radius: 5px;
+      padding: 5px;
+  }
+
+
+</style>
+
+
+<p>CQRS是Command Query Responsibility Seperation（命令查询职责分离）的缩写。 世上很多事情都比较复杂，但是我们只要进行一些简单的分类后，那么事情就简单了很多，比如我们把人分为男人和女人，也可以把人分为大人和小孩，还比如，我们说国内和国外，城市和农村。经过一些类似这样的划分，我们的对不同的类就有不同的关注。 这样我们就会有妇女儿童医院专门让女人生孩子，而不会建一个医院让男女都生孩子。</p>
+<p>##CRUD</p>
+<p>CRUD (Create, Read, Update, Delete) 增查改删，我们很多系统都是对数据的增查改删。过去我们很多系统比较简单，基本上增加的数据就是你要查询的数据，所以很多时候其实一个简单的Excel就能搞定。 而且增删改查也足够的简单，所以我们很多系统分层后在数据层Repository里仍是对单表的增删改查，这样对不少的系统都符合。</p>
+<p>但是，系统规模稍微大一点，我们都知道我们的数据库里的数据模型很难和我们业务层需要的模型一致。 于是我们引入了Domain Model,  Repository里就会做Domain Model的来回转换</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/1.png" />
+
+
+<p>同时我们在UI层要的数据，往往又和具体的Domain不同，这个时候我们又要定义一个ViewModel. 而这些ViewModel又是组合不同的DomainModel得来。 </p>
+<p>传统的代码里的问题：</p>
+<ul>
+<li>领域里有很多分页和排序，尤其是Repository里</li>
+<li>查询的方法里暴露了很多不应该有的领域模型的属性，因为需要组装DTO</li>
+<li>如果使用ORM，预加载了很多数据以提高性能，但是占用大量内存，而且需要维护这些数据。</li>
+<li>加载组合庞大的数据，比如页面是需要一个名字，我们也会把整个User数据取出来。</li>
+</ul>
+<p>重要的原来把数据混在一起，复杂的查询相当难以优化。 尤其是数据库出现大量的Join 系统性能极速下降。</p>
+<p>最重要的是我们把读写都放在了一起，显得责任不够清晰，代码也更复杂了一些，比如读数据是不太关心事物的，读数据是不需要验证的，只有写的时候才需要做数据校验，这也比较符合SRP(单一职责)，但是用CRUD的思维是我们全都混在了一起。</p>
+<h3 id="CQRS"><a href="#CQRS" class="headerlink" title="CQRS"></a>CQRS</h3><p>我们仔细看CRUD, 其实可以更简单的分为读(R)和写(CUD), 我们想想大部分情况都是，一个方法要么是执行一个Command完成一个动作，要么就是查询返回数据。 比如我们回答问题的人不应该去修改问题。</p>
+<p>当我们读写分离后，我们对应的代码也会分离。</p>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><p>写的一端需要保证事物，所以一般数据存储为第三范式,<br>读的一端一般都是反范式可以避免Join操作，这样我们只需要把数据存储为第一范式</p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>大部分的系统里写数据要远远少于读数据，并且一般都是每次修改很少的一部分数据，所以在写这端扩展都不是特别紧迫，读数据基本都远大于写数据的次数， 所以扩展就更重要。 我们很难建立同一个Model 既能给写数据和读数据公用而且能够保证性能都比较好的。</p>
+<h4 id="查询端"><a href="#查询端" class="headerlink" title="查询端"></a>查询端</h4><p>查询端由于只是读数据，那么所有的方法应该都是返回数据，而且返回的数据就是界面直接需要的DTO, 这样可以减少传统的方法中把DomainModel映射为ViewModel或者DTO. 同时可以减少传统的领域里的一些混乱。</p>
+<h4 id="写端"><a href="#写端" class="headerlink" title="写端"></a>写端</h4><p>由于把读分离出去，所以我们就只关注写，那么我们写这一段需要保证事物，数据输入的验证，另外一般写这一端都不需要及时的看到结果，所以大部分都需要一个void方法就可以，那么让我们系统异步就更加方便。这样使系统的扩展性大大增强。</p>
+<h4 id="代码更容易集中处理"><a href="#代码更容易集中处理" class="headerlink" title="代码更容易集中处理"></a>代码更容易集中处理</h4><p>当我在一些系统中使用CQRS后，很多地方代码大大简化，比如我所有的写操作都是一个Command, 那么我定义一个UICommand, 让所有的Command集成这个，那么我可以在这个UICommand里做一些通用的处理，比如Validation</p>
+<p>同时我只需要定义一个CommandBus, 然后把对应的CommandBus分发到对应的Handler里（我前面几篇有实例代码），那么代码的耦合度大大降低。</p>
+<h4 id="代码分工协作更容易"><a href="#代码分工协作更容易" class="headerlink" title="代码分工协作更容易"></a>代码分工协作更容易</h4><p>由于读这一端直接读数据，而且对数据库没有任何操作，那么我们可以根据UI定义对应的DTO, 那么开发的时候我们可以用Mock数据，至于数据怎么存的，那么我们随后只要添加一层Thin Data Layer即可，实际上当我们使用CQRS后，很多时候我们把数据保存的时候都直接保存为Denormalize的，那么从数据里直接查询单表的数据就可以拿到页面需要的数据，大大提升读取数据的性能，同时代码也会极其的简化，开发读这一段代码的开发人员甚至都不需要对业务有太多了解。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="简单的实现"><a href="#简单的实现" class="headerlink" title="简单的实现"></a>简单的实现</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/2.png" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/3.png" />
+
+
+<h4 id="使用的Event后"><a href="#使用的Event后" class="headerlink" title="使用的Event后"></a>使用的Event后</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/4.png" />
+
+
+
+
+<h4 id="使用了Event-Source-和Service-bus后"><a href="#使用了Event-Source-和Service-bus后" class="headerlink" title="使用了Event Source 和Service bus后"></a>使用了Event Source 和Service bus后</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/6.jpg" />
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/8/">Previous</a></div><div class="pagination-next"><a href="/page/10/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><a class="pagination-link is-current" href="/page/9/">9</a></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><a class="pagination-link" href="/page/11/">11</a></li><li><a class="pagination-link" href="/page/12/">12</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">118</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">15</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-11T15:30:00.000Z">2019-03-11</time></p><p class="title"><a href="/2019/03/11/personaldev-2019-03-11-develop-what-you-like/">发展你的兴趣，而不是跟随你的兴趣</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-09T15:30:00.000Z">2019-03-09</time></p><p class="title"><a href="/2019/03/09/personaldev-2019-03-09-why-your-product-not-sell-well/">你的产品卖不好，可能是说明书的问题</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-07T15:30:00.000Z">2019-03-07</time></p><p class="title"><a href="/2019/03/07/personaldev-2019-03-07-80-is-not-bad-generation/">八零后怎么就成了悲情的一代？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-04T15:30:00.000Z">2019-03-04</time></p><p class="title"><a href="/2019/03/04/personaldev-2019-03-04-life-is-not-a-single-line/">人生可能并不是一条线</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-02T15:30:00.000Z">2019-03-02</time></p><p class="title"><a href="/2019/03/02/personaldev-2019-03-02-study-less-know-more/">如何学的更少，会的更多</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">March 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 Jack Wang</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
