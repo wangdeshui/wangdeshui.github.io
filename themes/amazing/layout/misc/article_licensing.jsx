@@ -98,7 +98,15 @@ class ArticleLicensing extends Component {
                             </div>
                         ) : null}
                     </div>
+                
                 </div>
+                <div class="licensing-title">
+                   
+                   <p>
+                   版权：本文版权归作者所有,转载需经作者同意。
+                   </p>
+               </div>
+               
             </div>
         );
     }
