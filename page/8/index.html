@@ -1,5 +1,151 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"王德水"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">8cbc8775119689c8d7b81c710ddf6898</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8cbc8775119689c8d7b81c710ddf6898">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">前端构建大法 Gulp 系列 (四)：gulp实战</a></h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"王德水"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-06  <a class="commentCountImg" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/#comment-container"><span class="display-none-class">f903650140f2d76dc3822a1bd035a40a</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="f903650140f2d76dc3822a1bd035a40a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/">敏捷实践系列(八)：单元测试及最佳实践</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/1.png" />
+
+<p>在工作中或者在面试中，我经常碰到的开发人员就是对单元测试不重视，这一类基本上都表现出了一种“无知的自信”，总觉得自己写的代码质量很高，直到一次次虫子(Bug)把自己咬的头破血流时，才发现原来自己的代码已经到了剪不断理还乱的状态，而每一次修改一个bug，都需要走一遍“墨镜迷宫” （看上图)。还有很多人知道单元测试或者写出了单元测试，但是就是写了一个方法，上面标注了一个[Test]属性而已，甚至很多的人单元测试上面标注的是[IgnoreTest], 每次看见这些，我都深深的感到推行单元测试之路是艰难的，是遥远的，但是我依然坚信是是渴望也可及的，只要有着深深的信念，坚强的意志，无谓的勇气，一头扎进去泥巴堆里，假以时日，当大雨来临，必将带走泥巴，从此你拔剑扬眉，哦，你不用拔剑了，因为你就是剑。。。</p>
+<p>为了让更多人能够拔剑扬眉，也为了我们公司刚入职的新人做一些培训，我精心准备了单元测试的一些知识，在此为你奉上，我尽量用简短的语句来描述，如果你不清楚我说的某一些点，那么欢迎你发邮件给我 <a href="mailto:&#x77;&#x61;&#x6e;&#x67;&#100;&#101;&#x73;&#x68;&#117;&#105;&#x40;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#107;&#46;&#x63;&#111;&#109;">&#x77;&#x61;&#x6e;&#x67;&#100;&#101;&#x73;&#x68;&#117;&#105;&#x40;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#107;&#46;&#x63;&#111;&#109;</a>，我可以针对集中的点发篇文章，如果你想知道我说的所有点怎么实践，那就联系我，试试加入到我们公司来。</p>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">什么是单元测试</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">为什么要使用单元测试</a>  </li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9A%BE%E4%BB%A5%E6%8E%A8%E5%8A%A8%E7%9A%84%E5%8E%9F%E5%9B%A0">单元测试难以推动的原因</a><ul>
+<li><a href="#%E5%A4%AA%E8%8A%B1%E6%97%B6%E9%97%B4">太花时间</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E4%B8%8D%E6%98%AF%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C">测试不是我的工作</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%B5%8B%E8%AF%95%E6%80%A7%E5%B7%AE">系统可测试性差</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">单元测试最佳实践</a><ul>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%80-%E4%B8%89%E5%88%B0%E4%BA%94%E6%AD%A5">实践一: 三到五步</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%8C-%E8%BF%90%E8%A1%8C%E5%BF%AB%E9%80%9F">实践二： 运行快速</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%89%E4%B8%80%E8%87%B4%E6%80%A7">实践三：一致性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%9B%9B%E5%8E%9F%E5%AD%90%E6%80%A7">实践四：原子性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%94%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3">实践五：单一职责</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AD%E7%8B%AC%E7%AB%8B%E6%97%A0%E8%80%A6%E5%90%88">实践六：独立无耦合</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%83%E9%9A%94%E7%A6%BB%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8">实践七：隔离外部调用</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AB-%E8%87%AA%E6%8F%8F%E8%BF%B0">实践八： 自描述</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B9%9D-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%80%BB%E8%BE%91">实践九： 单元测试逻辑</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81-%E6%96%AD%E8%A8%80">实践十： 断言</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81%E4%B8%80%E4%BA%A7%E5%93%81%E4%BB%A3%E7%A0%81">实践十一：产品代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%B7%A5%E5%85%B7">最后，单元测试常用技术及工具</a></li>
+</ul>
+<!-- toc stop -->
+
+
+<h1 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h1><p>单元测试是开发者编写的一小段代码，用于检验被测代码中的一个很明确的功能是否正确。通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为。</p>
+<p>执行单元测试，是为了证明某段代码的行为确实和开发者所期望的一致。因此，我们所要测试的是规模很小的、非常独立的功能片段。通过对所有单独部分的行为建立起信心。然后，才能开始测试整个系统。</p>
+<h1 id="为什么要使用单元测试"><a href="#为什么要使用单元测试" class="headerlink" title="为什么要使用单元测试"></a>为什么要使用单元测试</h1><ul>
+<li>单元测试使工作完成的更轻松</li>
+<li>单元测试使你的设计更好</li>
+<li>大大减少花在调试上的时间</li>
+<li>能帮助你更好的理解代码</li>
+</ul>
+<h2 id="没有单元测试"><a href="#没有单元测试" class="headerlink" title="没有单元测试"></a>没有单元测试</h2><ul>
+<li>任何代码都是在假定其他代码是正确无误的情况下编写的。</li>
+<li>修改一处代码时无法得知会对其他代码产生怎样的影响。</li>
+<li>任何一处改动都需要进行功能级别的整体调试。</li>
+</ul>
+<h1 id="单元测试难以推动的原因"><a href="#单元测试难以推动的原因" class="headerlink" title="单元测试难以推动的原因"></a>单元测试难以推动的原因</h1><h2 id="太花时间"><a href="#太花时间" class="headerlink" title="太花时间"></a>太花时间</h2><p>很多人认为单元测试很花时间，但是想想我们在下面几点话的时间，我经常看到为了测试一个简单的API方法，我们很多人必须让前端跑起来，甚至自己写一个客户端才能调用</p>
+<ul>
+<li>调试上花的时间</li>
+<li>对自认为正确的代码，花了多少时间确认代码是正确的。</li>
+<li>定位Bug所耗的时间</li>
+</ul>
+<h2 id="测试不是我的工作"><a href="#测试不是我的工作" class="headerlink" title="测试不是我的工作"></a>测试不是我的工作</h2><p>很多人认为测试不是自己的工作，但是想一想每次测试提出一个bug所花的时间，以及你改bug所化的时间，所以下面2点是很重要</p>
+<ul>
+<li>内在质量的重要性</li>
+<li>测试应该是辅助，好的软件是开发设计出来的，不是测试出来的</li>
+</ul>
+<h2 id="系统可测试性差"><a href="#系统可测试性差" class="headerlink" title="系统可测试性差"></a>系统可测试性差</h2><ul>
+<li>系统耦合度很高，我们需要提高我们的团队的设计能力。</li>
+</ul>
+<h1 id="单元测试最佳实践"><a href="#单元测试最佳实践" class="headerlink" title="单元测试最佳实践"></a>单元测试最佳实践</h1><h2 id="实践一-三到五步"><a href="#实践一-三到五步" class="headerlink" title="实践一: 三到五步"></a>实践一: 三到五步</h2><ul>
+<li>SetUp</li>
+<li>输入</li>
+<li>调用</li>
+<li>输出</li>
+<li>TearDown</li>
+</ul>
+<h2 id="实践二：-运行快速"><a href="#实践二：-运行快速" class="headerlink" title="实践二： 运行快速"></a>实践二： 运行快速</h2><p>###为什么？<br>单元测试运行很频繁，是辅助开发的，在开发过程中运行，如果慢影响很大</p>
+<h3 id="多快较好？"><a href="#多快较好？" class="headerlink" title="多快较好？"></a>多快较好？</h3><ul>
+<li>单个测试小于200ms</li>
+<li>单个测试套件小于10s</li>
+<li>整个测试小于10分钟</li>
+</ul>
+<h2 id="实践三：一致性"><a href="#实践三：一致性" class="headerlink" title="实践三：一致性"></a>实践三：一致性</h2><p><strong>任何时候同样的输入需要同样的结果</strong></p>
+<pre><code>    Date date=new Date()
+    Random.next()</code></pre>
+<p>这样的代码都需要Mock掉，不然时间每次都不同，结果就会不一样。</p>
+<h2 id="实践四：原子性"><a href="#实践四：原子性" class="headerlink" title="实践四：原子性"></a>实践四：原子性</h2><p>** 所有的测试只有两种结果：成功和失败**<br><strong>不能部分测试通过</strong></p>
+<h2 id="实践五：单一职责"><a href="#实践五：单一职责" class="headerlink" title="实践五：单一职责"></a>实践五：单一职责</h2><p><strong>一个测试只验证一个行为</strong></p>
+<p>** 测试行为，不要测试方法 **</p>
+<ul>
+<li>一个方法，多个行为    —–&gt;  多个测试</li>
+<li>一个行为，多个方法   —–   一个测试<br> 这里的一个行为，多个方法一般指这个方法调用private, protected, getters, setters</li>
+<li>多个Assert只有在测试同一个行为时可以接受</li>
+</ul>
+<h2 id="实践六：独立无耦合"><a href="#实践六：独立无耦合" class="headerlink" title="实践六：独立无耦合"></a>实践六：独立无耦合</h2><h3 id="单元测试之间无相互调用"><a href="#单元测试之间无相互调用" class="headerlink" title="单元测试之间无相互调用"></a>单元测试之间无相互调用</h3><ul>
+<li>单元测试执行顺序无关</li>
+<li>不同的顺序无影响</li>
+</ul>
+<h3 id="单元测试之间不能共享状态"><a href="#单元测试之间不能共享状态" class="headerlink" title="单元测试之间不能共享状态"></a>单元测试之间不能共享状态</h3><p>比如一个测试里设置了一个属性值，然后在另外一个测试里用，如果必须共享可以放到Setup里</p>
+<h2 id="实践七：隔离外部调用"><a href="#实践七：隔离外部调用" class="headerlink" title="实践七：隔离外部调用"></a>实践七：隔离外部调用</h2><ul>
+<li>单元测试需要快速运行，且每次结果一致，所以需要隔离一切对外部的调用。</li>
+<li>不使用具体的其它真实类，就是不要new</li>
+<li>不读数据库</li>
+<li>不读网络</li>
+<li>不读外部文件</li>
+<li>适当时候可以构造一个相同的内部文件来Mock</li>
+<li>不依赖本地时间</li>
+<li>不依赖环境变量</li>
+</ul>
+<h2 id="实践八：-自描述"><a href="#实践八：-自描述" class="headerlink" title="实践八： 自描述"></a>实践八： 自描述</h2><ul>
+<li>单元测试是开发级文档</li>
+<li>单元测试是方法的描述</li>
+</ul>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/2.png" />
+
+
+<h2 id="实践九：-单元测试逻辑"><a href="#实践九：-单元测试逻辑" class="headerlink" title="实践九： 单元测试逻辑"></a>实践九： 单元测试逻辑</h2><ul>
+<li>单元测试必须容易读和理解的</li>
+<li>变量名，方法名，类名</li>
+<li>无条件语句,无Switch<br>办法：分解if到多个测试，所有的输入都是已知的，所有的结果都是一定的（Mock）</li>
+<li>无循环语句</li>
+<li>无异常捕捉<br>** 测试预知的异常，用ExpectedException方法 **</li>
+</ul>
+<h2 id="实践十：-断言"><a href="#实践十：-断言" class="headerlink" title="实践十： 断言"></a>实践十： 断言</h2><ul>
+<li><p>断言信息最好包含Business Information</p>
+</li>
+<li><p>断言信息包含出错的具体信息如果失败</p>
+</li>
+<li><p>适当时候可以封装自己的Assert<br>比如：</p>
+<pre><code>Assert.IsProgrammer(Jack)
+Return Jack. Cancooking() &amp;&amp; Jack.CanCoding()</code></pre>
+</li>
+</ul>
+<h2 id="实践十一：产品代码"><a href="#实践十一：产品代码" class="headerlink" title="实践十一：产品代码"></a>实践十一：产品代码</h2><ul>
+<li>产品代码无测试逻辑</li>
+</ul>
+<p>不能有：</p>
+<pre><code>    If(global.IsTest)&#123;…&#125;</code></pre>
+<ul>
+<li>测试代码和产品代码要分离</li>
+<li>不要在产品代码里有任何只供测试用的代码</li>
+<li>使用依赖注入</li>
+</ul>
+<h1 id="最后，单元测试常用技术及工具"><a href="#最后，单元测试常用技术及工具" class="headerlink" title="最后，单元测试常用技术及工具"></a>最后，单元测试常用技术及工具</h1><p>下面是.NET程序常用的单元测试需要的技术和工具，其它语言请自信比对。</p>
+<ul>
+<li>面向接口编程</li>
+<li>依赖注入(Castle, Unity, Ninject)</li>
+<li>Moq</li>
+<li>测试工具(xUnit) </li>
+<li>.Net Nunit</li>
+<li>代码覆盖率测试工具Ncover</li>
+<li>自动运行测试辅助工具NCrunch</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">8cbc8775119689c8d7b81c710ddf6898</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8cbc8775119689c8d7b81c710ddf6898">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">前端构建大法 Gulp 系列 (四)：gulp实战</a></h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
 <h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p>先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 <a target="_blank" rel="noopener" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a> 安装</p>
 <p>然后再用 npm -v 来确保Node.js 安装正确</p>
 <h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1><p>我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里</p>
@@ -378,7 +524,7 @@ static void Main(string[] args)
 <h2 id="关于开源，关于免费"><a href="#关于开源，关于免费" class="headerlink" title="关于开源，关于免费"></a>关于开源，关于免费</h2><p>现在.NET很多东西都开源了，.NET CORE 和 ASP.NET VNext已经可以跑在Mac和Linux上了，我相信会越来越多的.NET程序将来会跑在Linux服务器上，另外大部分程序根本就用不了那么多服务器，如果我们真的需要那么多服务，证明公司已经很有钱了，还买不起几个Windows？而且如果真的需要那么多服务器，我们可以使用Microsoft Azure, 买几个Windows总比要请几个Linux运维工程师要便宜很多吧。</p>
 <h2 id="最后，没有人限制你只会-NET"><a href="#最后，没有人限制你只会-NET" class="headerlink" title="最后，没有人限制你只会.NET"></a>最后，没有人限制你只会.NET</h2><p>没有谁能限制.NET程序员学习其他的语言，.NET程序员可以学习Java, Ruby, Node.js， 可以学习Event Driven, Message Queue, Solar, 学习MongoDB, Redis, 学习分布式缓存，学习任何其它语言需要学习的东西。</p>
 <h2 id="关于薪水"><a href="#关于薪水" class="headerlink" title="关于薪水"></a>关于薪水</h2><p>我不相信一个人学两个月JAVA, 不学习其它东西就可以立马成为一个优秀的程序员，就可以拿到很高的薪水，因为在我看来，要成为一个优秀的.NET程序员，需要学习大量的知识，我相信JAVA程序员也是一样。如果说.NET程序员年薪几百万我没见过，但是把.NET学好可以拿到相对不错的薪水还是没有问题的。</p>
-<p>我们就是使用.NET的技术，如果你觉得你.NET技术还可以而没有地方发挥的，欢迎联系我 <a href="mailto:&#119;&#97;&#110;&#x67;&#x64;&#x65;&#x73;&#x68;&#x75;&#105;&#64;&#x6f;&#117;&#x74;&#108;&#x6f;&#x6f;&#107;&#46;&#99;&#111;&#109;">&#119;&#97;&#110;&#x67;&#x64;&#x65;&#x73;&#x68;&#x75;&#105;&#64;&#x6f;&#117;&#x74;&#108;&#x6f;&#x6f;&#107;&#46;&#99;&#111;&#109;</a></p>
+<p>我们就是使用.NET的技术，如果你觉得你.NET技术还可以而没有地方发挥的，欢迎联系我 <a href="mailto:&#119;&#x61;&#110;&#103;&#100;&#x65;&#x73;&#x68;&#117;&#105;&#x40;&#111;&#117;&#116;&#x6c;&#111;&#x6f;&#x6b;&#46;&#99;&#x6f;&#109;">&#119;&#x61;&#110;&#103;&#100;&#x65;&#x73;&#x68;&#117;&#105;&#x40;&#111;&#117;&#116;&#x6c;&#111;&#x6f;&#x6b;&#46;&#99;&#x6f;&#109;</a></p>
 </div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-11-05  <a class="commentCountImg" href="/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/#comment-container"><span class="display-none-class">e8a126402555d56a4c6f02e5c8f0ac01</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e8a126402555d56a4c6f02e5c8f0ac01">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/">敏捷实践系列(五)：迁移已有项目到Git flow</a></h1><div class="content"><p>上一篇 <a href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management/">敏捷实践系列(四)：代码管理流程</a> 给大家详细的讲解了一下Git flow, 本周我们就把一个客户的所有项目实施了Git flow, 如果说你详细看了那篇文章，那么你就能了解为何要进行Git flow 以及如何对一个新项目按Git flow的流程操作， 但是当我们整理已有的项目时，我们发现了以下几个问题需要一些方法处理。</p>
 <h2 id="错乱的分支名如何解决"><a href="#错乱的分支名如何解决" class="headerlink" title="错乱的分支名如何解决"></a>错乱的分支名如何解决</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>我们遇到的一个项目，一开始生产环境用的是master分支，突然客户提出他们有一个客户有特殊需求，让打一个分支出来，团队成员就打出了一个master-quickfix 分支，但是后来这个分支上功能越来越多，慢慢的团队成员就把这个分支当做master分支用了，此时develop和 master-quickfix 分支也早已分道扬镳。然后所有的客户又需要相同的功能，这样如果想合并会master将是非常难的，因为冲突太大。 经过沟通和核实，我们发现现在的master-quickfix其实承担了master的角色，所以我们要让master-quickfix当做master.</p>
 <h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><h4 id="方案一-用master-quickfix-代码覆盖master"><a href="#方案一-用master-quickfix-代码覆盖master" class="headerlink" title="方案一 用master-quickfix 代码覆盖master"></a>方案一 用master-quickfix 代码覆盖master</h4><pre><code>git checkout master-quickfix
@@ -410,229 +556,7 @@ git push --set-upstream origin master   # Push the new branch, set local branch 
 <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-sample.png" />
 
 
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-10-27  <a class="commentCountImg" href="/2015/10/27/agile-2015-10-27-sourcecode-management/#comment-container"><span class="display-none-class">fb54f2fb15b5a35da66dfbe375463278</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="fb54f2fb15b5a35da66dfbe375463278">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>1.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/10/27/agile-2015-10-27-sourcecode-management/">敏捷实践系列(四)：代码管理流程</a></h1><div class="content"><blockquote>
-<p>本来没有这么快到流程以及技术部分，但是因为公司需要，所以就临时写了这一部分。</p>
-</blockquote>
-<p>我们已经从SVN 切换到Git很多年了，现在几乎所有的项目都在使用Github管理。对与那些还在坚持使用SVN的，我实在想不出原因，权且称作守旧派吧。</p>
-<h2 id="Git的优点"><a href="#Git的优点" class="headerlink" title="Git的优点"></a>Git的优点</h2><p>Git的优点很多，但是这里只列出我认为非常突出的几点。</p>
-<ol>
-<li>由于是分布式，所有本地库包含了远程库的所有内容。</li>
-<li>优秀的分支模型，打分支以及合并分支，机器方便。</li>
-<li>快速，在这个时间就是金钱的时代，Git由于代码都在本地，打分支和合并分支机器快速，使用个SVN的能深刻体会到这种优势。</li>
-</ol>
-<p>感兴趣的，可以去看一下Git本身的设计，内在的架构体现了很多的优势，不愧是出资天才程序员Linus (Linux之父) 之手</p>
-<h2 id="版本管理的挑战"><a href="#版本管理的挑战" class="headerlink" title="版本管理的挑战"></a>版本管理的挑战</h2><p>虽然有这么优秀的版本管理工具，但是我们面对版本管理的时候，依然有非常大得挑战，我们都知道大家工作在同一个仓库上，那么彼此的代码协作必然带来很多问题和挑战，如下：</p>
-<ol>
-<li>如何开始一个Feature的开发，而不影响别的Feature？</li>
-<li>由于很容易创建新分支，分支多了如何管理，时间久了，如何知道每个分支是干什么的？</li>
-<li>哪些分支已经合并回了主干？</li>
-<li>如何进行Release的管理？开始一个Release的时候如何冻结Feature, 如何在Prepare Release的时候，开发人员可以继续开发新的功能？</li>
-<li>线上代码出Bug了，如何快速修复？而且修复的代码要包含到开发人员的分支以及下一个Release?</li>
-</ol>
-<p>大部分开发人员现在使用Git就只是用三个甚至两个分支，一个是Master, 一个是Develop, 还有一个是基于Develop打得各种分支。这个在小项目规模的时候还勉强可以支撑，因为很多人做项目就只有一个Release, 但是人员一多，而且项目周期一长就会出现各种问题。</p>
-<h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>就像代码需要代码规范一样，代码管理同样需要一个清晰的流程和规范</p>
-<p>Vincent Driessen 同学为了解决这个问题提出了 <a target="_blank" rel="noopener" href="http://nvie.com/posts/a-successful-git-branching-model/">A Successful Git Branching Model</a></p>
-<p>下面是Git Flow的流程图 </p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-nvie.png"/>
-
-
-<p>上面的图你理解不了？ 没关系，这不是你的错，我觉得这张图本身有点问题，这张图应该左转90度，大家应该就很用以理解了。</p>
-<h3 id="Git-Flow常用的分支"><a href="#Git-Flow常用的分支" class="headerlink" title="Git Flow常用的分支"></a>Git Flow常用的分支</h3><ul>
-<li>Production 分支</li>
-</ul>
-<blockquote>
-<p>也就是我们经常使用的Master分支，这个分支最近发布到生产环境的代码，最近发布的Release， 这个分支只能从其他分支合并，不能在这个分支直接修改</p>
-</blockquote>
-<ul>
-<li>Develop 分支</li>
-</ul>
-<blockquote>
-<p>这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Feature分支</p>
-</blockquote>
-<ul>
-<li>Feature 分支</li>
-</ul>
-<blockquote>
-<p>这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回Develop分支进入下一个Release</p>
-</blockquote>
-<ul>
-<li>Release分支</li>
-</ul>
-<blockquote>
-<p>当你需要一个发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支  </p>
-</blockquote>
-<ul>
-<li>Hotfix分支</li>
-</ul>
-<blockquote>
-<p>当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release</p>
-</blockquote>
-<h3 id="Git-Flow如何工作"><a href="#Git-Flow如何工作" class="headerlink" title="Git Flow如何工作"></a>Git Flow如何工作</h3><h4 id="初始分支"><a href="#初始分支" class="headerlink" title="初始分支"></a>初始分支</h4><p>所有在Master分支上的Commit应该Tag</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-1historical.png"/>
-
-<h4 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h4><p>分支名 feature/*</p>
-<p>Feature分支做完后，必须合并回Develop分支, 合并完分支后一般会删点这个Feature分支，但是我们也可以保留</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-2feature.png" />
-
-
-<h4 id="Release分支"><a href="#Release分支" class="headerlink" title="Release分支"></a>Release分支</h4><p>分支名 release/*</p>
-<p>Release分支基于Develop分支创建，打完Release分之后，我们可以在这个Release分支上测试，修改Bug等。同时，其它开发人员可以基于开发新的Feature (记住：<font style="color:red">一旦打了Release分支之后不要从Develop分支上合并新的改动到Release分支</font>)</p>
-<p>发布Release分支时，合并Release到Master和Develop， 同时在Master分支上打个Tag记住Release版本号，然后可以删除Release分支了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-3release.png" />
-
-
-<h4 id="维护分支-Hotfix"><a href="#维护分支-Hotfix" class="headerlink" title="维护分支 Hotfix"></a>维护分支 Hotfix</h4><p>分支名 hotfix/*</p>
-<p>hotfix分支基于Master分支创建，开发完后需要合并回Master和Develop分支，同时在Master上打一个tag</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-4maintenance.png" />
-
-
-<h3 id="Git-Flow代码示例"><a href="#Git-Flow代码示例" class="headerlink" title="Git Flow代码示例"></a>Git Flow代码示例</h3><p>a.   创建develop分支</p>
-<pre><code>git branch develop
-git push -u origin develop</code></pre>
-<p>b. 开始新Feature开发</p>
-<pre><code>git checkout -b some-feature develop
-
-# Optionally, push branch to origin:
-git push -u origin some-feature
-
-
-
-# 做一些改动
-
-
-git status
-git add some-file
-git commit</code></pre>
-<p>c. 完成Feature</p>
-<pre><code>git pull origin develop
-git checkout develop
-git merge --no-ff some-feature
-git push origin develop
-
-git branch -d some-feature
-
-# If you pushed branch to origin:
-git push origin --delete some-feature</code></pre>
-<p>d. 开始Relase</p>
-<pre><code>git checkout -b release-0.1.0 develop
-
-# Optional: Bump version number, commit
-# Prepare release, commit</code></pre>
-<p>e. 完成Release</p>
-<pre><code>git checkout master
-git merge --no-ff release-0.1.0
-git push
-
-git checkout develop
-git merge --no-ff release-0.1.0
-git push
-
-git branch -d release-0.1.0
-
-# If you pushed branch to origin:
-git push origin --delete release-0.1.0
-
-
-
-
-git tag -a v0.1.0 master
-git push --tags</code></pre>
-<p>f. 开始Hotfix</p>
-<pre><code>git checkout -b hotfix-0.1.1 master</code></pre>
-<p>g. 完成Hotfix</p>
-<pre><code>git checkout master
-git merge --no-ff hotfix-0.1.1
-git push
-
-
-
-
-git checkout develop
-git merge --no-ff hotfix-0.1.1
-git push
-
-git branch -d hotfix-0.1.1
-
-git tag -a v0.1.1 master
-git push --tags</code></pre>
-<h3 id="Git-flow工具"><a href="#Git-flow工具" class="headerlink" title="Git flow工具"></a>Git flow工具</h3><p>实际上，当你理解了上面的流程后，你完全不用使用工具，但是实际上我们大部分人很多命令就是记不住呀，流程就是记不住呀，肿么办呢？</p>
-<p>总有聪明的人创造好的工具给大家用, 那就是Git flow script.</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li>OS X</li>
-</ul>
-<blockquote>
-<p>brew install git-flow</p>
-</blockquote>
-<ul>
-<li>Linux</li>
-</ul>
-<blockquote>
-<p>apt-get install git-flow</p>
-</blockquote>
-<ul>
-<li>Windows</li>
-</ul>
-<blockquote>
-<p>wget -q -O - –no-check-certificate <a target="_blank" rel="noopener" href="https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh">https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh</a> | bash</p>
-</blockquote>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
-<li><p><strong>初始化:</strong> git flow init</p>
-</li>
-<li><p><strong>开始新Feature:</strong> git flow feature start MYFEATURE</p>
-</li>
-<li><p><strong>Publish一个Feature(也就是push到远程):</strong> git flow feature publish MYFEATURE</p>
-</li>
-<li><p><strong>获取Publish的Feature:</strong> git flow feature pull origin MYFEATURE</p>
-</li>
-<li><p><strong>完成一个Feature:</strong> git flow feature finish MYFEATURE</p>
-</li>
-<li><p><strong>开始一个Release:</strong> git flow release start RELEASE [BASE]</p>
-</li>
-<li><p><strong>Publish一个Release:</strong> git flow release publish RELEASE</p>
-</li>
-<li><p><strong>发布Release:</strong> git flow release finish RELEASE<br>  别忘了git push –tags</p>
-</li>
-<li><p><strong>开始一个Hotfix:</strong> git flow hotfix start VERSION [BASENAME]</p>
-</li>
-<li><p><strong>发布一个Hotfix:</strong> git flow hotfix finish VERSION</p>
-</li>
-</ul>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-commands.png"/>
-
-
-<h3 id="Git-Flow-GUI"><a href="#Git-Flow-GUI" class="headerlink" title="Git Flow GUI"></a>Git Flow GUI</h3><p>上面讲了这么多，我知道还有人记不住，那么又有人做出了GUI 工具，你只需要点击下一步就行，工具帮你干这些事！！！</p>
-<h4 id="SourceTree"><a href="#SourceTree" class="headerlink" title="SourceTree"></a>SourceTree</h4><p>当你用Git-flow初始化后，基本上你只需要点击git flow菜单选择start feature, release或者hotfix, 做完后再次选择git flow菜单，点击Done Action. 我勒个去，我实在想不到还有比这更简单的了。</p>
-<p>目前SourceTree支持Mac, Windows, Linux.</p>
-<p>这么好的工具请问多少钱呢？ <strong>免费!!!!</strong></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/sourcetree-hero-mac-log.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/source-tree-git-flow-init.png" />
-
-
-
-<h4 id="Git-flow-for-visual-studio"><a href="#Git-flow-for-visual-studio" class="headerlink" title="Git flow for visual studio"></a>Git flow for visual studio</h4><p>广大VS的福音<br><a target="_blank" rel="noopener" href="https://visualstudiogallery.msdn.microsoft.com/27f6d087-9b6f-46b0-b236-d72907b54683">GitFlow for Visual Studio</a></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_init-vs.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_startfeature.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_finishfeature.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_features.png" />
-
-
-
-
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/7/">Previous</a></div><div class="pagination-next"><a href="/page/9/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><a class="pagination-link is-current" href="/page/8/">8</a></li><li><a class="pagination-link" href="/page/9/">9</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/12/">12</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">118</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">15</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-11T15:30:00.000Z">2019-03-11</time></p><p class="title"><a href="/2019/03/11/personaldev-2019-03-11-develop-what-you-like/">发展你的兴趣，而不是跟随你的兴趣</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-09T15:30:00.000Z">2019-03-09</time></p><p class="title"><a href="/2019/03/09/personaldev-2019-03-09-why-your-product-not-sell-well/">你的产品卖不好，可能是说明书的问题</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-07T15:30:00.000Z">2019-03-07</time></p><p class="title"><a href="/2019/03/07/personaldev-2019-03-07-80-is-not-bad-generation/">八零后怎么就成了悲情的一代？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-04T15:30:00.000Z">2019-03-04</time></p><p class="title"><a href="/2019/03/04/personaldev-2019-03-04-life-is-not-a-single-line/">人生可能并不是一条线</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-02T15:30:00.000Z">2019-03-02</time></p><p class="title"><a href="/2019/03/02/personaldev-2019-03-02-study-less-know-more/">如何学的更少，会的更多</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">March 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/08/"><span class="level-start"><span class="level-item">August 2016</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 王德水</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/7/">Previous</a></div><div class="pagination-next"><a href="/page/9/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><a class="pagination-link is-current" href="/page/8/">8</a></li><li><a class="pagination-link" href="/page/9/">9</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/12/">12</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">119</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-18T15:30:00.000Z">2021-01-18</time></p><p class="title"><a href="/2021/01/18/personaldev-2021-01-12-leadership-do-not-be-good-man-to-everything/">领导力：不要做个“好人”</a></p><p class="categories"><a href="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/">领导力</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-11T15:30:00.000Z">2019-03-11</time></p><p class="title"><a href="/2019/03/11/personaldev-2019-03-11-develop-what-you-like/">发展你的兴趣，而不是跟随你的兴趣</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-09T15:30:00.000Z">2019-03-09</time></p><p class="title"><a href="/2019/03/09/personaldev-2019-03-09-why-your-product-not-sell-well/">你的产品卖不好，可能是说明书的问题</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-07T15:30:00.000Z">2019-03-07</time></p><p class="title"><a href="/2019/03/07/personaldev-2019-03-07-80-is-not-bad-generation/">八零后怎么就成了悲情的一代？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-04T15:30:00.000Z">2019-03-04</time></p><p class="title"><a href="/2019/03/04/personaldev-2019-03-04-life-is-not-a-single-line/">人生可能并不是一条线</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">March 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87-%E9%A2%86%E5%AF%BC%E5%8A%9B/"><span class="tag">个人发展 思维提升 领导力</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 王德水</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
