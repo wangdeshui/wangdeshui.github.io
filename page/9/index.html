@@ -1,752 +1,562 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"王德水"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/recruit">招聘</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-10-27  <a class="commentCountImg" href="/2015/10/27/agile-2015-10-27-sourcecode-management/#comment-container"><span class="display-none-class">fb54f2fb15b5a35da66dfbe375463278</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="fb54f2fb15b5a35da66dfbe375463278">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>13 m  <i class="fas fa-pencil-alt"> </i>1.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/10/27/agile-2015-10-27-sourcecode-management/">敏捷实践系列(四)：代码管理流程</a></h1><div class="content"><blockquote>
-<p>本来没有这么快到流程以及技术部分，但是因为公司需要，所以就临时写了这一部分。</p>
-</blockquote>
-<p>我们已经从SVN 切换到Git很多年了，现在几乎所有的项目都在使用Github管理。对与那些还在坚持使用SVN的，我实在想不出原因，权且称作守旧派吧。</p>
-<h2 id="Git的优点"><a href="#Git的优点" class="headerlink" title="Git的优点"></a>Git的优点</h2><p>Git的优点很多，但是这里只列出我认为非常突出的几点。</p>
-<ol>
-<li>由于是分布式，所有本地库包含了远程库的所有内容。</li>
-<li>优秀的分支模型，打分支以及合并分支，机器方便。</li>
-<li>快速，在这个时间就是金钱的时代，Git由于代码都在本地，打分支和合并分支机器快速，使用个SVN的能深刻体会到这种优势。</li>
-</ol>
-<p>感兴趣的，可以去看一下Git本身的设计，内在的架构体现了很多的优势，不愧是出资天才程序员Linus (Linux之父) 之手</p>
-<h2 id="版本管理的挑战"><a href="#版本管理的挑战" class="headerlink" title="版本管理的挑战"></a>版本管理的挑战</h2><p>虽然有这么优秀的版本管理工具，但是我们面对版本管理的时候，依然有非常大得挑战，我们都知道大家工作在同一个仓库上，那么彼此的代码协作必然带来很多问题和挑战，如下：</p>
-<ol>
-<li>如何开始一个Feature的开发，而不影响别的Feature？</li>
-<li>由于很容易创建新分支，分支多了如何管理，时间久了，如何知道每个分支是干什么的？</li>
-<li>哪些分支已经合并回了主干？</li>
-<li>如何进行Release的管理？开始一个Release的时候如何冻结Feature, 如何在Prepare Release的时候，开发人员可以继续开发新的功能？</li>
-<li>线上代码出Bug了，如何快速修复？而且修复的代码要包含到开发人员的分支以及下一个Release?</li>
-</ol>
-<p>大部分开发人员现在使用Git就只是用三个甚至两个分支，一个是Master, 一个是Develop, 还有一个是基于Develop打得各种分支。这个在小项目规模的时候还勉强可以支撑，因为很多人做项目就只有一个Release, 但是人员一多，而且项目周期一长就会出现各种问题。</p>
-<h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>就像代码需要代码规范一样，代码管理同样需要一个清晰的流程和规范</p>
-<p>Vincent Driessen 同学为了解决这个问题提出了 <a target="_blank" rel="noopener" href="http://nvie.com/posts/a-successful-git-branching-model/">A Successful Git Branching Model</a></p>
-<p>下面是Git Flow的流程图 </p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-nvie.png"/>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"王德水"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/recruit">招聘</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-06  <a class="commentCountImg" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/#comment-container"><span class="display-none-class">f903650140f2d76dc3822a1bd035a40a</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="f903650140f2d76dc3822a1bd035a40a">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/06/agile-2016-1-7-unit-test-best-practices/">敏捷实践系列(八)：单元测试及最佳实践</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/1.png" />
 
+<p>在工作中或者在面试中，我经常碰到的开发人员就是对单元测试不重视，这一类基本上都表现出了一种“无知的自信”，总觉得自己写的代码质量很高，直到一次次虫子(Bug)把自己咬的头破血流时，才发现原来自己的代码已经到了剪不断理还乱的状态，而每一次修改一个bug，都需要走一遍“墨镜迷宫” （看上图)。还有很多人知道单元测试或者写出了单元测试，但是就是写了一个方法，上面标注了一个[Test]属性而已，甚至很多的人单元测试上面标注的是[IgnoreTest], 每次看见这些，我都深深的感到推行单元测试之路是艰难的，是遥远的，但是我依然坚信是是渴望也可及的，只要有着深深的信念，坚强的意志，无谓的勇气，一头扎进去泥巴堆里，假以时日，当大雨来临，必将带走泥巴，从此你拔剑扬眉，哦，你不用拔剑了，因为你就是剑。。。</p>
+<p>为了让更多人能够拔剑扬眉，也为了我们公司刚入职的新人做一些培训，我精心准备了单元测试的一些知识，在此为你奉上，我尽量用简短的语句来描述，如果你不清楚我说的某一些点，那么欢迎你发邮件给我 <a href="mailto:&#119;&#97;&#x6e;&#x67;&#100;&#x65;&#115;&#x68;&#117;&#105;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#111;&#x6b;&#46;&#99;&#111;&#x6d;">&#119;&#97;&#x6e;&#x67;&#100;&#x65;&#115;&#x68;&#117;&#105;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#111;&#x6b;&#46;&#99;&#111;&#x6d;</a>，我可以针对集中的点发篇文章，如果你想知道我说的所有点怎么实践，那就联系我，试试加入到我们公司来。</p>
+<!-- toc -->
 
-<p>上面的图你理解不了？ 没关系，这不是你的错，我觉得这张图本身有点问题，这张图应该左转90度，大家应该就很用以理解了。</p>
-<h3 id="Git-Flow常用的分支"><a href="#Git-Flow常用的分支" class="headerlink" title="Git Flow常用的分支"></a>Git Flow常用的分支</h3><ul>
-<li>Production 分支</li>
-</ul>
-<blockquote>
-<p>也就是我们经常使用的Master分支，这个分支最近发布到生产环境的代码，最近发布的Release， 这个分支只能从其他分支合并，不能在这个分支直接修改</p>
-</blockquote>
 <ul>
-<li>Develop 分支</li>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">什么是单元测试</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">为什么要使用单元测试</a>  </li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%9A%BE%E4%BB%A5%E6%8E%A8%E5%8A%A8%E7%9A%84%E5%8E%9F%E5%9B%A0">单元测试难以推动的原因</a><ul>
+<li><a href="#%E5%A4%AA%E8%8A%B1%E6%97%B6%E9%97%B4">太花时间</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E4%B8%8D%E6%98%AF%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C">测试不是我的工作</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%B5%8B%E8%AF%95%E6%80%A7%E5%B7%AE">系统可测试性差</a></li>
 </ul>
-<blockquote>
-<p>这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Feature分支</p>
-</blockquote>
+</li>
+<li><a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">单元测试最佳实践</a><ul>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%80-%E4%B8%89%E5%88%B0%E4%BA%94%E6%AD%A5">实践一: 三到五步</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%8C-%E8%BF%90%E8%A1%8C%E5%BF%AB%E9%80%9F">实践二： 运行快速</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%89%E4%B8%80%E8%87%B4%E6%80%A7">实践三：一致性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%9B%9B%E5%8E%9F%E5%AD%90%E6%80%A7">实践四：原子性</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%BA%94%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3">实践五：单一职责</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AD%E7%8B%AC%E7%AB%8B%E6%97%A0%E8%80%A6%E5%90%88">实践六：独立无耦合</a>    </li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B8%83%E9%9A%94%E7%A6%BB%E5%A4%96%E9%83%A8%E8%B0%83%E7%94%A8">实践七：隔离外部调用</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%85%AB-%E8%87%AA%E6%8F%8F%E8%BF%B0">实践八： 自描述</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E4%B9%9D-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E9%80%BB%E8%BE%91">实践九： 单元测试逻辑</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81-%E6%96%AD%E8%A8%80">实践十： 断言</a></li>
+<li><a href="#%E5%AE%9E%E8%B7%B5%E5%8D%81%E4%B8%80%E4%BA%A7%E5%93%81%E4%BB%A3%E7%A0%81">实践十一：产品代码</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%B7%A5%E5%85%B7">最后，单元测试常用技术及工具</a></li>
+</ul>
+<!-- toc stop -->
+
+
+<h1 id="什么是单元测试"><a href="#什么是单元测试" class="headerlink" title="什么是单元测试"></a>什么是单元测试</h1><p>单元测试是开发者编写的一小段代码，用于检验被测代码中的一个很明确的功能是否正确。通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为。</p>
+<p>执行单元测试，是为了证明某段代码的行为确实和开发者所期望的一致。因此，我们所要测试的是规模很小的、非常独立的功能片段。通过对所有单独部分的行为建立起信心。然后，才能开始测试整个系统。</p>
+<h1 id="为什么要使用单元测试"><a href="#为什么要使用单元测试" class="headerlink" title="为什么要使用单元测试"></a>为什么要使用单元测试</h1><ul>
+<li>单元测试使工作完成的更轻松</li>
+<li>单元测试使你的设计更好</li>
+<li>大大减少花在调试上的时间</li>
+<li>能帮助你更好的理解代码</li>
+</ul>
+<h2 id="没有单元测试"><a href="#没有单元测试" class="headerlink" title="没有单元测试"></a>没有单元测试</h2><ul>
+<li>任何代码都是在假定其他代码是正确无误的情况下编写的。</li>
+<li>修改一处代码时无法得知会对其他代码产生怎样的影响。</li>
+<li>任何一处改动都需要进行功能级别的整体调试。</li>
+</ul>
+<h1 id="单元测试难以推动的原因"><a href="#单元测试难以推动的原因" class="headerlink" title="单元测试难以推动的原因"></a>单元测试难以推动的原因</h1><h2 id="太花时间"><a href="#太花时间" class="headerlink" title="太花时间"></a>太花时间</h2><p>很多人认为单元测试很花时间，但是想想我们在下面几点话的时间，我经常看到为了测试一个简单的API方法，我们很多人必须让前端跑起来，甚至自己写一个客户端才能调用</p>
 <ul>
-<li>Feature 分支</li>
+<li>调试上花的时间</li>
+<li>对自认为正确的代码，花了多少时间确认代码是正确的。</li>
+<li>定位Bug所耗的时间</li>
 </ul>
-<blockquote>
-<p>这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回Develop分支进入下一个Release</p>
-</blockquote>
+<h2 id="测试不是我的工作"><a href="#测试不是我的工作" class="headerlink" title="测试不是我的工作"></a>测试不是我的工作</h2><p>很多人认为测试不是自己的工作，但是想一想每次测试提出一个bug所花的时间，以及你改bug所化的时间，所以下面2点是很重要</p>
 <ul>
-<li>Release分支</li>
+<li>内在质量的重要性</li>
+<li>测试应该是辅助，好的软件是开发设计出来的，不是测试出来的</li>
 </ul>
-<blockquote>
-<p>当你需要一个发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支  </p>
-</blockquote>
+<h2 id="系统可测试性差"><a href="#系统可测试性差" class="headerlink" title="系统可测试性差"></a>系统可测试性差</h2><ul>
+<li>系统耦合度很高，我们需要提高我们的团队的设计能力。</li>
+</ul>
+<h1 id="单元测试最佳实践"><a href="#单元测试最佳实践" class="headerlink" title="单元测试最佳实践"></a>单元测试最佳实践</h1><h2 id="实践一-三到五步"><a href="#实践一-三到五步" class="headerlink" title="实践一: 三到五步"></a>实践一: 三到五步</h2><ul>
+<li>SetUp</li>
+<li>输入</li>
+<li>调用</li>
+<li>输出</li>
+<li>TearDown</li>
+</ul>
+<h2 id="实践二：-运行快速"><a href="#实践二：-运行快速" class="headerlink" title="实践二： 运行快速"></a>实践二： 运行快速</h2><p>###为什么？<br>单元测试运行很频繁，是辅助开发的，在开发过程中运行，如果慢影响很大</p>
+<h3 id="多快较好？"><a href="#多快较好？" class="headerlink" title="多快较好？"></a>多快较好？</h3><ul>
+<li>单个测试小于200ms</li>
+<li>单个测试套件小于10s</li>
+<li>整个测试小于10分钟</li>
+</ul>
+<h2 id="实践三：一致性"><a href="#实践三：一致性" class="headerlink" title="实践三：一致性"></a>实践三：一致性</h2><p><strong>任何时候同样的输入需要同样的结果</strong></p>
+<pre><code>    Date date=new Date()
+    Random.next()</code></pre>
+<p>这样的代码都需要Mock掉，不然时间每次都不同，结果就会不一样。</p>
+<h2 id="实践四：原子性"><a href="#实践四：原子性" class="headerlink" title="实践四：原子性"></a>实践四：原子性</h2><p>** 所有的测试只有两种结果：成功和失败**<br><strong>不能部分测试通过</strong></p>
+<h2 id="实践五：单一职责"><a href="#实践五：单一职责" class="headerlink" title="实践五：单一职责"></a>实践五：单一职责</h2><p><strong>一个测试只验证一个行为</strong></p>
+<p>** 测试行为，不要测试方法 **</p>
 <ul>
-<li>Hotfix分支</li>
+<li>一个方法，多个行为    —–&gt;  多个测试</li>
+<li>一个行为，多个方法   —–   一个测试<br> 这里的一个行为，多个方法一般指这个方法调用private, protected, getters, setters</li>
+<li>多个Assert只有在测试同一个行为时可以接受</li>
 </ul>
-<blockquote>
-<p>当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release</p>
-</blockquote>
-<h3 id="Git-Flow如何工作"><a href="#Git-Flow如何工作" class="headerlink" title="Git Flow如何工作"></a>Git Flow如何工作</h3><h4 id="初始分支"><a href="#初始分支" class="headerlink" title="初始分支"></a>初始分支</h4><p>所有在Master分支上的Commit应该Tag</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-1historical.png"/>
-
-<h4 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h4><p>分支名 feature/*</p>
-<p>Feature分支做完后，必须合并回Develop分支, 合并完分支后一般会删点这个Feature分支，但是我们也可以保留</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-2feature.png" />
-
-
-<h4 id="Release分支"><a href="#Release分支" class="headerlink" title="Release分支"></a>Release分支</h4><p>分支名 release/*</p>
-<p>Release分支基于Develop分支创建，打完Release分之后，我们可以在这个Release分支上测试，修改Bug等。同时，其它开发人员可以基于开发新的Feature (记住：<font style="color:red">一旦打了Release分支之后不要从Develop分支上合并新的改动到Release分支</font>)</p>
-<p>发布Release分支时，合并Release到Master和Develop， 同时在Master分支上打个Tag记住Release版本号，然后可以删除Release分支了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-3release.png" />
-
-
-<h4 id="维护分支-Hotfix"><a href="#维护分支-Hotfix" class="headerlink" title="维护分支 Hotfix"></a>维护分支 Hotfix</h4><p>分支名 hotfix/*</p>
-<p>hotfix分支基于Master分支创建，开发完后需要合并回Master和Develop分支，同时在Master上打一个tag</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-workflow-release-cycle-4maintenance.png" />
-
-
-<h3 id="Git-Flow代码示例"><a href="#Git-Flow代码示例" class="headerlink" title="Git Flow代码示例"></a>Git Flow代码示例</h3><p>a.   创建develop分支</p>
-<pre><code>git branch develop
-git push -u origin develop</code></pre>
-<p>b. 开始新Feature开发</p>
-<pre><code>git checkout -b some-feature develop
-
-# Optionally, push branch to origin:
-git push -u origin some-feature
-
-
-
-# 做一些改动
-
-
-git status
-git add some-file
-git commit</code></pre>
-<p>c. 完成Feature</p>
-<pre><code>git pull origin develop
-git checkout develop
-git merge --no-ff some-feature
-git push origin develop
-
-git branch -d some-feature
-
-# If you pushed branch to origin:
-git push origin --delete some-feature</code></pre>
-<p>d. 开始Relase</p>
-<pre><code>git checkout -b release-0.1.0 develop
-
-# Optional: Bump version number, commit
-# Prepare release, commit</code></pre>
-<p>e. 完成Release</p>
-<pre><code>git checkout master
-git merge --no-ff release-0.1.0
-git push
-
-git checkout develop
-git merge --no-ff release-0.1.0
-git push
-
-git branch -d release-0.1.0
-
-# If you pushed branch to origin:
-git push origin --delete release-0.1.0
-
-
-
-
-git tag -a v0.1.0 master
-git push --tags</code></pre>
-<p>f. 开始Hotfix</p>
-<pre><code>git checkout -b hotfix-0.1.1 master</code></pre>
-<p>g. 完成Hotfix</p>
-<pre><code>git checkout master
-git merge --no-ff hotfix-0.1.1
-git push
-
-
-
-
-git checkout develop
-git merge --no-ff hotfix-0.1.1
-git push
-
-git branch -d hotfix-0.1.1
-
-git tag -a v0.1.1 master
-git push --tags</code></pre>
-<h3 id="Git-flow工具"><a href="#Git-flow工具" class="headerlink" title="Git flow工具"></a>Git flow工具</h3><p>实际上，当你理解了上面的流程后，你完全不用使用工具，但是实际上我们大部分人很多命令就是记不住呀，流程就是记不住呀，肿么办呢？</p>
-<p>总有聪明的人创造好的工具给大家用, 那就是Git flow script.</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li>OS X</li>
+<h2 id="实践六：独立无耦合"><a href="#实践六：独立无耦合" class="headerlink" title="实践六：独立无耦合"></a>实践六：独立无耦合</h2><h3 id="单元测试之间无相互调用"><a href="#单元测试之间无相互调用" class="headerlink" title="单元测试之间无相互调用"></a>单元测试之间无相互调用</h3><ul>
+<li>单元测试执行顺序无关</li>
+<li>不同的顺序无影响</li>
 </ul>
-<blockquote>
-<p>brew install git-flow</p>
-</blockquote>
+<h3 id="单元测试之间不能共享状态"><a href="#单元测试之间不能共享状态" class="headerlink" title="单元测试之间不能共享状态"></a>单元测试之间不能共享状态</h3><p>比如一个测试里设置了一个属性值，然后在另外一个测试里用，如果必须共享可以放到Setup里</p>
+<h2 id="实践七：隔离外部调用"><a href="#实践七：隔离外部调用" class="headerlink" title="实践七：隔离外部调用"></a>实践七：隔离外部调用</h2><ul>
+<li>单元测试需要快速运行，且每次结果一致，所以需要隔离一切对外部的调用。</li>
+<li>不使用具体的其它真实类，就是不要new</li>
+<li>不读数据库</li>
+<li>不读网络</li>
+<li>不读外部文件</li>
+<li>适当时候可以构造一个相同的内部文件来Mock</li>
+<li>不依赖本地时间</li>
+<li>不依赖环境变量</li>
+</ul>
+<h2 id="实践八：-自描述"><a href="#实践八：-自描述" class="headerlink" title="实践八： 自描述"></a>实践八： 自描述</h2><ul>
+<li>单元测试是开发级文档</li>
+<li>单元测试是方法的描述</li>
+</ul>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/unit-test/2.png" />
+
+
+<h2 id="实践九：-单元测试逻辑"><a href="#实践九：-单元测试逻辑" class="headerlink" title="实践九： 单元测试逻辑"></a>实践九： 单元测试逻辑</h2><ul>
+<li>单元测试必须容易读和理解的</li>
+<li>变量名，方法名，类名</li>
+<li>无条件语句,无Switch<br>办法：分解if到多个测试，所有的输入都是已知的，所有的结果都是一定的（Mock）</li>
+<li>无循环语句</li>
+<li>无异常捕捉<br>** 测试预知的异常，用ExpectedException方法 **</li>
+</ul>
+<h2 id="实践十：-断言"><a href="#实践十：-断言" class="headerlink" title="实践十： 断言"></a>实践十： 断言</h2><ul>
+<li><p>断言信息最好包含Business Information</p>
+</li>
+<li><p>断言信息包含出错的具体信息如果失败</p>
+</li>
+<li><p>适当时候可以封装自己的Assert<br>比如：</p>
+<pre><code>Assert.IsProgrammer(Jack)
+Return Jack. Cancooking() &amp;&amp; Jack.CanCoding()</code></pre>
+</li>
+</ul>
+<h2 id="实践十一：产品代码"><a href="#实践十一：产品代码" class="headerlink" title="实践十一：产品代码"></a>实践十一：产品代码</h2><ul>
+<li>产品代码无测试逻辑</li>
+</ul>
+<p>不能有：</p>
+<pre><code>    If(global.IsTest)&#123;…&#125;</code></pre>
 <ul>
-<li>Linux</li>
+<li>测试代码和产品代码要分离</li>
+<li>不要在产品代码里有任何只供测试用的代码</li>
+<li>使用依赖注入</li>
 </ul>
-<blockquote>
-<p>apt-get install git-flow</p>
-</blockquote>
+<h1 id="最后，单元测试常用技术及工具"><a href="#最后，单元测试常用技术及工具" class="headerlink" title="最后，单元测试常用技术及工具"></a>最后，单元测试常用技术及工具</h1><p>下面是.NET程序常用的单元测试需要的技术和工具，其它语言请自信比对。</p>
 <ul>
-<li>Windows</li>
+<li>面向接口编程</li>
+<li>依赖注入(Castle, Unity, Ninject)</li>
+<li>Moq</li>
+<li>测试工具(xUnit) </li>
+<li>.Net Nunit</li>
+<li>代码覆盖率测试工具Ncover</li>
+<li>自动运行测试辅助工具NCrunch</li>
 </ul>
-<blockquote>
-<p>wget -q -O - –no-check-certificate <a target="_blank" rel="noopener" href="https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh">https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh</a> | bash</p>
-</blockquote>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
-<li><p><strong>初始化:</strong> git flow init</p>
-</li>
-<li><p><strong>开始新Feature:</strong> git flow feature start MYFEATURE</p>
-</li>
-<li><p><strong>Publish一个Feature(也就是push到远程):</strong> git flow feature publish MYFEATURE</p>
-</li>
-<li><p><strong>获取Publish的Feature:</strong> git flow feature pull origin MYFEATURE</p>
-</li>
-<li><p><strong>完成一个Feature:</strong> git flow feature finish MYFEATURE</p>
-</li>
-<li><p><strong>开始一个Release:</strong> git flow release start RELEASE [BASE]</p>
-</li>
-<li><p><strong>Publish一个Release:</strong> git flow release publish RELEASE</p>
-</li>
-<li><p><strong>发布Release:</strong> git flow release finish RELEASE<br>  别忘了git push –tags</p>
-</li>
-<li><p><strong>开始一个Hotfix:</strong> git flow hotfix start VERSION [BASENAME]</p>
-</li>
-<li><p><strong>发布一个Hotfix:</strong> git flow hotfix finish VERSION</p>
-</li>
-</ul>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-commands.png"/>
-
-
-<h3 id="Git-Flow-GUI"><a href="#Git-Flow-GUI" class="headerlink" title="Git Flow GUI"></a>Git Flow GUI</h3><p>上面讲了这么多，我知道还有人记不住，那么又有人做出了GUI 工具，你只需要点击下一步就行，工具帮你干这些事！！！</p>
-<h4 id="SourceTree"><a href="#SourceTree" class="headerlink" title="SourceTree"></a>SourceTree</h4><p>当你用Git-flow初始化后，基本上你只需要点击git flow菜单选择start feature, release或者hotfix, 做完后再次选择git flow菜单，点击Done Action. 我勒个去，我实在想不到还有比这更简单的了。</p>
-<p>目前SourceTree支持Mac, Windows, Linux.</p>
-<p>这么好的工具请问多少钱呢？ <strong>免费!!!!</strong></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/sourcetree-hero-mac-log.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/source-tree-git-flow-init.png" />
-
-
-
-<h4 id="Git-flow-for-visual-studio"><a href="#Git-flow-for-visual-studio" class="headerlink" title="Git flow for visual studio"></a>Git flow for visual studio</h4><p>广大VS的福音<br><a target="_blank" rel="noopener" href="https://visualstudiogallery.msdn.microsoft.com/27f6d087-9b6f-46b0-b236-d72907b54683">GitFlow for Visual Studio</a></p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_init-vs.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_startfeature.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_finishfeature.png" />
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/gf_features.png" />
-
-
-
-
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-10-26  <a class="commentCountImg" href="/2015/10/26/agile-2015-10-16-agile-communication/#comment-container"><span class="display-none-class">305893f70b41582237cfed22693df012</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="305893f70b41582237cfed22693df012">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/10/26/agile-2015-10-16-agile-communication/">敏捷实践系列(三)：沟通</a></h1><div class="content"><p></style></p>
-<p>大话西游里有一段因为没有沟通的经典, 结局如何大家都知道。</p>
-<blockquote>
-<p>唐僧：你想要啊？悟空，你要是想要的话你就说话嘛，你不说我怎么知道你想要呢，虽然你很有诚意地看着我，可是你还是要跟我说你想要的。你真的想要吗？那你就拿去吧！你不是真的想要吧？难道你真的想要吗？…… </p>
-</blockquote>
-<blockquote>
-<p>悟空：… </p>
-</blockquote>
-<h2 id="敏捷项目沟通尤其重要"><a href="#敏捷项目沟通尤其重要" class="headerlink" title="敏捷项目沟通尤其重要"></a>敏捷项目沟通尤其重要</h2><p>敏捷开发多采用短迭代，要求尽快交付可以工作的软件，所以项目的需求文档就很难像原来的瀑布开发模式一样面面俱到。这就要求我们多进行沟通以确保双方的理解一致。根据以往很多项目的经验来看，失败的项目很多都是缺乏沟通，成功的项目必然是沟通做的比较好的。</p>
-<h2 id="敏捷经常出现的沟通问题"><a href="#敏捷经常出现的沟通问题" class="headerlink" title="敏捷经常出现的沟通问题"></a>敏捷经常出现的沟通问题</h2><h3 id="你以为你以为的就是你以为的"><a href="#你以为你以为的就是你以为的" class="headerlink" title="你以为你以为的就是你以为的"></a>你以为你以为的就是你以为的</h3><p>有时候，我们很多人做项目，拿到项目的需求以后，自己简单看了看，然后就开始做了，等到我们做完一个迭代以后，拿给客户看时，完全不是客户要的东西，因为我们对项目的需求的理解比较片面，就是自以为是。</p>
-<h3 id="不敢沟通"><a href="#不敢沟通" class="headerlink" title="不敢沟通"></a>不敢沟通</h3><p>还有的人，尤其是新入团队的人，客户写的东西或者说的东西，自己没有完全理解，然后又不问，他总觉客户已经说过了，已经写过了，然后再去问客户，是不是不妥？如果按自己的理解或者猜测万一对了呢？， 然后就碰运气。 事实上我们的猜测都常常都是错误的，尤其是在我们对项目没有更全局的了解的情况下。</p>
-<h3 id="拖延"><a href="#拖延" class="headerlink" title="拖延"></a>拖延</h3><p>还有一类沟通的问题，就是我们自己也发现了问题，需求上的，或者客户的流程上的，但是我们总是心想等到明天沟通，明天再等明天，其实是希望这个问题自动消失，但最终的结果往往越来越严重。</p>
-<h3 id="不敢沟通客户的问题"><a href="#不敢沟通客户的问题" class="headerlink" title="不敢沟通客户的问题"></a>不敢沟通客户的问题</h3><p>在我的一些项目里，比如我们团队觉得客户那边需要提高，比如需求都很碎片化，客户的UI改来改去，希望客户能提供一个比较接近Final Design的设计，但是总觉得说出客户的问题不好意思，或者对客户的不尊重，实际上我们提出问题和自己的想法才是对客户最大的尊重。</p>
-<h3 id="沟通方法单一"><a href="#沟通方法单一" class="headerlink" title="沟通方法单一"></a>沟通方法单一</h3><p>我们很多人习惯了一种沟通方式，不管什么问题都是同一种，所有的问题都写邮件或者所有的问题都用语音，这也是很没沟通效率的方式。</p>
-<h2 id="敏捷项目如何沟通"><a href="#敏捷项目如何沟通" class="headerlink" title="敏捷项目如何沟通"></a>敏捷项目如何沟通</h2><h3 id="平等沟通的意识"><a href="#平等沟通的意识" class="headerlink" title="平等沟通的意识"></a>平等沟通的意识</h3><p>首先，我们要理解，敏捷项目里的沟通，不管是与客户还是与团队成员，大家都是平等的，沟通项目相关的问题都是平等的，尤其是把客户也当做自己团队的一部分，客户也是希望项目做好的那一个人, 只有这样，我们才能畅所欲言，无所顾忌，更不会有想法掖着藏着。</p>
-<h3 id="多种沟通方式结合"><a href="#多种沟通方式结合" class="headerlink" title="多种沟通方式结合"></a>多种沟通方式结合</h3><p>小平说： “白猫黑猫，抓住老鼠就是好猫”，沟通也一样，下面是常见的几种沟通方式。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-05  <a class="commentCountImg" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/#comment-container"><span class="display-none-class">8cbc8775119689c8d7b81c710ddf6898</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8cbc8775119689c8d7b81c710ddf6898">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/05/technologies-frontend-2016-1-5-gulp-in-action/">前端构建大法 Gulp 系列 (四)：gulp实战</a></h1><div class="content"><p>前面讲了很多理论，那么这一节我们将讲一些实战的例子</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><p>先在命令行下输入 node -v 检查一下是否装了node, 如果没有请参考 <a target="_blank" rel="noopener" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</a> 安装</p>
+<p>然后再用 npm -v 来确保Node.js 安装正确</p>
+<h1 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h1><p>我们可以使用npm来安排装Gulp, 为了可以在命令行全局使用，我们安装到全局，另外确保其它的程序员可以使用，我们保存到项目的package.json里</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br></pre></td></tr></table></figure>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>创建一个文件目录，然后建立对应的文件夹</p>
 <ul>
-<li>面对面</li>
-<li>视频</li>
-<li>语音</li>
-<li>IM 文字沟通</li>
-<li>邮件沟通</li>
-</ul>
-<p>这几种沟通方式的效率一般情况下由高到低，所以我们尽量选择沟通效率比较高的方式， 因为当我们能看见对方的时候，我们可以根据对方的表情就可以看出来对方是否真的理解了自己所说的。</p>
-<p>但是实际当中我们需要多种沟通方式的有效结合，比如离岸团队面对面的机会比较少，我们可以视频和语音，但是视频语音由于他强调及时性，需要大家的时间都合适，但是视频语音也有缺点，很难有文字记录，虽然可以录音，但是视频和语音很难搜索内容，也较难在组内传播。 那么文字沟通有时候就体现出了很多的优势，有历史记录，多人可以参与等。</p>
-<p>但是IM得文字沟通也有一些不足，比如很难通过图形沟通，对图形标注等，除此之外，很多时候很难及时给出答案等，那么邮件的优势就是不需要客户立即回复，也给客户更多的时间思考，同时格式化的文档更容易把一件事情描述清楚。</p>
-<p>所以，我们在沟通的时候，要结合情况选择最适合，最快速能够把问题沟通清楚的方式。</p>
-<h3 id="一图胜千言"><a href="#一图胜千言" class="headerlink" title="一图胜千言"></a>一图胜千言</h3><p>软件项目很多时候，图形化的沟通非常重要，我们很多项目的设计，以及架构，开发人员难以达到统一的认识，就是缺乏图形，设计图或者架构图。我们都知道，人对图形的记忆力要好于文字。</p>
-<p>系统之间的交互，软件如何部署，项目的架构封层等，这些用图形来表示往往一页纸就可以，而且大家看后，很容易理解，很容易记住。因为只有别人对你的想法理解了，别人才能够发现你的问题，才能给出建议。我觉得软件项目，非常重要的两张图，一个是 Architecture Diagram, 一个是Use Case Diagram, 这两张图可以大大节省项目的开发沟通时间。</p>
-<h3 id="原型或者草图"><a href="#原型或者草图" class="headerlink" title="原型或者草图"></a>原型或者草图</h3><p>敏捷项目流行边做边改，但是我对这个是不太认可的，<strong>客户付钱是让我们把事情做对而不是把事情改对</strong>。那么怎么样能够在做之前尽量就明白要做什么？那就是先做一个原型，我说的原型是不需要花太多时间的，如果花太多时间就得不偿失了，比如UI我们可以先在开发之前先画出Wireframe, 如果需要交互，我们可以先做交互的Prototype. 现在有很多工具比如Invision都可以建立静态图形之间的交互，这样可以大大减少返工的时间。</p>
-<h3 id="提出问题时尽量给出方案"><a href="#提出问题时尽量给出方案" class="headerlink" title="提出问题时尽量给出方案"></a>提出问题时尽量给出方案</h3><p>很多人只问问题，所以导致客户回复的很慢，因为客户需要思考，但是有的时候客户思考后给我们的方案又不适合，所以一来二去就浪费了很多时间，那么好的方法是就是，我们给客户提的问题，想想是不是我们没有方案呢？ 还是我们有多个方案不能确定是哪一个方案呢？很多时候我们其实有方案的。</p>
-<p>我们都知道我们上学的时候都喜欢做判断题，其次是选择题，其次是填空，最不想做的就是问答题，想想我们要想得到客户的快速反馈，我们是不是想想应该给客户出比较容易做的题呢？</p>
-<p>其实，凡是我们提的方案被客户采纳的，我们做起来也更顺手，也就更有效率。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后，沟通最主要的两点：</p>
-<ol>
-<li>如果你想要，就一定要说，不说，别人怎么知道你想要呢？ （敢于沟通）</li>
-<li>要想尽一切办法， 让客户觉得：“你以为你以为的就是你以为的” （确认自己的想法)</li>
-</ol>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/dahuaxiyou.jpg"/></div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-09-28  <a class="commentCountImg" href="/2015/09/28/agile-2015-9-28-agile-mindset/#comment-container"><span class="display-none-class">d8b858d3f61462cd9c9e67db5b135dac</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="d8b858d3f61462cd9c9e67db5b135dac">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>9 m  <i class="fas fa-pencil-alt"> </i>1.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/09/28/agile-2015-9-28-agile-mindset/">敏捷实践系列(二)：敏捷意识</a></h1><div class="content"><p>上篇文章我提到了敏捷的心法，但是我想除了心法之外，更重要的是敏捷的意识。</p>
-<h2 id="为什么意识更重要？"><a href="#为什么意识更重要？" class="headerlink" title="为什么意识更重要？"></a>为什么意识更重要？</h2><p>意识：辩证唯物主义的解释是，意识是物质运动变化的场所，意识是人脑对大脑<strong>内外表象</strong>的觉察，即它可以辨识自己脑区中的表象是来自于外部感官的还是来自于想像或回忆的。</p>
-<p>我们这里说的意识，一是你能主管的去想一件事情，另一个就是你对一件事情的发自内心的认可程度。</p>
-<p>敏捷，光有心法是没有用的，有没有要敏捷的意识，敏捷的意愿。有没有主观的愿望去做，我们经常说的话：没有成不成，就是看你想不想做。</p>
-<h2 id="欲推敏捷，首先要培养敏捷的意识"><a href="#欲推敏捷，首先要培养敏捷的意识" class="headerlink" title="欲推敏捷，首先要培养敏捷的意识"></a>欲推敏捷，首先要培养敏捷的意识</h2><p>我举两个例子：</p>
-<p>一个是最近推行**”无车日”**, 无车日本来是想让大家绿色出行，减少二氧化碳的排放，但是结果是什么，结果是堵的一塌糊涂。 为什么？据说原因如下：有车的人想，本来平时不开车，但是今天无车日，路上车少，那我就开车肯定不赌。这样造成的结果是，坐公交的人觉得无车日大家都挤公交，开车的人觉得今天无车日开车应该不赌，所以开车。造成的结果是，公交也堵，开车也堵。这就是政府和民众对环保的意识不够，如果政府意识够了，那么政府是不是多提供公共交通的数量，以及提高公共交通的便捷以及服务？如果民众意识够了，那么我是不是可以走着去上班？我是不是可以骑自行车？我是不是可以跑步？若能如此，无车日才有了真正的意义。</p>
-<p>另一个例子，就是我看到的道路旁边的自行车道栅栏，政府甚至花了不少钱来弄这个，但是效果呢? 我看到的情况是很多地方没人用，甚至造成地段的拥堵。为什么？ 有些地方自行车道里面有面包车在里面堵着，还有的地方有人逆向骑过来，试想，如果你骑自行车有这样的经历，你还会骑自行车道吗？骑到中间你飞出来？ 如果这个自行车道没人用，那么另一个问题又来，本来3车道，现在一个车道停车，一个车道过车，原来没有自行车道时，如果前面的车临时停车，其他的人还能利用空的地方错开车，现在就能硬等，这样岂不是更堵？结果就是，本来就赌的路，硬硬的把路切一块空着浪费了！</p>
-<p>从上面的两个例子，我们都能感觉到，都是为了要把事情做好，但是，就是意识层面没做好工作，才导致截然相反的结果。（以上只是我自己片面的感觉，真正的事实数据请看官方数据）。</p>
-<h2 id="如何培养敏捷的意识？"><a href="#如何培养敏捷的意识？" class="headerlink" title="如何培养敏捷的意识？"></a>如何培养敏捷的意识？</h2><p>首先，我觉得培养敏捷的意识之前，首先要知道是什么事敏捷的意识，我觉得敏捷的意识就是：</p>
+<li><p><strong>src</strong> — 源文件:</p>
 <ul>
-<li>高质、高效的做事情</li>
-<li>持续的学习</li>
-<li>团队精神，Good team player.</li>
-<li>责任心</li>
-<li>关心客户的价值</li>
-<li>解决问题</li>
-<li>努力改变现状，不抱怨现状。</li>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
 </ul>
-<p>其次，那么如何培养敏捷的意识呢？我个人觉得两种方式：</p>
-<ul>
-<li><p>招聘具有敏捷意识的人。 其实我列的敏捷的意识和大家想象的SCRUM那些无关的。</p>
 </li>
-<li><p>培养已有的人具有上面提到的敏捷的意识，方法比如说是宣传、强调、加薪、惩罚等等各种方法，关键是推行的人自己有没有这个意识来推行敏捷。</p>
+<li><p><strong>build</strong> — 编译后文件输出到的生产文件夹:</p>
+<ul>
+<li><strong>images</strong> </li>
+<li><strong>scripts</strong> </li>
+<li><strong>styles</strong> </li>
+</ul>
 </li>
 </ul>
-<p>最后，最重要的是要让大家知道为什么要敏捷，敏捷解决的问题是什么？敏捷对工程师自己的好处是什么？因为只有人敏捷了，项目才能敏捷，所有的项目都敏捷了，公司才能说是一个敏捷的公司。若如此，强行推行一个SCRUM框架，持续交付等等，就必然走向文章开头的那两个例子，结果只能是适得其反。</p>
-<p>愿君更饮一杯酒，敏捷路上无故人。</p>
-<p>且行、且思、切记！</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/fuguang.png"/>
-(注：佛光，图片拍摄于2015-6-6 太白山)
+<p>我们先使用npm init来创建类似Nuget package的package.config一样的文件，这样我们就知道项目依赖哪些插件，而且我们不需要把插件提交到代码库，其它程序员只需要使用 npm install 就可以安装所有配置的插件</p>
+<p>然后我们需要创建一个gulpfile.js文件，gulp默认是调用这个文件的。</p>
+<p>我们在目录下使用</p>
+<pre><code>  npm install gulp --save-dev  # 这样可以把gulp安装到本地</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/6.png" />
 
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-09-18  <a class="commentCountImg" href="/2015/09/18/agile-2015-9-18-what-is-agile/#comment-container"><span class="display-none-class">a13bcca502b73dc42ff9e1fad04b7358</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="a13bcca502b73dc42ff9e1fad04b7358">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>9 m  <i class="fas fa-pencil-alt"> </i>1.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/09/18/agile-2015-9-18-what-is-agile/">敏捷实践系列(一)：什么是敏捷</a></h1><div class="content"><p>开篇：</p>
-<pre><code>悟空：师傅，为什么你写东西，喜欢写系列呢？
-师傅：因为很多东西需要长期的实践呀。
-悟空：怎么又开始说敏捷了
-师傅：就像一本好书，常读常新，人生不同阶段过的都是不同的人生呀。
-悟空：师傅，为什么你原来用上、中、下呢？
-师傅：因为原来只写了个上中，别人一直问下，现在如果只写一二，别人要问，我就说写完了呀!
-悟空：。。。。。。</code></pre>
-<h2 id="敏捷是什么？"><a href="#敏捷是什么？" class="headerlink" title="敏捷是什么？"></a>敏捷是什么？</h2><p>其实别人问敏捷是什么？几年前我觉得很好回答，但是现在我觉得很难回答，就像你问天龙八部里的扫地僧：“功夫是什么？” 我觉得他可能真的会被问住的。你再问：功夫是“降龙十八掌”？， 是“九阴真经”？，是“一阳指”？他可能说不是，但是待会儿他可能会说：“也算”。</p>
-<p>所以很多人问我什么是敏捷，我其实很难定义，用了SCRUM算吗？用了Kanban算吗？用了Target Process,Trello算吗？我也只能说：“也算，也不算”。</p>
-<p>还有人觉得用了持续集成，用了测试驱动开发，用了结对这个应该算是敏捷了吧？ 我只能说如果你用了“轩辕剑”，“倚天剑”，“屠龙刀”，”莫问剑”,”游龙剑”，你就是高手吗？君不见，扫地僧一把扫帚就制服两大高手？ 由此我们可以看到功夫要好，更重要的是内功，是心法。</p>
-<h2 id="敏捷的心法是什么？"><a href="#敏捷的心法是什么？" class="headerlink" title="敏捷的心法是什么？"></a>敏捷的心法是什么？</h2><p>这个心法其实就是武林高手总结的敏捷宣言</p>
-<blockquote>
+<h1 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h1><p>比如我们想检查我们的js文件，那么我们需要安装 gulp-jshint插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-jshint --save-dev</span><br></pre></td></tr></table></figure>
+<p>然后添加一个test.js文件到src/scripts下，内容如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hi=<span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Jack &quot;</span>+hi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="jshint-代码检查"><a href="#jshint-代码检查" class="headerlink" title="jshint 代码检查"></a>jshint 代码检查</h2><p>然后我们修改gulpfile.js内容如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// include gulp</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// include plug-ins</span></span><br><span class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">&#x27;gulp-jshint&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// JS hint task</span></span><br><span class="line">gulp.task(<span class="string">&#x27;jshint&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">&#x27;./src/scripts/*.js&#x27;</span>)</span><br><span class="line">      .pipe(jshint())</span><br><span class="line">      .pipe(jshint.reporter(<span class="string">&#x27;default&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后运行 </p>
+<pre><code>gulp jshint</code></pre>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/7.png" />
+
+<p>看控制台输出就知道我们少了分号。</p>
+<h2 id="代码合并压缩"><a href="#代码合并压缩" class="headerlink" title="代码合并压缩"></a>代码合并压缩</h2><p>我们新建一个 ./scripts/b.js， 然后我们把js文件合并然后压缩并输出到./build/scripts/all.js 下，同时移除debug信息</p>
+<p>我们需要安装一下插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-concat --save-dev </span><br><span class="line">npm install gulp-strip-debug --save-dev </span><br><span class="line">npm install gulp-uglify --save-dev</span><br></pre></td></tr></table></figure>
+<p>修改gulpfile.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> stripDebug = <span class="built_in">require</span>(<span class="string">&#x27;gulp-strip-debug&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;scripts&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src([<span class="string">&#x27;./src/scripts/*.js&#x27;</span>])</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;all.js&#x27;</span>))</span><br><span class="line">    .pipe(stripDebug())</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/scripts/&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/8.png" />
+
+<p>我们看到gulp已经把我们文件合并了，移除了console.log, 而且进行了压缩。</p>
+<p>至此，已经基本上知道gulp怎么使用了，下面展示一些其它的功能的代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-autoprefixer --save-dev </span><br><span class="line">npm install gulp-minify-css --save-dev </span><br></pre></td></tr></table></figure>
+<p>示例代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>); </span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> stripDebug = <span class="built_in">require</span>(<span class="string">&#x27;gulp-strip-debug&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> autoprefix = <span class="built_in">require</span>(<span class="string">&#x27;gulp-autoprefixer&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;scripts&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src([<span class="string">&#x27;./src/scripts/*.js&#x27;</span>])</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;all.js&#x27;</span>))</span><br><span class="line">    .pipe(stripDebug())</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/scripts/&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CSS concat, auto-prefix and minify</span></span><br><span class="line">gulp.task(<span class="string">&#x27;styles&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src([<span class="string">&#x27;./src/styles/*.css&#x27;</span>])</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;styles.css&#x27;</span>))</span><br><span class="line">    .pipe(autoprefix(<span class="string">&#x27;last 2 versions&#x27;</span>))</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/styles/&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// default gulp task</span></span><br><span class="line">gulp.task(<span class="string">&#x27;default&#x27;</span>, [ <span class="string">&#x27;scripts&#x27;</span>, <span class="string">&#x27;styles&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;   </span><br><span class="line"></span><br><span class="line"><span class="comment">// watch for JS changes</span></span><br><span class="line">gulp.watch(<span class="string">&#x27;./src/scripts/*.js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.run(<span class="string">&#x27;jshint&#x27;</span>, <span class="string">&#x27;scripts&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">// watch for CSS changes</span></span><br><span class="line">    gulp.watch(<span class="string">&#x27;./src/styles/*.css&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        gulp.run(<span class="string">&#x27;styles&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>至此，大家应该熟悉gulp的使用，尽情去挖掘gulp plugin的宝藏吧。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-03  <a class="commentCountImg" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/#comment-container"><span class="display-none-class">218eff8f1df7caf3fe5f06819c35a4f7</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="218eff8f1df7caf3fe5f06819c35a4f7">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/03/technologies-frontend-2016-1-3-gulp-to-expert/">前端构建大法 Gulp 系列 (三)：gulp的4个API 让你成为gulp专家</a></h1><div class="content"><p>gulp 本身能做的事情非常少，主要是通过插件来提供各种功能，gulp本身只提供了4个非常简洁的API, 掌握这4个API你就基本掌握了gulp的全部。</p>
+<h1 id="一、gulp-task"><a href="#一、gulp-task" class="headerlink" title="一、gulp.task"></a>一、gulp.task</h1><p>gulp 是基于task的方式来运行</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>gulp.task(name [, deps, fn])<br>注册一个task, name 是task的名字，deps是可选项，就是这个task依赖的tasks, fn是task要执行的函数</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">&#x27;js&#x27;</span>, ,[<span class="string">&#x27;jscs&#x27;</span>, <span class="string">&#x27;jshint&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> gulp</span><br><span class="line">    .src(<span class="string">&#x27;./src/**/*.js&#x27;</span>)</span><br><span class="line">    .pipe(concat(<span class="string">&#x27;alljs&#x27;</span>))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/&#x27;</span>));                 </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>上例中 </p>
 <ul>
-<li><p><strong>个体和交互         胜过   过程和工具</strong></p>
-</li>
-<li><p><strong>可以工作的软件     胜过   面面俱到的文档</strong></p>
-</li>
-<li><p><strong>客户合作          胜过   合同谈判</strong></p>
-</li>
-<li><p><strong>响应变化          胜过   遵循计划</strong></p>
-</li>
+<li>jscs和jshint先运行，随后再运行js的task.</li>
+<li>jscs和jshint是并行执行的，而不是顺序执行</li>
 </ul>
-</blockquote>
-<p>这个其实就是：“九阴真经”，“易筋经”，“六脉神剑”，“葵花宝典”（正宗的是不需要自宫的）</p>
-<p>知道了心法，其实每个人的修炼方法都不一样，但是前人为了后人节省时间，给出了自己修炼的一些经验和原则，那就是十二条原则。</p>
+<h1 id="二、gulp-src"><a href="#二、gulp-src" class="headerlink" title="二、gulp.src"></a>二、gulp.src</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>gulp.src(globs[, options])</p>
+<p>与globs 匹配的文件，可以是string或者一个数组</p>
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([&#x27;client/*.js&#x27;, &#x27;!client/b*.js&#x27;, &#x27;client/c.js&#x27;])   # !是排除某些文件</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;js&#x27;</span>,[<span class="string">&#x27;jscs&#x27;</span>, <span class="string">&#x27;jshint&#x27;</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> gulp</span><br><span class="line">    .src(<span class="string">&#x27;./src/**/*.js&#x27;</span>, &#123;<span class="attr">base</span>:<span class="string">&#x27;./src/&#x27;</span>&#125;)        </span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./build/&#x27;</span>));</span><br><span class="line">             </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>options.base 是指多少路径被保留，比如上面的 ./src/users/list.js 会被输出到 ./build/users/list.js</p>
+<h2 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h2><p>如果我们需要文件保持顺序，那么出现在前面的文件就写在数组的前面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src([<span class="string">&#x27;client/baby.js&#x27;</span>, <span class="string">&#x27;client/b*.js&#x27;</span>, <span class="string">&#x27;client/c.js&#x27;</span>])  </span><br></pre></td></tr></table></figure>
+<p>上面baby.js就出现在最上面。</p>
+<h1 id="三、-gulp-dest"><a href="#三、-gulp-dest" class="headerlink" title="三、 gulp.dest"></a>三、 gulp.dest</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><p>gulp.dest(path[, options])  就是最终文件要输出的路径，options一般不用</p>
+<h1 id="四、gulp-watch"><a href="#四、gulp-watch" class="headerlink" title="四、gulp.watch"></a>四、gulp.watch</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><p>gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb]) 就是监视文件的变化，然后运行指定的Tasks或者函数，这个相比Grunt需要使用插件，gulp本身就支持的很好。</p>
+<h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">&#x27;watch-js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   gulp.watch(<span class="string">&#x27;./src/**/*.js&#x27;</span>,[<span class="string">&#x27;jshint&#x27;</span>,<span class="string">&#x27;jscs&#x27;</span>]); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&#x27;watch-less&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> gulp.watch(<span class="string">&#x27;./src/**/*.less&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;less event&#x27;</span>+event.type+<span class="string">&#x27; &#x27;</span>+event.path)</span><br><span class="line"> &#125;); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>gulp就是如此的简单，你只需要掌握这四个API就够了，剩下的就是熟悉相关的plugin了。</p>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://github.com/gulpjs/gulp/blob/master/docs/API.md">https://github.com/gulpjs/gulp/blob/master/docs/API.md</a></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-02  <a class="commentCountImg" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/#comment-container"><span class="display-none-class">132d175e20a37ec9d8edefaf7995860d</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="132d175e20a37ec9d8edefaf7995860d">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/02/technologies-frontend-2016-1-2-front-end-build-gulp/">前端构建大法 Gulp 系列 (二)：为什么选择gulp</a></h1><div class="content"><p>在上一篇 <a href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 中，我们说了为什么需要前端构建，简单一句话，就是让我们的工作更有效率。</p>
+<p>相信熟悉前端的人对Grunt一定不陌生，实际上我自己之前的很多项目也是在用Grunt, Grunt的出现是前端开发者的福音，大大减少了前端之前很多手工工作的繁琐以及我上一篇 <a href="http://deshui.wang/%E6%8A%80%E6%9C%AF/2016/01/01/why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a> 提到的那些问题。</p>
+<p>那么既然Grunt可以做到几乎所有的事情，那么为什么我们需要Gulp呢？</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/1.png" />
+
+<h2 id="Grunt与Gulp的区别"><a href="#Grunt与Gulp的区别" class="headerlink" title="Grunt与Gulp的区别"></a>Grunt与Gulp的区别</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/2.png" />
+
+<p>我们来看一下一般前端构建的流程<br><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/3.png" /></p>
+<h3 id="二者处理流程的区别"><a href="#二者处理流程的区别" class="headerlink" title="二者处理流程的区别"></a>二者处理流程的区别</h3><h4 id="Grunt-的方式"><a href="#Grunt-的方式" class="headerlink" title="Grunt 的方式"></a>Grunt 的方式</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/4.png" />
+
+<h4 id="Gulp的方式"><a href="#Gulp的方式" class="headerlink" title="Gulp的方式"></a>Gulp的方式</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/gulp/5.png" />
+
+<h3 id="配置的简洁程度"><a href="#配置的简洁程度" class="headerlink" title="配置的简洁程度"></a>配置的简洁程度</h3><h4 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a>Grunt</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Project configuration.</span></span><br><span class="line">grunt.initConfig(&#123;</span><br><span class="line">  pkg: grunt.file.readJSON(<span class="string">&#x27;package.json&#x27;</span>),</span><br><span class="line">  uglify: &#123;</span><br><span class="line">    options: &#123;</span><br><span class="line">      banner: <span class="string">&#x27;/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today(&quot;yyyy-mm-dd&quot;) %&gt; */\n&#x27;</span></span><br><span class="line">    &#125; ,</span><br><span class="line">    build: &#123;</span><br><span class="line">      src: <span class="string">&#x27;src/&lt;%= pkg.name %&gt;.js&#x27;</span>,</span><br><span class="line">      dest: <span class="string">&#x27;build/&lt;%= pkg.name %&gt;.min.js&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">grunt.loadNpmTasks(<span class="string">&#x27;grunt-contrib-uglify&#x27;</span>); </span><br><span class="line">grunt.registerTask(<span class="string">&#x27;default&#x27;</span>, [<span class="string">&#x27;uglify&#x27;</span>]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">&#x27;default&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    </span><br><span class="line"><span class="keyword">return</span> gulp</span><br><span class="line">        .src(<span class="string">&quot;**/*.js&quot;</span>)</span><br><span class="line">        .pipe(jshint())</span><br><span class="line">        .pipe(concat())</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">&#x27;./build/&#x27;</span>))        </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>所以从上面的一些代码对比来看，Gulp明显比Grunt要简洁易用很多。</p>
+<h2 id="最后，总结一些-Grunt的一些问题"><a href="#最后，总结一些-Grunt的一些问题" class="headerlink" title="最后，总结一些 Grunt的一些问题"></a>最后，总结一些 Grunt的一些问题</h2><ul>
+<li>配置过于复杂</li>
+<li>插件职责不单一 （就是不SRP）</li>
+<li>临时文件目录多</li>
+<li>性能慢 （因为临时文件多，自然读IO多)</li>
+</ul>
+<p>下一篇我们将开始学习如何使用gulp来构建我们的前端。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-01  <a class="commentCountImg" href="/2016/01/01/agile-2016-1-1-why-fully-follow-customer-is-wrong/#comment-container"><span class="display-none-class">321b40fb0f02626a9c7305411895a3a0</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="321b40fb0f02626a9c7305411895a3a0">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>12 m  <i class="fas fa-pencil-alt"> </i>1.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/01/agile-2016-1-1-why-fully-follow-customer-is-wrong/">敏捷实践系列(七)：为什么你都听客户的，客户却不满意</a></h1><div class="content"><h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p> 这样的场景你是不是很熟悉？客户让你做一个软件，你需要他给你写出需求，当它给你写出需求后，在你认为时间非常紧的情况下，你辛辛苦苦，加班加点，费劲九牛二虎之力，最后赶在最后时刻给客户提交了，你满怀希望等待客户给你的表扬，你万分坚信领导对你的辛苦会给予高度认可和鼓励，你觉得很快就要带一朵“小红花”时，最后你得到的是绵绵无绝期的等待，甚至是客户的不满意，这是为什么呢？这种情况在我的团队里也会出现，有时候我让改一个东西，经常得到的回复就是:”客户就是这么要求的，而且描述很清晰，不能改！”, 最后如果不改的结果就是客户不满意。</p>
+<p>为什么我们听客户的，客户却不满意？</p>
+<h2 id="客户如果说要一个-“杯子”，-我们是怎么做的？"><a href="#客户如果说要一个-“杯子”，-我们是怎么做的？" class="headerlink" title="客户如果说要一个 “杯子”， 我们是怎么做的？"></a>客户如果说要一个 “杯子”， 我们是怎么做的？</h2><p>我们的很多程序员一般是这么工作的，客户说我需要一个 “杯子”，然后程序员就在网上或者生活中搜索杯子，于是程序员就得到了很多杯子，现在各种各样的茶杯，各种各样的酒杯等等，这时候程序员就按自己的喜好选中了一个杯子，聪明一点的程序员可能会衡量一下制造不同杯子的时间成本，选定以后就开始进行模仿，最后你没日没夜，加班加点终于把杯子做出来了，客户会说：怎么会做一个这样的杯子要这么久时间？ 因为市场上已经有人做出来过，所以客户就会觉得照抄应该很快，其次客户会觉得这个杯子不是他想要的，如果是抄一个别人一样的杯子，那为什么不直接买一个呢？</p>
+<h2 id="客户如果说要一个”杯子”，-他要的不是一个”杯子”"><a href="#客户如果说要一个”杯子”，-他要的不是一个”杯子”" class="headerlink" title="客户如果说要一个”杯子”， 他要的不是一个”杯子”"></a>客户如果说要一个”杯子”， 他要的不是一个”杯子”</h2><p>实际上，客户说要一个“杯子”， 他要的不是一个杯子，他要的不是用来装水的，这个就像我们对一个女孩说：“我想和你一起看明早的太阳”，我们都知道他要的不是白天而是夜晚，不是吗？</p>
+<p>所以，当客户说要一个“杯子”时，他要的不是一个“杯子”，因为“杯子”只是一个名词，显然客户要的不是一个名词，而是一个”动词”, 所以我们要想到的是这个杯子用来干什么？我们脑子里要想是不是几个老人在喝茶？一对情侣在喝咖啡？一个婴儿要用来喝奶？还是单身狗要用这个“杯子”？ </p>
+<p>可见，当客户要一个“杯子”时，他要的是一种场景，一个动态的场景，一个有人使用的场景，这个场景就是用户体验，你想想老人喝茶的杯子和单身狗要用的杯子能一样吗？</p>
+<h2 id="要自信的对客户说-“NO”"><a href="#要自信的对客户说-“NO”" class="headerlink" title="要自信的对客户说 “NO”"></a>要自信的对客户说 “NO”</h2><p>这个还是那句话，就是“为什么你都听客户的, 客户却不满意？”  我举个简单的例子，你生病了，你到医院去看病，你告诉医生怎么给你治疗，有的人甚至是在网上查了查资料，或者曾经有别的医生给这个病开个药方，然后你给医生说你要吃什么药，还有的人拒绝血常规检查，最后他的病要么没好，要么拖的时间很长，最后你还对医生非常不满意。你想想你的客户给你提需求的时候，是不是有的时候就和这个病人一样？ </p>
+<p>为什么医生会对你说 “NO” ，甚至不管你了呢？ 因为医生比你更知道怎么治疗，如果按你说的肯定是不行，那么回到程序开发，软件设计上，做一个程序员或者高级软件开发人员，为什么不能给客户说 “NO” 呢？因为我们比客户更知道怎么开发，我们比客户对软件更专业不是吗？</p>
+<h2 id="协助客户改进需求"><a href="#协助客户改进需求" class="headerlink" title="协助客户改进需求"></a>协助客户改进需求</h2><p>当然，我们不能简单粗暴的对客户说 “NO”, 由于我们对软件更了解或者说更专业，我们就可以给客户一些更好的方案，由于客户对技术的不了解，经常会提出一些既耗时又非常“愚蠢”的方案，那我们需要利用我们的专业知识来告诉客户什么是更好更省时的方案，有的时候需求稍加改动会让客户体验更好，而且开发更快，我相信这样的场景在不同的项目里有很多。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>所以，当我们拿到客户需求的时候，我们不是卷起袖子就开始编码，而是第一步想想客户要的到底是什么？他说的真的是他想要的吗？ 他想要的说了吗？我们需要知道客户的项目的远景是什么？我们需要站在整体的角度，站在更 High level的角度来看需求。</p>
 <blockquote>
-<ol>
-<li><p> 最优先的目标是通过尽早地、持续地交付有价值的软件来满足客户</p>
-</li>
-<li><p> 欢迎需求变化，甚至在开发后期。敏捷过程控制、利用变化帮助客户取得竞争优势</p>
-</li>
-<li><p> 频繁交付可用的软件，间隔从两周到两个月，偏爱更短的时间尺度</p>
-</li>
-<li><p> 在整个项目中业务人员和开发人员必须每天在一起工作</p>
-</li>
-<li><p> 以积极主动的员工为核心建立项目，给予他们所需的环境和支持，信任他们能够完成工作</p>
-</li>
-<li><p> 在开发团队内外传递信息最有效率和效果的方法是面对面的交流</p>
-</li>
-<li><p> 可用的软件是进展的主要度量指标</p>
-</li>
-<li><p> 敏捷过程提倡可持续发展。发起人、开发者和用户应始终保持稳定的步调</p>
-</li>
-<li><p> 持续关注技术上的精益求精和良好的设计以增强敏捷性</p>
-</li>
-<li><p>简化——使必要的工作最小化的艺术——是关键</p>
-</li>
-<li><p>最好的架构、需求和设计产生于自我组织的团队</p>
-</li>
-<li><p>团队定期地对运作如何更加有效进行反思，并相应地调整、校正自己的行为</p>
-</li>
-</ol>
+<p>举个例子，我曾经做过的一个项目，客户说要做房间预订，还要分淡旺季，还要有Offer, 还有内部员工不同价，团队当时想的很复杂，想到了想艺龙那样的，但是当我去了客户那边了解后，他们只有5个公寓而已，而且只是给集团员工别的地方来的提供住宿从而计入别的分公司成本而已，我觉得hard code出来一个版本都够用好几年，而且这样的话，原来的估计至少得半年以上吧，当你清楚客户最终需要啥的时候最多两个礼拜就弄完了。</p>
 </blockquote>
-<p>注意：上面我说的是这是前人根据自己修炼的过程总结出来的经验，那么也就是说只是经验，100%可以拿来自己用？那就不一定。</p>
-<p>比如有一条原则说：情人节一定要给老婆买花？那么问题来了，没老婆怎么办？ 当然是先找个老婆。总不能买花送给别人老婆吧。</p>
-<p>比如，上面有一条：“在整个项目中业务人员和开发人员必须每天在一起工作”， 很多时候很难，那么怎么办？第一创造条件能让业务和开发人员每天在一起工作，这个一起不一定是坐在一起，可以每天及时回复你的邮件，也可以你自己就当业务人员，那么你自己不就是每天和自己在一起？</p>
-<h2 id="怎么样才算敏捷了？"><a href="#怎么样才算敏捷了？" class="headerlink" title="怎么样才算敏捷了？"></a>怎么样才算敏捷了？</h2><p>尽管公司实行敏捷也很多年了，这个问题，我想说我不知道怎么回答，因为我们也还在努力变得更敏捷，但是我理想中的敏捷，应该是这样子的：“草在发它的牙，风在摇它的叶，小鸟在唱他的歌，而敏捷团队的Leader静静的座在那里一句话也不用说”，此时敏捷就像空气一样充满了整个房间，知道有一天PM高了，这个时候大家说：“哎呦，最近是不是不敏捷了?”</p>
-<h2 id="怎么开始敏捷呢？"><a href="#怎么开始敏捷呢？" class="headerlink" title="怎么开始敏捷呢？"></a>怎么开始敏捷呢？</h2><p>重要的事情说三遍:</p>
-<ul>
-<li><strong>读书，实践!</strong></li>
-<li><strong>读书，实践!</strong></li>
-<li><strong>读书，实践!</strong></li>
-</ul>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-28  <a class="commentCountImg" href="/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/#comment-container"><span class="display-none-class">80dde398d4d3f7f86189226047d3c4a8</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="80dde398d4d3f7f86189226047d3c4a8">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/28/technologies-iOS-2015-07-28-ios-ui-resusable-xib-static-content-from-code/">iOS UI系列 (四) ：可复用的Xib(1) 静态内容</a></h1><div class="content"><style>
-img {
-  max-width: 700px;
-  border: solid 2px #ccc;
-  padding: 5px;
-  border-radius:5px;
-}
+<p>总之，听客户没错，但是无脑的听客户的，完全听客户的就有问题了，就像如果你完全听你媳妇的，然后她错了后，她会说：“我让你那样做，你就那样做吗？你自己脑子是干什么的!”</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2016-01-01  <a class="commentCountImg" href="/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/#comment-container"><span class="display-none-class">846be139525a8698d8fb39492ce5bce5</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="846be139525a8698d8fb39492ce5bce5">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>11 m  <i class="fas fa-pencil-alt"> </i>1.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/01/01/technologies-frontend-2016-1-1-why-need-front-end-build/">前端构建大法 Gulp 系列 (一)：为什么需要前端构建</a></h1><div class="content"><p>我们都知道使用IDE编写后端程序时，我们都需要Build, 对.NET来说，我们一般需要使用Visual Studio来确保我们的项目编译通过，而且项目编译通过是对所有程序员的基本要求。</p>
+<p>但是，由于很多后端程序员对前端的很多东西不了解，导致在做WEB项目时出现了一些问题。</p>
+<h2 id="JavaScript和CSS的版本问题"><a href="#JavaScript和CSS的版本问题" class="headerlink" title="JavaScript和CSS的版本问题"></a>JavaScript和CSS的版本问题</h2><p>我们都知道 JavaScript和CSS属于静态文件，如果地址不变，浏览器会缓存这些文件，那就意味着当我们需要改JavaScript或者CSS文件的时候，即使我们后端改了，那么客户端也是看不到，这个在“JS一统天下”的时代是不可接受的，因为现在几乎所有的WEB 程序都严重依赖JavaScript，而所有的网站都是需要使用CSS的。在我经历过的项目即使是很多年经验的程序员都出现过JavaScript和CSS文件的版本问题，比如客户让修复一个Bug，这个Bug是JavaScript引起的，程序员修复了，或者是客户说改一个背景颜色，<strong>可是当我们给客户部署后或者代码交给客户客户部署时，客户说Bug依然存在</strong>，这个时候程序员经常说的话就会出现了 <strong>“我本地是好的呀”</strong>，最后再找来别人帮忙后，发现原来是没有清除浏览器的缓存，于是有的程序员就赶紧给客户说：“你需要Ctrl+F5 清除浏览器的缓存”。 每当我听到这样的话时就像关上灯留给我一屋子黑，首先，有几个普通用户会使用Ctrl+F5？ 其次，有几个用户愿意去Ctrl+F5?</p>
+<p>那么怎么办？我想很多程序员都知道加一个版本号就可以了，这样浏览器就会认为是新的文件，比如原来是 <a target="_blank" rel="noopener" href="http://www.a.com/app.js">http://www.a.com/app.js</a> 你现在只需要把地址改为<a target="_blank" rel="noopener" href="http://www.a.com/app.js?v=1.0">http://www.a.com/app.js?v=1.0</a> 即可</p>
+<p>但是如果这个动作是手动的，那么10次基本上至少有5次程序员会忘掉，那么这就是为什么我们需要前端构建</p>
+<h2 id="JavaScript和CSS的依赖问题"><a href="#JavaScript和CSS的依赖问题" class="headerlink" title="JavaScript和CSS的依赖问题"></a>JavaScript和CSS的依赖问题</h2><p>我们经常出现的另一个问题，就是JavaScript和CSS的依赖问题，说的通俗点就是JavaScript和CSS的在页面中的顺序问题！</p>
+<p>我们经常发现CSS没起作用，JavaScript的某个变量和方法找不到，有很多情况都是因为引入JavaScript或者CSS的顺序不对，虽然我们可以使用一些RequireJS之类的模块管理，但是依然在很多情况下需要引入不同的文件，尤其是CSS没有一个好的模块化管理的组件。</p>
+<p>那么我们就需要有一个统一的地方来管理JavaScript和CSS的顺序问题，而构建工具可以大大减少此类问题。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事</p>
+<h3 id="文件合并"><a href="#文件合并" class="headerlink" title="文件合并"></a>文件合并</h3><p>浏览器需要下载多个JS文件，而浏览器是有并发限制，也就是同时并发只能下载几个文件，假如浏览器并发数是5，你有20个JS文件，而每5个需要2S, 那么你光下载JS文件都需要8S，那么网页的性能可想而知，所以我们需要合并多个文件以减少文件的数量。</p>
+<h3 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h3><p>我们知道文件越大，下载越慢，而针对JavaScript和CSS, 里面的空格，换行这些都是为了让我们读代码时更容易阅读，但是对机器来说，这些对它没有影响，所以为了减少文件大小，一般的情况我们都会用工具去掉空格和换行，有时候我们还会用比较短的变量名(记住这个要让工具最后压缩时做，而源代码一定要保证命名可读性) 来减少文件大小。</p>
+<p>而所有的前端构建工具都具有文件合并和压缩的功能。</p>
+<h2 id="效率提升"><a href="#效率提升" class="headerlink" title="效率提升"></a>效率提升</h2><h3 id="Vendor前缀"><a href="#Vendor前缀" class="headerlink" title="Vendor前缀"></a>Vendor前缀</h3><p>在CSS3使用越来越多的时候，我们都知道一些CSS的特性，不同的浏览器CSS有不同的前缀，如果我们手工添加将会很繁琐，而如果使用构建工具，很多构建工具可以自动给我添加CSS的Vendor前缀</p>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>JavaScript的单元测试在使用MVC或者MVVM的框架后，变得越来越容易，而单元测试是质量保证的一个很重要的手段，所以在提交之前，使用构建工具自动跑一遍我们的单元测试是非常重要的</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>我们写的JavaScript很多时候会有一些潜在的bug, 比如忘了添加分号，某个变量没有等等，使用一些JavaScript的代码分析工具，可以很好的帮我们检查一些常见的问题。</p>
+<h3 id="HTML引用JavaScript或者CSS文件"><a href="#HTML引用JavaScript或者CSS文件" class="headerlink" title="HTML引用JavaScript或者CSS文件"></a>HTML引用JavaScript或者CSS文件</h3><p>比如我们需要使用Bower之类来引用前端JavaScript和CSS的第三方库，那么如果版本升级，添加移除等都用手工来修改HTML的话，第一比较耗时，第二比较容易疏漏，尤其是在我们需要切换Debug和production版本时将会有很多额外的工作，那么使用前端构建工具可以很好的解决这些问题。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>以上我只是列出了前端构建最常用的一些功能，我相信还可以发觉很多构建工具可以替代我们手工做的事，后面我将详细讲讲如何使用Gulp这个神器来一一解决我们上面提到的问题。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/FrontEnd/">FrontEnd</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-12-30  <a class="commentCountImg" href="/2015/12/30/agile-2015-12-30-team-leader-should-not-only-coding/#comment-container"><span class="display-none-class">0a6e9e4325221125b93fe68cd63e4620</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="0a6e9e4325221125b93fe68cd63e4620">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>17 m  <i class="fas fa-pencil-alt"> </i>2.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/12/30/agile-2015-12-30-team-leader-should-not-only-coding/">敏捷实践系列(六)：Team Leader 你不再只是编码, 来炖一锅石头汤吧</a></h1><div class="content"><h2 id="为什么软件项目需要-Team-Leader"><a href="#为什么软件项目需要-Team-Leader" class="headerlink" title="为什么软件项目需要 Team Leader"></a>为什么软件项目需要 Team Leader</h2><p>多年以前，当我接触敏捷时，我接触到一个概念，叫做 “自组织的团队”，当时我看了一些估计从没做过敏捷的一些凭空捏造的很多文章（事实上，这类人现在越来越多），那些文章多见名猜意，提出了自组织的团队就是团队自己组织，不需要Leader, 一开始我也是这么认为，甚至想尽一切办法向这个方向靠拢，而且成功的提交了一些项目，甚至于连我自己都相信这是自组织的结果，但是后来一想，我在团队里的所想所做不正是一个Team Leader 需要做的吗？</p>
+<h3 id="自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到"><a href="#自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到" class="headerlink" title="自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到"></a>自组织团队的形成需要一个过程，而且目标只能无限靠近，难以完全达到</h3><p>就拿一个足球团队来说，就拿 “宇宙队” 巴萨来说，也是需要一个教练，同时也需要组建团队，买卖球员，队伍文化建设，战术打法等等，那么软件项目团队来说，自组织团队同样需要组建，文化建设，代码规范，Team Rule, 团队磨合，质量意识，技术交流，客户需求范围把控，会议组织，冲突解决，开发流程等等。</p>
+<h3 id="自我保护，害怕承担责任是大部分人的天性"><a href="#自我保护，害怕承担责任是大部分人的天性" class="headerlink" title="自我保护，害怕承担责任是大部分人的天性"></a>自我保护，害怕承担责任是大部分人的天性</h3><p>在没有一个好的敏捷文化的公司，大部分的程序员都不愿意做更多的事情，话句话说，更愿意做明确分配的事情，因为做的事情越少，自然问题越少，那么责任就越少，这是一种本能的自我保护，这也是大部分人难以成长的重要原因，所以必须要一个人来承担更多的责任，当然方法可以是把要做的事情分的更细，更明确，最终每个人做的事情更细，更多，更明确，那么每一个人要承担的责任就更多了。</p>
+<p>###被领导惯了</p>
+<p>很多中国的孩子，尤其是很多现在正处于黄金时代的程序员，独立意识确实要差一些，从小被父母装在一个大 “笼子”里，比如去哪里都是大人在前面牵着后面的小孩，老师严格教条的作业却只有一个标准答案，甚至在我看了写错一个字要重写一百遍一样猪一样的惩罚还至今流传着，忘了教育的本质是要把字学会而不是把字写一百遍，等等类似的东西，使我们不敢去思考，习惯被别人领导。</p>
+<p>比如，我爱爬山，和我一起爬山的大部分人去一个没有去过的地方，都喜欢走在我的背后，因为他对未知有恐惧！习惯别人牵着走。</p>
+<p>这个问题，我以前以为对高智商的程序员来说应该很少，后来经过10几年，我发现这和其它行业的人一样多。</p>
+<p>所以，如果没有Leader, 大家不知道怎么干！ 没有Leader组织，大家不知道干什么？</p>
+<h2 id="软件团队Team-Leader的诞生"><a href="#软件团队Team-Leader的诞生" class="headerlink" title="软件团队Team Leader的诞生"></a>软件团队Team Leader的诞生</h2><p>由于上面的原因，我们需要一个Team Leader, 但是由于太多人习惯被领导，害怕承担更多责任，我们就急需要一个Team Leader, 但是一个好的Team Leader是非常难找的，因为一个好的Team Leader要做很多事情才能把一个Team变成好的Team.</p>
+<h3 id="不懂技术的Team-Leader在软件项目里成功的概率很小"><a href="#不懂技术的Team-Leader在软件项目里成功的概率很小" class="headerlink" title="不懂技术的Team Leader在软件项目里成功的概率很小"></a>不懂技术的Team Leader在软件项目里成功的概率很小</h3><p>由于软件项目来说，一个不懂技术的人可以当一个Team Leader, 但是要想当一个<strong>好</strong>的Team Leader是难于登天，因为如果你不懂技术，那问题太多了，你怎么知道大家的评估时间靠谱？你如何向客户展示你的方案，你的优势？由于文人相亲，有技术的人一般会鄙视不懂技术的人瞎指挥，从技术人员喜欢鄙视技术人员这点就不难想象的出来。</p>
+<p>请不要举马云的例子，你啥时间看到马云去直接领导一个技术团队了.</p>
+<h3 id="不懂管理的Team-Leader-也难以成为优秀的Team-Leader"><a href="#不懂管理的Team-Leader-也难以成为优秀的Team-Leader" class="headerlink" title="不懂管理的Team Leader 也难以成为优秀的Team Leader"></a>不懂管理的Team Leader 也难以成为优秀的Team Leader</h3><p>因为Team Leader难找，所以在中国又一个常见的事情不断上演，那就是 “学而优则仕”，同样这个在我的团队里也大量存在，这是没有办法的事情, 因为如果他不懂管理，他还至少是一个程序员，相比不懂技术的管理人来说，如果他管理做不好，那对公司就没有什么价值了。</p>
+<h3 id="学而优则仕"><a href="#学而优则仕" class="headerlink" title="学而优则仕"></a>学而优则仕</h3><p>在软件团队里，我们都知道一个Leader懂技术是多么的重要，那么我们唯一的选择就是沿用了中国多年的传统，那就是“学而优则仕”，比如上小学时，老师不都是让学霸的当班长吗？ 所以很多技术还不错的人，都在团队需要的时候 “被挺身而出”，“被临危受命” 成为了Team Leader，但是这样出来的Team Leader 由于由于没有太多的管理项目的知识，没有团队管理的经验，往往也有不少问题，请继续往下看！</p>
+<h2 id="Team-Leader-你不再只是编码，请炖一锅石头汤"><a href="#Team-Leader-你不再只是编码，请炖一锅石头汤" class="headerlink" title="Team Leader 你不再只是编码，请炖一锅石头汤"></a>Team Leader 你不再只是编码，请炖一锅石头汤</h2><p>由于“学而优则仕”，导致大部分软件团队Team Leader更多的专注于技术，就自然把更多的时间花在编码上，因为编码是立即可以看到的产出，而忽略了一个Team Leader要做的更重要的事情，比如团队文化建设，项目过程，质量保证，进度跟踪等等的事情。很多时候，我们缺少这些依然把项目做完了，但是实在很多加班，甚至是Team Leader卷起袖子一个定俩的情况下干完了，这样大部分情况就是客户感觉还OK, 但是难以达到满意。这还是自我保护的意识，害怕客户看不到自己实际的编码产出，实际上忽略了团队整体的目标的重要性。</p>
+<p>关于技术团队Team Leader应该做什么，我本文就不想讲太多，有时间我会再写几篇关于Team Leader的文章，但是本文我强调的是技术团队的Team Leader不能只是编码，他要意识团队管理的重要性，哪怕这个“重要性”在别人看来什么都没有，不用害怕，因为我们只需要最终的项目成功来证明。</p>
+<p>三言两语难以让大家明白Team Leader应该做什么，我就用一则寓言故事来告诉Team Leader 请炖一锅石头汤。</p>
+<blockquote>
+<p>很多年前，有三个士兵，他们从战场回来既饥饿又疲倦，这时他们来到了一个小村庄。然而由于粮食遭遇欠收和连年的战争，村民们迅速的将它们的一小点粮食藏了起来，并在村子的广场中接待了士兵们，搓着双手，哀叹着他们是多么缺少食物。</p>
+</blockquote>
+<blockquote>
+<p>士兵们平静地与村民们交谈着，第一个士兵对村庄的长老说道：“既然你们的土地收成不好，不能分给我们点吃的，那么我们将会与你们分享我们所有的：如何用石头做一道好汤的秘密。”</p>
+</blockquote>
+<blockquote>
+<p>自然啦，村民们都十分好奇，很快他们就升起了火，架起了城里最大的一口锅，士兵们将三颗光滑的石子丢到了锅里。“这将是一锅好汤”第二个士兵说；“不过如果有一撮盐和一些欧芹那就更棒啦！”一个村民跳了起来，喊道“多幸运啊！我刚刚想起来家里还剩下些呢！”于是她跑回家，带着满满一围裙的欧芹和一根萝卜回来了。随着锅里的水渐渐煮沸，村民们的记忆力也变的越来越好，很快地，大麦，胡萝卜，牛肉还有奶油，统统被投入了这个大罐子里。</p>
+</blockquote>
+<blockquote>
+<p>他们吃啊<del>跳啊</del>唱啊~直到深夜，美妙的宴会和新结交的朋友让每个人都感到焕然一新。当早上三个士兵醒来时，他们发现所有村民正站在他们面前。在他们脚边放着有一包这个村子最好的面包和奶酪。“你们把最好的礼物送给了我们：如何从石头里做汤的秘密”，一位长老说道，“这一点我们永远也不会忘记。”第三个士兵转身冲大伙说到：“这并没有什么秘密，但是有一件事是确定的：只有一起分享，我们才可能举办一次宴会。”说完，他们又踏上了路，慢慢走去了。</p>
+</blockquote>
+<p>上面这个故事，我希望Team Leader能够明白虽然士兵并没有什么，但是他却让大家把好东西都拿出来一起做了一锅好烫，村民就是你的团队成员，一开始都把好东西藏起来不是吗？你需要做的就是拿出你的“秘密配方” 和大家一起炖上一个鲜美的石头汤吧！</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-12-27  <a class="commentCountImg" href="/2015/12/27/technologies-Microsoft-2015-12-29-c-sharp-six-new-features/#comment-container"><span class="display-none-class">e3f7d1930061ba434a47a686b5b86efc</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e3f7d1930061ba434a47a686b5b86efc">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>11 m  <i class="fas fa-pencil-alt"> </i>1.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/12/27/technologies-Microsoft-2015-12-29-c-sharp-six-new-features/">一小时学会C# 6</a></h1><div class="content"><style>
+
+ img {
+
+   border: solid 5px #ccc;
+   padding: 5px;
+   border-radius:5px;  
+   text-align: center;
+   max-height: 400px;
+
+
+ }
+
+
+
+
 </style>
 
 
 
 
-<p>有时候页面中的部分内容相同，或者是一些静态的内容组合，这时候我们就可以把这些见面封装到一个XIB里</p>
-<h2 id="新建Single-View-Application"><a href="#新建Single-View-Application" class="headerlink" title="新建Single View Application"></a>新建Single View Application</h2><h2 id="新建一个View-Xib"><a href="#新建一个View-Xib" class="headerlink" title="新建一个View.Xib"></a>新建一个View.Xib</h2><ol>
-<li>Command+N–&gt;User Interface–&gt;View</li>
-<li>把界面大小改为Freeform</li>
-<li>添加一个UILabel, 两个UIView, 并设置对应的背景色</li>
-<li>添加对应的约束，让两个UIView等宽，且Space都是10， 高度固定，且与周围的约速为10， 对UILabel也设置对应的约速，细节就不写了，看图</li>
-</ol>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/1.png" />
+<blockquote>
+<p>c# 6已经出来有一段时间了，今天我们就详细地看一下这些新的特性。</p>
+</blockquote>
+<h2 id="一、字符串插值-（String-Interpolation）"><a href="#一、字符串插值-（String-Interpolation）" class="headerlink" title="一、字符串插值 （String Interpolation）"></a>一、字符串插值 （String Interpolation）</h2><p>C# 6之前我们拼接字符串时需要这样</p>
+<pre><code> var Name = &quot;Jack&quot;;
+ var results = &quot;Hello&quot; + Name;</code></pre>
+<p>或者</p>
+<pre><code> var Name = &quot;Jack&quot;;
+ var results = string.Format(&quot;Hello &#123;0&#125;&quot;, Name);</code></pre>
+<p>但是C#6里我们就可以使用新的字符串插值特性</p>
+<pre><code>  var Name = &quot;Jack&quot;;
+  var results = $&quot;Hello &#123;Name&#125;&quot;;</code></pre>
+<p>上面只是一个简单的例子，想想如果有多个值要替换的话，用C#6的这个新特性，代码就会大大减小，而且可读性比起之前大大增强</p>
+<pre><code> Person p = new Person &#123;FirstName = &quot;Jack&quot;, LastName = &quot;Wang&quot;, Age = 100&#125;;
+ var results = string.Format(&quot;First Name: &#123;0&#125; LastName: &#123;1&#125; Age: &#123; 2&#125; &quot;, p.FirstName, p.LastName, p.Age);</code></pre>
+<p>有了字符串插值后:</p>
+<pre><code> var results = $&quot;First Name: &#123;p.FirstName&#125; LastName: &#123;p.LastName&#125; Age: &#123;p.Age&#125;&quot;;</code></pre>
+<p>字符串插值不光是可以插简单的字符串，还可以直接插入代码</p>
+<pre><code> Console.WriteLine($&quot;Jack is saying &#123; new Tools().SayHello() &#125;&quot;);
 
+ var info = $&quot;Your discount is &#123;await GetDiscount()&#125;&quot;;</code></pre>
+<p>那么如何处理多语言呢？</p>
+<p>我们可以使用 IFormattable</p>
+<p>下面的代码如何实现多语言？</p>
+<pre><code> Double remain = 2000.5; 
+ var results= $&quot;your money is &#123;remain:C&#125;&quot;;  
 
-<h2 id="使用Xib"><a href="#使用Xib" class="headerlink" title="使用Xib"></a>使用Xib</h2><p>在ViewController添加 一个UIView, 并设置对应的约束，连接这个UIView为Controller的 IBOutlet ContainerView</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/2.png" />
+# 输出 your money is $2,000.50</code></pre>
+<p>使用IFormattable 多语言</p>
+<pre><code>class Program
+&#123;
+    static void Main(string[] args)
+    &#123;
 
-<ol>
-<li>在ViewDidLoad里添加如下代码</li>
-</ol>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line"><span class="keyword">let</span> arr <span class="operator">=</span> <span class="type">NSBundle</span>.mainBundle().loadNibNamed(<span class="string">&quot;View&quot;</span>, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v <span class="operator">=</span> arr[<span class="number">0</span>] <span class="keyword">as!</span> <span class="type">UIView</span></span><br><span class="line">        </span><br><span class="line">containerView.addSubview(v)</span><br></pre></td></tr></table></figure>
+        Double remain = 2000.5; 
 
-<p>运行</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/3.png" />
+        var results= ChineseText($&quot;your money is &#123;remain:C&#125;&quot;);
 
-
-
-<ol start="2">
-<li>添加约束</li>
-</ol>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> containerView: <span class="type">UIView</span>!</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">var</span> v: <span class="type">UIView</span>!</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">let</span> arr <span class="operator">=</span> <span class="type">NSBundle</span>.mainBundle().loadNibNamed(<span class="string">&quot;View&quot;</span>, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>)</span><br><span class="line">       v <span class="operator">=</span> arr[<span class="number">0</span>] <span class="keyword">as!</span> <span class="type">UIView</span></span><br></pre></td></tr></table></figure>
-
-<p>​<br>​            containerView.addSubview(v)<br>​            </p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setUpConstraint()</span><br></pre></td></tr></table></figure>
-
-<p>​<br>​            // Do any additional setup after loading the view, typically from a nib.<br>​        }<br>​        </p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​<br>​      </p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">setUpConstraint</span><span class="params">()</span></span></span><br><span class="line">    &#123;</span><br><span class="line">              </span><br><span class="line">	v.setTranslatesAutoresizingMaskIntoConstraints(false)</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Leading</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Left</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Trailing</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Right</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Top</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Top</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">       containerView.addConstraint(<span class="type">NSLayoutConstraint</span>(</span><br><span class="line">           item:v, attribute:.<span class="type">Bottom</span>,</span><br><span class="line">           relatedBy:.<span class="type">Equal</span>, toItem:containerView,</span><br><span class="line">           attribute:.<span class="type">Bottom</span>, multiplier:<span class="number">1</span>, constant:<span class="number">0</span>))</span><br><span class="line">       </span><br><span class="line">   &#125;	    </span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​<br>3. 运行结果, 我们的Xib已经可以自适应容器了</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/4.png" />
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/4/5.png"/>
-
-
-<p>​<br>​    </p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/#comment-container"><span class="display-none-class">8c38486be9756cba6118bb86effd973f</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8c38486be9756cba6118bb86effd973f">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-reuseable-uibutton/">iOS UI系列 (三) ：Reusable Button</a></h1><div class="content"><style>
-img {
-  max-width: 700px;
-  border: solid 2px #ccc;
-  padding: 5px;
-  border-radius:5px;
-}
-</style>
-
-
-<p>有时候我们需要给一些做一些设置，但是这些控件却需要用在多个地方，如果在每一个ViewController都设置一遍，那么代码就不整洁了，而且比较耗时间。</p>
-<p>创建一个RoundButton.swift 文件，集成自UIButton</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RoundButton</span>: <span class="title">UIButton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    // Only override drawRect: if you perform custom drawing.</span></span><br><span class="line"><span class="comment">    // An empty implementation adversely affects performance during animation.</span></span><br><span class="line"><span class="comment">    override func drawRect(rect: CGRect) &#123;</span></span><br><span class="line"><span class="comment">        // Drawing code</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>) &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">awakeFromNib</span><span class="params">()</span></span> &#123;</span><br><span class="line">      </span><br><span class="line">        <span class="keyword">self</span>.layer.cornerRadius<span class="operator">=</span><span class="number">10</span></span><br><span class="line">        <span class="keyword">self</span>.layer.borderColor<span class="operator">=</span><span class="type">UIColor</span>.redColor().<span class="type">CGColor</span></span><br><span class="line">        <span class="keyword">self</span>.layer.borderWidth<span class="operator">=</span><span class="number">2</span></span><br><span class="line">        <span class="keyword">self</span>.layer.backgroundColor<span class="operator">=</span><span class="type">UIColor</span>.yellowColor().<span class="type">CGColor</span></span><br><span class="line">        <span class="keyword">self</span>.contentEdgeInsets<span class="operator">=</span><span class="type">UIEdgeInsets</span>(top: <span class="number">10</span>,left: <span class="number">10</span>,bottom: <span class="number">10</span>,right: <span class="number">10</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​<br>​<br>​<br> 设置UIButton的Custom class为 RoundButton</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/1.png" />
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/3/2.png" />
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/#comment-container"><span class="display-none-class">20677e53b5a3848804db74620762c8bf</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="20677e53b5a3848804db74620762c8bf">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-multiple-storyboard/">iOS UI系列 (二) ：使用多个StoryBoard</a></h1><div class="content"><style>
-img {
-  max-width: 700px;
-  border: solid 2px #ccc;
-  padding: 5px;
-  border-radius:5px;
-}
-</style>
-
-
-<h2 id="为什么要使用多个StoryBoard"><a href="#为什么要使用多个StoryBoard" class="headerlink" title="为什么要使用多个StoryBoard"></a>为什么要使用多个StoryBoard</h2><p>StoryBoard 给项目带了很大的方便，在一个视图里可以看到整个项目页面之间的关系，但是如果项目所有的页面都放到一个StoryBoard, 会带来以下一些问题</p>
-<ul>
-<li>UIStoryBoard太大</li>
-<li>每次打开StoryBoard比较慢</li>
-<li>一个窗口里面显示所有的View，显得比较混乱，尤其是一个显示器看不全的时候</li>
-<li>UIStoryBoard 项目解决源码冲突太麻烦</li>
-</ul>
-<p>所以，我建议项目使用多个StoryBoard, 不同模块使用不同的UIStoryBoard, 下面是如何使用的实例。</p>
-<h2 id="Main-Storyboard"><a href="#Main-Storyboard" class="headerlink" title="Main Storyboard"></a>Main Storyboard</h2><p>首先建立一个Single View Application, 在StoryBoard里添加2个UIViewController, 并且设置好导航关系</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/1.png" /> 
-
-
-<p>新建一个SecondViewController类, Command+N–&gt;Coca Touch cass–&gt;Next, 继承UIViewController, 选择Swift语言</p>
-<pre><code>import UIKit
-
-class SecondViewController: UIViewController &#123;
-
-    override func viewDidLoad() &#123;
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        Console.WriteLine(results);
+        Console.Read();
     &#125;
 
-    override func didReceiveMemoryWarning() &#123;
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    public static string ChineseText(IFormattable formattable)
+    &#123;
+        return formattable.ToString(null, new CultureInfo(&quot;zh-cn&quot;));
+    &#125;
+&#125;
+
+# 输出  your money is ￥2,000.50</code></pre>
+<h2 id="二、空操作符"><a href="#二、空操作符" class="headerlink" title="二、空操作符 ( ?. )"></a>二、空操作符 ( ?. )</h2><p>C# 6添加了一个 ?. 操作符，当一个对象或者属性职为空时直接返回null, 就不再继续执行后面的代码，在之前我们的代码里经常出现 NullException, 所以我们就需要加很多Null的判断，比如</p>
+<pre><code> if (user != null &amp;&amp; user.Project != null &amp;&amp; user.Project.Tasks != null &amp;&amp; user.Project.Tasks.Count &gt; 0)
+ &#123;
+   Console.WriteLine(user.Project.Tasks.First().Name);
+ &#125;</code></pre>
+<p>现在我们可以不用写 IF 直接写成如下这样</p>
+<pre><code>Console.WriteLine(user?.Project?.Tasks?.First()?.Name);</code></pre>
+<p>这个?. 特性不光是可以用于取值，也可以用于方法调用，如果对象为空将不进行任何操作，下面的代码不会报错，也不会有任何输出。</p>
+<pre><code>class Program
+&#123;
+    static void Main(string[] args)
+    &#123;
+        User user = null;
+        user?.SayHello();
+        Console.Read();
+    &#125;
+&#125;
+
+public class User
+&#123;
+    public void SayHello()
+    &#123;
+        Console.WriteLine(&quot;Ha Ha&quot;);
     &#125;
 &#125;</code></pre>
-<p>设置第二ViewController的File’s owner 的class为刚新建的SecondViewController</p>
-<h2 id="第二个StoryBoard"><a href="#第二个StoryBoard" class="headerlink" title="第二个StoryBoard"></a>第二个StoryBoard</h2><p> Command+N–&gt;User Interface—&gt;StoryBoard，命名Second</p>
-<p> 添加2个UIViewController, 并添加对应的按钮，将View的背景色改为黄色，以区别这是第二个UIStoryBoard, 按住Ctrl从第一个ViewController拖到第二个ViewController,选择Show</p>
-<p> 设置第一个UIViewController如下</p>
-<p>&lt;img  class=”img-responsive”src=”<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/3.png&quot;">https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/3.png&quot;</a> /&gt;</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/2.png" />
+<p>还可以用于数组的索引器</p>
+<pre><code>class Program
+&#123;
+    static void Main(string[] args)
+    &#123;
+        User[] users = null;
 
+        List&lt;User&gt; listUsers = null;
 
-<h2 id="连接2个StoryBoard"><a href="#连接2个StoryBoard" class="headerlink" title="连接2个StoryBoard"></a>连接2个StoryBoard</h2><p>打开Main.storyboard, 为SecondViewController上的按钮建立一个IBAction, 然后在SecondViewController.swift里添加如下代码</p>
-<pre><code> @IBAction func GotoSecondStoryBoard(sender: AnyObject) &#123;
+        // Console.WriteLine(users[1]?.Name); // 报错
+        // Console.WriteLine(listUsers[1]?.Name); //报错
 
-         let vc = UIStoryboard(name: &quot;Second&quot;, bundle: nil).instantiateInitialViewController() as! UIViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        Console.WriteLine(users?[1].Name); // 正常
+        Console.WriteLine(listUsers?[1].Name); // 正常
 
+        Console.ReadLine();
+    &#125;
+&#125;</code></pre>
+<p><strong>注意： 上面的代码虽然可以让我们少些很多代码，而且也减少了空异常，但是我们却需要小心使用，因为有的时候我们确实是需要抛出空异常，那么使用这个特性反而隐藏了Bug</strong></p>
+<h2 id="三、-NameOf"><a href="#三、-NameOf" class="headerlink" title="三、 NameOf"></a>三、 NameOf</h2><p>过去，我们有很多的地方需要些硬字符串，导致重构比较困难，而且一旦敲错字母很难察觉出来，比如</p>
+<pre><code>if (role == &quot;admin&quot;)
+&#123;
+&#125;</code></pre>
+<p>WPF 也经常有这样的代码</p>
+<pre><code>public string Name
+&#123;
+  get &#123; return name; &#125;
+  set
+  &#123;
+      name= value;
+      RaisePropertyChanged(&quot;Name&quot;);
+  &#125;
+&#125;</code></pre>
+<p>现在有了C#6 NameOf后，我们可以这样</p>
+<pre><code>public string Name
+&#123;
+  get &#123; return name; &#125;
+  set
+  &#123;
+      name= value;
+      RaisePropertyChanged(NameOf(Name));
+  &#125;
+&#125;
+
+static void Main(string[] args)
+  &#123;
+      Console.WriteLine(nameof(User.Name)); //  output: Name
+      Console.WriteLine(nameof(System.Linq)); // output: Linq
+      Console.WriteLine(nameof(List&lt;User&gt;)); // output: List
+      Console.ReadLine();
+  &#125;</code></pre>
+<p><strong>注意： NameOf只会返回Member的字符串，如果前面有对象或者命名空间，NameOf只会返回 . 的最后一部分, 另外NameOf有很多情况是不支持的，比如方法，关键字，对象的实例以及字符串和表达式</strong></p>
+<h2 id="四、在Catch和Finally里使用Await"><a href="#四、在Catch和Finally里使用Await" class="headerlink" title="四、在Catch和Finally里使用Await"></a>四、在Catch和Finally里使用Await</h2><p>在之前的版本里，C#开发团队认为在Catch和Finally里使用Await是不可能，而现在他们在C#6里实现了它。</p>
+<pre><code>  Resource res = null;
+    try
+    &#123;
+        res = await Resource.OpenAsync(); // You could always do this.  
+    &#125;
+    catch (ResourceException e)
+    &#123;
+        await Resource.LogAsync(res, e); // Now you can do this … 
+    &#125; 
+    finally
+    &#123;
+        if (res != null) await res.CloseAsync(); // … and this.
     &#125;</code></pre>
-<p>如果我们不设置Is Intial View Controller, 那么我们需要设置View Controller的StoryBoard Id, 然后使用如下代码</p>
-<pre><code>let vc = UIStoryboard(name: &quot;Second&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;FirstView&quot;) as! UIViewController
-self.navigationController?.pushViewController(vc, animated: true)</code></pre>
-<h2 id="结果图-Gif"><a href="#结果图-Gif" class="headerlink" title="结果图 (Gif)"></a>结果图 (Gif)</h2><img class="img-responsive"  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/2/mutli-storyboard.gif" />
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-07-27  <a class="commentCountImg" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/#comment-container"><span class="display-none-class">bb65ce295369ff1d0d9b9561deec5be9</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="bb65ce295369ff1d0d9b9561deec5be9">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/07/27/technologies-iOS-2015-07-27-ios-ui-autolayout-three-equal-height/">iOS UI系列 (一) ：Auto Layout 高度三等分</a></h1><div class="content"><style>
-img {
-  max-width: 900px;
-  border: solid 2px #ccc;
-  padding: 5px;
-  border-radius:5px;
-}
-</style>
-
-
-
-<p>首先我们创建一个Single View Application</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/1.png" /> 
-
-<p>然后我们向StoryBoard的ViewController 添加3个UIView, 设置不同的背景色，我们的目的是让这三个UIView垂直高度三等分。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/2.png" />
-
-<p>接下来我们需要设置约速，我们让每个试图和周围的具体都是5，然后设置三个视图等高约束，具体看gif动态图, 如果看不清 右键图片–&gt;open in new Tab  </p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/UI/1/3.gif" />
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-15  <a class="commentCountImg" href="/2015/06/15/life-travel-2011-6-15-climb-mountain/#comment-container"><span class="display-none-class">bad6ad38607141cbbe02b684a8ce7abe</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="bad6ad38607141cbbe02b684a8ce7abe">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>15 m  <i class="fas fa-pencil-alt"> </i>2.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/15/life-travel-2011-6-15-climb-mountain/">太白山游记</a></h1><div class="content"><p>之前爬过陕西的很多山，华山、骊山、翠华山、王顺山、南五台、太平森林公园，祥裕。但是太白山则是爬完华山之后最想爬的山。因为它是秦岭山脉主峰，也是中国大陆青藏高原以东第一高峰，海拔3767米。更是长江和黄河两大水系分水岭，中国南北分界线，所谓人往高处走，我们都想爬的更高来看的更远。</p>
-<p>由于我们公司一个团队做的很不错，去年获得了优秀团队的奖励，大家决定用团队奖励来活动一次。经过大家一致的表决，最后决定爬太白山。</p>
-<h2 id="出发（2015年6月5号）"><a href="#出发（2015年6月5号）" class="headerlink" title="出发（2015年6月5号）"></a>出发（2015年6月5号）</h2><p>我们计划周五12点出发，但是由于团队要发布系统，后来基本到下午1点才正式从西安出发。一路高速到绛法高速太白山方向，我们一行6个人，2辆车，去的时候由于很精神我开的相对较快，下高速等了同事大概10多分钟，原本以为下高速还要开很远，但是下了高速沿法场线差不多10分钟就到了太白山游客服务中心，问了一下要自驾进山必须是2.0以上的SUV, 我们一辆车是2.0T的但不是SUV, 我们另一辆是SUV, 但不是2.0以上的，只能把车停到停车场，收费是20元一天。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/1.jpg"/>
-
-<h2 id="盘山公路"><a href="#盘山公路" class="headerlink" title="盘山公路"></a>盘山公路</h2><p>必须乘坐景区大巴，大概两个小时到下板寺，沿途有几个景点莲花峰瀑布，三国古栈道，盘山公路非常漂亮，终于明白了为啥必须是2.0以上的SUV才能进。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/lianhuafeng.jpeg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/2.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/5.jpg"/>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/3.jpg"/>
-
-
-<h2 id="缆车"><a href="#缆车" class="headerlink" title="缆车"></a>缆车</h2><p>直接坐车到下板寺，海拔已经2700米，一下车，大家就感觉冷，而且开始有点高原反应了，由于缆车最后一趟是下午5点，我们只有10几分钟，赶紧买了缆车票，乘坐缆车。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/4.jpg" />
-
-<p>小鸟独立枝头，此处已经3000米了，我们多想像飞翔的小鸟，这才叫傲世。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/6.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/7.jpg" />
-
-<p>缆车上已经可以看到上板寺, 已经是云雾缭绕，高山的冷松</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/8.jpg" />
-
-<p>回望远处的山，我们已经与云同高，坐在缆车里感觉真的是冲上云霄。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/9.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/11.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/12.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/13.jpg" />
-
-<p>下了缆车，兄弟们先合个影</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/10.jpg" />
-
-<h2 id="天圆地方"><a href="#天圆地方" class="headerlink" title="天圆地方"></a>天圆地方</h2><p>在往上走40分钟左右，差不多到天圆地方，凌空玻璃， 我们有个兄弟害怕，不赶上去，拉都拉不上去，奇怪的是后来他还到了拔仙台。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/14.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/tianyuandifang.jpeg"/>
-
-<h2 id="佛光"><a href="#佛光" class="headerlink" title="佛光"></a>佛光</h2><p>继续往上走，云雾越来越近</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/15.jpg" />
-
-<p>突然，我们杨同学大喊一声: “看，佛光”，我们都停下来欣赏佛光，之前只听过，而且一直半信半疑，今天真的亲眼看见了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/16.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/17.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/18.jpg"  style="max-height:300px;"/>
-
-<h2 id="中国南北分界岭"><a href="#中国南北分界岭" class="headerlink" title="中国南北分界岭"></a>中国南北分界岭</h2><p>继续往上走，就进入中国南北分界岭，中间有一个外事检查站，老外是不能进去的，我不明白这是为什么，难道因为军事机密？</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/19.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/20.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/21.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/22.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/23.jpg" style="max-height:500px;" />
-
-<p>又见神奇佛光，每个人看到的中间的影子都是自己，你动他也动，你走他也走，真实佛在心中，佛就是你自己。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/24.jpg" />
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/25.jpg" />
-
-
-<h2 id="太白自然保护区"><a href="#太白自然保护区" class="headerlink" title="太白自然保护区"></a>太白自然保护区</h2><p>往前走几步，就到了太白自然保护区，又见佛光。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/26.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/27.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/28.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/29.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/30.jpg" style="max-height:500px;"/>
-
-<h2 id="夜宿小文公"><a href="#夜宿小文公" class="headerlink" title="夜宿小文公"></a>夜宿小文公</h2><p>晚上7点多，终于到了小文公，听说到大文公需要两个小时，所以我们决定在小文公住，60元一个床，我们6个人买了4张床。 床是硬板床，被子也比较薄，安顿好后。此时已经感觉到比较冷了。</p>
-<p>来时的路</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/31.jpg" />
-
-<p>山里的云海</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/32.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/33.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/34.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/35.jpg" />
-
-<p>大家已经感觉到很冷了，开始做俯卧撑。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/fuwocheng.jpeg" />
-
-<p>由于高原反应，大家基本上都头疼，基本上一晚上没怎么睡着，还有人打呼噜，迷迷糊糊最后可能只睡了两个小时吧。</p>
-<h2 id="日出"><a href="#日出" class="headerlink" title="日出"></a>日出</h2><p>早上5点半我们准备出发，我们决定在去大文公的路上看日出，早上看到的群山真的很漂亮，随着太阳的升起，每一分钟都不一样，从水墨画到山水画，任何大片都拍不出自然的本身，任何画家也画不出这么漂亮的山水，我驻足看了很久，心想，学画的要画山水，就应该在此住一段时间。</p>
-<p>日出江花红胜火，日出的过程大概就2分钟，真的是很漂亮。 欣赏图吧，很遗憾没带单反，用我的iPhone 5S拍的。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/36.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/37.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/38.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/40.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/41.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/42.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/43.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/44.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/45.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/46.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/47.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/48.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/49.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/50.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/51.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/52.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/53.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/54.jpg" />
-
-<p>去往大文公路上已经可以看到太白山顶，拔仙绝顶，但是想不到的是到那里比我们想像的时间长很多。</p>
-<h2 id="大文公"><a href="#大文公" class="headerlink" title="大文公"></a>大文公</h2><p>我们走了将近2小时，才到大文公，中间的路基本上都是石头路，不太好走，我们有2个人太慢了，可能是高原反应，我们走到大文公就留下了杨同学等另外的2个人。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/55.jpg" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/56.jpg" />
-
-<p>我背的装备比较多，睡袋，急救包，野外小工具箱，我在这里都拿出来交给杨同学了，杨同学在这里等另外两个同事。说在此等我们三个人回来。</p>
-<h2 id="大爷海"><a href="#大爷海" class="headerlink" title="大爷海"></a>大爷海</h2><p>很多人走到大文公就返回了，因为去大爷海要先爬一段山，从小文公到大文公很多人已经走的很累了。</p>
-<p>真正的高山杜鹃。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/57.jpg" />
-
-<p>驴友的尼玛堆</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/58.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/59.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/60.jpg"/>
-
-<p>走了将近2个小时，终于到了大爷海，这段路是很难走的，先上山，然后下山，建议没有爬山经验的就不要去了，尤其是如果下雨下雪，路都基本走不成。</p>
-<p>大爷海</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/61.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/62.jpg"/>
-
-<p>六个人，到这里就三个人。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/63.jpg"/>
-
-<h2 id="拔仙台"><a href="#拔仙台" class="headerlink" title="拔仙台"></a>拔仙台</h2><p>从大爷海去拔仙台，有两条路，左边的路比较陡峭，但是大概20多分钟就到了，右边比较平坦，但是要将近1个小时，于是我们选择的耗时较短的路。</p>
-<p>山上还有些积雪没化</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/64.jpg"/>
-
-<p>上山的路，全都是石头上走</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/65.jpg"/>
-
-<p>拔仙台不远了</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/66.jpg"/>
-
-<p>回望来时的路</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/67.jpg"/>
-
-<p>马上到山顶了</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/68.jpg"/>
-
-<p>往下看大爷海</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/69.jpg"/>
-
-<p>已经到拔仙台，可以看到来时走的路都在3500米高的山顶，婉如一条丝带。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/70.jpg"/>
-
-<p>拔仙绝顶，一览众山小， 我想化作苍鹰，展翅翱翔！</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/71.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/72.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/73.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/baxiantai.jpg"/>
-
-<p>我们三个人留下脚印</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/3foot.jpg" />
-
-<p>回来的时候，我们选择了走平坦的路，因为上山时基本都是手脚并用。 </p>
-<p>二爷海和三爷海</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/taibai/2yehai-3yehai.jpg" />
-
-<h2 id="返程"><a href="#返程" class="headerlink" title="返程"></a>返程</h2><p>回来的时候，我们两个同事明显感觉很累了，但是我看到乌云一来，就加快了脚步，我们返回大文公时，我们等着的同事已经走了，所以我们就一路不停的一直走会缆车，当我们到达缆车时已经是下午2点多了，至此我们已经来回共走了9个小时。我们回来时比同事预计的快了2个小时，主要是下山，高原反应没那么严重了。 到上板寺寺时，很多人问我们他们今天能否到拔仙台，我估计问这话的人，明天都到不了了，因为完全没有准备，还有一些女的就穿着短裙，问还有多远，我说你们还是回吧，不然就冻死了，她们能到小文公就不错了。接下来，就是座缆车，座大巴2小时，然后我们就开车返回西安了，回来时由于太累，基本上一路高速都没赶超过90km/h.</p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>要去太白山，而且要登顶的人，必须计划两天时间，而且要带冲锋衣，山上很冷，一定要带登山杖，要穿比较好的登山鞋。带些高热量的食物，如果高原反应严重的最好带点药。山上天气瞬息万变，最好带上防雨的装备，同时带上高能量食物和水，山上也有卖食物和水的，但是你要带钱。 建议在小文公住。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-13  <a class="commentCountImg" href="/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/#comment-container"><span class="display-none-class">aac1285b7cf02fa4ad24cd8fd81f4131</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="aac1285b7cf02fa4ad24cd8fd81f4131">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.5 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/13/technologies-iOS-2015-6-13-ios-debug-in-device/">iOS开发(一)：真机调试</a></h1><div class="content"><p>苹果真机调试是比较麻烦的，需要代码签名，主要的作用就是确保程序是苹果认证的开发者开发，下面列出主要的步骤。</p>
-<h2 id="购买开发者帐号"><a href="#购买开发者帐号" class="headerlink" title="购买开发者帐号"></a>购买开发者帐号</h2><style>
-img {
-  max-width: 700px;
-  border: solid 2px #ccc;
-  padding: 5px;
-  border-radius:5px;
-}
-</style>
-
-<p>之前iOS开发者帐号和Mac开发者帐号需要分开购买，现在都合并为Apple Developer Program了，所以只需要出一份钱了。打开 <a target="_blank" rel="noopener" href="https://developer.apple.com/programs/">https://developer.apple.com/programs/</a>, 点击右上角Enroll</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/ios-developer-center.png"/>
-
-<p>点击start your enrollment</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/start-your-enroll.png"/>
-
-<p>选择你是个人开发者还是企业，选择个人开发者</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/select-develop-type.png"/>
-
-<p>然后就按照步骤完成购买，一般需要几天才能审核通过。</p>
-<h2 id="创建证书请求申请-Certificate-Signing-Request"><a href="#创建证书请求申请-Certificate-Signing-Request" class="headerlink" title="创建证书请求申请 (Certificate Signing Request)"></a>创建证书请求申请 (Certificate Signing Request)</h2><p>选择 “Certificate Assistant”，然后点击 “Request Certificate from A Certificate Authority.”</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/request-certification.png" />
-
-<p>填入你的Email 名字，选择Save to Disk, 这是会生成一个CertificateSigningRequest.certSigningRequest 文件</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/certificaiton-info.png"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/save-certification-info.png"/>
-
-<h2 id="创建开发者证书"><a href="#创建开发者证书" class="headerlink" title="创建开发者证书"></a>创建开发者证书</h2><p>登录开发者中心，选择证书Development, 然后点击右边添加</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/member-center.png" />
-
-<p>选择Development—&gt;iOS App Development</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/select-dev-cert-type.png" />
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/how-to-create-csr.png"/>
-
-<p>这一步上传你刚才的CertificateSigningRequest.certSigningRequest 文件，点击Generate</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-your-certificate.png"/>
-
-<p>Download 你的证书，然后双击就会加入系统</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-dev-certification.png" />
-
-<h2 id="注册你的设备"><a href="#注册你的设备" class="headerlink" title="注册你的设备"></a>注册你的设备</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/register-device.png"/>
-
-<p>如果不知道UUID, 打开iTunes, 双击Serial Number</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/itunes.png" />
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/uuid.png"/>
-
-
-<h2 id="创建App-ID"><a href="#创建App-ID" class="headerlink" title="创建App ID"></a>创建App ID</h2><p>看说明创建你需要的APP ID, 主要是Bundle ID, 一般我们类似这样确保唯一 com.jackwang.nbapp</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/appid.png"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/buildid.png" />
-
-
-<h2 id="创建Provisioning-Profile"><a href="#创建Provisioning-Profile" class="headerlink" title="创建Provisioning Profile"></a>创建Provisioning Profile</h2><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/add-provision-profile.png" />
-
-<p>选择iOS development, 点击继续，然后选择你刚的App ID，继续，选择要包含的开发者证书，点击继续，选择要包含的设备, 随后就generate你的provisioning profile.</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/generate-profile.png"/> 
-
-<p>找到对应的Profile 下载后双击即可。</p>
-<h2 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h2><p>设置项目的Bundle ID 为之前创建的APP ID</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/xcode-setting-bundle.png"/>
-
-<p>然后选择你对应的Code Sign</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/ios/debug-in-device/xcode-code-sign.png" />
-
-<h2 id="真机调试"><a href="#真机调试" class="headerlink" title="真机调试"></a>真机调试</h2><p>插入你的设备，选择你的设备，点击运行，就可以真机调试了。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/iOS/">iOS</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/8/">Previous</a></div><div class="pagination-next"><a href="/page/10/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><a class="pagination-link is-current" href="/page/9/">9</a></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><a class="pagination-link" href="/page/11/">11</a></li><li><a class="pagination-link" href="/page/12/">12</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">119</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-18T15:30:00.000Z">2021-01-18</time></p><p class="title"><a href="/2021/01/18/personaldev-2021-01-12-leadership-do-not-be-good-man-to-everything/">领导力：不要做个“好人”</a></p><p class="categories"><a href="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/">领导力</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-11T15:30:00.000Z">2019-03-11</time></p><p class="title"><a href="/2019/03/11/personaldev-2019-03-11-develop-what-you-like/">发展你的兴趣，而不是跟随你的兴趣</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-09T15:30:00.000Z">2019-03-09</time></p><p class="title"><a href="/2019/03/09/personaldev-2019-03-09-why-your-product-not-sell-well/">你的产品卖不好，可能是说明书的问题</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-07T15:30:00.000Z">2019-03-07</time></p><p class="title"><a href="/2019/03/07/personaldev-2019-03-07-80-is-not-bad-generation/">八零后怎么就成了悲情的一代？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-04T15:30:00.000Z">2019-03-04</time></p><p class="title"><a href="/2019/03/04/personaldev-2019-03-04-life-is-not-a-single-line/">人生可能并不是一条线</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">March 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87-%E9%A2%86%E5%AF%BC%E5%8A%9B/"><span class="tag">个人发展 思维提升 领导力</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 王德水</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+<h2 id="五、表达式方法体"><a href="#五、表达式方法体" class="headerlink" title="五、表达式方法体"></a>五、表达式方法体</h2><p>一句话的表达式可以直接写成箭头函数，而不再需要大括号</p>
+<p>  class Program<br>    {<br>        private static string SayHello() =&gt; “Hello World”;<br>        private static string JackSayHello() =&gt; $”Jack {SayHello()}”;</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(SayHello());</span><br><span class="line">        Console.WriteLine(JackSayHello());</span><br><span class="line">        </span><br><span class="line">        Console.ReadLine();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、自动属性初始化器"><a href="#六、自动属性初始化器" class="headerlink" title="六、自动属性初始化器"></a>六、自动属性初始化器</h2><p>之前我们需要赋初始化值，一般需要这样</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Age = <span class="number">100</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是C# 6的新特性里我们这样赋值</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、只读自动属性"><a href="#七、只读自动属性" class="headerlink" title="七、只读自动属性"></a>七、只读自动属性</h2><p>C# 1里我们可以这样实现只读属性</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> age=<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Age</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> age; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是当我们有自动属性时，我们没办法实行只读属性，因为自动属性不支持readonly关键字，所以我们只能缩小访问权限</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>  <span class="built_in">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是 C#6里我们可以实现readonly的自动属性了</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Age &#123; <span class="keyword">get</span>; &#125; = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="八、异常过滤器-Exception-Filter"><a href="#八、异常过滤器-Exception-Filter" class="headerlink" title="八、异常过滤器 Exception Filter"></a>八、异常过滤器 Exception Filter</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">try</span></span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">throw</span>  <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Age&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     catch (ArgumentException argumentException) <span class="keyword">when</span>( argumentException.Message.Equals(<span class="string">&quot;Name&quot;</span>))</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">throw</span>  <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Name Exception&quot;</span>);</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     catch (ArgumentException argumentException) <span class="keyword">when</span>( argumentException.Message.Equals(<span class="string">&quot;Age&quot;</span>))</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;not handle&quot;</span>);</span><br><span class="line">         </span><br><span class="line">     &#125;</span><br><span class="line">     catch  (Exception e)</span><br><span class="line">     &#123;</span><br><span class="line">         </span><br><span class="line">         <span class="keyword">throw</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>在之前，一种异常只能被Catch一次，现在有了Filter后可以对相同的异常进行过滤，至于有什么用，那就是见仁见智了，我觉得上面的例子，定义两个具体的异常 NameArgumentException 和AgeArgumentException代码更易读。</p>
+<h2 id="九、-Index-初始化器"><a href="#九、-Index-初始化器" class="headerlink" title="九、 Index 初始化器"></a>九、 Index 初始化器</h2><p>这个主要是用在Dictionary上，至于有什么用，我目前没感觉到有一点用处，谁能知道很好的使用场景，欢迎补充:</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">1</span>] = <span class="string">&quot;Jack&quot;</span>,</span><br><span class="line">    [<span class="meta">2</span>] = <span class="string">&quot;Alex&quot;</span>,</span><br><span class="line">    [<span class="meta">3</span>] = <span class="string">&quot;Eric&quot;</span>,</span><br><span class="line">    [<span class="meta">4</span>] = <span class="string">&quot;Jo&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> names)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;item.Key&#125;</span> = <span class="subst">&#123;item.Value&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十、using-静态类的方法可以使用-static-using"><a href="#十、using-静态类的方法可以使用-static-using" class="headerlink" title="十、using 静态类的方法可以使用 static using"></a>十、using 静态类的方法可以使用 static using</h2><p>  这个功能在我看来，同样是很没有用的功能，也为去掉前缀有的时候我们不知道这个是来自哪里的，而且如果有一个同名方法不知道具体用哪个，当然经证实是使用类本身的覆盖，但是容易搞混不是吗？</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">static</span> System.Math;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">CSharp6NewFeatures</span></span><br><span class="line"> &#123;</span><br><span class="line">  <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Log10(<span class="number">5</span>)+PI);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面一到八我认为都是比较有用的新特性，后面的几个我觉得用处不大，当然如果找到合适的使用场景应该有用，欢迎大家补充。</p>
+<p>最后，祝大家编程愉快。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/Microsoft/">Microsoft</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-11-22  <a class="commentCountImg" href="/2015/11/22/management-2015-12-22-best-time-of-microsoft-tech-developers/#comment-container"><span class="display-none-class">0285ea6e06196b17719a618dfac6fe71</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="0285ea6e06196b17719a618dfac6fe71">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>27 m  <i class="fas fa-pencil-alt"> </i>4.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/11/22/management-2015-12-22-best-time-of-microsoft-tech-developers/">微软程序员最好的时代来了</a></h1><div class="content"><p>每过一段时间就有人跳出来说微软不行了，.NET不行了，然后就去舔Java, 但是一直让我觉得比较奇怪的是，几年以后那些人还在用.NET,而且继续喷着.NET, 舔着JAVA, 在我看来，这些人和那些天天喷自己的公司，却依然在那个公司，天天喷中国，却依然在中国的那些人是一样的。</p>
+<h2 id="语言只是工具"><a href="#语言只是工具" class="headerlink" title="语言只是工具"></a>语言只是工具</h2><p>因为我不是非常熟习JAVA, 所以我不知道JAVA擅长做什么，但是我觉得.NET能做的事，基本上JAVA应该都能做，就像我认为JAVA能做的事.NET基本也都能做一样。但是奇怪的是我经常看到的是.NET人员喷.NET, 很少听到JAVA人员喷.NET, 不过我估计很多JAVA人员应该也忙着去喷JAVA吧。这个其实和语言没关系，只是和人的心理有关系，因为人总觉得“碗里的没锅里的好”。</p>
+<p>语言之争已经持续很多年了，其实这个大家都知道没什么意义，网上不是流传一个语言的鄙视链吗？我觉得大家把他当个玩笑罢了，千万别当真，因为不管怎么鄙视，我们毕竟要吃饭的。</p>
+<p>本来我也觉得写这篇文章没什么意义，但是看到那些喷.NET文章，<strong>基本上句句说的都没理</strong>，但是却可能对初入行的人带来很大的误解，就像骗子很容易骗小孩，因为小孩涉世未深。</p>
+<p>我做开发已经10多年了，学过很多语言，但是真正用来吃饭的最主要的语言其实是Visual Basic和.NET, 当然还有”汉语”. 当初也学过Java, JSP, SSH. 但是最后选择了.NET，为什么，一是因为.NET技术真的入门很快，当年入门快的好处之一就是你立马就有一定的生产力，也就是你能很快开始干活，这样就有公司愿意给你付薪水了，也就意味着你可以更早从父母那里断奶了，另外一个原因就是当时面试的要.NET比要JAVA的多呀。</p>
+<h3 id="C-语言"><a href="#C-语言" class="headerlink" title="C# 语言"></a>C# 语言</h3><p>我学习过C, Java，Visual Basic, Ruby，Node.js等，但是我还是觉得C#是生产力非常高的一门语言，比如一些非常优秀的语言特性，你刚刚才能从其它语言里看到一点点，比如自动属性，LINQ, Lamda表达式，Action等，另外C#对多线程的封装让我们在多线程编程时极其方便,比如TPL. 还有令大家头疼的异步回调的问题，C#用非常优雅的Async, Await来解决，我们看到ES7里面已经开始实现类似的东西，是不是借鉴了C#呢？</p>
+<h3 id="多语言混用"><a href="#多语言混用" class="headerlink" title="多语言混用"></a>多语言混用</h3><p>对一个稍微复杂一点的程序来说，我们为什么一定要只使用一个语言呢？比如我们前端可以使用ASP.NET MVC, 后端可以使用Java 甚至是别的任何一个语言，服务我们可以使用WCF, 搜索我们可以使用Solar等等，我们甚至是WEB层，业务层都是用.NET, 而数据库可以使用MySQL或者MongoDB.</p>
+<h3 id="NET或者JAVA只是系统的一部分"><a href="#NET或者JAVA只是系统的一部分" class="headerlink" title=".NET或者JAVA只是系统的一部分"></a>.NET或者JAVA只是系统的一部分</h3><p>我们知道一个WEB程序，除了后端以外，很多其它的东西比如HTML, CSS，JavaScript,数据库这些不管你做Java还是.NET都是一样需要的。也就是前端技术都是相同，另外HTTP协议，TCP/IP这些也不分语言吧。不管你是JAVA还是.NET, AngularJS, ReactJS, HTML5, Bootstrap, Bower, Grunt, Gulp这些东西对你都是一样的吧？</p>
+<h2 id="微软技术能做什么"><a href="#微软技术能做什么" class="headerlink" title="微软技术能做什么"></a>微软技术能做什么</h2><p>我没有做过JAVA程序，但是我使用微软技术10多年了，我就说一说微软技术能做什么。</p>
+<h3 id="桌面程序"><a href="#桌面程序" class="headerlink" title="桌面程序"></a>桌面程序</h3><h4 id="Visual-Basic"><a href="#Visual-Basic" class="headerlink" title="Visual Basic"></a>Visual Basic</h4><p>当年我毕业没多久，就加入一家马来西亚在中国的软件公司，这个公司主要是做门票系统，当时我们选择了Visual Basic, 做过VB的人都知道VB是多么的强大，除了极其方便的可见即所得的Form外，而且有几乎一切你想要的组件，另外我们都知道Windows是桌面系统中当之无愧的的霸主, 我不知道JAVA在这方面的优势是什么，如果有些人说要跨平台，但是我做了这么多年的企业软件，没有几个企业软件是需要跨平台的。当时在这个公司里做了售票系统，还有闸机系统，POS系统，我估计很多人不知道闸机系统原来用Visual Basic也可以做。广州，北京最大的游乐园都是我们当年做的，而当年整个乐园的信息系统都是使用的微软的技术。</p>
+<h4 id="WPF"><a href="#WPF" class="headerlink" title="WPF"></a>WPF</h4><p>微软推出的WPF, 我觉得是对桌面开发程序的极大的进步，几乎所有的桌面程序的展示都可以使用WPF来呈现，而通过WPF可以让我们非常方便快速的做出非常炫的桌面程序，WPF的XAML方式给了我们非常方便的写桌面窗体。 同时模板，动画等在WPF都是极其容易实现，另外MVVM在WPF的应用里非常盛行，WPF可是比Angular早出现了很多年。</p>
+<h4 id="UWP"><a href="#UWP" class="headerlink" title="UWP"></a>UWP</h4><p>不久前，微软推出了Windows 10, 这使一套系统可以运行在桌面，平板以及手机上，而我们可以使用XAML,甚至是JavaScript来开发一套程序就可以运行在多个终端，这个对个人用户可能没有什么，但是对企业用户太重要了，具体的细节我觉得大家可以去看一下MSDN或者Channel9</p>
+<h3 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h3><h4 id="ASP-NET-WEB-Forms"><a href="#ASP-NET-WEB-Forms" class="headerlink" title="ASP.NET WEB Forms"></a>ASP.NET WEB Forms</h4><p>我觉得很多人对微软的误解可能主要是这一部分，当年的ASP.NET WEB Forms由于是快速拖控件，导致界面生成很多难以认识的代码，大量的ViewState等，但是这并不能说ASP.NET WEB Forms不好，第一我们可以使用ASP.NET WEB Forms快速完成一些小型的WEB程序，加上有大量的第三方控件，是开发一些常规的程序快如闪电。第二我们可以尽量使用客户端的控件比如Repeater等，现在仍然有很多网站都是ASP.NET WEB Forms做的，难道这些网站都没有用户?!</p>
+<h4 id="ASP-NET-WEB-MVC"><a href="#ASP-NET-WEB-MVC" class="headerlink" title="ASP.NET WEB MVC"></a>ASP.NET WEB MVC</h4><p>由于很多人对ASP.NET WEB Forms充满抱怨，而且WEB开发技术不断地革新，微软也顺应潮流及时的推出了ASP.NET MVC, 使用MVC可以写出非常清爽的代码，我们团队从ASP.NET MVC1.0 beta就开始使用，由于我也学习过Ruby On Rails，基本上这两个框架非常相似，极其方便的路由管理，View, Controller, Model的分层，使我们可以很好的使用强类型类开发，我们已经使用ASP.NET MVC成果提交过很多项目，还从来没有遇到过问题是出自.NET本身的。</p>
+<h4 id="WEB-服务"><a href="#WEB-服务" class="headerlink" title="WEB 服务"></a>WEB 服务</h4><h5 id="WCF"><a href="#WCF" class="headerlink" title="WCF"></a>WCF</h5><p>使用统一的模型，让我们开发WEB服务极其方便，大部分情况下我们只需要定义一个接口，配置相关的Binding和EndPoint就可以了，可以很方便的使用Http, TCP, Https，可以非常方便的使用各种安全策略，而这些就只需要简简单单的几行配置而已，WCF极大的简化了WEB服务的开发。 </p>
+<h5 id="ASP-NET-WEB-API"><a href="#ASP-NET-WEB-API" class="headerlink" title="ASP.NET WEB API"></a>ASP.NET WEB API</h5><p>除了WCF, 微软又推出了ASP.NET WEB API, 使得我们开发轻量级的WEB 服务极其容易，使用ASP.NET WEB API 我们可以非常容易实现服务的Restful. 而使用OWEN我们可以以任何方式来部署我们的API。</p>
+<h3 id="Azure-微软云"><a href="#Azure-微软云" class="headerlink" title="Azure 微软云"></a>Azure 微软云</h3><p>微软的云非常的强大，使用过微软云的都知道，微软云几乎可以满足我们一切对程序的要求，我们可以使用Azure web apps很方便的创建一个WEB, Webjob, 我们可以使用Azure SQL, 使用Azure storage, 可以极其方便的使用云的Queue, Bus等等，而且云集成了很多优秀的第三方程序，比如我们可以使用Redis作为Cache. 另外微软的Cloud Services让我们可以极其方便的管理我们的部署。这让我们很多程序员从一个程序员可以快速成为可以运维企业整套系统的人，而你只需要学习一些Azure的管理知识，比如自动扩展等等，而这些在云里面都可以快速简单的配置。我们几乎一半客户的系统都运行在Azure里面，而且我们可以一键部署，如果有问题，我们甚至可以使用Visual Studio来直接Debug云里面的网站。</p>
+<h3 id="移动开发"><a href="#移动开发" class="headerlink" title="移动开发"></a>移动开发</h3><p>由于Mono，现在可以使用.NET来开发移动的应用程序，使用Xamarin可以使用C#开发出和原生性能一模一样的iOS和Android程序，我也熟悉Objective-C, 而且用Objective-C开发过程序，虽然说Objective-C 在某些方面很优秀，但是开发效率实在不敢恭维，不然Apple也不会推出Swift来革自己的命，另外当你既需要iOS,又需要Android的时候，你至少需要一个熟悉Objective-C的，又需要一个熟悉Java. 而同样地东西需要做两遍。而使用Xamarin做企业级APP，大量的业务逻辑可以共享，更别说可以直接使用效率非常的C#语言了，我们已经成功提交了好几个基于Xamarin的程序。</p>
+<p>另外，Xamarin推出的Xamarin.Forms可以使用XAML及C#用一套代码来开发iOS, Android以及Windows Phone的程序，而且性能和原生的一模一样，我们也顺利开发过基于Xamarin.Forms的程序。</p>
+<h3 id="游戏开发"><a href="#游戏开发" class="headerlink" title="游戏开发"></a>游戏开发</h3><p>现在已经有很多程序基于Unity开发，而你可以选择C#来作为基于Unity的游戏的主要语言。可以搜索一下，已经有大量的上架游戏是使用.NET开发的。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>当然，以上只是我使用的微软相关技术，目前来说，除了客户明确选择其它语言以外，还真的没有多少是Java能做而.NET做不了的。</p>
+<p><strong>桌面，WEB, 移动开发 都可以使用.NET，简单点说，就是你都可以使用一门语言，那就是C#来开发</strong></p>
+<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><h3 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h3><p>做.NET开发，配套的开发工具是Visual Studio, 我觉得Visual Studio是最好的IDE之一，你几乎可以使用做任何语言的开发，这个使用过的人都非常清楚，虽然说Vim是编辑器之神，而Emacs是神的编辑器，但是显示世界能有多少个神？</p>
+<h3 id="Resharper"><a href="#Resharper" class="headerlink" title="Resharper"></a>Resharper</h3><p>Resharper是每个.NET程序员的必备工具之一，基本上可以让我们的开发效率提高三分之一，设个谁用过谁知道。</p>
+<h2 id="领域驱动设计"><a href="#领域驱动设计" class="headerlink" title="领域驱动设计"></a>领域驱动设计</h2><p>如果我没有记错的话，虽然Eric Evans较早写了领域驱动设计一书，但真正推动领域驱动设计的是有很多做.NET开发的，比如Greg Young, 我们可以看看NServicebus. 可以看看 <a target="_blank" rel="noopener" href="http://particular.net/">NServicebus</a></p>
+<p>我们已经使用领域驱动设计提交了一个非常大型的项目，这个项目是一个世界500强的主要系统。而这个系统就是使用的.NET C#，使用了CQRS, NServicebus, ASP.NET MVC, ASP.NET WEB API，SQL Server等等，系统已经运行了好几年了，还没有发现什么问题。</p>
+<p>有兴趣的可以关注一下我的领域驱动系列。</p>
+<h2 id="长尾理论"><a href="#长尾理论" class="headerlink" title="长尾理论"></a>长尾理论</h2><p>很多人说大型的一些系统都没有用.NET, 比如BAT, 比如新浪微博，他们是不是一点都没有用.NET我不知道。我想说的第一那些系统都比较庞大，使用JAVA或者PHP很多时候是基于历史的选择，另外这些系统就那么几个，而且并不是所有的软件都是电商，都是微博？</p>
+<p>我在这里想说的长尾，就是第一中小企业几乎占据所有的企业的80%, 而这些企业需要各种各样的系统，而这些企业不论是国内还是国外，都是Windows占大部分。虽然我也非常喜欢苹果的产品，但是企业是需要赚钱的。 也就是说80%的企业都不会像BAT那么大，那么至少这80%的系统使用.NET开发没有任何问题，再加上.NET有着很高的开发效率，我们有什么理由不选择呢？</p>
+<h2 id="使用-NET应该是企业或者客户项目的第一选择"><a href="#使用-NET应该是企业或者客户项目的第一选择" class="headerlink" title="使用.NET应该是企业或者客户项目的第一选择"></a>使用.NET应该是企业或者客户项目的第一选择</h2><p>如果只做WEB系统，或者只做电商之类，那么使用其它任何语言都没问题，但是一旦做企业系统，往往.NET是一开始非常安全的选择，为什么？ 因为很多企业使用的系统是Windows， 使用的办公软件是Office, 使用的服务器是Windows Server，使用的是AD, 使用的邮件系统是Exchang Server， 我不知道你们使用JAVA和PHP和这些系统集成时是否方便，但是使用.NET是非常方便的。目前来看，.NET几乎可以满足企业应用的所有的现有的需求以及潜在的需求。</p>
+<h2 id="关于开源，关于免费"><a href="#关于开源，关于免费" class="headerlink" title="关于开源，关于免费"></a>关于开源，关于免费</h2><p>现在.NET很多东西都开源了，.NET CORE 和 ASP.NET VNext已经可以跑在Mac和Linux上了，我相信会越来越多的.NET程序将来会跑在Linux服务器上，另外大部分程序根本就用不了那么多服务器，如果我们真的需要那么多服务，证明公司已经很有钱了，还买不起几个Windows？而且如果真的需要那么多服务器，我们可以使用Microsoft Azure, 买几个Windows总比要请几个Linux运维工程师要便宜很多吧。</p>
+<h2 id="最后，没有人限制你只会-NET"><a href="#最后，没有人限制你只会-NET" class="headerlink" title="最后，没有人限制你只会.NET"></a>最后，没有人限制你只会.NET</h2><p>没有谁能限制.NET程序员学习其他的语言，.NET程序员可以学习Java, Ruby, Node.js， 可以学习Event Driven, Message Queue, Solar, 学习MongoDB, Redis, 学习分布式缓存，学习任何其它语言需要学习的东西。</p>
+<h2 id="关于薪水"><a href="#关于薪水" class="headerlink" title="关于薪水"></a>关于薪水</h2><p>我不相信一个人学两个月JAVA, 不学习其它东西就可以立马成为一个优秀的程序员，就可以拿到很高的薪水，因为在我看来，要成为一个优秀的.NET程序员，需要学习大量的知识，我相信JAVA程序员也是一样。如果说.NET程序员年薪几百万我没见过，但是把.NET学好可以拿到相对不错的薪水还是没有问题的。</p>
+<p>我们就是使用.NET的技术，如果你觉得你.NET技术还可以而没有地方发挥的，欢迎联系我 <a href="mailto:&#119;&#97;&#110;&#103;&#x64;&#101;&#115;&#x68;&#x75;&#105;&#x40;&#111;&#x75;&#116;&#108;&#111;&#x6f;&#107;&#x2e;&#x63;&#x6f;&#109;">&#119;&#97;&#110;&#103;&#x64;&#101;&#115;&#x68;&#x75;&#105;&#x40;&#111;&#x75;&#116;&#108;&#111;&#x6f;&#107;&#x2e;&#x63;&#x6f;&#109;</a></p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-11-05  <a class="commentCountImg" href="/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/#comment-container"><span class="display-none-class">e8a126402555d56a4c6f02e5c8f0ac01</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e8a126402555d56a4c6f02e5c8f0ac01">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/11/05/agile-2015-11-5-agile-gif-flow-practice/">敏捷实践系列(五)：迁移已有项目到Git flow</a></h1><div class="content"><p>上一篇 <a href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management/">敏捷实践系列(四)：代码管理流程</a> 给大家详细的讲解了一下Git flow, 本周我们就把一个客户的所有项目实施了Git flow, 如果说你详细看了那篇文章，那么你就能了解为何要进行Git flow 以及如何对一个新项目按Git flow的流程操作， 但是当我们整理已有的项目时，我们发现了以下几个问题需要一些方法处理。</p>
+<h2 id="错乱的分支名如何解决"><a href="#错乱的分支名如何解决" class="headerlink" title="错乱的分支名如何解决"></a>错乱的分支名如何解决</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>我们遇到的一个项目，一开始生产环境用的是master分支，突然客户提出他们有一个客户有特殊需求，让打一个分支出来，团队成员就打出了一个master-quickfix 分支，但是后来这个分支上功能越来越多，慢慢的团队成员就把这个分支当做master分支用了，此时develop和 master-quickfix 分支也早已分道扬镳。然后所有的客户又需要相同的功能，这样如果想合并会master将是非常难的，因为冲突太大。 经过沟通和核实，我们发现现在的master-quickfix其实承担了master的角色，所以我们要让master-quickfix当做master.</p>
+<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><h4 id="方案一-用master-quickfix-代码覆盖master"><a href="#方案一-用master-quickfix-代码覆盖master" class="headerlink" title="方案一 用master-quickfix 代码覆盖master"></a>方案一 用master-quickfix 代码覆盖master</h4><pre><code>git checkout master-quickfix
+
+merge master - ignoring master&#39;s changes
+git merge -s ours master
+
+git checkout master
+
+# finally merge all our stuff to new master - actually it replaces the master with master-quickfix
+git merge master-quickfix
+
+# now master-quickfix can be deleted
+git push origin: master-quickfix</code></pre>
+<p>然后我们就看到master上代码已经和原来master-quickfix上一样了，但是<strong>这个方法有一个问题就是 master-quickfix上的提交日志没有了</strong>，如果你不在乎提交日志那么就可以使用这个方法。</p>
+<h4 id="方案二-改分支名"><a href="#方案二-改分支名" class="headerlink" title="方案二 改分支名"></a>方案二 改分支名</h4><pre><code>git branch -m master new_master         # Rename branch locally    
+git push origin :master                 # Delete the old branch    
+git push --set-upstream origin new_master   # Push the new branch, set local branch to track the new remote
+
+
+git branch -m master-quickfix master         # Rename branch locally    
+git push origin : master-quickfix                 # Delete the old branch    
+git push --set-upstream origin master   # Push the new branch, set local branch to track the new remote</code></pre>
+<p>使用这个方法，就可以看到master-quickfix上的分支的提交记录，过程当中会删除旧的远程master分支，以及master-quickfix分支<br>，所以需要你确认要删除的分支有备份及没有问题，危险系数5星， 我在做这个操作的时候向别人确认了多次。我操作的时候手都抖呀！</p>
+<h2 id="不同的客户不同的分支问题"><a href="#不同的客户不同的分支问题" class="headerlink" title="不同的客户不同的分支问题"></a>不同的客户不同的分支问题</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>原来有一个项目，项目有不同的客户，导致不同的客户的代码在不同的分支上，这导致代码难以管理，功能散乱在各个分支，时间久了，开发人员都不知道每个分支上有哪些功能。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>针对这个问题，我们的想法是不同客户使用同一套代码库，还是使用Git flow, 因为不同的客户需要不同的功能，这其实就是一个SaaS系统，所以我们把系统改为SaaS系统，代码用同一套，不同的客户使用什么功能使用SaaS管理端来配置。 这样做有很多好处，比如：给A客户做的功能很容易再卖给B客户，同时很容易给不同的客户做个性化的配置，例如界面样式等等。 当然，这个需要你的强大的沟通能力，因为改为SaaS需要时间哪，时间就是金钱嘛！</p>
+<p>如果你的客户不同意，或者你需要项目遵守一些”特殊规则或者某个国家特殊政策”，导致整套系统<strong>非常</strong>不同, 那么我的建议是你重新建一个代码库给这个特殊客户，而不要用分支来区分。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>由于我们团队的敏捷程度还可以，所以推行Git flow的流程除了以上几个技术上的问题以外，其它的都很顺利。 如果你想实行Git flow，那么再次提醒务必完全理解这个流程再开始。请阅读：<a href="http://deshui.wang/%E6%95%8F%E6%8D%B7/2015/10/27/sourcecode-management/">敏捷实践系列(四)：代码管理流程</a></p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/agile/git-flow/git-flow-sample.png" />
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%95%8F%E6%8D%B7/">敏捷</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/8/">Previous</a></div><div class="pagination-next"><a href="/page/10/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><a class="pagination-link is-current" href="/page/9/">9</a></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/13/">13</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">129</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-18T15:30:00.000Z">2021-01-18</time></p><p class="title"><a href="/2021/01/18/personaldev-2021-01-12-leadership-do-not-be-good-man-to-everything/">领导力：不要做个“好人”</a></p><p class="categories"><a href="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/">领导力</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-04T15:30:00.000Z">2021-01-04</time></p><p class="title"><a href="/2021/01/04/personaldev-2021-01-04-think-you-are-product/">把自己当做产品</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-31T15:30:00.000Z">2020-12-31</time></p><p class="title"><a href="/2020/12/31/personaldev-2020-12-31-annual-summary-2020/">2020年终总结</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-05T15:30:00.000Z">2020-12-05</time></p><p class="title"><a href="/2020/12/05/personaldev-2020-12-05-use-software-thinking-to-managment/">用软件系统思维来看管理</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-10-31T15:30:00.000Z">2020-10-31</time></p><p class="title"><a href="/2020/10/31/personaldev-2020-10-31-new-saving/">新时代的节俭</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">June 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87-%E9%A2%86%E5%AF%BC%E5%8A%9B/"><span class="tag">个人发展 思维提升 领导力</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 王德水</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

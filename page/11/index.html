@@ -1,299 +1,482 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"王德水"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/recruit">招聘</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-10  <a class="commentCountImg" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/#comment-container"><span class="display-none-class">9b563140d196ed5be8619041bb3e8d98</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="9b563140d196ed5be8619041bb3e8d98">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>8 m  <i class="fas fa-pencil-alt"> </i>1.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/10/technologies-DDD-2015-2-10-why-ddd/">领域驱动设计系列（一）:为何要领域驱动设计？</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>领域驱动设计最近貌似开始火起来了，越来越多的人开始认识到领域设计的重要性，从我做过的项目来看，似乎欧洲已经有很多的公司开始实施领域驱动设计了，我看领域驱动设计也有些时间了，但是网上不管是文章还是代码，都显得太过“高大上”，一谈领域驱动设计，一大堆的概念一股脑的给你上上来，搞的有点晕头转向，而我想在一些中小项目实施领域驱动也遇到了不小的障碍，大家对很多东西都处于一种恐惧的状态，而且在正真开始实施时，也遇到一些疑问，所以也想和大家交流学习，因此开始在此写写对领域驱动的理解，后面会有一些轻量的演进代码。</p>
-<h1 id="为何要领域驱动设计？"><a href="#为何要领域驱动设计？" class="headerlink" title="为何要领域驱动设计？"></a>为何要领域驱动设计？</h1><h2 id="简化数据存储"><a href="#简化数据存储" class="headerlink" title="简化数据存储"></a>简化数据存储</h2><p>领域驱动设计有很多原因，谈到我为啥要在公司推行领域驱动设计，说起来还是很好玩的，因为原来基于数据驱动的开发方式，也就是传统的多层开发架构，大家定义了一堆DAL来操作数据, 在.Net大家一般有两种使用方式，一种是用ORM像Entity Framework, 另一种想使用Dapper这样轻量级的Mapping工具，这些都要把关系型数据转换为对象。结果导致以下几种结果。</p>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>敏捷的水</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="敏捷的水"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="敏捷的水"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="敏捷的水"><meta property="og:url" content="https://wangdeshui.github.io/"><meta property="og:site_name" content="敏捷的水"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://wangdeshui.github.io/img/og_image.png"><meta property="article:author" content="敏捷的水"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://deshui.wang"},"headline":"敏捷的水","image":["http://deshui.wang/img/og_image.png"],"author":{"@type":"Person","name":"王德水"},"description":""}</script><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">敏捷的水</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/recruit">招聘</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-06-04  <a class="commentCountImg" href="/2015/06/04/technologies-DDD-2015-6-5-cqrs/#comment-container"><span class="display-none-class">8d89fbb44546c293165d7fec002ff3fe</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="8d89fbb44546c293165d7fec002ff3fe">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>10 m  <i class="fas fa-pencil-alt"> </i>1.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/06/04/technologies-DDD-2015-6-5-cqrs/">领域驱动设计系列（六）:CQRS</a></h1><div class="content"><style>
+  img {
+      max-width: 600px;
+      border: solid 1px gray;
+      border-radius: 5px;
+      padding: 5px;
+  }
+
+
+</style>
+
+
+<p>CQRS是Command Query Responsibility Seperation（命令查询职责分离）的缩写。 世上很多事情都比较复杂，但是我们只要进行一些简单的分类后，那么事情就简单了很多，比如我们把人分为男人和女人，也可以把人分为大人和小孩，还比如，我们说国内和国外，城市和农村。经过一些类似这样的划分，我们的对不同的类就有不同的关注。 这样我们就会有妇女儿童医院专门让女人生孩子，而不会建一个医院让男女都生孩子。</p>
+<p>##CRUD</p>
+<p>CRUD (Create, Read, Update, Delete) 增查改删，我们很多系统都是对数据的增查改删。过去我们很多系统比较简单，基本上增加的数据就是你要查询的数据，所以很多时候其实一个简单的Excel就能搞定。 而且增删改查也足够的简单，所以我们很多系统分层后在数据层Repository里仍是对单表的增删改查，这样对不少的系统都符合。</p>
+<p>但是，系统规模稍微大一点，我们都知道我们的数据库里的数据模型很难和我们业务层需要的模型一致。 于是我们引入了Domain Model,  Repository里就会做Domain Model的来回转换</p>
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/1.png" />
+
+
+<p>同时我们在UI层要的数据，往往又和具体的Domain不同，这个时候我们又要定义一个ViewModel. 而这些ViewModel又是组合不同的DomainModel得来。 </p>
+<p>传统的代码里的问题：</p>
 <ul>
-<li>没有正确的使用ORM, 导致数据加载过多，导致系统性能很差。</li>
-<li>为了解决性能问题，就不加载一些导航属性，但是确保DB Entity返回上层，这样对象的一些属性为空，上层使用这个数据时根本不知道什么时间这个属性是有值的，这个是很丑陋的是不是？</li>
-<li>如是又开始使用一些轻量级的数据方法，比如使用Dapper然后自己写SQL语句，这本来是很不错的方式，但是大部分人的SQL能力实在不敢恭维，大部分写出来的SQL语句，甚至比EnityFramework生成的语句还差。</li>
+<li>领域里有很多分页和排序，尤其是Repository里</li>
+<li>查询的方法里暴露了很多不应该有的领域模型的属性，因为需要组装DTO</li>
+<li>如果使用ORM，预加载了很多数据以提高性能，但是占用大量内存，而且需要维护这些数据。</li>
+<li>加载组合庞大的数据，比如页面是需要一个名字，我们也会把整个User数据取出来。</li>
 </ul>
-<p>所以，我就想我们做项目，大部分处理的应该是因为，如何让程序员从数据存储，模型转换的大泥潭里解放出来，领域驱动设计就进入了我的实现，当然但从数据这个角度还不足以选择领域驱动设计，用一个NoSQL数据库是不是就解决了？ 但是NoSQL也有一些问题，比如MongoDB如何更优雅的保证事务以及数据的一致性等。</p>
-<h2 id="更多了解上下文"><a href="#更多了解上下文" class="headerlink" title="更多了解上下文"></a>更多了解上下文</h2><p>我们很多软件的问题，大家都知道是需求的问题，也就是客户的需求我们很难理解准确，导致程序员更加关注”HOW” 而忽略了”WHAT”, 最终做了几个礼拜甚至更长时间，结果客户会说:”What?! I told you”, 但是客户告诉我的，我们理解是不一样的。比如客户说：“ Great job, I love you!” 这个Love肯定不是男女之间的Love, 我们拿到的是一个客户的需求，他的上下文是什么？ 比如说：“这个球打的好”， 如果是在打篮球，肯定说的事篮球，如果是在打乒乓球肯定说的是乒乓球。 而领域驱动设计里我们可以让业务人员更多的参与系统，更早的参与系统。</p>
-<h2 id="统一语言-Ubiquitous-Language"><a href="#统一语言-Ubiquitous-Language" class="headerlink" title="统一语言(Ubiquitous Language)"></a>统一语言(Ubiquitous Language)</h2><p>业务人员和我们使用一样的语言，我们的程序比如让业务尽量集中在领域里，比如在传统的数据驱动里，如果说Jack爱Rose, 我们一般会这么写</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserService.Love(Jack, Rose)</span><br></pre></td></tr></table></figure>
-<p>但是我们业务人员很奇怪谁Love谁？ 为什么要UserService?, 如果我们写成下面这样</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jack.Love(Rose)</span><br></pre></td></tr></table></figure>
-<p>还有如果我们用</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Company.hire(employee)</span><br></pre></td></tr></table></figure>
-<p>来代替</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">companyservice.hire(company,employee)</span><br></pre></td></tr></table></figure>
-<p>这样我们就更容易让业务人员参与进来，而且代码可以更易于表示真实的业务场景。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-01-21  <a class="commentCountImg" href="/2015/01/21/life-2014-1-21-football-dream/#comment-container"><span class="display-none-class">f75721b95b032d7a873ce686dfeeea54</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="f75721b95b032d7a873ce686dfeeea54">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/01/21/life-2014-1-21-football-dream/">梦想的实现需要时间</a></h1><div class="content"><h1 id="梦想"><a href="#梦想" class="headerlink" title="梦想"></a>梦想</h1><p>从我记事后，在郝海东那段时间，中国足球在亚洲也算是风生水起，但是从那以后再也没有对中国足球有任何的梦想。教练换了又换，从外国教练换到国内，从国内换到国际，足球每况愈下。</p>
-<p>这次亚洲杯，又一次燃起了中国球迷对中国足球的希望和梦想。</p>
-<h1 id="梦想是需要时间的"><a href="#梦想是需要时间的" class="headerlink" title="梦想是需要时间的"></a>梦想是需要时间的</h1><p>这次国足亚洲杯小组赛赢了沙特，赢了乌兹别克斯坦，然后中国球迷和媒体说，既然赢了两场，那么就全胜出线，打朝鲜，上半场踢的不错，主持人就说中国队是顶级时候的巴萨。可是大家难道没看到朝鲜下半场变成了顶级时候的皇马？</p>
-<p>然后侥幸三场全胜出线了，球迷和媒体有开始说：“既然出线，那就夺冠”， 这让我想起02年世界杯的时候 “赢哥斯达黎加，平土耳其，小输巴西”，最后结果是三场比赛全输，丢了9个球，让我们认识到自己还是“三教九流”</p>
-<p>从这件事情上， 我们可以看到大部分的球迷呀，媒体呀都想一口吃个胖子，我猜中国足球的现状和中国球迷以及媒体也有很大的关系，教练想干点实事，但是大家都要赢，有进步，大家其实很难看到，所以我猜每一个教练都只能是赌博式的，不然输了就得下课。如此下去，就像我们把程序功能做的看起来不错，但是代码里面千疮百孔，经不起时间的考验。</p>
-<p>我觉得，我们都要有梦想，但是梦想都需要一个因素，那就是时间，那就是脚踏实地。那就是科学，每次国足输了，大家都说没拼，拼了就能理解，但是我想说，现代体育光靠拼是不行的，越是体育类比赛越是要靠脑子才能上一个台阶。</p>
-<p>给国足时间，明天的比赛输赢有何重要？五星巴西没输过吗？</p>
-<p>有梦想，有信心，但是务实更重要，持续进步才是最重要的。</p>
-<p>明天彩票买澳大利亚赢吧，看球的时候就不那么紧张了，如果中国赢了，权当买酒庆祝了，如果中国输了，至少彩票还能赚点，你呢？</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-01-14  <a class="commentCountImg" href="/2015/01/14/life-2015-1-14-china-football/#comment-container"><span class="display-none-class">731cc479046c7494dc201f199c7e4ae1</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="731cc479046c7494dc201f199c7e4ae1">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.9 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/01/14/life-2015-1-14-china-football/">国足亚洲杯小组赛</a></h1><div class="content"><p>好久没看国家队比赛，上大学时，那几年球市比较火，当时陕西队还在甲B, 那个时候陕西国力踢的很不错，我也几次买了最便宜的票去现场加油，陕西球迷的热情几次搞得比赛不得不移到宝鸡。</p>
-<p>但是中国进入2002年世界杯后，那些熟悉的老将郝海东，范志毅，李明，李铁，李金羽等等都相继老去，而且国家队每每关键时刻给你顶不住最后3分钟，慢慢的我就不怎么看中国队了。</p>
-<p>虽然不看中国比赛，但是新闻还是看的，之前知道中国队预选赛输了尽然都能进亚洲杯。</p>
-<p>这次亚洲杯我正好休假，看了一场中国对沙特的比赛，感觉中国队和之前不太一样了，感觉有拼劲。确实看到了一些亮点，至于是不是佩兰执教带来的一些变化，这个还有待检验。第一场整体感觉上还是运气，因为沙特点球没进，而且我们进的球也很诡异，所以第一场比赛下来，感觉踢的还可以，但是还是觉得中国队有些侥幸。</p>
-<p>今天打乌兹别克斯坦，这个球队实力确实不错，从历史交锋上，中国队就处于下风，观看了前30分钟，感觉中国队踢的不错，从传球到控球都有章法，但是上半场最后15分钟，感觉中国队的球员明显想法不一致，有些想进攻，有些不敢进攻，控球明显不如乌兹别克斯坦，而且失误增多，最后别对手攻入一球。</p>
-<p>但是，我也并没失去希望，因为中国队前半个小时都占优势，回到休息室，我相信教练一定会做出调整，只要球队思路一致，找回之前的感觉，就一定有机会，果然下半场一开始，中国队就打的不错，后来佩兰果断的换人，起了非常重要的作用，大家可能觉得换人是神来之笔，但是我觉得换人后明显中场的球员敢于控球，而且前腰的队员明显敢于突破，这样就让球大部分时间都在对方战场，最终果然2比1逆转。</p>
-<p>这次中国队赢球，着实也让我激动一把，因为看到中国队逆转的足球比赛太少了，听到主持人说：“留给乌兹别克斯坦斯坦的时间不多了”，我相信大部分中国球迷都是无比的激动，感觉压抑多年的一口气终于可以释放一次了。</p>
-<p>中国足球要想提高，除了提升球员个人能力之外，球队的团结，技战术的提高，以及球队的信息和意志是更重要的。</p>
-<p>期待中国足球越来越好。</p>
-<p>写下此片日记的目的，就是中国足球的胜利了，都逆袭了，我还有什么不努力呢？ 加油！</p>
-<p>更令人高兴的时，今天心血来潮，堵了一把求，买中国赢，小赚了一把。</p>
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-12-05  <a class="commentCountImg" href="/2014/12/05/life-2014-12-5-attend-winter-party/#comment-container"><span class="display-none-class">b4e9401852579b51f6645acc09b4fdb3</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="b4e9401852579b51f6645acc09b4fdb3">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/12/05/life-2014-12-5-attend-winter-party/">斯德哥尔摩30天-参加客户的年会</a></h1><div class="content"><p>很有幸参加了客户的年会，听说大家都带家属，帅哥美女云集，所以我们都迫不及待。</p>
-<p>年会的逼格还是非常高，先是大Boss讲话，然后请了个长的像瑞典王子的人讲话，一开始大家都被骗了，后来才知道是演员。</p>
-<p>每一个人都端着红酒杯，风度翩翩的和别人聊天，我们当然作为嘉宾也受到了分外的照顾。 我们也和很多人聊了会儿天，对大家有更多的了解。</p>
-<p>随后就是表演，晚餐。</p>
-<p>晚餐过后，就是跳舞，虽然有位美女极力邀请我跳舞，可惜我不会，只好找个借口溜之大吉了。</p>
-<p>还是上图片吧。</p>
-<p>晚会的地方</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/1.jpg"/>
-
-<p>酒</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/2.jpg"/>
-
-<p>正装</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/3.jpg"/>
+<p>重要的原来把数据混在一起，复杂的查询相当难以优化。 尤其是数据库出现大量的Join 系统性能极速下降。</p>
+<p>最重要的是我们把读写都放在了一起，显得责任不够清晰，代码也更复杂了一些，比如读数据是不太关心事物的，读数据是不需要验证的，只有写的时候才需要做数据校验，这也比较符合SRP(单一职责)，但是用CRUD的思维是我们全都混在了一起。</p>
+<h3 id="CQRS"><a href="#CQRS" class="headerlink" title="CQRS"></a>CQRS</h3><p>我们仔细看CRUD, 其实可以更简单的分为读(R)和写(CUD), 我们想想大部分情况都是，一个方法要么是执行一个Command完成一个动作，要么就是查询返回数据。 比如我们回答问题的人不应该去修改问题。</p>
+<p>当我们读写分离后，我们对应的代码也会分离。</p>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><p>写的一端需要保证事物，所以一般数据存储为第三范式,<br>读的一端一般都是反范式可以避免Join操作，这样我们只需要把数据存储为第一范式</p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>大部分的系统里写数据要远远少于读数据，并且一般都是每次修改很少的一部分数据，所以在写这端扩展都不是特别紧迫，读数据基本都远大于写数据的次数， 所以扩展就更重要。 我们很难建立同一个Model 既能给写数据和读数据公用而且能够保证性能都比较好的。</p>
+<h4 id="查询端"><a href="#查询端" class="headerlink" title="查询端"></a>查询端</h4><p>查询端由于只是读数据，那么所有的方法应该都是返回数据，而且返回的数据就是界面直接需要的DTO, 这样可以减少传统的方法中把DomainModel映射为ViewModel或者DTO. 同时可以减少传统的领域里的一些混乱。</p>
+<h4 id="写端"><a href="#写端" class="headerlink" title="写端"></a>写端</h4><p>由于把读分离出去，所以我们就只关注写，那么我们写这一段需要保证事物，数据输入的验证，另外一般写这一端都不需要及时的看到结果，所以大部分都需要一个void方法就可以，那么让我们系统异步就更加方便。这样使系统的扩展性大大增强。</p>
+<h4 id="代码更容易集中处理"><a href="#代码更容易集中处理" class="headerlink" title="代码更容易集中处理"></a>代码更容易集中处理</h4><p>当我在一些系统中使用CQRS后，很多地方代码大大简化，比如我所有的写操作都是一个Command, 那么我定义一个UICommand, 让所有的Command集成这个，那么我可以在这个UICommand里做一些通用的处理，比如Validation</p>
+<p>同时我只需要定义一个CommandBus, 然后把对应的CommandBus分发到对应的Handler里（我前面几篇有实例代码），那么代码的耦合度大大降低。</p>
+<h4 id="代码分工协作更容易"><a href="#代码分工协作更容易" class="headerlink" title="代码分工协作更容易"></a>代码分工协作更容易</h4><p>由于读这一端直接读数据，而且对数据库没有任何操作，那么我们可以根据UI定义对应的DTO, 那么开发的时候我们可以用Mock数据，至于数据怎么存的，那么我们随后只要添加一层Thin Data Layer即可，实际上当我们使用CQRS后，很多时候我们把数据保存的时候都直接保存为Denormalize的，那么从数据里直接查询单表的数据就可以拿到页面需要的数据，大大提升读取数据的性能，同时代码也会极其的简化，开发读这一段代码的开发人员甚至都不需要对业务有太多了解。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="简单的实现"><a href="#简单的实现" class="headerlink" title="简单的实现"></a>简单的实现</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/2.png" />
+<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/3.png" />
 
 
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/4.jpg"/>
-
-<p>我们的帅哥，也是我们的朋友</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/5.jpg"/>
-
-<p>三个屌丝，中间是我</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/6.jpg"/>
-
-<p>高朋满座</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/7.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/8.jpg"/>
-
-
-<p>假瑞典王子，骗过不少人呀</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/9.jpg"/>
-
-<p>他们最佳员工，和我们密切合作的，主要是与外包团队协作，我们是不是也骄傲一下？</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/10.jpg"/>
-
-<p>美女们，其中一个来机场接我们，谢谢了。</p>
-<img  class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/11.jpg"/>
-
-<p>真心不错的合唱，天籁之音的感觉</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/12.jpg"/>
-
-<p>姑娘，你的衣服真的穿好了吗？</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/13.jpg"/>
-
-<p>和我一起做项目的帅哥，看看人家，以后你们再叫我帅哥，我就知道你们是违心的。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/winter-party/14.jpg"/>
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-30  <a class="commentCountImg" href="/2014/11/30/life-2014-11-30-scene-spots/#comment-container"><span class="display-none-class">95292a012ee91fcdf34547fe6edb5b45</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="95292a012ee91fcdf34547fe6edb5b45">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>4 m  <i class="fas fa-pencil-alt"> </i>0.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/30/life-2014-11-30-scene-spots/">斯德哥尔摩30天-一日游</a></h1><div class="content"><p>昨天周六赶工了一天，今天周日决定好好休息一下，把瑞典的几个主要的旅游经典参观一下。</p>
-<h1 id="市政厅"><a href="#市政厅" class="headerlink" title="市政厅"></a>市政厅</h1><blockquote>
-<p>建于1911年，历时12年才完成，是瑞典建筑中最重要的作品。建筑两边临水，一座巍然矗立着的塔楼，与沿水面展开的裙房形成强烈的对比，加之装饰性很强的纵向长条窗，整个建筑犹如一艘航行中的大船，宏伟壮丽。<br>斯德哥尔摩市政厅位于瑞典首都市中心的梅拉伦湖畔，是斯德哥尔摩的形象和代表，也是该市市政委员会的办公场所。<br>斯德哥尔摩市政厅是一座宏伟壮观，设计新颖的红砖砌筑的建筑物，800万块红砖砌成的外墙，在高低错落、虚实相谐中保持着北欧传统古典建筑的诗情画意。市政厅的右侧是一座高106米，带有3个镀金皇冠的尖塔，代表瑞典、丹麦、挪威三国人民的合作无间。据说登上塔顶部，可一览整个城市的风貌。<br>市政厅内有巨大的宴会厅。宴会厅也有“蓝厅”的誉称。每年的12月10日是诺贝尔逝世日。这一天，诺贝尔奖金颁发后，瑞典国王和王后都要在宴会厅，为诺贝尔奖金获得者举行隆重盛大的宴会，表示热烈的祝贺。</p>
-</blockquote>
-<div class="img-container">
-    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/1.jpg"/>
-    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/2.jpg"/>
-    <img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/3.jpg"/>
-
-<img class="img-responsive"  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/8.jpg"/>
-</div>
-
-<h1 id="瑞典皇宫"><a href="#瑞典皇宫" class="headerlink" title="瑞典皇宫"></a>瑞典皇宫</h1><blockquote>
-<p>瑞典皇宫是国王办公和举行庆典的地方，斯德哥尔摩主要旅游景点。坐落在斯德哥尔摩市中心。建于17世纪，是瑞典著名建巩学家特里亚尔的作品。皇宫方正宽敞，中间有一个很大的场院，楼房围着场院而建，共有608个房间，比英国的白金汉宫还多4间。如今瑞典王室并不住在这里，而是住在在郊区的皇后岛，国王每天开车到皇宫来上班。</p>
-</blockquote>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/4.jpg"/>
-
-<h1 id="诺贝尔博物馆"><a href="#诺贝尔博物馆" class="headerlink" title="诺贝尔博物馆"></a>诺贝尔博物馆</h1><p>这里能看到莫言的图像和介绍，还是很骄傲的！</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/5.jpg" style="max-width:300px;" />
-
-
-<h1 id="斯堪森"><a href="#斯堪森" class="headerlink" title="斯堪森"></a>斯堪森</h1><p>斯堪森的介绍很好，但是去了确实没意思，比起我大秦岭野生动物园差太多了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/6.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/7.jpg"/>
-
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/9.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/10.jpg"/>
-
-<p>下面是修女吗？</p>
-<p>一首 《we wish you a merry christmas》甚是好听。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141130/11.jpg"/>
+<h4 id="使用的Event后"><a href="#使用的Event后" class="headerlink" title="使用的Event后"></a>使用的Event后</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/4.png" />
 
 
 
 
+<h4 id="使用了Event-Source-和Service-bus后"><a href="#使用了Event-Source-和Service-bus后" class="headerlink" title="使用了Event Source 和Service bus后"></a>使用了Event Source 和Service bus后</h4><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/cqrs/6.jpg" />
 
 
 
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-23  <a class="commentCountImg" href="/2014/11/23/life-2014-11-23-ship-island/#comment-container"><span class="display-none-class">b528216aff2ea4679916edda580b889b</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="b528216aff2ea4679916edda580b889b">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/23/life-2014-11-23-ship-island/">斯德哥尔摩30天-船岛</a></h1><div class="content"><p>今天是周日，由于星期中间都是相当的忙，今天决定自己转转，准备出发去船岛。</p>
-<p>天气非常晴朗。</p>
-<p>走了一段，就被一个户外的溜冰场给吸引了，那是真的冰，太酷了。</p>
-<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/1.jpg"/>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-05-12  <a class="commentCountImg" href="/2015/05/12/technologies-2015-5-12-net-study-road/#comment-container"><span class="display-none-class">7b4883821084a1252563ac4c68d761a2</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="7b4883821084a1252563ac4c68d761a2">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>4 m  <i class="fas fa-pencil-alt"> </i>0.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/05/12/technologies-2015-5-12-net-study-road/">.Net WEB 程序员需要掌握的技能</a></h1><div class="content"><style type="text/css">
+img {    
+    margin: 10px;
+    max-width: 150px;        
+    }
 
-<p>然后竟然走到了那天晚上喝酒的酒店</p>
-<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/3.jpg"/>
+</style>
 
-<p>很快就到了船岛，美景无法言表，天很清，水很清，空气很fresh.</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/2.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/4.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/5.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/6.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/7.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/8.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/9.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/10.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/11.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/12.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/13.jpg"/>
+<p>最近公司里有新入职的员工，根据个人的理解和经验，我来列一下一个.Net WEB程序员需要掌握的知识</p>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><ul>
+<li>C# 基础语法</li>
+<li>OOP的概念，面向对象的理解<ul>
+<li>继承</li>
+<li>封装</li>
+<li>多态</li>
+</ul>
+</li>
+<li>ASP.NET MVC (Web Form 用的越来越少，如果你不熟悉，可以不看)</li>
+<li>JavaScript<ul>
+<li>基础语法</li>
+<li>如何在HTML里使用JavaScript</li>
+<li>常用Dom 操作</li>
+</ul>
+</li>
+<li>SQL Server <ul>
+<li>常用T-SQL 增删改查</li>
+<li>SQL Managment studio 常用操作</li>
+</ul>
+</li>
+<li>jQuery 常用API</li>
+<li>HTML <ul>
+<li>HTML 所有标签的语义，什么时候用什么标签</li>
+</ul>
+</li>
+<li>CSS<ul>
+<li>常用CSS的知识，如何在HTML使用</li>
+<li>常用的布局 </li>
+</ul>
+</li>
+<li>Bootstrap</li>
+<li>C# 代码规范</li>
+<li>CSS 代码规范</li>
+<li>JavScript代码规范</li>
+<li>Git的基本使用<ul>
+<li>常用命令使用</li>
+<li>获取代码</li>
+<li>解决冲突</li>
+<li>提交代码</li>
+<li>新建分支，合并分支</li>
+</ul>
+</li>
+<li>Github<ul>
+<li>帐号设置</li>
+<li>SSH 配置 </li>
+</ul>
+</li>
+<li>三层设计<ul>
+<li>UI</li>
+<li>Service</li>
+<li>Repository</li>
+<li>事务的代码实现</li>
+</ul>
+</li>
+</ul>
+<h2 id="提高部分"><a href="#提高部分" class="headerlink" title="提高部分"></a>提高部分</h2><ul>
+<li><p>单元测试</p>
+<ul>
+<li>Nunit</li>
+<li>Moq</li>
+<li>单元测试的基本知识 Arrange, Action, Assert</li>
+</ul>
+</li>
+<li><p>依赖注入</p>
+<ul>
+<li>面向接口编程的理解 </li>
+<li>Castle Windsor<ul>
+<li>与ASP.NET MVC 的集成</li>
+<li>Installer</li>
+<li>不同的生命周期</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Entity Framework Migration</p>
+</li>
+<li><p>JavaScript</p>
+<ul>
+<li>闭包</li>
+<li>JavaScript 的面向对象<ul>
+<li>prototype</li>
+<li>JavaScript的动态特性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>AngularJS</p>
+</li>
+<li><p>.NET</p>
+<ul>
+<li>Async</li>
+<li>TPL</li>
+<li>WCF 基本使用</li>
+</ul>
+</li>
+<li><p>Debug</p>
+<ul>
+<li>VS 常用Debug 功能</li>
+<li>Firebug / Chrome Developer</li>
+<li>Fiddler</li>
+</ul>
+</li>
+<li><p>常用的快捷键</p>
+<ul>
+<li>windows</li>
+<li>Visual studio</li>
+<li>Resharper</li>
+<li>Chrome</li>
+</ul>
+</li>
+</ul>
+<h2 id="进阶部分"><a href="#进阶部分" class="headerlink" title="进阶部分"></a>进阶部分</h2><ul>
+<li>常用设计模式</li>
+<li>常用设计原则的理解<ul>
+<li>S.O.L.I.D</li>
+<li>DRY</li>
+</ul>
+</li>
+<li>Repsiotory Pattern</li>
+<li>Unit Of Work</li>
+<li>HTTP 协议</li>
+<li>前端常用的性能优化</li>
+<li>.Net 常用性能优化的方法</li>
+<li>RequireJS</li>
+<li>Async.js </li>
+<li>MVC 模式</li>
+<li>MVVM 模式</li>
+<li>SignalR</li>
+<li>PowerShell</li>
+</ul>
+<h2 id="深入部分"><a href="#深入部分" class="headerlink" title="深入部分"></a>深入部分</h2><ul>
+<li>AOP</li>
+<li>领域驱动设计DDD<ul>
+<li>CQRS</li>
+<li>NServicebus</li>
+<li>Event Sourcing</li>
+</ul>
+</li>
+<li>Event Driven</li>
+<li>MSMQ/RabbitMQ</li>
+<li>Load Balance</li>
+<li>Memcache</li>
+<li>NoSQL<ul>
+<li>MongoDB</li>
+<li>Redis</li>
+</ul>
+</li>
+<li>Load Balance<ul>
+<li>Cache 问题</li>
+<li>Session 问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="敏捷"><a href="#敏捷" class="headerlink" title="敏捷"></a>敏捷</h2><ul>
+<li>SCRUM</li>
+<li>TDD</li>
+<li>BDD</li>
+<li>使用一个敏捷管理工具 JIRA Scrum/Kanban, Trello, Target Process, Pivotal Tracker, 国产的WorkTile应该也不错</li>
+<li>XP </li>
+<li>持续集成  TeamCity</li>
+<li>Grunt</li>
+</ul>
+<h2 id="扩展部分"><a href="#扩展部分" class="headerlink" title="扩展部分"></a>扩展部分</h2><ul>
+<li><p>Node.js 服务器端</p>
+</li>
+<li><p>Socket.io</p>
+</li>
+<li><p>Mobile APP</p>
+<ul>
+<li>Hybrid APP Phonegap</li>
+<li>Native APP<ul>
+<li>iOS Objective C /Swift</li>
+<li>iPhone/iPad development</li>
+<li>Xamarin Cross-platform development</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>买一台Mac</p>
+<ul>
+<li>熟悉Mac 常用操作</li>
+<li>熟悉Shell</li>
+</ul>
+</li>
+<li><p>学一门动态语言，比如Ruby</p>
+</li>
+<li><p>WPF 熟悉一下最新的Windows Desktop开发</p>
+</li>
+</ul>
+<h2 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h2><img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/agile.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/cleancode.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/codecomplete.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/csharpindepth.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/productiveprogrammer.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/refactor.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/clrviacsharp.jpg"/>    
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/theartofunittesting.jpg"/>
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/designpatterns.jpg"/>    
+<img  src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/books/scrumandxp.jpg"/>        
 
-<p>最后，偶遇瑞典皇家歌剧院</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141123/14.jpg"/>
 
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-22  <a class="commentCountImg" href="/2014/11/22/life-2014-11-22-vasa/#comment-container"><span class="display-none-class">f54388b60fbaa5d260f855ed42be8144</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="f54388b60fbaa5d260f855ed42be8144">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/22/life-2014-11-22-vasa/">斯德哥尔摩30天-瓦萨博物馆</a></h1><div class="content"><p>今天是周六。</p>
-<p>朋友带我们一起去VASA博物馆，由于朋友的老婆一个人带俩小孩不方便，所以我们就一起带了一个出来。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/1.JPG"/>
 
-<h1 id="瓦萨博物馆"><a href="#瓦萨博物馆" class="headerlink" title="瓦萨博物馆"></a>瓦萨博物馆</h1><p><strong><em>VASA乘船的故事早就知道了，这个对一个管理者或者一个产品经理来说都很有教育意义</em></strong></p>
+
+
+
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/study/">study</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-04-17  <a class="commentCountImg" href="/2015/04/17/management-2015-4-17-what-I-talk-when-I-talk-overwork/#comment-container"><span class="display-none-class">f276cd7d6136238f32b0760471bdfa85</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="f276cd7d6136238f32b0760471bdfa85">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>14 m  <i class="fas fa-pencil-alt"> </i>2.0 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/04/17/management-2015-4-17-what-I-talk-when-I-talk-overwork/">当我谈 &quot;加班有罪&quot; 我在谈什么？</a></h1><div class="content"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>PS. 本文只描述IT行业。</p>
+<p>博客园果真人气比较高，我之前准备写个 “领域驱动系列”，然后感觉大家不感兴趣，看来用的人不多，所以一直没动力续，但是昨天写了 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/cnblogsfans/p/4431160.html">加班有罪</a>, 却收到了很多个赞，让我感到有点意外。</p>
+<p>我今天看了很多评论，感觉很欣慰，大家其实对加班的看法和担忧其实都是正确的，但是很多人可能忽略了一些前提，如果盲目的下班就走，数着秒下班，那我写这篇文章就有罪了。</p>
+<p>为什么加班是有罪的，<a target="_blank" rel="noopener" href="http://www.cnblogs.com/cnblogsfans/p/4431160.html">加班有罪</a> 这篇文章已经做了较多的阐述，那么光说加班有罪是不够的，公司或者老板可以提倡不加班的文化，但是如何才能做到不加班？直接一刀切，到六点就赶大家走这样肯定是不够的，可能很多公司如果现在立马这么做，可能就倒闭了，员工可能还得找工作。</p>
+<h4 id="加班有罪的对立面也不一定是正确的"><a href="#加班有罪的对立面也不一定是正确的" class="headerlink" title="加班有罪的对立面也不一定是正确的"></a>加班有罪的对立面也不一定是正确的</h4><p>我们很多人想问题，可能是非黑即白，我们提倡不加班，但是我们要想如何不加班，如果我们技术水平低，别人1个小时做完的，你可能一天也做不完，如果你写的程序员出现了紧急的bug, 如果你上班时间在看电影，QQ等，你再不加班把任务做完，哪个公司敢用你？ 我前篇文章说过，并没有说你一分钟都不能多待，比如每个月有8个小时的加班，我认为都是正常的。</p>
+<p>如果你上班时间也没有好好干，那么不加班更有罪，因为你是上班时间休息了。</p>
+<h4 id="如何不加班"><a href="#如何不加班" class="headerlink" title="如何不加班?"></a>如何不加班?</h4><p>我们实行敏捷很多年了，但是同样有很多人一说到敏捷，就只知道SCRUM, 没有抓住敏捷的本质。就算过程用SCRUM, 那么其实也就是一个管理层或者从上到下的东西，但是并没有对程序员每日的工作有多大的帮助。我们同样需要很多的工程实践，技术成长等来提高我们每天的工作效率和质量。</p>
+<p>那么我认为从程序员的角度，如果你想理直气壮的准点走人，那么一下几点可供参考。</p>
+<ul>
+<li><p>工作时间要保证</p>
+<p>  我个人觉得上班时间工作是天经地义的，可能有的人羡慕Google等有更宽松的时间，羡慕很多公司都不需要工作8小时，但是前提先想一想，我们是否有那些公司的工程师的能力和效率，如果没有，还是在上班时间好好工作，如果有，与其羡慕，不如赶紧加入你羡慕的公司，前提是人家要你。</p>
+</li>
+</ul>
+<ul>
+<li><p>上班的时间要用来工作</p>
+<p>  我们很多人上班时间一会儿刷下微博，一会儿看看微信，尤其是QQ闪个不停，还有号称是要学习的，加了一堆技术的群，美其名曰学习技术，我也加了些群看看，实际上发现基本都在里面灌水。原因很简单，有的时候问个问题，基本问问题的人描述不清，别人怎么回答？ 问问题，你就不能上StackOverflow吗？ 原因是自己只会用百度，好吧，我无话可说。</p>
+</li>
+</ul>
+<ul>
+<li><p>进公司隐瞒自己技术水平</p>
+<p>  现在IT行业有个怪圈，我觉得迟早得拨乱反正，本来作为一个程序员答答题，上机写写程序等是非常正常的，但是你要是这样来招人，很多人就很不乐意，说我没那么多时间，我只给公司请了2个小时假来面试，你看着他的简历应该是会的样子，这就极其考验面试官，很多时候越是写程序不行的，越是最比较厉害，尤其是看到概念比较多的。你还真不容易判断出他不行，但是一进来，你发现就完全不行，ASP.NET 你让写个HttpModule不会，MVC你让统一地方处理一下异常不会，你说做权限控制，他写不了一个Filter, 你说WCF 想扩展功能写个Behavior 他说我们用的时候就是顶一个接口标记Contract, 深入的没看过，总之各种不行。然后你布置个很简单的任务，就是说一个高级程序员必须会的，他得花时间再学习，然后才能有产出，你说怎么办？上班时间都在学习，你说活还干吗？</p>
+<p>  针对上面的情况，一种方案是直接不用这个人，第二种就是要争取个人同意让他多干一会儿，不然你还得背上黄世仁的名，其他人看到你说的不加班是假的。    </p>
+</li>
+<li><p>降低自己的薪水，给自己留学习的时间</p>
+<p>  我们有的时候，确实进来后，发现周围的人都比自己强，而自己的薪水也和他们差不多，如何衡量，就是如果你的薪水比市场其它公司要高不少，而且你进来后发现你比别人差不少，就证明你要多了，这样公司可能按同级别薪水的人要求你，你的产出肯定是比别人少，这样你想完成任务，就得加班，那么就到了我说的恶心循环，最好的方式就是主动降点薪水，然后留下班后的时间给自己学习，公司也不会对你要求太多。其实这样，你的收益更大。</p>
+</li>
+<li><p>提高工作效率，改变工作方式<br>  我们很多人，做事方式和方法有问题，比如连需求都没搞清楚，就开始写代码，然后删了又删，改了又该，这样很简单的一个东西，必然要做很长时间。有的人代码写完后自己下次都要想很久才能知道啥意思，这就需要我们多改进自己的工作方式，多向效率高的程序员学习等。 同时有很多东西提高效率，比如你是否可以并行的做一些事情来提高效率，比如使用Resharper就可以大大提高效率，写单元测试可以避免你为了测一个方法每次都要把系统跑起来debug呢？持续集成可以帮助你把你修复bug更靠近你产生bug的时候等等。</p>
+</li>
+</ul>
+<ul>
+<li><p>下班后多学习</p>
+<p>  上篇文章我也提出了，不加班不代表下班后不学习，我招人的时候，经常问的一个问题，就是你如何提高自己技术水平，很多人回答了我一个无法反驳的答案就是:”通过做公司的项目学习”，但是这是远远不够的，一般如果只是这样，除非你天赋异禀。我是不相信你这样就能够成为大牛的。 比如我们需要了解工程实践，了解新的技术，了解一切帮助提高质量和效率的东西，了解一切提高沟通和管理的书籍等。</p>
+</li>
+</ul>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%AE%A1%E7%90%86/">管理</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-04-16  <a class="commentCountImg" href="/2015/04/16/management-2015-04-16-why-we-should-not-work-overtime/#comment-container"><span class="display-none-class">db4770243aeeecb1f7b95d3d6cc62272</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="db4770243aeeecb1f7b95d3d6cc62272">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>16 m  <i class="fas fa-pencil-alt"> </i>2.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/04/16/management-2015-04-16-why-we-should-not-work-overtime/">加班有罪</a></h1><div class="content"><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>加班在很多行业司空见惯，于是 “过劳死” 开始为更多的人关注，<br>IT行业尤为严重，但是普通职员再关注也起不了多大的作用，老板让你加班，或者是潜规则让你加班。我们从几年前就开始不提倡加班，我们也基本没加班，但是最近做了一个项目，出现程序员加班，甚至我自己本人都投入了很多下班后的时间，让我又一次思考加班的问题。作为一个分公司经理，我鼓起勇气写下此文。</p>
+<h4 id="脑力劳动不应该加班"><a href="#脑力劳动不应该加班" class="headerlink" title="脑力劳动不应该加班"></a>脑力劳动不应该加班</h4><p>加班无非就是增加工作时间来增加工作产出，比如机器制造，我们让机器多转几小时，肯定多生产一些产品，比如我们让人搬砖，多搬几个小时，虽然最后比较累，无非就是搬的慢了，但是还是能多搬一些。但是这些可以说基本都是机械性的工作。</p>
+<p>但是，软件行业其实是创造性的，同时很多时候依赖高度的抽象，加班会持续破坏创造力，我们想想，我们让孩子连续学8个小时的数学课试试，显然我们知道那不合理。而且我们知道脑力劳动比体力劳动很多时候更累，更需要休息，这个本来是显而易见的，我们每个人都切身体会，但是我们很多老板，很多客户都想不明白。</p>
+<h4 id="加班的恶性循环"><a href="#加班的恶性循环" class="headerlink" title="加班的恶性循环"></a>加班的恶性循环</h4><p>这个场景是否遇到过？</p>
 <blockquote>
-<p>瓦萨王朝统治时期，瑞典是欧洲的强国之一。为了与劲敌丹麦、波兰对抗，称霸波罗的海，瑞典国王古斯塔夫·阿道夫斯二世要求建造一批新的战舰，并要求战舰航速要快、火力要强、装饰要华丽，因为这样才足以显示瓦萨王朝的权力、财富和战斗力。1626年初，作为其中最大的战舰“瓦萨”号在国王的亲自监督下正式开始建造。</p>
+<p>晚上加班到11点，然后感觉很饿，然后外面饭店都关门了，只剩下肯德基了，于是打了个车去肯德鸡，由于好饿，买了个全家桶, 然后回家太累了立即上床睡觉，然后你发现吃的太撑了，睡不着，最后迷迷糊糊的睡着了，此时已经是半夜三点了，然后你做了个梦，梦见周末你在玩，老板打电话让你赶紧回去加班，这个时候闹铃想了，第二天该上班了，由于昨晚吃的太撑，早饭实在不想吃了，你飞一样赶上公交车或地铁，座位别人坐完了，车上全是人，一个女的挤了你一下，你抬了一下头用你那睁不开的眼睛看了一下他，那个女的觉得你很猥琐，恶狠狠瞪了你一眼，你心里正想着，老子眼睛都睁不开了，都累成马，还有心情看你？ 你正郁闷，听到一声：”软件园站到了”，你就又开始了下一天的循环。</p>
 </blockquote>
-<blockquote>
-<p>瓦萨号内部<br>国王总是有太多要求。在“瓦萨”号建造期间，他不断下令依照他的旨意改变设计和建造要求。在“瓦萨”号的骨架已经安装好的时候，他下令增加战舰的长度。面对以性情暴躁闻名的国王，经验丰富的主造船师亨里克·哈伯特备感无奈，只得奉命行事。1627年，亨里克·哈伯特病逝。他的助手、没有太多经验的海因·雅各布森接替他主持建造。而此时，国王得知了丹麦建成双层炮舰的消息，于是他又决定，为原计划修建单层炮舰的“瓦萨”号增加一个枪械甲板，把它改建成“双层”炮舰。这样一来，“瓦萨”号便拥有了双排共64门舰炮，全长达到了69米，成了当时装备最齐全、武装程度最高的战船。但对于横梁和压舱物来说，在一个并不稳固的平台上安装的这些装备显得过高过长了，而且与平台的功能极不相称。但国王的命令没人敢违抗。<br>对“瓦萨”号进行的稳定性测试试验更像一场闹剧：让30个船员从船一端跑到另一端，以此检测船的摇动情况。试验中“瓦萨”号发生了危险的摇动，但对这个预警信号，海因·雅各布森却视而不见，还是决定取消试验，准备航行，结果—首航沉成绝唱。</p>
-</blockquote>
-<h1 id="瓦萨沉船"><a href="#瓦萨沉船" class="headerlink" title="瓦萨沉船"></a>瓦萨沉船</h1><p>不亲身见vasa号是绝对感受不到这个船的霸气，高大，金色的船体，木雕堪称一绝。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/2.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/3.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/4.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/5.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/6.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/7.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/8.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/16.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/17.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/18.JPG"/>
-
-<h1 id="圣诞来临了"><a href="#圣诞来临了" class="headerlink" title="圣诞来临了"></a>圣诞来临了</h1><p>回来时已经晚上，整个街道已经该是感觉到圣诞的气氛了。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/9.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/10.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/11.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/12.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/13.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/14.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141122/15.jpg"/>
-
-
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-21  <a class="commentCountImg" href="/2014/11/21/life-2014-11-21-work-friday/#comment-container"><span class="display-none-class">23d0dd7ef86424c8eb7c1ed5d7220046</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="23d0dd7ef86424c8eb7c1ed5d7220046">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/21/life-2014-11-21-work-friday/">斯德哥尔摩30天-客户现场</a></h1><div class="content"><p>Stockholm的楼层都相对较低，客户所在的大楼稍微高一些，所以能看到城市的楼顶。楼等果然和国内的不同呀，典型的欧式建筑。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/2.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/3.jpg"/>
-
-
-<p>清一色的苹果电脑，可升降的桌椅站立和坐着办公自由切换，这个很不错。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/1.jpg"/>
-
-
-<p>工作了一天，讨论需求和设计，面对面的沟通，辅助白板效率是相当的高。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/5.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/6.jpg"/>
-
-
-<p>周五的下午可以喝着啤酒办公，这个不错，感觉我们是否也可以引进？（我的Surface其实也蛮霸气！）</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141121/4.jpg"/>
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-20  <a class="commentCountImg" href="/2014/11/20/life-2014-11-20-drink-dinner/#comment-container"><span class="display-none-class">0588ac529815896274a8423b6212d57d</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="0588ac529815896274a8423b6212d57d">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.2 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/20/life-2014-11-20-drink-dinner/">斯德哥尔摩30天-吃饭喝酒</a></h1><div class="content"><p>今天客户的大Boss请我们去吃饭。</p>
-<h1 id="喝酒"><a href="#喝酒" class="headerlink" title="喝酒"></a>喝酒</h1><p>首先去了一个酒店，说是麦当娜当年来得时候住的，喝了一些香槟和酒，客户说很好喝，我时唱不出来啥区别，感觉没我大中国的太白和茅台好喝。原以为要吃饭，结果这只是喝酒的。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141120/1.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141120/2.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141120/3.jpg"/>
-
-
-<h1 id="吃饭-（更多的酒）"><a href="#吃饭-（更多的酒）" class="headerlink" title="吃饭 （更多的酒）"></a>吃饭 （更多的酒）</h1><p>喝完酒来到著名的老城区Gamla Stan, 原来吃饭就是点一个菜，剩下全是各种各样的酒呀，在国内是没有混着喝的，一下子喝了太多种类的酒了，感觉有点晕呀，看下酒瓶子都是一个人的呀！</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141120/4.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141120/5.jpg"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141120/6.jpg"/>
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2014-11-15  <a class="commentCountImg" href="/2014/11/15/life-2011-11-15-stockholm-first-weekend/#comment-container"><span class="display-none-class">7cd5fafd9983048fdd374dd9ed5d2226</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="7cd5fafd9983048fdd374dd9ed5d2226">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>3 m  <i class="fas fa-pencil-alt"> </i>0.4 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2014/11/15/life-2011-11-15-stockholm-first-weekend/">斯德哥尔摩30天-第一个周末</a></h1><div class="content"><p>第一个周末，我们都非常着急的想看看这个北欧最大的城市。</p>
-<p>我们决定沿着我们住得岛–国王岛走一圈。</p>
-<h1 id="建筑"><a href="#建筑" class="headerlink" title="建筑"></a>建筑</h1><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/1.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/2.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/3.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/4.jpg"/>
-
-
-<h1 id="车"><a href="#车" class="headerlink" title="车"></a>车</h1><p>大街上看到的车基本上都是两厢车，而且都是大屁股的，这个和国内还是很不一样的。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/5.jpg"/>
-
-<h1 id="信号灯"><a href="#信号灯" class="headerlink" title="信号灯"></a>信号灯</h1><p>Stockholm的每一个路口都有很多的路灯，而且路灯都相对比较矮，基本不用抬头就可以看到。问题是，为什么一个路口要那么多路灯呢？</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/6.jpg"/>
-
-<h1 id="千岛之城"><a href="#千岛之城" class="headerlink" title="千岛之城"></a>千岛之城</h1><p>这个只是城市的一角，可见全被河流环绕和分割成很多岛。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/20.JPG"/>
-
-<h1 id="河边风景"><a href="#河边风景" class="headerlink" title="河边风景"></a>河边风景</h1><img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/7.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/8.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/9.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/10.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/11.jpg"/>
-
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/12.jpg"/>
+<p><strong>我们看到，如果上面的场景持续发生，先从你的身体开始，你的肚子开始圆了，作为男人的你胸部开始变大，头发开始变少，颈椎病也来了，同时，因为你天天加班，你反而不习惯周围的人不加班了，你开始觉得你的家人都很懒，你的客户都很懒，你的朋友都很懒，你的同事都不错，因为和你一样。最后你挂了，留下了大千世界给其他人。</strong></p>
+<h4 id="加班导致创造力低下"><a href="#加班导致创造力低下" class="headerlink" title="加班导致创造力低下"></a>加班导致创造力低下</h4><p>我们看到很多人工作勤勤恳恳，看似非常努力，但是却很难做有创造性的工作，我们看到很多学生学习很幸苦，但是最近几百年中国都没有颠覆新的发明和创新，我们一直引以为傲的 “四大发明”，离我们都比较远了。当然国外也好不到哪里去，最近30年几乎没有什么大的创新。 飞机让我们飞上了蓝天，蒸汽机使我们有了火车，电话让我们更快的交流，互联网让我们有了更多的信息互通，等等这些都快一百年了。</p>
+<p>我们人什么时间可以自己飞上天？ 我们生命如何延长100年？ 我们可以不睡觉吗？ 我们如何只吃少量的食物能够存活？我们必须用大规模使用石油和天然气？ 我觉得至今没有解决的原因，就是我们没有那么多的时间来思考和创造。</p>
+<p>回到软件行业，加班使我们不段的做机械工作，不断的复制拷贝，我们大脑被这些东西塞的慢慢的，我们哪有时间去思考更好的解决问题的方法？我们哪有时间去学习何成长？</p>
+<h4 id="为什么说加班解决不了问题？"><a href="#为什么说加班解决不了问题？" class="headerlink" title="为什么说加班解决不了问题？"></a>为什么说加班解决不了问题？</h4><p>加班的主要目的是增加产出，但是我们大家最终选择了这种简单粗暴的方式，就是加班来增加产出，但是想一想，我们每天工作8个小时，就算一天不吃不喝不上厕所，我们也就是24个小时，产出最大也就三倍。</p>
+<p><strong><em>我们都知道，一个优秀的工程师是一个普通工程师效率的10倍，甚至百倍。那么我们就需要考虑的是，我们其实是要提高工作效率，也就是8个小时之内提高效率，比如，我们使用自动化，我们使用快捷键，我们使用持续集成等等这样的方式都可以提高效率，而加班却给大家造成了恶意引导，让大家觉得我总是可以通过加班来完成工作，而忽略了我们本质是要提高效率。如果我们一开始的出发点就是我们不要加班，我们提高效率，工程师自然就会更多的考虑8小时之内的效率，比如使用番茄工作法，比如不要写会儿代码，看会儿微信，就会想到单元测试保证质量避免返工等等，而真正提高了效率，我们个人才算是成长了。</em></strong></p>
+<h4 id="不加班不代表下班后不学习"><a href="#不加班不代表下班后不学习" class="headerlink" title="不加班不代表下班后不学习"></a>不加班不代表下班后不学习</h4><p>当我强调不加班的时候，很多人开心的露出了笑容，但是如果这样，那可能就完了，不加班不代表你不提高自己，不加班需要我们提高效率，如何提高效率，那就要不断找新的方法，不断的去学习，不断的提升解决问题的方法，不但的反思回顾。</p>
+<p>下班后需要看书，IT人员，比如英语是不是需要学习？ 技术需不需要学习？工程实践是不是需要学习？ 架构，算法，设计模式，Clean Code等等都需要学习。同时，也需要看一些非技术之外的书，我们可以看到很多技术图书作者使用大量的比喻来描述问题，如果你不观察生活，你不读书，如何用这些简单的生活场景描述复杂的技术呢？</p>
+<p>不加班不代表你的表的闹钟定到下午6点，我们提倡不加班，但是不代表你一分钟都不多干，你和单位划清界限，你是不是把今天的工作任务完成了，或者你至少把手上的单元测试通过了，你至少要把你今天的代码Commit了吧。所以，一般你一个月加班总时间不超过8个小时，我觉得应该是OK的。</p>
+<h4 id="今天不加班，各位老板你敢吗？"><a href="#今天不加班，各位老板你敢吗？" class="headerlink" title="今天不加班，各位老板你敢吗？"></a>今天不加班，各位老板你敢吗？</h4><p>不加班需要勇气，需要能力，我们大家都顶着各样的压力在加班，但是我想说，我们这个世界不是东西太少而是太多了，美其名曰我们选择多，实际上我们得到的东西质量都下降了，企业之间相互抄袭，导致价格不但下降，利润不断降低，整体服务质量不断下降。各种创新越来越少。</p>
+<p>一个没有创造力的行业是不长久的，总之，我觉得越来越多的公司会开始主要到提高员工工作效率，而避免加班，尤其是软件行业，谁敢抛弃短期利益（可能会丢掉一些项目），但是长远来看会大大增加企业的竞争力，因为员工成长，全员创造一定会极大提升企业的价值，最终一定是名利双收。</p>
+<p>如果你觉得我文章写的很有道理，请推荐给你的老板。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%AE%A1%E7%90%86/">管理</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%AE%A1%E7%90%86/">管理</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-03-16  <a class="commentCountImg" href="/2015/03/16/management-2015-3-16-outsource-tech/#comment-container"><span class="display-none-class">6630789af5fbf00b90a4739f7de841e5</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="6630789af5fbf00b90a4739f7de841e5">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>10 m  <i class="fas fa-pencil-alt"> </i>1.6 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/03/16/management-2015-3-16-outsource-tech/">欧美软件外包系列 (二)： 谁说外包不需要技术</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于之前一些外包公司对外包行业造成了一些不良的印象，其中很多程序员对外包的误解是就是外包缺乏技术，或者说外包行业里面学不到技术，我不知道别的外包公司，但是在我们公司，我觉得外包很多的项目对技术要求都不低。</p>
+<h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>其实不管是外包还是非外包，都是要做项目，说到底就是产品，这些产品可以是一个商务网站，可以是一个企业内部的系统，也可以是是一个APP等，从我接触的项目来说，形形色色的项目都可以外包，要么是全包，要么是半包。</p>
+<p>我们想想只要是一个软件产品，怎么会不需要技术呢？ 总不能动动嘴皮子就出软件了？站在最终客户的角度，一个好的软件产品怎么样，他们需要的就是怎么样。当然，有的情况下，没有找到好的合作方式或者没有合适的价格，会经常出现一些凑合的产品或者失败的产品，这个后面我们会谈到如何避免，这里我们就是要说外包不是没技术。</p>
+<h1 id="外包（或者说软件项目）常常驱动一些技术"><a href="#外包（或者说软件项目）常常驱动一些技术" class="headerlink" title="外包（或者说软件项目）常常驱动一些技术"></a>外包（或者说软件项目）常常驱动一些技术</h1><h2 id="拥抱变化"><a href="#拥抱变化" class="headerlink" title="拥抱变化"></a>拥抱变化</h2><h3 id="更快的拿到-“WHAT-TO-DO”"><a href="#更快的拿到-“WHAT-TO-DO”" class="headerlink" title="更快的拿到 “WHAT TO DO”"></a>更快的拿到 “WHAT TO DO”</h3><p>软件业里流行一句话，就是：“不变就是变化本身”，所以需求会经常变化，尤其是外包或者是离岸外包，业务人员没有和开发人员座在一起，这样导致变化的成本就更加增加，另外我们需要把业务人员把需求转给开发人员这之间的时间尽量缩短，就像TCP/IP一样，我们需要两端数据传输 “快速、完整、准确”，那么我们就需要像很多办法，比如我们就用到比如BDD(Behaviour Drive Development), 我们就需要用到像NSpec, NUnit这样的东西。</p>
+<h3 id="更快的反馈-“What-We-Did-Is-Right-Or-Not”"><a href="#更快的反馈-“What-We-Did-Is-Right-Or-Not”" class="headerlink" title="更快的反馈 “What We Did Is Right Or Not”"></a>更快的反馈 “What We Did Is Right Or Not”</h3><p>同时，我们需要客户尽快的反馈，我们就需要用到自动集成的技术，我们就要用到Build系统，所以我们就用到了比如TeamCity, Jekins, Grunt, NAnt等等。我们需要解决 “防火墙”等问题，我们需要使用云比如Azure, Amazon等。</p>
+<h2 id="适应变化"><a href="#适应变化" class="headerlink" title="适应变化"></a>适应变化</h2><h3 id="更好的架构"><a href="#更好的架构" class="headerlink" title="更好的架构"></a>更好的架构</h3><p>为了支撑变化，我们需要根据不同的项目来设计好的架构，什么是好的架构呢？ 就是“一点也不多，一点也不少”，每当增加新功能的时候，我们不用改太多代码，甚至我们只增加代码，不影响原来代码，这不就是OCP（开闭原则）吗? 我们希望写过的代码能够更多的重用，已有的代码能够更稳定，于是我们就需要分层设计，我们就需要多层的架构，我们就需要解耦，因此我们就用到了比如 MVC, MVVM, Domain Driven Design, Event Driven, CQRS, Event Soruce, Message Queue等等。</p>
+<h3 id="可靠的质量"><a href="#可靠的质量" class="headerlink" title="可靠的质量"></a>可靠的质量</h3><p>为了提交高质量，我们除了需要一定的过程保证之外，同样需要很多技术的支撑，我们如何对我们提交的代码质量有信心呢？<br>我们需要Unit Testing, 我们甚至需要引入TDD, 我们需要引入一些自动化测试工具来做回归测试，比如Selenium, Watin 等。为了很好的进行单元测试，我们必须要面向接口编程，我们需要去掉系统里的New. 我们因此需要使用依赖注入比如Castle, NInject, 或者Unity等。</p>
+<h3 id="整洁的代码"><a href="#整洁的代码" class="headerlink" title="整洁的代码"></a>整洁的代码</h3><p>为了更方便增加新功能，那么我们要更容易阅读之前的代码，这就要求我们不要产生 “Legacy Code”，因此就需要考虑什么是Clean Code, 因此我们就必须要学习S.O.L.I.D原则，我们就需要学到重构等相关的知识。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="学无止境"><a href="#学无止境" class="headerlink" title="学无止境"></a>学无止境</h2><p>说到底，就是给客户提交高质量的软件，而且是高效率，也就是做出好东西，越快越好。</p>
+<p>软件行业，聪明的人很多，他们不断在生产新的东西(语言，框架，工具)来帮助程序员提高软件的质量和效率，那么我们要想高质量，高效率做出软件，不管在哪里，我们都需要这些知识和技术。</p>
+<h2 id="外包更能学技术"><a href="#外包更能学技术" class="headerlink" title="外包更能学技术"></a>外包更能学技术</h2><p>我们在一些产品公司，我们其实很难去使用一些新的技术，原因如下：</p>
+<ul>
+<li>产品已经设计完成</li>
+<li>技术选型已经确定</li>
+<li>遗留代码太多</li>
+<li>项目的管理人员不拥抱新技术。</li>
+</ul>
+<p>但是在外包公司，更能学技术。原因如下：</p>
+<ol>
+<li>接触项目多，因此可以在不同的项目里学到多种技</li>
+<li>同时针对不同的项目，会思考多种的架构方式。</li>
+<li>如果和国外团队合作，可以看到很多优秀的代码。</li>
+<li>欧美常常比较先引入一些新技术。</li>
+<li>欧美常常比较先引入一些开发模式。</li>
+<li>逼迫你提高英语，你能看到更广阔的世界。</li>
+</ol>
+<p>最后，列一下我们现在的.Net项目用到的一些技术和开发方法。</p>
+<p>####过程</p>
+<ul>
+<li>SCRUM</li>
+<li>Kanban</li>
+</ul>
+<h3 id="开发方法"><a href="#开发方法" class="headerlink" title="开发方法"></a>开发方法</h3><ul>
+<li>TDD</li>
+<li>BDD</li>
+</ul>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><ul>
+<li>MVC</li>
+<li>MVVM</li>
+<li>SOA</li>
+<li>Domain Driven Design</li>
+<li>Event Driven</li>
+</ul>
+<h3 id="技术-1"><a href="#技术-1" class="headerlink" title="技术"></a>技术</h3><ul>
+<li>C#</li>
+<li>EntityFramwork, NHibernate, Dapper, NoSQL</li>
+<li>ASP.NET MVC, ASP.NET Web API</li>
+<li>WCF, Restful</li>
+<li>jQuery, AngularJS</li>
+<li>Nunit, NSpec, Selenium</li>
+<li>Git, Github</li>
+<li>TeamCity, PowerShell, NAnt, Grunt</li>
+<li>Database Migration</li>
+<li>Message Queue, NServicebus</li>
+<li>Castle</li>
+<li>Event Source, CQRS, DDD</li>
+</ul>
+<p>所以，谁说外包无技术？ 看你怎么做而已。</p>
+<p>想加入我们吗？ 发邮件到 <a href="mailto:&#119;&#x61;&#110;&#x67;&#x64;&#115;&#64;&#115;&#104;&#105;&#110;&#x65;&#116;&#x65;&#99;&#x68;&#x63;&#x68;&#105;&#x6e;&#x61;&#46;&#99;&#x6f;&#109;">&#119;&#x61;&#110;&#x67;&#x64;&#115;&#64;&#115;&#104;&#105;&#110;&#x65;&#116;&#x65;&#99;&#x68;&#x63;&#x68;&#105;&#x6e;&#x61;&#46;&#99;&#x6f;&#109;</a>.</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%A4%96%E5%8C%85/">外包</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/">欧美外包</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-12  <a class="commentCountImg" href="/2015/02/12/technologies-DDD-2015-2-12-eventdriven-asyncevent/#comment-container"><span class="display-none-class">18d3301b2bdfc37314e6d6210127162e</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="18d3301b2bdfc37314e6d6210127162e">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>1.0 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/12/technologies-DDD-2015-2-12-eventdriven-asyncevent/">领域驱动设计系列（五）:事件驱动之异步事件</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇讲了事件，以及为什么要使用事件，主要是为了解耦，但是有同学就问了，同步如果订阅事件的人太多，比如13亿人都关心上头条的事，那么RaiseEvent得等13亿人都处理完，那得多久呀，从此再也不敢发事件了。<br>举个例子，你在网上下单，下完单要通知库房，甚至要通知供应商补货，如果都是同步的话，消费者还不等急死呀，实际上你在电商网站上下个单， 一般你很快就能到订单页面，那个页面告诉你：“兄弟，订单已经创建成功，订单号是xxxxx-xxxxx-xxxx-xxxx,你的订单已经提交到库房” 等。然后你就很快了的下另一单了。好吧，<br>提问的同学，说好的妹子呢？</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="发出事件"><a href="#发出事件" class="headerlink" title="发出事件"></a>发出事件</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Head</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       <span class="keyword">var</span> NewsPaper = <span class="keyword">new</span> NewsPaper(<span class="string">&quot;南都娱乐&quot;</span>);</span><br><span class="line">       NewsPaper.WriteToHeader(<span class="string">&quot;汪峰&quot;</span>);</span><br><span class="line"></span><br><span class="line">       RaiseEvent(<span class="keyword">new</span> HeadedEvent &#123;Name = <span class="string">&quot;汪峰&quot;</span>&#125;);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RaiseEvent</span>(<span class="params">HeadedEvent headedEvent</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       EventBus.Publish&lt;HeadedEvent&gt;(<span class="keyword">new</span> HeadedEvent &#123; Name = <span class="string">&quot;汪峰&quot;</span> &#125;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>所以我们只需在代码里RaiseEvent就可以了。</p>
+<h2 id="订阅事件"><a href="#订阅事件" class="headerlink" title="订阅事件"></a>订阅事件</h2><p>其实很简单，因为我们要实现的是同步的事件，我们只需要找到所有处理这个事件的实现类，然后调用所有就可以了。 </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEventHandler</span>&lt;<span class="title">TEvent</span>&gt; <span class="keyword">where</span> <span class="title">TEvent</span> : <span class="title">Event</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">TEvent e</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HeadedEvent</span>:<span class="title">Event</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GuoJiZhangMotherEventHandler</span> : <span class="title">IEventHandler</span>&lt;<span class="title">HeadedEvent</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">HeadedEvent e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">         Console.WriteLine(e.Name+<span class="string">&quot;, Are you kidding me?&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PiMingEventHandler</span>:<span class="title">IEventHandler</span>&lt;<span class="title">HeadedEvent</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">HeadedEvent e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(e.Name+<span class="string">&quot;, Guo Ji Zhang is your last wife?&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="艺术"><a href="#艺术" class="headerlink" title="艺术"></a>艺术</h1><p>瑞典的艺术真是直白呀，到处都是这样的广告。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/13.jpg"/>
+<p>我们可以看到正真的事件协调者是EventBus, 之前的代码如下是同步的。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EventBus</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Publish</span>&lt;<span class="title">T</span>&gt;(<span class="params">T concreteEvent</span>) <span class="keyword">where</span> T: Event</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> handlers = _container.ResolveAll&lt;IEventHandler&lt;T&gt;&gt;();</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> handle <span class="keyword">in</span> handlers)</span><br><span class="line">        &#123;</span><br><span class="line">            handle.Handle(concreteEvent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了提高性能，我们可以先来第一步改进</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Publish</span>&lt;<span class="title">T</span>&gt;(<span class="params">T @<span class="keyword">event</span></span>) <span class="keyword">where</span> T : Event</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">var</span> handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();</span><br><span class="line"></span><br><span class="line">   handlers.AsParallel().ForAll((h)=&gt; h.Handle(@event));</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到，现在并行处理可以大大加快速度，但是有两个问题，第一个问题就是没有处理异常，所以让我们加上异常。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Publish</span>&lt;<span class="title">T</span>&gt;(<span class="params">T @<span class="keyword">event</span></span>) <span class="keyword">where</span> T : Event</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();</span><br><span class="line"></span><br><span class="line">        handlers.AsParallel().ForAll((h)=&gt; HandleEvent&lt;T&gt;(h,@event));</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">HandleEvent</span>&lt;<span class="title">T</span>&gt;(<span class="params">IEventHandler&lt;T&gt; handle, T @<span class="keyword">event</span></span>) <span class="keyword">where</span> T : Event</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            handle.Handle(@event);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">           <span class="comment">// Log the exception, as the caller don&#x27;t care this</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二个问题，就是我们虽然用了并行加快了速度，但是还没有正真实现异步，整个程序还是等所有Handler处理完才返回。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Publish</span>&lt;<span class="title">T</span>&gt;(<span class="params">T @<span class="keyword">event</span></span>) <span class="keyword">where</span> T : Event</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     <span class="keyword">var</span> handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();</span><br><span class="line"></span><br><span class="line">     handlers.Select(h =&gt; Task.Factory.StartNew(() =&gt; HandleEvent&lt;T&gt;(h, @event)));</span><br><span class="line">    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码执行完，尽然发现Handler没有执行，好吧，原因是IQueryable的延迟执行，所以我们需要调用一下ToList</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Publish</span>&lt;<span class="title">T</span>&gt;(<span class="params">T @<span class="keyword">event</span></span>) <span class="keyword">where</span> T : Event</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> handlers = _eventHandlerFactory.GetHandlers&lt;T&gt;();</span><br><span class="line"></span><br><span class="line">        handlers.Select(h =&gt; Task.Factory.StartNew(() =&gt; HandleEvent&lt;T&gt;(h, @event))).ToArray();</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>好了，我们就这样轻易的实现了一个AsyncEventBus, 是不是感谢.Net的强大?</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里还只是一个系统内部的Async, 如果涉及到系统之间的交互，这个就不行了，而且如果异步处理有错误，我们就会有信息丢失，所以需要更健壮的异步事件处理系统，这个后面再讲，但是一般的系统我们只需要把出错的时间记录下来，然后再看要不要处理就可以。</p>
+<p>另外，异步要处理的东西很多，比如处理完毕后，如何通知用户，还是让用户刷新？ 我个人建议，一般情况下都不要用异步，只有在真的需要的时候再用。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/management-2015-2-11-outsourcecorrect/#comment-container"><span class="display-none-class">7267362b35244750d2c6180de5f77510</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="7267362b35244750d2c6180de5f77510">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>9 m  <i class="fas fa-pencil-alt"> </i>1.3 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/management-2015-2-11-outsourcecorrect/">欧美软件外包系列 (一)： 正确看待外包</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做欧美外包8年了，积累了很多对欧美外包的一些经验和认识。由于看到很多人对外包产生了很多误解，有很多发包方也在大家的误解中错误的看待外包团队，所以想让大家对外包有一个正确的认识。 由于我一直做的都是欧美外包，所以主要是在谈欧美外包。</p>
+<h1 id="欧美外包简介"><a href="#欧美外包简介" class="headerlink" title="欧美外包简介"></a>欧美外包简介</h1><p>欧美外包其实就是欧洲和美国的软件外包，主要是欧美发达国家和离岸顾团队的一种软件协作。</p>
+<h1 id="对外包的误解"><a href="#对外包的误解" class="headerlink" title="对外包的误解"></a>对外包的误解</h1><p>国内很多的程序员一谈到外包就色变，什么没完没了的加班，做完项目就走人等等，最主要的是说外包项目没技术。</p>
+<h3 id="传言"><a href="#传言" class="headerlink" title="传言"></a>传言</h3><p>我个人觉得这个不能全怪程序员，由于早期的外包，以及项目管理的方式都违背了一些软件开发的本源，导致出这样的一个结果，其实这些问题，在非外包公司里更严重，也同样存在，而软件行业又是外包的主要一个领域，就显得大家格外关注，而且程序员又是喜欢上网的一群人，所以对一个事情的传播非常快，而且年轻人居多，不乏一些FUD的人员。</p>
+<h3 id="国内某些不良外包公司"><a href="#国内某些不良外包公司" class="headerlink" title="国内某些不良外包公司"></a>国内某些不良外包公司</h3><p>我们公司确实有一些程序员的上一家公司里是这样的，这样的公司大概是这样的：</p>
+<ul>
+<li><p>这个公司主要是做国内的外包，老板对软件没有什么概念，认为做软件跟盖楼是一样的。所以，有项目就堆人，找最便宜的人，项目不能按时完成就加人，我时常对这种情况，想说：“老板，你是黑色会吗？ 做项目还是打架，靠人多？”</p>
+</li>
+<li><p>这样的公司做项目时，第一要素是最大的利润，也就是最大化的从客户那里赚取利润，赚自己的钱，让客户无钱可赚，赚员工的钱，让员工够活命就行了。</p>
+</li>
+<li><p>由于是搞房地产的，或者是有几个搞房地产的朋友，觉得自己也要搞个软件业的房地产，找一个技术好点的，剩下的都是能多便宜就多便宜，是不是像建筑行业从设计院设计个图纸，找个监理，剩下全都是找便宜的人？ 但是软件行业是不一样，每一个软件就像每一片茶叶一样，哪那么容易相似，就算茶叶一样，泡茶的人也不同呀，亲！ 我把这样的架构师叫做海鸥，在海上拉一坨翔后，飞走后你再也找不到了（你想想你会在一个地方看到同一个海鸥两次吗？）。 所以我们很多人就基于已有的设计来填空，不管尺码合不合适，也要硬往里面塞，结果能好吗？</p>
+</li>
+</ul>
+<p>我想个中痛苦你们经历过的人有共鸣。</p>
+<h3 id="欧美外包"><a href="#欧美外包" class="headerlink" title="欧美外包"></a>欧美外包</h3><p>其实欧美外包在这几年已经有了很大的进步，也越来越多的人愿意做欧美的外包，进步如下：</p>
+<ul>
+<li>发包方对软件的意识提高，不在把软件看做简单的一个产品发包出去，而是当做一个软件。</li>
+<li>敏捷开发的流行，在欧美国家有更好的认识，更多的发包方知道软件写作的重要性，而不是只是一开始给个需求。</li>
+<li>发包方愿意花更多时间参与，我们知道软件开发客户更多的协作的重要性，因为很多东西在开发过程中才能发现和改进。</li>
+<li>发包方里有更多人了解软件开发，开始接受重构这样的一些工作并且愿意为之付费。</li>
+<li>SCRUM或者Kanban让异地的团队更好的协作</li>
+</ul>
+<p>所以和欧美软件公司合作，你可以学到很多正确的做软件或者产品的方法。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>根据我的经验，欧美的软件公司更早，更多的开始使用正确的软件开发方式和对软件行业的正确认识，欧美很多国家软件从业者很受其它工作者的尊重，而中国很多的程序员还被称为 “程序猿”，“码农”，“IT男”，非诚勿扰你要敢说你是程序员，我想肯定是关上灯留下一屋子黑。（不过很多姑娘被别人留下一屋子黑后，还是觉得程序员挺好的）。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E5%A4%96%E5%8C%85/">外包</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/">欧美外包</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/#comment-container"><span class="display-none-class">28d90c26710787617a4d695e70dec531</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="28d90c26710787617a4d695e70dec531">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven2/">领域驱动设计系列 (四)：事件驱动下</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇说到为什么要使用事件驱动，但是只有概念是不够的，我们要代码呀！记得脸书的老总说过: “Talk is cheap, Show me the code!”</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="发出事件"><a href="#发出事件" class="headerlink" title="发出事件"></a>发出事件</h2><p>事件顾名思义就是一件事情发生了，比如我要上头条，这不是一个事件，这事一个Command, HeadCommand, 而我上头条了这就是一个事件HeadedEvent，事件就是一件事情已经发生了。 好，先来一个伪代码</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Head</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     <span class="keyword">var</span> NewsPaper = <span class="keyword">new</span> NewsPaper(<span class="string">&quot;南都娱乐&quot;</span>);</span><br><span class="line">     NewsPaper.WriteToHeader(<span class="string">&quot;汪峰&quot;</span>);</span><br><span class="line"></span><br><span class="line">     RaiseEvent(<span class="keyword">new</span> HeadedEvent &#123;Name = <span class="string">&quot;汪峰&quot;</span>&#125;);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>所以我们只需在代码里RaiseEvent就可以了。</p>
+<h2 id="那么如何订阅事件"><a href="#那么如何订阅事件" class="headerlink" title="那么如何订阅事件"></a>那么如何订阅事件</h2><p>其实很简单，因为我们要实现的是同步的事件，我们只需要找到所有处理这个事件的实现类，然后调用所有就可以了。 </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEventHandler</span>&lt;<span class="title">TEvent</span>&gt; <span class="keyword">where</span> <span class="title">TEvent</span> : <span class="title">Event</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">TEvent e</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HeadedEvent</span>:<span class="title">Event</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="跑步"><a href="#跑步" class="headerlink" title="跑步"></a>跑步</h1><p>跑步的人无处不在，街道上有人跑步，河边有人跑步，天黑在跑，天亮在跑，年轻人在跑，老年人还有拄着登山杖跑，更厉害的，很多推着婴儿车带着小孩一起跑。所以男男女女看着都比较健康，美女帅哥比较多呀。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/16.JPG"/>
+<p>如果国际章的妈妈关注这个Event, 我们就实现一个GuoJiZhangMotherEventHandler</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GuoJiZhangMotherEventHandler</span> : <span class="title">IEventHandler</span>&lt;<span class="title">HeadedEvent</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">HeadedEvent e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">         Console.WriteLine(e.Name+<span class="string">&quot;, Are you kidding me?&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果我等屁民也关心这个事件的话，我们只需要再实现一个 PiMingEventHandler</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PiMingEventHandler</span>:<span class="title">IEventHandler</span>&lt;<span class="title">HeadedEvent</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">HeadedEvent e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(e.Name+<span class="string">&quot;, Guo Ji Zhang is your last wife?&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="自力更生的小孩"><a href="#自力更生的小孩" class="headerlink" title="自力更生的小孩"></a>自力更生的小孩</h1><p>好冷的天，小孩在卖东西。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/17.JPG"/>
+<p>看，我们可以任意增加关注事件的代码，不用修改原来的代码吧，说好的OCP没骗你吧？ 那么问题来了，发出事件的人和接受事件的人怎么联系上的？在现实世界中，我们都是订阅报纸来看头条知道的，但是代码里我们就需要一个协调者了。如是我们就需要一个EventBus, 直接上代码吧</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Head</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> NewsPaper = <span class="keyword">new</span> NewsPaper(<span class="string">&quot;南都娱乐&quot;</span>);</span><br><span class="line">    NewsPaper.WriteToHeader(<span class="string">&quot;汪峰&quot;</span>);</span><br><span class="line"></span><br><span class="line">    RaiseEvent(<span class="keyword">new</span> HeadedEvent &#123;Name = <span class="string">&quot;汪峰&quot;</span>&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RaiseEvent</span>(<span class="params">HeadedEvent headedEvent</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    EventBus.Publish&lt;HeadedEvent&gt;(<span class="keyword">new</span> HeadedEvent &#123; Name = <span class="string">&quot;汪峰&quot;</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> EventBus找出所有Handle这个事件的实现类，调用对应的Handle方法，我们可以通过Castle或者任何注入框架轻易的实现</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EventBus</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Publish</span>&lt;<span class="title">T</span>&gt;(<span class="params">T concreteEvent</span>) <span class="keyword">where</span> T: Event</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> handlers = _container.ResolveAll&lt;IEventHandler&lt;T&gt;&gt;();</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> handle <span class="keyword">in</span> handlers)</span><br><span class="line">        &#123;</span><br><span class="line">            handle.Handle(concreteEvent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了，哥只负责帮汪老师上头条，上完我发出了事件通知，谁关注谁自己处理去，我的代码也不用改。</p>
+<p>我代码实现完了，如果各位还不知道如何实现一个同步的事件驱动架构，那拜托你们找个漂亮的妹子来问我。事件驱动架构我就只能帮你到这里了。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/#comment-container"><span class="display-none-class">72c91c5994adc27478efbef81cbf600d</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="72c91c5994adc27478efbef81cbf600d">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>5 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-eventdriven1/">领域驱动设计系列（三）:事件驱动上</a></h1><div class="content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天讲一下事件驱动，这个不是领域驱动设计里的事件源(Event Source), 这个以后再讲，今天主要讲一下如何用事件来解耦，主要的原因是我们有个项目有个功能我觉得用事件的方式比较好，正好写篇博客，就不用专门给他们讲了。</p>
+<h1 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h1><p>说到解耦，我们很熟悉分层设计，比如上层依赖于抽象，不依赖于具体的实现。比如一个类使用另一个类，我们使用接口而不直接使用实现类。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">EquipmentService</span>(<span class="params">IEmailService emailService, IEquipmentRepository equipmentRepository</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       _emailService = emailService;</span><br><span class="line">       _equipmentRepository = equipmentRepository;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="免费得儿童活动区域"><a href="#免费得儿童活动区域" class="headerlink" title="免费得儿童活动区域"></a>免费得儿童活动区域</h1><p>很多公园里都有免费小孩活动的地方</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/18.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/22.jpg"/>
+<h1 id="为何用事件？"><a href="#为何用事件？" class="headerlink" title="为何用事件？"></a>为何用事件？</h1><h2 id="SRP-（单一职责"><a href="#SRP-（单一职责" class="headerlink" title="SRP （单一职责)"></a>SRP （单一职责)</h2><p>比如我们一个会议室预定系统，我们的一个设备坏了。我们需要通知预定这个会议室的所有人。于是我们需要发邮件。</p>
+<p>伪代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EquipmentService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEmailService _emailService;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEquipmentRepository _equipmentRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EquipmentService</span>(<span class="params">IEmailService emailService, IEquipmentRepository equipmentRepository</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _emailService = emailService;</span><br><span class="line">        _equipmentRepository = equipmentRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetEquipmentBroken</span>(<span class="params"><span class="built_in">string</span> Id</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> equipment = _equipmentRepository.GetById(Id);</span><br><span class="line">        equipment.DeActive();</span><br><span class="line"></span><br><span class="line">        _emailService.SendEmail();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>免费的足球场</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/19.JPG"/>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/23.jpg"/>
+<p>但是，问题来了，如果后来我们要说，如果设备坏了，我们要更改可用库存的数量，这时候我们是不是要在这里修改代码而引入IInventoryService? 后来如果经理说设备坏了你们尽然不告诉我，你们要闹哪样？这个时候我们是不是要修改代码引入ISMSService.Info(Manager)? 即使我们不考虑OCP原则，不考虑单一职责，我们程序员也会哭，我就DeActive一个设备，你要我做这么多事，我哪里清楚所有的功能？我就骂过程序员，你做这个功能呢为什么没考虑全！！！漏掉了这么重要的功能。</p>
+<p>而问题，程序员从来没考虑全过，因此我就想办法如何解决这个程序员不仔细的问题。</p>
+<h2 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h2><p>因为我熟悉iOS的开发，我就想到了iOS的Notification Center. 那我我DeActive一个设备，我就只DeActive这个设备，很SRP是不是？ 但是别的地方如何拿到通知？ 于是事件就自然的付出水面了。如果设备被DeActive了，程序就只需要喊一声，老子把设备DeActive了，你们要闹哪样你们自己看着办，代码如下。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetEquipmentBroken</span>(<span class="params"><span class="built_in">string</span> Id</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">       <span class="keyword">var</span> equipment = _equipmentRepository.GetById(Id);</span><br><span class="line">       equipment.DeActive();</span><br><span class="line"></span><br><span class="line">       EventBus.Publish(<span class="keyword">new</span> EquipmentDeActivedEvent &#123;Id = equipment.Id&#125;);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>这样，通知会议室预定者的模块去通知，给老板发短信的模块就通知老板就OK了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里我们先将事件驱动，下一篇展示如何实现同步的事件，以后转换为异步那也很容易，让多个接受者处理这个事件，接受者可以是动态的哦，以后老板娘也想知道的话，代码也不用改的亲，好，我先去写实现代码去！</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2015-02-11  <a class="commentCountImg" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/#comment-container"><span class="display-none-class">9a66f2f18a590b4a417769410a218637</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="9a66f2f18a590b4a417769410a218637">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>6 m  <i class="fas fa-pencil-alt"> </i>0.8 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/02/11/technologies-DDD-2015-2-11-domainmodel/">领域驱动设计系列（二）:领域Model？</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>领域驱动设计里有很多东西，我们可以应用在各种各样的开发模式里，所以接下来说的一些东西，我们可以部分使用。</p>
+<p>说道领域驱动的领域，大家肯定就要开始说Bounded Context,聚合，聚合根，容易让大家搞糊涂。 我觉得先抛开这些概念，后面再来说如何设计聚合，先简单来说。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>过去，我们在多层设计里定义了很多Model, 数据库的Model(DB Entity), 然后为了不依赖数据库，我们有设计了业务的Domain Model, 同时我们又设计了ViewModel, 这样一般也没什么问题，职责也很清晰。但是有几个问题</p>
+<ol>
+<li>我们要做很多的模型转换，转入转出。当然我们可以用AutoMapper来但是AutoMapper的性能实在难以恭维，大家可以在网上搜索AutoMapper performance.</li>
+<li>领域模型成了一个单纯的DTO了。</li>
+</ol>
+<h2 id="领域模型"><a href="#领域模型" class="headerlink" title="领域模型"></a>领域模型</h2><p>首先我们要看领域，就是我们尽量把业务聚合到一个领域里，比如我们要做一个功能，可以看到用户每一次的登录日志，那个这个登录日志其实就是属于用户这个领域里。</p>
+<p>其次我们看模型，原来我们的模型都是只有属性，也就是贫血模型，贫血的意思就是没有行为，像木乃伊一样，但是实际上领域是我们要完成业务的最主要的地方，我们希望领域能够自制，也就是领域自己管理自己。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>比如有一个Employee, 他的状态有Active, Pending, DeActive, 业务上是Pending只能改为Active. </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Employee</span> : <span class="title">Entity</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Name Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">public</span> EmployeeStatus EmployeeStatus &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">&#125;c</span><br></pre></td></tr></table></figure>
+<p>如果是贫血的Employee模型，我们往往代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EmployeeService</span> : <span class="title">IEmployeeService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IUnitOfWorkFactory _unitOfWorkFactory;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEmployeeRepository _employeeRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EmployeeService</span>(<span class="params">IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _unitOfWorkFactory = unitOfWorkFactory;</span><br><span class="line">        _employeeRepository = employeeRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeStatus</span>(<span class="params">EmployeeStatus status, Guid employeeId</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> employee = _employeeRepository.GetById(employeeId);</span><br><span class="line">            employee.EmployeeStatus = status;</span><br><span class="line"></span><br><span class="line">            unitOfWork.Commit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="地铁"><a href="#地铁" class="headerlink" title="地铁"></a>地铁</h1><p>地铁的人好少, 要是北京也这样，改多幸福！</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/21.JPG"/>
+<p>但是上面的代码的问题就是领域没有自治，本来修改我的状态是我的事，你能不能修改，外面随意修改我的状态是很危险的，比如Pending状态只能改为Active状态。 所以如果不是贫血的模型，我们代码就会这样，让领域自己来管理</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Employee</span> : <span class="title">Entity</span></span><br><span class="line">&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">public</span> UserId UserId &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> EmployeeStatus EmployeeStatus &#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="做客"><a href="#做客" class="headerlink" title="做客"></a>做客</h1><p>晚上去Richard家做客，带花是必须的礼节。</p>
-<img class="img-responsive" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/stockholm/20141115/24.jpg"/>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeStatus</span>(<span class="params">EmployeeStatus status</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.EmployeeStatus == EmployeeStatus.Pending &amp;&amp; status != EmployeeStatus.Active)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;Only can Active when status is pending&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.EmployeeStatus = status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EmployeeService</span> : <span class="title">IEmployeeService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IUnitOfWorkFactory _unitOfWorkFactory;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEmployeeRepository _employeeRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EmployeeService</span>(<span class="params">IUnitOfWorkFactory unitOfWorkFactory, IEmployeeRepository employeeRepository</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        _unitOfWorkFactory = unitOfWorkFactory;</span><br><span class="line">        _employeeRepository = employeeRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeStatus</span>(<span class="params">EmployeeStatus status, Guid employeeId</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">using</span> (<span class="keyword">var</span> unitOfWork = _unitOfWorkFactory.GetCurrentUnitOfWork())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> employee = _employeeRepository.GetById(employeeId);</span><br><span class="line">            employee.ChangeStatus(status);</span><br><span class="line"></span><br><span class="line">            unitOfWork.Commit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/10/">Previous</a></div><div class="pagination-next"><a href="/page/12/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><a class="pagination-link is-current" href="/page/11/">11</a></li><li><a class="pagination-link" href="/page/12/">12</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">119</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-18T15:30:00.000Z">2021-01-18</time></p><p class="title"><a href="/2021/01/18/personaldev-2021-01-12-leadership-do-not-be-good-man-to-everything/">领导力：不要做个“好人”</a></p><p class="categories"><a href="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/">领导力</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-11T15:30:00.000Z">2019-03-11</time></p><p class="title"><a href="/2019/03/11/personaldev-2019-03-11-develop-what-you-like/">发展你的兴趣，而不是跟随你的兴趣</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-09T15:30:00.000Z">2019-03-09</time></p><p class="title"><a href="/2019/03/09/personaldev-2019-03-09-why-your-product-not-sell-well/">你的产品卖不好，可能是说明书的问题</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-07T15:30:00.000Z">2019-03-07</time></p><p class="title"><a href="/2019/03/07/personaldev-2019-03-07-80-is-not-bad-generation/">八零后怎么就成了悲情的一代？</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2019-03-04T15:30:00.000Z">2019-03-04</time></p><p class="title"><a href="/2019/03/04/personaldev-2019-03-04-life-is-not-a-single-line/">人生可能并不是一条线</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">March 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">February 2019</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2017/11/"><span class="level-start"><span class="level-item">November 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87-%E9%A2%86%E5%AF%BC%E5%8A%9B/"><span class="tag">个人发展 思维提升 领导力</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 王德水</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+<p>因此可以看出，我们把业务代码尽量写在领域里让领域自治。 </p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实领域驱动设计最难的就是设计领域(Domain), 也就是后面会说到的AggregateRoot 聚合，但是我想我们先让领域不再贫血，这样在传统的多层设计，数据驱动等架构都可以使用这种模式。</p>
+</div><div class="index-category-tag"><div class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="article-more button is-small link-muted index-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>  <div class="level-item"><i class="fas fa-tags has-text-grey"> </i><a class="article-more button is-small link-muted index-tags" href="/tags/DDD/">DDD</a></div><hr></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/10/">Previous</a></div><div class="pagination-next"><a href="/page/12/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/10/">10</a></li><li><a class="pagination-link is-current" href="/page/11/">11</a></li><li><a class="pagination-link" href="/page/12/">12</a></li><li><a class="pagination-link" href="/page/13/">13</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><p>公众号：敏捷的水, 扫码关注</p><figure class="image  mx-auto mb-2"><img class="avatar" src="https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/me.jpg" alt="敏捷的水"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">敏捷的水</p><p class="is-size-6 is-block">上善若水 厚德载物</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国, 西安</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">129</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/wangdeshui" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/wangdeshui"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/wangdeshui"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:wangdeshui@outlook.com"><i class="fa fa-envelope"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://www.cnblogs.com/cnblogsfans" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">cnblogs</span></span><span class="level-right"><span class="level-item tag">www.cnblogs.com</span></span></a></li><li><a class="level is-mobile" href="https://www.linkedin.com/in/deshui-wang-1b593831/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">LinkedIn</span></span><span class="level-right"><span class="level-item tag">www.linkedin.com</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-18T15:30:00.000Z">2021-01-18</time></p><p class="title"><a href="/2021/01/18/personaldev-2021-01-12-leadership-do-not-be-good-man-to-everything/">领导力：不要做个“好人”</a></p><p class="categories"><a href="/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/">领导力</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-04T15:30:00.000Z">2021-01-04</time></p><p class="title"><a href="/2021/01/04/personaldev-2021-01-04-think-you-are-product/">把自己当做产品</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-31T15:30:00.000Z">2020-12-31</time></p><p class="title"><a href="/2020/12/31/personaldev-2020-12-31-annual-summary-2020/">2020年终总结</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-12-05T15:30:00.000Z">2020-12-05</time></p><p class="title"><a href="/2020/12/05/personaldev-2020-12-05-use-software-thinking-to-managment/">用软件系统思维来看管理</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-10-31T15:30:00.000Z">2020-10-31</time></p><p class="title"><a href="/2020/10/31/personaldev-2020-10-31-new-saving/">新时代的节俭</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/">个人发展</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"><span class="level-start"><span class="level-item">个人发展</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">前端开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="level-start"><span class="level-item">团队实践</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%96%E5%8C%85/"><span class="level-start"><span class="level-item">外包</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">32</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%95%8F%E6%8D%B7/"><span class="level-start"><span class="level-item">敏捷</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">移动开发</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%AE%A1%E7%90%86/"><span class="level-start"><span class="level-item">管理</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%B7%91%E6%AD%A5/"><span class="level-start"><span class="level-item">跑步</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">June 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E7%AE%A1%E7%90%86/"><span class="tag">管理</span><span class="tag is-grey-lightest">24</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87/"><span class="tag">个人发展 思维提升</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag is-grey-lightest">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript-Next/"><span class="tag">JavaScript.Next</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95-%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87-%E9%A2%86%E5%AF%BC%E5%8A%9B/"><span class="tag">个人发展 思维提升 领导力</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%A2%E9%98%9F%E5%AE%9E%E8%B7%B5/"><span class="tag">团队实践</span><span class="tag is-grey-lightest">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DDD/"><span class="tag">DDD</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/network-security/"><span class="tag">network security</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/iOS/"><span class="tag">iOS</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FrontEnd/"><span class="tag">FrontEnd</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%AC%A7%E7%BE%8E%E5%A4%96%E5%8C%85/"><span class="tag">欧美外包</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B7%91%E6%AD%A5/"><span class="tag">跑步</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Microsoft/"><span class="tag">Microsoft</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/study/"><span class="tag">study</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81%E7%B3%BB%E5%88%97/"><span class="tag">整洁代码系列</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">敏捷的水</a><p class="size-small"><span>&copy; 2021 王德水</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
