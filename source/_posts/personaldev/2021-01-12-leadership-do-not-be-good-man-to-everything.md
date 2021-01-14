@@ -41,3 +41,5 @@ tags: [个人发展 思维提升 领导力]
 
 
 
+![](https://cdn.jsdelivr.net/gh/wangdeshui/blogpics@master/weixino_qrcode_for_gh_fe8f228bad0d_258.jpg)
+
