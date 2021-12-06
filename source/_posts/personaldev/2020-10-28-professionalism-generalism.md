@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 个人发展
-title:通才还是专才？
+title: 通才还是专才？
 date: 2020-10-28 23:30:00
 tags: [个人发展 思维提升 领导力]
 ---

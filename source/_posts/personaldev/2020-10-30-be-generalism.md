@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 个人发展
-title:成为通才
+title: 成为通才
 date: 2020-10-30 23:30:00
 tags: [个人发展 思维提升 领导力]
 ---

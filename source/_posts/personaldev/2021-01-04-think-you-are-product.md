@@ -1,7 +1,7 @@
 ---
 layout: post
-category : 个人发展
-title:把自己当做产品
+category: 个人发展
+title: 把自己当做产品
 date: 2021-01-04 23:30:00
 tags: [个人发展 思维提升 领导力]
 ---

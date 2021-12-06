@@ -1,7 +1,7 @@
 ---
 layout: post
 category : 个人发展
-title:聊聊职业发展路径
+title: 聊聊职业发展路径
 date: 2020-06-11 23:30:00
 tags: [个人发展 思维提升 领导力]
 ---
